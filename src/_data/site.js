@@ -6,7 +6,7 @@ import fs from "node:fs";
 import { leiteAdressenAb } from "../../lib/adressen.js";
 
 // Nur ein default-Export: Mit zusätzlichen benannten Exporten liest Eleventy die Datendatei anders.
-const BASIS_URL = "https://lernapps.github.io/";
+const BASIS_URL = "https://lernapps.github.io/mathe-karte/";
 
 const paket = JSON.parse(fs.readFileSync(new URL("../../package.json", import.meta.url), "utf8"));
 

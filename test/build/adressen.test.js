@@ -34,6 +34,17 @@ test("die Site einer Organisation an der Wurzel: Repository <org>.github.io, kei
   assert.equal(a.quellcode("binom"), "https://github.com/lernapps/lernapps.github.io/tree/main/src/binom");
 });
 
+// Seit 27.09.2026: Die Mathe-Karte liegt im Repository lernapps/mathe-karte unter /mathe-karte/; die Wurzel gehört
+// der Startseite der Organisation. Eine falsche Basis-URL schickt den Tutor auf 404-Adressen (R-002).
+test("die Site-Konfiguration zeigt auf /mathe-karte/ im Repository lernapps/mathe-karte", async () => {
+  const { default: site } = await import("../../src/_data/site.js");
+  assert.equal(site.basis, "https://lernapps.github.io/mathe-karte/");
+  assert.equal(site.pfadPraefix, "/mathe-karte/");
+  assert.equal(site.repo, "https://github.com/lernapps/mathe-karte");
+  assert.equal(site.appUrl("binom"), "https://lernapps.github.io/mathe-karte/binom/");
+  assert.equal(site.quellcode("binom"), "https://github.com/lernapps/mathe-karte/tree/main/src/binom");
+});
+
 // Use Case: Rückmeldung – jede Seite verlinkt ein neues GitHub-Issue, der Titel nennt die Seite (statisch, ohne JS).
 test("Melde-Link: neues Issue im Repository, Titel mit dem Seitenpfad", () => {
   const a = leiteAdressenAb("https://lernapps.github.io/");
