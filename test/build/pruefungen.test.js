@@ -137,6 +137,10 @@ test("Tutor-Dateien dürfen offizielle MO-Aufgabenblätter verlinken, nur über 
     "https://www.mathematik-olympiaden.de.evil.example/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
     "https://mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
     "https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=l&format=raw&datei=L65081.pdf",
+    // KI-Review PR #67: Großschreibung im Schema, Userinfo-Trick, verschachtelte URL im Pfad.
+    "HTTPS://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
+    "https://www.mathematik-olympiaden.de@evil.example/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
+    "https://evil.example/https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
   ];
   for (const text of fremd) {
     const fehler = pruefeTutorLinks("mathe-olympiade-8/tutor.md", text, erlaubt);
