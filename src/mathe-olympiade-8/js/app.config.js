@@ -22,4 +22,5 @@ export const KOMPETENZEN = [
   { id: "teilbarkeit", titel: "Teilbarkeit und Teiler", kurz: "Teiler", seite: "teilbarkeit.html", generator: "./aufgaben/teilbarkeit.js" },
   { id: "reste", titel: "Reste und Fallunterscheidung", kurz: "Reste", seite: "reste.html", generator: "./aufgaben/reste.js" },
   { id: "summen", titel: "Summen geschickt berechnen", kurz: "Gauß", seite: "summen.html", generator: "./aufgaben/summen.js" },
+  { id: "ziffern", titel: "Ziffern und Kryptogramme", kurz: "Ziffern", seite: "ziffern.html", generator: "./aufgaben/ziffern.js" },
 ];

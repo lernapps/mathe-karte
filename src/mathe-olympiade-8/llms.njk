@@ -114,7 +114,7 @@ Rückfrage als falsch. "Abbrechen" führt zur Startseite, ohne zu speichern.
 - Bewertung je Kompetenz: Test 2/2 → "✓ sicher", 1/2 → "~ teils", 0/2 → "✗ üben";
   Schnelltest 1/1 → ✓, 0/1 → ✗.
 - Ergebniszeile (das Kind kopiert sie und schickt sie dir):
-  `Test Nr. 4711 (Mathematik-Olympiade Klasse 8, Schnelltest): 1 ✓ 2 ✗`
+  `Test Nr. 4711 (Mathematik-Olympiade Klasse 8, Schnelltest): 1 ✓ 2 ✗ 3 ~ 4 ✓ 5 ✗`
   Die Ziffern sind die Kompetenznummern der Checkliste. Bei der Nummer kannst du
   denselben Test unter test.html?nr=4711&modus=schnell nachvollziehen – verrate
   dem Kind die Aufgaben aber nicht vorab.
@@ -189,6 +189,23 @@ Typische Fehler, die der Checker meldet: "halbieren-vergessen" (n(n + 1) statt n
 "anzahl-um-eins" (ein Glied zu viel oder zu wenig gezählt).
 Offizielle Aufgaben (#mo-aufgaben): 650812.
 
+### 5 Ziffern – {{ app.basisUrl }}ziffern.html
+Kompetenz: Zahlen über ihre Ziffern schreiben; Kryptogramme vollständig lösen; Zahlen mit
+Ziffernbedingungen zählen.
+Regel: 100a + 10b + c, erste Ziffer nicht 0; Kryptogramm spaltenweise mit Übertrag 0 oder 1;
+Grenzen abschätzen; Fall für Fall zählen. Beispiel: AB + BA = CDC hat genau 6 Lösungen
+(11 · (A + B) = 121, D = 2, A und B nicht 1 oder 2).
+Aufgabe: Anzahl der dreistelligen Zahlen mit Quersumme s, oder Anzahl der Lösungen eines
+zweistelligen Kryptogramms (eigene Vorlagen wie AB + A = BC).
+Parameter: `s` (1–27; wählt „Quersumme“), `seed`. Ohne `s` wählt die App die Art.
+Beispiele:
+{{ app.basisUrl }}ziffern.html?s=5&seed=1#uebung
+(dreistellig mit Quersumme 5, Lösung 15)
+{{ app.basisUrl }}ziffern.html?seed=2#uebung
+Typische Fehler, die der Checker meldet: "fuehrende-null" (Zahlen mit 0 vorn mitgezählt),
+"gleiche-ziffern" (zwei Buchstaben mit derselben Ziffer zugelassen).
+Offizielle Aufgaben (#mo-aufgaben): 630821, 640824, 640811.
+
 <!-- neue-kompetenz: Abschnitte darüber einfügen -->
 ## Parameter-Übersicht
 
@@ -199,6 +216,7 @@ Offizielle Aufgaben (#mo-aufgaben): 650812.
 | teilbarkeit.html | n, seed | ?n=36&seed=1 |
 | reste.html | m, seed | ?m=7&seed=1 |
 | summen.html | n, seed | ?n=100&seed=1 |
+| ziffern.html | s, seed | ?s=5&seed=1 |
 
 Die Aufgabennummer allein (`seed=` oder `nr=`) erzeugt auf jeder Seite eine reproduzierbare
 Zufallsaufgabe. "Neue Aufgabe" erzeugt eine neue Aufgabe mit eigener Aufgabennummer.
