@@ -156,6 +156,23 @@ Typische Fehler, die der Checker meldet: "eins-und-selbst-vergessen" (1 und n fe
 beide teilbar sind, zweimal gezählt), "produkt-statt-kgv" (bei 4 und 6 durch 24 statt 12).
 Offizielle Aufgaben (#mo-aufgaben): 650813, 640813.
 
+### 3 Reste – {{ app.basisUrl }}reste.html
+Kompetenz: Mit Resten rechnen und Fälle nach Resten unterscheiden.
+Regel: x = m · q + r mit 0 ≤ r < m; bei Summen und Produkten zählen nur die Reste; jede Zahl
+hat genau einen der Reste 0 … m − 1, also sind alle Fälle erfasst; Einerziffer = Rest bei
+Division durch 10, Einerziffern von Potenzen sind periodisch. Beispiel: x lässt bei Division
+durch 7 den Rest 4, 2x + 5 lässt den Rest 6; Quadratzahlen lassen bei Division durch 3 nie
+den Rest 2. Bild: Rest-Uhr mit allen Resten im Kreis (#visualisierung, zur Aufgabe #aufgabenbild).
+Aufgabe: Rest von c · x + d bei Division durch m, oder die Einerziffer von b hoch k (b = 2, 3, 7, 8).
+Parameter: `m` (3–12; wählt die Art „Rest“ mit diesem Teiler), `seed`. Ohne `m` wählt die App die Art.
+Beispiele:
+{{ app.basisUrl }}reste.html?m=7&seed=1#uebung
+(x lässt den Rest 4, gesucht der Rest von 2x + 5, Lösung 6)
+{{ app.basisUrl }}reste.html?seed=4#uebung
+Typische Fehler, die der Checker meldet: "nicht-reduziert" (13 statt Rest 6 bei Division
+durch 7), "periode-verschoben" (Einerziffer um eine Stelle der Periode verzählt).
+Offizielle Aufgaben (#mo-aufgaben): 640814.
+
 <!-- neue-kompetenz: Abschnitte darüber einfügen -->
 ## Parameter-Übersicht
 
@@ -164,6 +181,7 @@ Offizielle Aufgaben (#mo-aufgaben): 650813, 640813.
 | test.html      | nr (oder seed), modus=voll/schnell         | ?nr=4711&modus=schnell                |
 | loesung-aufschreiben.html | seed | ?seed=3 |
 | teilbarkeit.html | n, seed | ?n=36&seed=1 |
+| reste.html | m, seed | ?m=7&seed=1 |
 
 Die Aufgabennummer allein (`seed=` oder `nr=`) erzeugt auf jeder Seite eine reproduzierbare
 Zufallsaufgabe. "Neue Aufgabe" erzeugt eine neue Aufgabe mit eigener Aufgabennummer.

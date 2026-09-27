@@ -20,4 +20,5 @@ export const APP = {
 export const KOMPETENZEN = [
   { id: "loesung-aufschreiben", titel: "Lösungen richtig aufschreiben", kurz: "Aufschreiben", seite: "loesung-aufschreiben.html", generator: "./aufgaben/loesung-aufschreiben.js" },
   { id: "teilbarkeit", titel: "Teilbarkeit und Teiler", kurz: "Teiler", seite: "teilbarkeit.html", generator: "./aufgaben/teilbarkeit.js" },
+  { id: "reste", titel: "Reste und Fallunterscheidung", kurz: "Reste", seite: "reste.html", generator: "./aufgaben/reste.js" },
 ];
