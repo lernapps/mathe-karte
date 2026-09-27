@@ -139,6 +139,23 @@ gezählt), "eins-vergessen" (die Paare mit 1 und n fehlen), "null-mitgezaehlt" (
 Tieren mitgezählt).
 Offizielle Aufgaben (#mo-aufgaben): 650821, 640811, 640813.
 
+### 2 Teiler – {{ app.basisUrl }}teilbarkeit.html
+Kompetenz: Teiler systematisch finden und zählen; „durch a oder durch b teilbar“ zählen.
+Regel: Teilbarkeitsregeln (2, 4, 8, 5, 10 an den Endziffern; 3, 9 an der Quersumme); Teiler in
+Paaren t · (n : t) bis t · t > n; durch a oder b: Vielfache von a plus Vielfache von b minus
+Vielfache des kgV. Beispiel: alle 12 Teiler von 72.
+Aufgabe: Anzahl der Teiler von n, oder: wie viele der Zahlen 1 bis N sind durch a oder durch b
+teilbar (a, b auch mit gemeinsamem Teiler wie 4 und 6).
+Parameter: `n` (2–10000; wählt „Anzahl der Teiler von n“), `seed`. Ohne `n` wählt die App die Art.
+Beispiele:
+{{ app.basisUrl }}teilbarkeit.html?n=36&seed=1#uebung
+(Teiler von 36, Lösung 9)
+{{ app.basisUrl }}teilbarkeit.html?seed=5#uebung
+Typische Fehler, die der Checker meldet: "eins-und-selbst-vergessen" (1 und n fehlen),
+"quadrat-doppelt" (6 · 6 als zwei Teiler gezählt), "doppelt-gezaehlt" (Zahlen, die durch
+beide teilbar sind, zweimal gezählt), "produkt-statt-kgv" (bei 4 und 6 durch 24 statt 12).
+Offizielle Aufgaben (#mo-aufgaben): 650813, 640813.
+
 <!-- neue-kompetenz: Abschnitte darüber einfügen -->
 ## Parameter-Übersicht
 
@@ -146,6 +163,7 @@ Offizielle Aufgaben (#mo-aufgaben): 650821, 640811, 640813.
 |----------------|--------------------------------------------|---------------------------------------|
 | test.html      | nr (oder seed), modus=voll/schnell         | ?nr=4711&modus=schnell                |
 | loesung-aufschreiben.html | seed | ?seed=3 |
+| teilbarkeit.html | n, seed | ?n=36&seed=1 |
 
 Die Aufgabennummer allein (`seed=` oder `nr=`) erzeugt auf jeder Seite eine reproduzierbare
 Zufallsaufgabe. "Neue Aufgabe" erzeugt eine neue Aufgabe mit eigener Aufgabennummer.

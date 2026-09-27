@@ -19,4 +19,5 @@ export const APP = {
 /** Die Kompetenzen in Checklisten-Reihenfolge; die Nummer ergibt sich aus der Position. Muster: src/binom/js/app.config.js. */
 export const KOMPETENZEN = [
   { id: "loesung-aufschreiben", titel: "Lösungen richtig aufschreiben", kurz: "Aufschreiben", seite: "loesung-aufschreiben.html", generator: "./aufgaben/loesung-aufschreiben.js" },
+  { id: "teilbarkeit", titel: "Teilbarkeit und Teiler", kurz: "Teiler", seite: "teilbarkeit.html", generator: "./aufgaben/teilbarkeit.js" },
 ];
