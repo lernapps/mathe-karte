@@ -22,6 +22,7 @@ function paare(n) {
   return {
     art: "paare",
     n,
+    faelle: teiler.map((t) => ({ text: `${t} · ${n / t}`, gueltig: true })),
     text: `Ermittle alle geordneten Paare (a, b) natürlicher Zahlen größer als 0, für die a · b = ${n} gilt. Wie viele solche Paare gibt es?`,
     loesung: { antwort: d },
     felder: [ganzzahlFeld("Anzahl der Paare", d)],
@@ -43,6 +44,11 @@ function tiere(beine) {
   return {
     art: "tiere",
     beine,
+    // Die Fälle k = 0 bis max + 1: die Ränder zeigen, warum genau k = 1 … max übrig bleibt.
+    faelle: Array.from({ length: max + 2 }, (_, k) => ({
+      text: `k = ${k}, h = ${String((beine - 4 * k) / 2).replace("-", "−")}`,
+      gueltig: k >= 1 && k <= max,
+    })),
     text: `Auf einem Hof leben Hühner und Kaninchen, von jeder Art mindestens ein Tier. Zusammen haben sie genau ${beine} Beine. Ermittle alle Möglichkeiten für die Anzahl der Hühner und der Kaninchen. Wie viele Möglichkeiten gibt es?`,
     loesung: { antwort: max },
     felder: [ganzzahlFeld("Anzahl der Möglichkeiten", max)],

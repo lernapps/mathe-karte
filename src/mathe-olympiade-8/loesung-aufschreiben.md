@@ -33,4 +33,10 @@ beispiel: |
   <li><a href="https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&amp;thema=a&amp;format=raw&amp;datei=A64081.pdf" rel="noopener">MO-Aufgabe 640813</a> (64. MO, 1. Runde, PDF): alle geordneten Paare ermitteln</li>
   </ul>
   <p class="quelle">Die Aufgaben gehören dem Mathematik-Olympiaden e.V.; der Link öffnet das Aufgabenblatt auf dessen Seite.</p>
+bild:
+  text: 'Die Fälle zur Übung „Hühner und Kaninchen, zusammen 18 Beine“: k = 0 bis 5 Kaninchen, h Hühner. k = 0 fällt weg (kein Kaninchen), k = 5 auch (h = −1). Übrig bleiben genau 4 Lösungen – und weil alle Fälle dastehen, fehlt keine.'
+  funktion: zeichneFaelle
+  seed: 1
+  geloest: true
+  uebung: 'Vor dem Prüfen stehen nur die Fälle da; danach zeigen ✓ und ✗, welche Lösungen sind.'
 ---

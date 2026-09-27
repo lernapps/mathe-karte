@@ -48,3 +48,21 @@ test("Hühner und Kaninchen: jede Art mindestens einmal; die Null mitzuzählen w
   assert.equal(pruefeAntwort(a, { antwort: String(a.loesung.antwort + 1) }).fehler, "null-mitgezaehlt");
   assert.equal(pruefeAntwort(a, { antwort: "" }).korrekt, false);
 });
+
+test("Fälle-Bild: jeder Fall ein Kästchen; Randfälle erst nach der Lösung als ausgeschlossen markiert", async () => {
+  const { leeresSvg, alsSvgText } = await import("../../kern/js/svg.js");
+  const { zeichneFaelle } = await import("../js/vis/loesung-aufschreiben.js");
+  const z = erzeugeZufall(2);
+  let a;
+  do a = erzeugeAufgabe(z); while (a.art !== "tiere");
+  assert.equal(a.faelle.length, a.loesung.antwort + 2);
+  assert.equal(a.faelle.filter((f) => f.gueltig).length, a.loesung.antwort);
+  const offen = leeresSvg();
+  zeichneFaelle(offen, a, undefined);
+  assert.doesNotMatch(alsSvgText(offen), /✗/);
+  const geloest = leeresSvg();
+  zeichneFaelle(geloest, a, { korrekt: true });
+  const text = alsSvgText(geloest);
+  assert.match(text, /aria-label/);
+  assert.equal((text.match(/✗/g) || []).length, 2);
+});
