@@ -14,7 +14,7 @@ npm run build   # _site bauen; bricht bei Regelverstößen ab
 npm run serve   # lokal ansehen: http://localhost:8080/
 ```
 
-Apps: [Binomische Formeln](src/binom/) (Mathe, Klasse 8), [Prozent-Trainer](src/prozent/) (Mathe, Klasse 8), [Zufall-Trainer](src/zufall/) (Mathe, Klasse 8, Wahrscheinlichkeitsrechnung). Wie man eine App oder Kompetenz anlegt, steht in
+Apps: [Binomische Formeln](src/binom/) (Mathe, Klasse 8), [Prozent-Trainer](src/prozent/) (Mathe, Klasse 8), [Zufall-Trainer](src/zufall/) (Mathe, Klasse 8, Wahrscheinlichkeitsrechnung), [Mathematik-Olympiade Klasse 8](src/mathe-olympiade-8/) (Olympiade-Vorbereitung: Lösungen aufschreiben, Zahlentheorie). Wie man eine App oder Kompetenz anlegt, steht in
 [CLAUDE.md](CLAUDE.md).
 
 ## Claude-Skill `lern-app`

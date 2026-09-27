@@ -1,0 +1,228 @@
+---
+permalink: "{{ page.filePathStem }}.txt"
+layout: false
+eleventyExcludeFromCollections: true
+---
+# Mathematik-Olympiade Klasse 8 – Hinweise für einen KI-Tutor
+
+Basis-URL: {{ app.basisUrl }}
+Weitere Lern-Apps (jede mit eigener llms.txt) stehen auf der Übersicht, als Text unter {{ site.basis }}llms.txt:
+{{ site.basis }}
+
+## Was die App ist
+
+Ein statischer, interaktiver Trainer für Aufgaben der Mathematik-Olympiade, Klasse 8. Für
+Kinder von etwa 13 Jahren, die Deutsch sprechen und über den Unterricht hinaus knobeln wollen.
+Die Olympiade bewertet aufgeschriebene, begründete Lösungen, nicht Ergebnisse. Deshalb übt die
+App zuerst, wie man eine Lösung aufschreibt, dann Zahlentheorie. Geometrie, Kombinatorik, Logik
+und Algebra folgen später. Jede Seite hat: Warum-Absatz, Regel, eine vollständig
+aufgeschriebene Beispiel-Lösung, unter `#mo-aufgaben` passende offizielle Aufgaben mit Nummer
+und einen Aufgabengenerator mit eigenen Aufgaben im Stil der Olympiade. Die App prüft nur die
+Zahl am Ende (meist eine Anzahl); die Begründung prüfst du am Foto.
+
+## Was die App nicht ist
+
+- Kein Server, kein Login, kein Tracking, keine Cookies. Im localStorage liegen nur die
+  Selbsteinschätzung und das letzte Testergebnis.
+- Keine externen Requests. Die Seiten haben keine Videos. Die Links auf die offiziellen
+  Aufgabenblätter laden nichts, bevor jemand sie anklickt.
+- Keine Kopie offizieller Aufgaben: Die Texte gehören dem Mathematik-Olympiaden e.V. Die App
+  nennt nur Nummern und verlinkt die Blätter; alle Aufgaben im Generator sind eigene.
+- Die App kennt das Kind nicht und meldet nichts zurück.
+
+## Regeln für den Tutor
+
+- Jede Aufgabe auf Papier, jede mit Foto. In der Olympiade zählt die Begründung.
+  - Das Kind löst jede Aufgabe auf Papier: Aufgabe und ganze Lösung mit Begründungen, und
+    schickt ein Foto nur vom Blatt, ohne Namen. Die Zahl am Ende tippt es in die App.
+  - Lies das Foto wie ein Korrektor der Olympiade: jeder Schritt begründet („weil“)? Bei
+    „Ermittle alle“ Probe und Vollständigkeit (keine weiteren Lösungen)? Fälle vollständig?
+    Geometrie argumentiert statt aus der Skizze abgelesen? Antwortsatz?
+  - Nenn die erste Lücke und stell eine Leitfrage dazu. Gib nie die Lösung vor.
+  - Diese Regel weicht bewusst von den anderen Apps ab (dort ein Foto je Kompetenz, erst in
+    der Klassenarbeit-Phase): Hier ist das Aufschreiben selbst das Lernziel.
+- Offizielle Aufgaben: Unter `#mo-aufgaben` jeder Seite stehen Nummern wie „MO-Aufgabe 650812“:
+  65. Olympiade, Klasse 08, Runde 1, Aufgabe 2. Das Blatt dazu:
+  https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf
+  (Muster `datei=A<Olympiade><Klasse><Runde>.pdf`). Schick Nummer und Blatt, schreib den
+  Aufgabentext nicht ab und verrate keine Musterlösung.
+- Bitte das Kind zuerst um sein Testergebnis oder verlinke den Schnelltest
+  (test.html?nr=<Nummer>&modus=schnell). Nie die Testaufgaben vorab verraten.
+- Verlinke immer eine konkrete Aufgabe mit Aufgabennummer, nie nur die Startseite.
+- Nach jeder verlinkten Aufgabe: frag nach dem Foto und nach dem, was die App meldete.
+
+## URL-Parameter und Anker (alle Seiten)
+
+- Herkunft `von=tutor` (auf jeder Seite, auch test.html; nur der Wert `tutor`): Häng ihn an
+  jeden Link, den du dem Kind gibst, zum Beispiel
+  {{ app.basisUrl }}test.html?nr=<Nummer>&modus=schnell&von=tutor. Die Aufgabe ändert er nicht.
+  Prüf vor dem Senden: Steht in jedem App-Link `&von=tutor` (vor einem `#`-Anker)? Ohne ihn fehlt der Knopf.
+  Mit ihm zeigt die Übung unter "Link kopieren" und der Test neben der Ergebniszeile den Knopf
+  "Zurück zu Claude". Er kopiert eine Zeile und schließt den Tab. Übung:
+  "{{ app.titel }}, Kompetenz 2 „…“, Aufgabe Nr. 4: richtig im 2. Versuch (Sitzung: 3 von 4 richtig)";
+  statt "richtig im n. Versuch" auch "noch nicht gelöst", "noch nicht gelöst (2 Versuche)" oder
+  "Lösung angesehen". Test: die Ergebniszeile (siehe "Test"). Hat nicht der Tutor den Tab geöffnet
+  (Lesezeichen, eingetippt, manche App-Browser), bleibt er offen und die App sagt: "Ergebnis kopiert.
+  Schließ diesen Tab und füge es bei Claude ein." Geht die Zwischenablage nicht, bleibt der Tab offen
+  und die Zeile steht markiert im Feld. "Link zu dieser Aufgabe" und "Link kopieren" lassen
+  `von=tutor` weg: Ein weitergegebener Link kommt nicht vom Tutor. Ohne JavaScript kein Knopf.
+- Aufgabennummer (URL-Parameter `seed=` oder `nr=`, ganze Zahl; stehen beide da, gilt
+  `seed`): macht den Generator deterministisch. Ohne Aufgabennummer wählt die App eine
+  zufällige Nummer von 1 bis 9999.
+- Zahlen in URL-Parametern mit Punkt oder Komma: `wert=2.5` und `wert=2,5` gehen beide.
+  Ungültige oder fehlende Parameter → die App erzeugt eine Zufallsaufgabe (über die
+  Aufgabennummer reproduzierbar).
+- Anker auf jeder Kompetenzseite: `#warum` (Warum-Absatz), `#regel` (Regel oder Formel),
+  `#beispiel` (Beispiel), `#mo-aufgaben` (offizielle Aufgaben, im Beispiel),
+  `#visualisierung` (Bild, falls es eines gibt), `#uebung` (Aufgabengenerator, auf manchen Seiten mit
+  Bild zur Aufgabe `#aufgabenbild`, nur mit JavaScript).
+- Deep Link: Trägt der Link eine Aufgabennummer (`seed`/`nr`) oder Aufgabenparameter und keinen Anker
+  in die Erklärung, klappt die Seite die Erklärung (Warum bis Beispiel) zu und springt zur Übung. Ein Anker
+  wie `#visualisierung` oder `#regel` lässt die Erklärung offen. Ohne JavaScript ist alles offen.
+- Unter jeder Aufgabe steht "Aufgabe Nr. N", daneben "Link zu dieser Aufgabe" (alle
+  Parameter plus Aufgabennummer) und "Link kopieren". Das Kind kann dir die Nummer
+  sagen oder den Link schicken.
+
+## Antworten eingeben
+
+Jedes Feld verlangt eine ganze Zahl, meist eine Anzahl („Wie viele …?“). Rechenterme wie
+`3*4` nimmt die App nicht als Ergebnis, sondern bittet neutral ums Ausrechnen. Unter dem Feld
+steht: „Nur die Zahl. Die Begründung schreibst du auf dein Blatt.“
+
+## Startseite
+
+URL: {{ app.basisUrl }}index.html
+Checkliste aller Kompetenzen mit Selbsteinschätzung pro Zeile: Sicher / Teils / Noch
+üben (Radiobuttons, localStorage, Schlüssel `{{ app.id }}.selbsteinschaetzung`).
+Der Tutor kann das Kind bitten, seine Einschätzung vorzulesen, um zu entscheiden,
+wo er anfängt. Für Aufgaben nicht hierhin verlinken.
+
+## Test
+
+URL: {{ app.basisUrl }}test.html
+Ein Diagnosetest über alle Kompetenzen in Checklisten-Reihenfolge, ohne Tipp, ohne
+Lösung, ohne Zeitmessung. Nur Eingabe und "Weiter"; eine leere Antwort zählt nach
+Rückfrage als falsch. "Abbrechen" führt zur Startseite, ohne zu speichern.
+- Modi: `modus=voll` (Standard) – zwei Aufgaben je Kompetenz; `modus=schnell` – eine
+  Aufgabe je Kompetenz. Die Seite bietet vor dem Start beide als Knopf an; der
+  Parameter legt nur den vorgeschlagenen Modus fest.
+- Testnummer: `nr=` oder `seed=` (ganze Zahl, `seed` gewinnt; ohne Angabe zufällig
+  1–9999). Die Nummer bestimmt die komplette Aufgabenfolge; dieselbe Nummer ergibt
+  denselben Test. Der Schnelltest zu einer Nummer besteht aus der jeweils ersten
+  Aufgabe des vollen Tests.
+- Beispiel: {{ app.basisUrl }}test.html?nr=4711&modus=schnell
+- Bewertung je Kompetenz: Test 2/2 → "✓ sicher", 1/2 → "~ teils", 0/2 → "✗ üben";
+  Schnelltest 1/1 → ✓, 0/1 → ✗.
+- Ergebniszeile (das Kind kopiert sie und schickt sie dir):
+  `Test Nr. 4711 (Mathematik-Olympiade Klasse 8, Schnelltest): 1 ✓ 2 ✗ 3 ~ 4 ✓ 5 ✗`
+  Die Ziffern sind die Kompetenznummern der Checkliste. Bei der Nummer kannst du
+  denselben Test unter test.html?nr=4711&modus=schnell nachvollziehen – verrate
+  dem Kind die Aufgaben aber nicht vorab.
+- Das letzte Ergebnis liegt im localStorage (`{{ app.id }}.test`) und erscheint in
+  der Checkliste der Startseite als Spalte "Test" mit der Zeile "Letzter Test:
+  Nr. 4711, Schnelltest, 23.09.2026".
+
+## Seiten
+
+### 1 Aufschreiben – {{ app.basisUrl }}loesung-aufschreiben.html
+Kompetenz: Eine Lösung so aufschreiben, wie die Olympiade sie bewertet.
+Regel: gegeben und gesucht mit Bezeichnungen; jeder Schritt mit „weil“; Fallunterscheidung,
+deren Fälle alles abdecken; bei „Ermittle alle“ Vollständigkeit (keine weiteren Lösungen) und
+Probe; Antwortsatz. Beispiel: alle zweistelligen Zahlen, durch 9 teilbar, Zehnerziffer um 3
+größer als die Einerziffer (Lösung 63), Schritt für Schritt.
+Aufgabe: „Ermittle alle …“, gefragt ist die Anzahl der Lösungen. Zwei Arten: geordnete Paare
+(a, b) mit a · b = n (Anzahl = Teileranzahl von n) oder Hühner und Kaninchen mit gegebener
+Beinzahl, jede Art mindestens einmal. Parameter: nur `seed`.
+Bild (#visualisierung, zur Aufgabe #aufgabenbild): jeder Fall ein Kästchen; nach der Lösung
+✓ für Lösungen, ✗ für ausgeschlossene Randfälle (etwa 0 Kaninchen).
+Beispiel: {{ app.basisUrl }}loesung-aufschreiben.html?seed=3#uebung
+Typische Fehler, die der Checker meldet: "reihenfolge-vergessen" ((2, 6) und (6, 2) nur einmal
+gezählt), "eins-vergessen" (die Paare mit 1 und n fehlen), "null-mitgezaehlt" (eine Art mit 0
+Tieren mitgezählt).
+Offizielle Aufgaben (#mo-aufgaben): 650821, 640811, 640813.
+
+### 2 Teiler – {{ app.basisUrl }}teilbarkeit.html
+Kompetenz: Teiler systematisch finden und zählen; „durch a oder durch b teilbar“ zählen.
+Regel: Teilbarkeitsregeln (2, 4, 8, 5, 10 an den Endziffern; 3, 9 an der Quersumme); Teiler in
+Paaren t · (n : t) bis t · t > n; durch a oder b: Vielfache von a plus Vielfache von b minus
+Vielfache des kgV. Beispiel: alle 12 Teiler von 72.
+Aufgabe: Anzahl der Teiler von n, oder: wie viele der Zahlen 1 bis N sind durch a oder durch b
+teilbar (a, b auch mit gemeinsamem Teiler wie 4 und 6).
+Parameter: `n` (2–10000; wählt „Anzahl der Teiler von n“), `seed`. Ohne `n` wählt die App die Art.
+Beispiele:
+{{ app.basisUrl }}teilbarkeit.html?n=36&seed=1#uebung
+(Teiler von 36, Lösung 9)
+{{ app.basisUrl }}teilbarkeit.html?seed=5#uebung
+Typische Fehler, die der Checker meldet: "eins-und-selbst-vergessen" (1 und n fehlen),
+"quadrat-doppelt" (6 · 6 als zwei Teiler gezählt), "doppelt-gezaehlt" (Zahlen, die durch
+beide teilbar sind, zweimal gezählt), "produkt-statt-kgv" (bei 4 und 6 durch 24 statt 12).
+Offizielle Aufgaben (#mo-aufgaben): 650813, 640813.
+
+### 3 Reste – {{ app.basisUrl }}reste.html
+Kompetenz: Mit Resten rechnen und Fälle nach Resten unterscheiden.
+Regel: x = m · q + r mit 0 ≤ r < m; bei Summen und Produkten zählen nur die Reste; jede Zahl
+hat genau einen der Reste 0 … m − 1, also sind alle Fälle erfasst; Einerziffer = Rest bei
+Division durch 10, Einerziffern von Potenzen sind periodisch. Beispiel: x lässt bei Division
+durch 7 den Rest 4, 2x + 5 lässt den Rest 6; Quadratzahlen lassen bei Division durch 3 nie
+den Rest 2. Bild: Rest-Uhr mit allen Resten im Kreis (#visualisierung, zur Aufgabe #aufgabenbild).
+Aufgabe: Rest von c · x + d bei Division durch m, oder die Einerziffer von b hoch k (b = 2, 3, 7, 8).
+Parameter: `m` (3–12; wählt die Art „Rest“ mit diesem Teiler), `seed`. Ohne `m` wählt die App die Art.
+Beispiele:
+{{ app.basisUrl }}reste.html?m=7&seed=1#uebung
+(x lässt den Rest 4, gesucht der Rest von 2x + 5, Lösung 6)
+{{ app.basisUrl }}reste.html?seed=4#uebung
+Typische Fehler, die der Checker meldet: "nicht-reduziert" (13 statt Rest 6 bei Division
+durch 7), "periode-verschoben" (Einerziffer um eine Stelle der Periode verzählt).
+Offizielle Aufgaben (#mo-aufgaben): 640814.
+
+### 4 Gauß – {{ app.basisUrl }}summen.html
+Kompetenz: Summen gleichabständiger Zahlen mit dem Gauß-Trick berechnen und begründen.
+Regel: 1 + … + n = n(n + 1) : 2, begründet durch vorwärts und rückwärts untereinander
+schreiben; allgemein Anzahl · (erstes + letztes) : 2; Anzahl = (letztes − erstes) : Abstand + 1.
+Beispiel: alle durch 7 teilbaren Zahlen von 20 bis 100, Summe 714.
+Aufgabe: Summe 1 bis n, Summe aller durch k teilbaren Zahlen von a bis b, oder Summe aller
+ungeraden Zahlen unter einer Grenze.
+Parameter: `n` (2–10000; wählt „Summe 1 bis n“), `seed`. Ohne `n` wählt die App die Art.
+Beispiele:
+{{ app.basisUrl }}summen.html?n=100&seed=1#uebung
+(1 + … + 100, Lösung 5050)
+{{ app.basisUrl }}summen.html?seed=7#uebung
+Typische Fehler, die der Checker meldet: "halbieren-vergessen" (n(n + 1) statt n(n + 1) : 2),
+"anzahl-um-eins" (ein Glied zu viel oder zu wenig gezählt).
+Offizielle Aufgaben (#mo-aufgaben): 650812.
+
+### 5 Ziffern – {{ app.basisUrl }}ziffern.html
+Kompetenz: Zahlen über ihre Ziffern schreiben; Kryptogramme vollständig lösen; Zahlen mit
+Ziffernbedingungen zählen.
+Regel: 100a + 10b + c, erste Ziffer nicht 0; Kryptogramm spaltenweise mit Übertrag 0 oder 1;
+Grenzen abschätzen; Fall für Fall zählen. Beispiel: AB + BA = CDC hat genau 6 Lösungen
+(11 · (A + B) = 121, D = 2, A und B nicht 1 oder 2).
+Aufgabe: Anzahl der dreistelligen Zahlen mit Quersumme s, oder Anzahl der Lösungen eines
+zweistelligen Kryptogramms (eigene Vorlagen wie AB + A = BC).
+Parameter: `s` (1–27; wählt „Quersumme“), `seed`. Ohne `s` wählt die App die Art.
+Beispiele:
+{{ app.basisUrl }}ziffern.html?s=5&seed=1#uebung
+(dreistellig mit Quersumme 5, Lösung 15)
+{{ app.basisUrl }}ziffern.html?seed=2#uebung
+Typische Fehler, die der Checker meldet: "fuehrende-null" (Zahlen mit 0 vorn mitgezählt),
+"gleiche-ziffern" (zwei Buchstaben mit derselben Ziffer zugelassen).
+Offizielle Aufgaben (#mo-aufgaben): 630821, 640824, 640811.
+
+<!-- neue-kompetenz: Abschnitte darüber einfügen -->
+## Parameter-Übersicht
+
+| Seite          | Parameter                                  | Beispiel                              |
+|----------------|--------------------------------------------|---------------------------------------|
+| test.html      | nr (oder seed), modus=voll/schnell         | ?nr=4711&modus=schnell                |
+| loesung-aufschreiben.html | seed | ?seed=3 |
+| teilbarkeit.html | n, seed | ?n=36&seed=1 |
+| reste.html | m, seed | ?m=7&seed=1 |
+| summen.html | n, seed | ?n=100&seed=1 |
+| ziffern.html | s, seed | ?s=5&seed=1 |
+
+Die Aufgabennummer allein (`seed=` oder `nr=`) erzeugt auf jeder Seite eine reproduzierbare
+Zufallsaufgabe. "Neue Aufgabe" erzeugt eine neue Aufgabe mit eigener Aufgabennummer.
+
+## Tutor-Prompt
+
+{{ app.basisUrl }}tutor.md

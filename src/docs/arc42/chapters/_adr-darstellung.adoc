@@ -113,3 +113,51 @@ Ausnahme grün, weil die URL nur in `data-quelle` und im `<a href>` steht. Ände
 URL-Format oder seine ids, zeigt der Link einen falschen Stand
 (xref:11_technical_risks.adoc#r-029[R-029]). Die Prozentwerte stimmen heute überein, weil auch unser
 Rad nur Vorhandenes zählt; das Original zeigt aber nicht, welche Lücken in Arbeit oder geplant sind.
+
+// ADR-032: Foto-Regel der Olympiade-App (weicht von ADR-022 ab).
+
+[[adr-032]]
+=== ADR-032: Olympiade-App: Foto zu jeder Aufgabe, der Tutor liest wie ein Korrektor
+
+*Kontext.* Die Mathematik-Olympiade bewertet aufgeschriebene, begründete Lösungen, nicht Ergebnisse. Jedes
+Aufgabenblatt verlangt, dass der Lösungsweg mit Begründungen und Nebenrechnungen deutlich erkennbar ist.
+<<adr-022,ADR-022>> bittet um ein Foto erst, wenn eine Kompetenz reif für die Klassenarbeit ist, und dann um
+eines je Kompetenz. Für die App „Mathematik-Olympiade Klasse 8“ ist das Aufschreiben aber kein letzter
+Schritt, sondern das Lernziel selbst. Viele Olympiade-Aufgaben haben zudem kein Zahlergebnis, das die App
+prüfen könnte.
+
+*Entscheidung.* In dieser App schickt das Kind zu jeder Aufgabe ein Foto: Aufgabe und ganze Lösung auf
+Papier, nur das Blatt, ohne Namen. Der Tutor liest es wie ein Korrektor der Olympiade: Ist jeder Schritt
+begründet? Zeigt die Lösung bei „Ermittle alle“ Probe und Vollständigkeit? Decken die Fälle alles ab? Ist
+Geometrie argumentiert statt aus der Skizze abgelesen? Er nennt die erste Lücke und stellt eine Leitfrage,
+statt die Lösung zu geben. Hat die Aufgabe ein Zahlergebnis, prüft die App es wie in allen Apps. Die Regel
+steht in `src/mathe-olympiade-8/tutor.njk` (Abschnitt 3) und `llms.njk` („Regeln für den Tutor“); die anderen
+Apps bleiben bei ADR-022. Der Kern ändert sich nicht.
+
+*Status.* Accepted. Vom Product Owner entschieden am 27.09.2026.
+
+[cols="2,1,1,1",options="header"]
+|===
+| Ziel | Foto zu jeder Aufgabe (Referenz) | Zwei Phasen wie ADR-022 | Kein Foto, nur die Zahl
+| QZ-1 Datenschutz | 0 | +1 | +1
+| QZ-2 Tutor-Anschluss | 0 | 0 | −1
+| QZ-3 Richtige Rückmeldung | 0 | −1 | −1
+| QZ-4 Neue Apps schnell | 0 | 0 | 0
+| QZ-5 Zugänglich | 0 | 0 | +1
+| *Summe* | *0* | *0* | *0*
+|===
+
+Zwei Phasen schicken weniger Fotos an den Chat-Anbieter (QZ-1 +1), aber die Begründung würde erst geprüft,
+wenn das Kind die Zahlen schon sicher trifft; genau die Begründung ist hier das, was die Olympiade bewertet
+(QZ-3 −1). Ohne Foto blieben die Daten auf dem Gerät (QZ-1 +1) und ein Kind ohne Kamera wäre nicht
+benachteiligt (QZ-5 +1). Dann sähe der Tutor aber nichts von der Lösung (QZ-2 −1), und die Rückmeldung
+deckte nur die Zahl ab, oft nicht einmal die, weil Beweisaufgaben keine haben (QZ-3 −1). Die Summen trennen
+die Varianten nicht; den Ausschlag gibt das Lernziel, begründete Lösungen aufzuschreiben.
+
+*Konsequenzen.* Es gehen deutlich mehr Fotos der Handschrift an den Chat-Anbieter als in den anderen Apps;
+das erhöht die Wahrscheinlichkeit von xref:11_technical_risks.adoc#r-022[R-022] für diese App. Die Maßnahme
+bleibt dieselbe wie bei ADR-022 (8.2 M-18): nur das Blatt, ohne Namen, und die App selbst überträgt nichts
+(xref:08_concepts.adoc#t-014[T-014]). Die Qualität der Rückmeldung hängt stärker am Tutor; liest er eine
+Handschrift falsch oder übersieht eine Lücke, lernt das Kind still etwas Falsches
+(xref:11_technical_risks.adoc#r-025[R-025]). Das nehmen wir bewusst hin: Die App prüft, was sie prüfen kann,
+und der Tutor gibt nie eine Lösung vor, sondern fragt nach.

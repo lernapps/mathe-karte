@@ -37,6 +37,7 @@ System(lernapps, "Lern-Apps", "Monorepo lernapps.github.io: Apps, Mathe-Karte, �
 System_Ext(claude, "claude.ai", "Claude als Tutor; liest tutor.md und llms.txt")
 System_Ext(youtube, "YouTube", "youtube-nocookie.com, erst nach Klick")
 System_Ext(serlo, "serlo.org", "zweite Erklärung von Serlo Education e.V.; nur per Klick")
+System_Ext(mo, "mathematik-olympiaden.de", "offizielle Aufgabenblätter der Mathematik-Olympiade als PDF; nur per Klick")
 System_Ext(github, "GitHub", "Organisation lernapps: Repository, Pull Requests, Actions")
 System_Ext(issues, "GitHub Issues", "Rückmeldung von Kindern und Eltern; nur per Klick, Konto nötig, ab 13 Jahren")
 System_Ext(pages, "GitHub Pages", "liefert lernapps.github.io aus")
@@ -48,6 +49,7 @@ Rel(claude, lernapps, "liest llms.txt, tutor.md; schickt Aufgabenlinks", "HTTPS"
 Rel(lernapps, youtube, "bettet Video ein, nur nach Klick", "iframe")
 Rel(kind, issues, "meldet Fehler oder Wünsche, nur nach Klick auf den Link", "HTTPS")
 Rel(kind, serlo, "liest eine zweite Erklärung, nur nach Klick auf den Link", "HTTPS")
+Rel(kind, mo, "öffnet ein offizielles Aufgabenblatt, nur nach Klick auf den Link", "HTTPS")
 Rel(issues, autor, "zeigt die Rückmeldung")
 Rel(autor, github, "entwickelt, pusht, merged PRs", "git, gh")
 Rel(github, lernapps, "führt Tests und Build aus", "Actions")
@@ -65,6 +67,7 @@ Rel(lernapps, pages, "wird ausgeliefert als ein Artefakt", "deploy-pages")
 | claude.ai | `tutor.md` und `llms.txt` je App, `llms.txt` der Übersicht und der Karte, Aufgaben-URLs | Nichts. Das System meldet dem Tutor nichts; das Kind trägt Nummer und Ergebniszeile und schickt Fotos seines Rechenwegs selbst in den Chat (ADR-022).
 | YouTube | Video-ID im iframe-Aufruf, IP-Adresse und Browserdaten des Kindes (erst nach Klick) | Videoplayer
 | serlo.org | Nichts. Die Kompetenzseite enthält nur einen Link unter `#serlo`; erst der Klick öffnet de.serlo.org. | Einen Artikel in anderen Worten, kostenlos, werbefrei, ohne Anmeldung (gemeinnütziger Serlo Education e.V.). Die Adresse prüft die Autor:in beim Anlegen; der Build prüft nur `https://de.serlo.org/…`, ohne Netzabruf.
+| mathematik-olympiaden.de | Nichts. Die Seiten der App „Mathematik-Olympiade Klasse 8“ und ihr `tutor.md` enthalten nur Links auf Aufgabenblätter (`…&datei=A<5 Ziffern>.pdf`); erst der Klick öffnet sie. | Die offiziellen Aufgaben früherer Olympiaden als PDF (Mathematik-Olympiaden e.V.). Die Texte stehen nicht im Repository; die App nennt nur Nummern (Nachtrag zu xref:09_architecture_decisions.adoc#adr-023[ADR-023]).
 | GitHub Issues | Nichts. Die Seite enthält nur einen Link; erst der Klick öffnet GitHub. | Rückmeldungen als Issues, die die Autor:in liest. GitHub verlangt ein Konto und ein Mindestalter von 13 Jahren.
 | GitHub | Quellcode, Commits, Pull Requests | CI-Läufe (`pruefen.yml`, `pages.yml`), Organisation und Rechte
 | GitHub Pages | Ein Artefakt: Eleventy-Ausgabe `_site/` mit der Doku unter `_site/docs/` | HTTPS-Auslieferung unter `https://lernapps.github.io/`
@@ -89,6 +92,7 @@ am 23.09.2026 gelöscht worden; ihre Pages-Adressen liefern 404. Das erledigte R
 | Kind → Tutor | Text (Zwischenablage) | Ergebniszeile `Test Nr. 4711 (<App>, Schnelltest): 1 ✓ 2 ~ 3 ✗`; „Aufgabe Nr. 42“; kopierter Aufgabenlink.
 | Seite → GitHub Issues | Link `https://github.com/lernapps/lernapps.github.io/issues` | Statischer `<a>` auf jeder Seite (entschieden am 23.09.2026, noch nicht umgesetzt). Keine Anfrage vor dem Klick; danach gelten die Regeln von GitHub.
 | Seite → serlo.org | Link `https://de.serlo.org/<fach>/<id>/<titel>` | Statischer `<a rel="noopener">` unter `#serlo`, nur wenn das Front Matter `serlo: { url, titel }` setzt (`src/_includes/kompetenz.njk`). Kein iframe, kein Vorschaubild, keine Anfrage vor dem Klick; `pruefeSerloLinks` (`lib/pruefungen.js`) bricht den Build bei anderen Adressen ab.
+| Seite, Tutor → mathematik-olympiaden.de | Link `https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A<OO><KK><R>.pdf` | Statischer `<a rel="noopener">` unter `#mo-aufgaben`; in `tutor.md` und `llms.txt` nur diese Adressform (`MO_AUFGABENBLATT` in `lib/pruefungen.js`). Eine noch nicht erschienene Runde liefert eine leere Antwort.
 | Seite → YouTube | `<iframe src="https://www.youtube-nocookie.com/embed/<id>?autoplay=1">` | Entsteht erst nach Klick oder bei gesetztem Merker (`src/kern/js/video.js:12-15`).
 | Autor:in → GitHub | git über HTTPS, `gh` | Feature-Branch, PR, Merge in `lernapps/lernapps.github.io`.
 | GitHub Actions → Paketquellen | `npm ci`; `git clone` + Gradle | Eleventy exakt nach `package-lock.json`; docToolchain am festen Commit, zwischengespeichert per `actions/cache`.

@@ -101,6 +101,39 @@ kompromittierte Version träfe den Build, nicht die Kinder (xref:11_technical_ri
 Ändert sich eine Dimension, etwa durch Konten, ein Backend oder ein LLM im Code, wird das Repository neu
 eingestuft; der Abschnitt „Risk Radar Assessment“ in `CLAUDE.md` hält den Stand für `/risk-mitigate` fest.
 
+*Nachtrag 27.09.2026 (PO): offizielle Aufgabenblätter der Mathematik-Olympiade.* Die App
+„Mathematik-Olympiade Klasse 8“ verweist auf Aufgaben früherer Olympiaden, zum Beispiel „MO-Aufgabe 650812“.
+Die Texte gehören dem Mathematik-Olympiaden e.V. und stehen nicht im Repository. Der Tutor soll dem Kind das
+Blatt direkt schicken können. Der Product Owner hat entschieden, die Allowlist dafür zu erweitern, statt die
+Blätter nur auf den App-Seiten zu verlinken. Erlaubt ist kein offenes Präfix, sondern genau eine Adressform:
+`https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A`, dahinter
+nur fünf Ziffern und `.pdf` (`MO_AUFGABENBLATT` in `lib/pruefungen.js`, Einträge der Allowlist dürfen jetzt auch
+ein ganzes Muster sein). Weitere Parameter, andere Dateien (etwa Lösungen), Pfade, Anker und die Tricks aus
+S-003 (`https:/host`, Backslash, `..`, `%2e`) brechen den Build; `test/build/pruefungen.test.js` hält das fest.
+
+[cols="2,1,1,1",options="header"]
+|===
+| Ziel | Genaue Adressform (Referenz) | Offenes Präfix `https://www.mathematik-olympiaden.de/` | Blätter nur auf den App-Seiten
+| QZ-1 Datenschutz | 0 | 0 | 0
+| QZ-2 Tutor-Anschluss | 0 | 0 | −1
+| QZ-3 Richtige Rückmeldung | 0 | 0 | 0
+| QZ-4 Neue Apps schnell | 0 | +1 | 0
+| QZ-5 Zugänglich | 0 | 0 | 0
+| *Summe* | *0* | *+1* | *−1*
+|===
+
+Das offene Präfix wäre bequemer, denn jede neue Adresse der Seite wäre sofort erlaubt (QZ-4 +1). Es ließe aber
+jede Seite des Servers in den Chat eines Kindes, auch Foren- oder Nachrichtenseiten; das wiegt die Summe nicht
+auf und verletzt den Grundsatz dieses ADR. Nur auf den App-Seiten verlinkt, müsste das Kind das Blatt selbst
+suchen, und der Tutor könnte keine bestimmte Aufgabe schicken (QZ-2 −1). Keine Variante lädt etwas vor einem
+Klick; die Seiten selbst dürfen ohnehin auf fremde Seiten verlinken (`pruefe-ausgabe` verbietet nur Ressourcen).
+
+*Konsequenzen des Nachtrags.* Der Inhalt eines PDFs kann sich nach dem Review ändern; der Server gehört einem
+gemeinnützigen Verein, nicht uns. Das bleibt ein Teil von xref:11_technical_risks.adoc#r-024[R-024] und ist
+bewusst akzeptiert: Die Adressform erreicht nur Aufgabenblätter, keine Seiten mit Text von Dritten. Liefert
+der Server eine Nummer nicht (noch nicht erschienene Runde), kommt eine leere Antwort mit Status 200; das
+prüft der Build nicht, die App-Seiten nennen nur erschienene Aufgaben.
+
 // ADR-026: Browser-Tests mit Playwright in CI (#26, TD-5).
 
 [[adr-026]]

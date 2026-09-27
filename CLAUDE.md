@@ -79,7 +79,9 @@ repository: one shared kern, one layout, one build (Eleventy 3.1.6), deployed to
 - Tutor link allowlist (ADR-023, `pruefeTutorLinks`): `tutor.md` and `llms.txt` of every app, the root `llms.txt` and
   `karte/llms.txt` may link only to relative targets, `https://lernapps.github.io/`, `/blob/main/` and `/tree/main/` of
   the own repository (no issues or fork commits: anyone can change them),
-  `https://de.serlo.org/` and `https://www.youtube.com/watch?v=`. Any other URL fails the build. These files are
+  `https://de.serlo.org/`, `https://www.youtube.com/watch?v=` and exactly the official Mathematik-Olympiade task sheets
+  (`https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A<5 digits>.pdf`,
+  a full-match pattern, addendum to ADR-023 of 27.09.2026). Any other URL fails the build. These files are
   prompts in a child's chat; widen the allowlist only with an ADR.
 - Every app-page link (`.html`) in a built `tutor.md` carries `von=tutor` before any `#` (`pruefeTutorHerkunft`, ADR-021);
   without it the button „Zurück zu Claude“ is missing.
