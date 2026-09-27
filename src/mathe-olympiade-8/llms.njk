@@ -173,6 +173,22 @@ Typische Fehler, die der Checker meldet: "nicht-reduziert" (13 statt Rest 6 bei 
 durch 7), "periode-verschoben" (Einerziffer um eine Stelle der Periode verzählt).
 Offizielle Aufgaben (#mo-aufgaben): 640814.
 
+### 4 Gauß – {{ app.basisUrl }}summen.html
+Kompetenz: Summen gleichabständiger Zahlen mit dem Gauß-Trick berechnen und begründen.
+Regel: 1 + … + n = n(n + 1) : 2, begründet durch vorwärts und rückwärts untereinander
+schreiben; allgemein Anzahl · (erstes + letztes) : 2; Anzahl = (letztes − erstes) : Abstand + 1.
+Beispiel: alle durch 7 teilbaren Zahlen von 20 bis 100, Summe 714.
+Aufgabe: Summe 1 bis n, Summe aller durch k teilbaren Zahlen von a bis b, oder Summe aller
+ungeraden Zahlen unter einer Grenze.
+Parameter: `n` (2–10000; wählt „Summe 1 bis n“), `seed`. Ohne `n` wählt die App die Art.
+Beispiele:
+{{ app.basisUrl }}summen.html?n=100&seed=1#uebung
+(1 + … + 100, Lösung 5050)
+{{ app.basisUrl }}summen.html?seed=7#uebung
+Typische Fehler, die der Checker meldet: "halbieren-vergessen" (n(n + 1) statt n(n + 1) : 2),
+"anzahl-um-eins" (ein Glied zu viel oder zu wenig gezählt).
+Offizielle Aufgaben (#mo-aufgaben): 650812.
+
 <!-- neue-kompetenz: Abschnitte darüber einfügen -->
 ## Parameter-Übersicht
 
@@ -182,6 +198,7 @@ Offizielle Aufgaben (#mo-aufgaben): 640814.
 | loesung-aufschreiben.html | seed | ?seed=3 |
 | teilbarkeit.html | n, seed | ?n=36&seed=1 |
 | reste.html | m, seed | ?m=7&seed=1 |
+| summen.html | n, seed | ?n=100&seed=1 |
 
 Die Aufgabennummer allein (`seed=` oder `nr=`) erzeugt auf jeder Seite eine reproduzierbare
 Zufallsaufgabe. "Neue Aufgabe" erzeugt eine neue Aufgabe mit eigener Aufgabennummer.
