@@ -46,6 +46,7 @@ System_Boundary(lernapps, "Lern-Apps (Monorepo lernapps.github.io)") {
 System_Ext(claude, "claude.ai", "Tutor")
 System_Ext(youtube, "YouTube", "youtube-nocookie.com")
 System_Ext(serlo, "serlo.org", "zweite Erklärung, nur per Klick")
+System_Ext(mo, "mathematik-olympiaden.de", "Aufgabenblätter, nur per Klick")
 System_Ext(github, "GitHub", "Organisation lernapps, Actions")
 System_Ext(issues, "GitHub Issues", "Rückmeldung, nur per Klick")
 System_Ext(pages, "GitHub Pages", "lernapps.github.io")
@@ -62,6 +63,7 @@ Rel(kern, speicher, "liest/schreibt", "try/catch")
 Rel(kern, youtube, "iframe nach Klick")
 Rel(layout, issues, "Link, Anfrage erst nach Klick")
 Rel(layout, serlo, "Link unter #serlo, Anfrage erst nach Klick")
+Rel(apps, mo, "Link unter #mo-aufgaben, Anfrage erst nach Klick")
 Rel(claude, apps, "liest tutor.md, llms.txt")
 Rel(autor, github, "PR, Merge")
 Rel(github, ci, "startet Workflows")
@@ -98,7 +100,7 @@ Autor:in, kein Baustein der Site: Er wird weder gebaut noch ausgeliefert, sonder
 | `starteSeite({ app, modul, visualisiere })`, `starteStartseite({ app })`, `starteTestseite({ app, kompetenzen, generatoren })`, `erzeugeSpeicher(praefix)`, `initVideos(praefix)`, `svgEl`
 | `src/kern/js/`, `src/kern/css/stil.css`, `src/kern/vendor/talkitover.js`
 | [[bb-apps]]Apps
-| Das Fachliche je Thema: Konfiguration, eine Markdown-Seite je Kompetenz, Generator mit Prüfer, Zeichenfunktion, Tests, Texte für den Tutor, Icons. Heute `binom`, `prozent`, `zufall`.
+| Das Fachliche je Thema: Konfiguration, eine Markdown-Seite je Kompetenz, Generator mit Prüfer, Zeichenfunktion, Tests, Texte für den Tutor, Icons. Heute `binom`, `prozent`, `zufall` und `mathe-olympiade-8` (Olympiade-Vorbereitung: eigene Aufgaben im Stil der Mathematik-Olympiade, offizielle Aufgaben nur als Nummer mit Link, Foto zu jeder Aufgabe nach xref:09_architecture_decisions.adoc#adr-032[ADR-032]; ohne Karteneintrag, weil die Olympiade keinem Lehrplan folgt).
 | `APP`, `KOMPETENZEN` (reine Daten); `erzeugeAufgabe(zufall, vorgaben)`, `pruefeAntwort(aufgabe, antworten)`, optional `URL_ZAHLEN`, `URL_TEXTE`, `testVorgaben`; `zeichne…(svg, aufgabe, ergebnis)`; `llms.txt`, `tutor.md`
 | `src/<app>/js/app.config.js`, `src/<app>/<id>.md`, `src/<app>/js/aufgaben/`, `src/<app>/js/vis/`, `src/<app>/llms.njk`, `src/<app>/tutor.njk`, `src/<app>/test/`
 | [[bb-karte]]Mathe-Karte

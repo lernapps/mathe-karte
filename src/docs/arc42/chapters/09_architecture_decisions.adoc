@@ -63,6 +63,7 @@ Neue Kern- und Build-Entscheidungen brauchen ein ADR hier (`CLAUDE.md`, „Archi
 | <<adr-029,ADR-029>> | Lizenzprüfung ohne neue Abhängigkeit plus Dependency Review | Accepted
 | <<adr-030,ADR-030>> | Architektur-Review nach ATAM bei Architekturänderungen | Accepted
 | <<adr-031,ADR-031>> | Kennzahlen der Übersichtsseite beim Doku-Build erzeugen | Accepted
+| <<adr-032,ADR-032>> | Olympiade-App: Foto zu jeder Aufgabe, der Tutor liest wie ein Korrektor | Accepted
 |===
 
 include::_adr-vorlage.adoc[]

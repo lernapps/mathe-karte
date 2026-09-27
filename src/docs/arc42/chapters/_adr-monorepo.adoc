@@ -386,7 +386,8 @@ Formeln, Kompetenz 2 „Erste binomische Formel“, Aufgabe Nr. 4: richtig im 1.
 Aufgaben im selben Tab stehen nur als Zähler „x von y“ darin: x kleiner y zeigt einen Fehler, ob sie im
 ersten Versuch richtig waren, zeigt die Zeile nicht. Der Tutor zählt deshalb Zeilen, nicht Aufgaben.
 
-*Status.* Accepted. Vom Product Owner entschieden am 24.09.2026.
+*Status.* Accepted. Vom Product Owner entschieden am 24.09.2026. Die App „Mathematik-Olympiade Klasse 8“ weicht
+bewusst ab: Foto zu jeder Aufgabe (<<adr-032,ADR-032>>).
 
 *Nachtrag 24.09.2026 (PO, verfeinert).* Die erste Fassung verlangte zu jeder Aufgabe ein Foto. Das war
 zu viel, und kein Auslöser sagte, wann der Tutor fragt. Der Product Owner hat die Regel am selben Tag
