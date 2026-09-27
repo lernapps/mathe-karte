@@ -111,6 +111,40 @@ test("Tutor-Dateien verlinken nur auf die Allowlist: eigene Site, eigenes Repo, 
   }
 });
 
+// Use Case: Der Olympiade-Tutor nennt offizielle Aufgabenblätter per Link (Nachtrag ADR-023, 27.09.2026). Erlaubt ist
+// genau das Download-Präfix des Mathematik-Olympiaden e.V. plus A<5 Ziffern>.pdf; Umgehungen nach S-003 brechen den Build.
+test("Tutor-Dateien dürfen offizielle MO-Aufgabenblätter verlinken, nur über das gehärtete Präfix", () => {
+  const erlaubt = erlaubteTutorZiele({ basis: "https://lernapps.github.io/", repo: "https://github.com/lernapps/lernapps.github.io" });
+  const mo = "https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A";
+  for (const text of [`Blatt: ${mo}65081.pdf`, `[MO-Aufgabe 650812](${mo}65081.pdf)`, `${mo}63082.pdf – Aufgabe 630821`]) {
+    assert.deepEqual(pruefeTutorLinks("mathe-olympiade-8/tutor.md", text, erlaubt), [], text);
+  }
+  const fremd = [
+    `${mo}65081.pdf&datei=../x`,
+    `${mo}65081.pdf&option=com_content`,
+    `${mo}../../x.pdf`,
+    `${mo}%2e%2e/x.pdf`,
+    `${mo}65081.html`,
+    `${mo}6508.pdf`,
+    `${mo}65081.pdf/../evil`,
+    `${mo}65081.pdf#x`,
+    "https:/www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
+    "https:\\\\www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
+    "http://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
+    "https://www.mathematik-olympiaden.de/moev/index.php?option=com_content&view=article",
+    "https://www.mathematik-olympiaden.de/moev/index.php?x=1&option=com_download&thema=a&format=raw&datei=A65081.pdf",
+    "https://www.mathematik-olympiaden.de/aufgaben/A65081.pdf",
+    "https://www.mathematik-olympiaden.de.evil.example/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
+    "https://mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A65081.pdf",
+    "https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=l&format=raw&datei=L65081.pdf",
+  ];
+  for (const text of fremd) {
+    const fehler = pruefeTutorLinks("mathe-olympiade-8/tutor.md", text, erlaubt);
+    assert.equal(fehler.length, 1, text);
+    assert.match(fehler[0], /Link außerhalb der Allowlist/);
+  }
+});
+
 // Use Case: Build bricht ab, wenn tutor.md einen App-Link ohne von=tutor zeigt (ADR-021, R-021) – sonst fehlt der Knopf „Zurück zu Claude“.
 test("jeder App-Link in tutor.md trägt von=tutor, Platzhalter wie <Nummer> sind erlaubt", () => {
   const basis = "https://lernapps.github.io/binom/";
