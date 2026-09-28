@@ -28,3 +28,7 @@ ln -s <repo>/werkzeuge/skill/lern-app ~/.claude/skills/lern-app
 ```
 
 `<repo>` ist der absolute Pfad dieses Checkouts. Danach steht der Skill in jeder Claude-Code-Sitzung zur Verfügung.
+
+## Lizenz
+
+[MIT](LICENSE), für den Code und die Texte in diesem Repo. Inhalte Dritter (z. B. Zitate aus Lehrplänen) behalten ihre eigene Lizenz.
