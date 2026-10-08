@@ -15,7 +15,7 @@ export const APP = {
   klasse: 8,
   beschreibung: "Binomische Formeln üben, Klasse 8: Klammern multiplizieren, die drei Formeln, rückwärts faktorisieren und geschickt im Kopf rechnen. Mit Flächenbildern und Sofort-Feedback. Ohne Server, ohne Tracking.",
   intro: "Hier übst du die binomischen Formeln aus Klasse 8, vom Ausmultiplizieren zweier Klammern bis zum Kopfrechnen mit 49² – Schritt für Schritt, mit Erklärung, Beispiel, Bild und so vielen Aufgaben, wie du willst. Jede Aufgabe sagt dir sofort, ob dein Ergebnis stimmt, und zeigt dir auf Wunsch den Rechenweg.",
-  // Eintrag auf der Mathe-Karte (/karte/, lib/karte/eintraege.js), Skalen nach edugo. id, Titel, Adresse und
+  // Eintrag auf der Mathe-Karte (/karte/, lib/karte/eintraege.js), Skalen: Aktiv-Level und DSGVO-Ampel. id, Titel, Adresse und
   // Beschreibung kommen aus APP, die Knoten aus kartenKnoten der Kompetenzen; jahrgaenge fehlt → [klasse].
   kartenEintrag: {
     "aktiv-level": 2, // 1 Create, 2 Solve, 3 Collaborate, 4 Reflect, 5 Receive

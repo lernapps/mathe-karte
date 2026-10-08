@@ -47,7 +47,7 @@ repository: one shared kern, one layout, one build (Eleventy 3.1.6), deployed to
   `src/karte/daten/README.md`). Pages are static (`index`, `karte-statisch`, `apps`, `laender`, `ueber`, `llms.txt`,
   `data.json`); `js/start.js` turns the static list into the interactive map. URL parameters `land`, `jahrgang`,
   `leitidee`, `luecken`, `knoten` and the shape of `data.json` are a public contract (`src/karte/llms.njk`).
-- An app appears on the map when its config has `APP.kartenEintrag` (edugo fields: `aktiv-level`, `backend`,
+- An app appears on the map when its config has `APP.kartenEintrag` (entry fields: `aktiv-level`, `backend`,
   `external-requests`, `dsgvo`, `evidence`, `jahrgaenge`, `lizenz`, `stand`) and competencies carry `kartenKnoten: [<node
   id>]`. Unknown node ids fail the build. Apps outside the repo: `src/karte/daten/externe-eintraege.js`.
 - `lib/` – build-time Node code: `apps.js` (loads every `src/*/js/app.config.js`), `bild.js` (static SVG),

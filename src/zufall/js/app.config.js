@@ -13,7 +13,7 @@ export const APP = {
   klasse: 8,
   beschreibung: "Wahrscheinlichkeitsrechnung üben, Klasse 8: Laplace-Formel, Baumdiagramm, beide Pfadregeln, Gegenereignis und Ziehen ohne Zurücklegen. Mit Bildern und Sofort-Feedback. Ohne Server, ohne Tracking.",
   intro: "Hier übst du die Wahrscheinlichkeitsrechnung aus Klasse 8 – vom Würfel bis zum Baumdiagramm mit zwei Pfadregeln, mit Erklärung, Beispiel, Bild und so vielen Aufgaben, wie du willst. Jede Aufgabe sagt dir sofort, ob dein Ergebnis stimmt, und zeigt dir auf Wunsch den Rechenweg.",
-  // Eintrag auf der Mathe-Karte (/karte/, lib/karte/eintraege.js), Skalen nach edugo; Muster und Erklärung: src/binom/.
+  // Eintrag auf der Mathe-Karte (/karte/, lib/karte/eintraege.js), Skalen: Aktiv-Level und DSGVO-Ampel; Muster und Erklärung: src/binom/.
   kartenEintrag: {
     "aktiv-level": 2,
     backend: "none",

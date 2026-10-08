@@ -80,7 +80,7 @@ Brief sub-agents with `references/agent-auftrag.md` when you parallelise. Rough 
 ## Phase 6 — Map entry (from the app config)
 
 The Mathe-Karte at `/karte/` is built from the app configs; there is no separate map repo.
-- `APP.kartenEintrag` with the edugo fields: `aktiv-level`, `backend: "none"`, `external-requests: "on-consent"` if videos, else `"none"`, `dsgvo: "amber"` (green only after an audit, never self-declared), `evidence`, `jahrgaenge`, `lizenz`, `stand` (today).
+- `APP.kartenEintrag` with the entry fields: `aktiv-level`, `backend: "none"`, `external-requests: "on-consent"` if videos, else `"none"`, `dsgvo: "amber"` (green only after an audit, never self-declared), `evidence`, `jahrgaenge`, `lizenz`, `stand` (today).
 - Each competency lists `kartenKnoten: [<node id>]`. Unknown ids fail the build. A missing node goes to `src/karte/daten/kompetenzen/<id>.md` with a traceable Lehrplan source, plus its row in `src/karte/daten/zuordnungen/`; see `src/karte/daten/README.md`.
 - Physik and Chemie have no map yet: leave out `kartenEintrag` and `kartenKnoten`, mention it once and stop.
 
