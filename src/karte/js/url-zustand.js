@@ -1,5 +1,5 @@
 // URL-Zustand der Karte: ?land=HE&jahrgang=8&leitidee=…&luecken=1&knoten=…
-// Öffentlicher Vertrag für Verlinkung aus Tutor-Apps und edugo; nie umbenennen.
+// Öffentlicher Vertrag für Verlinkung aus Tutor-Apps und anderen Seiten; nie umbenennen.
 
 export const LAENDER = ['BW', 'BY', 'BE', 'BB', 'HB', 'HH', 'HE', 'MV', 'NI', 'NW', 'RP', 'SL', 'ST', 'SN', 'SH', 'TH'];
 

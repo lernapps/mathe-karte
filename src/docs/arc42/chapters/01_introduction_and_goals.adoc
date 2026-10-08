@@ -17,9 +17,9 @@ von der App, sondern von Claude auf claude.ai: Die App liefert Erklärung, Bild,
 und einen Diagnosetest, der Tutor führt das Gespräch und verlinkt gezielt einzelne Aufgaben. Pro
 Schuljahr sollen rund 20 Apps entstehen (Mathe, Physik, Chemie). Damit das bei einer Person mit einem
 KI-Agenten tragbar bleibt, liegen alle Apps in einem Monorepo mit einem Kern, einem Layout und einem
-Build (xref:09_architecture_decisions.adoc#adr-012[ADR-012]). Die Apps sind zugleich ein Versuch für
-edugo, eine Plattform, die Bildungs-Micro-Apps über eine Kompetenzkarte verbindet; die Mathe-Karte
-liegt deshalb im selben Repository (xref:09_architecture_decisions.adoc#adr-018[ADR-018]).
+Build (xref:09_architecture_decisions.adoc#adr-012[ADR-012]). Die Mathe-Karte ist zugleich die erste App
+von lernapps.net, einer Plattform, die kleine Lern-Apps in die Nutzung bringt; die Karte liegt im selben
+Repository (xref:09_architecture_decisions.adoc#adr-018[ADR-018]).
 
 [[section-requirements-overview]]
 === Aufgabenstellung: Aus einem Lehrplanthema wird eine App, aus einer Kompetenz ein paar Dateien
@@ -88,5 +88,5 @@ sie mit Szenarien messbar.
 | Tutor | Claude auf claude.ai, gestartet mit `tutor.md` einer App | Vollständige, stabile Beschreibung in `llms.txt`; Aufgaben per Link reproduzierbar; Testergebnis als eine Textzeile.
 | App-Autor:in | Ralf D. Müller, zusammen mit Claude Code | Neue App als Ordner, neue Kompetenz als drei Dateien und eine Zeile; `npm test` und `npm run build` sagen, was fehlt; Dateien unter 500 Zeilen.
 | Lehrkraft, Schule | mögliche Nutzer auf Schulgeräten | Kein Login, kein Server, DSGVO-Frage beantwortbar; Lizenz klar (heute offen, xref:11_technical_risks.adoc#r-018[R-018]).
-| edugo | Plattform-Vorhaben, das Micro-Apps verbindet | Apps nach einem Muster, eingetragen in der Mathe-Karte mit ehrlicher Angabe zu `backend`, `external-requests` und `dsgvo`.
+| lernapps.net | Plattform, die kleine Lern-Apps in die Nutzung bringt (https://lernapps.net/apps/) | Apps nach einem Muster, eingetragen in der Mathe-Karte mit ehrlicher Angabe zu `backend`, `external-requests` und `dsgvo`.
 |===

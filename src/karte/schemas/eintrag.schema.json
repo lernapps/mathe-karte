@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://lernapps.github.io/karte/schemas/eintrag.schema.json",
   "title": "Eintrag",
-  "description": "Ein Eintrag in data.json (eintraege[]): eine App, die Knoten der Karte übt (edugo-kompatibel). Quelle: APP.kartenEintrag plus kartenKnoten der Kompetenzen in src/<app>/js/app.config.js, oder ein Objekt in src/karte/daten/externe-eintraege.js (dort optional pfad).",
+  "description": "Ein Eintrag in data.json (eintraege[]): eine App, die Knoten der Karte übt. Quelle: APP.kartenEintrag plus kartenKnoten der Kompetenzen in src/<app>/js/app.config.js, oder ein Objekt in src/karte/daten/externe-eintraege.js (dort optional pfad).",
   "type": "object",
   "required": [
     "id",
@@ -47,7 +47,7 @@
       "type": "integer",
       "minimum": 1,
       "maximum": 5,
-      "description": "1 Create, 2 Solve, 3 Collaborate, 4 Reflect, 5 Receive (edugo active/passive taxonomy)"
+      "description": "1 Create, 2 Solve, 3 Collaborate, 4 Reflect, 5 Receive (active/passive taxonomy)"
     },
     "backend": {
       "type": "string",
