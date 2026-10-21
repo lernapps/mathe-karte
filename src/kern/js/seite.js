@@ -8,6 +8,7 @@ import { leseSeed } from "./zufall.js";
 import { leseVorgaben, aufgabeImFokus } from "./aufgabenlink.js";
 import { starteTrainer } from "./ui.js";
 import { initVideos } from "./video.js";
+import { initScrollbereiche } from "./scrollbereich.js";
 import { vomTutor, zurueckKnopf, uebungsZeile } from "./zurueck.js";
 
 /** App-Konfiguration (APP in js/app.config.js). @typedef {{ id: string, speicher: string, titel: string }} App */
@@ -23,7 +24,10 @@ import { vomTutor, zurueckKnopf, uebungsZeile } from "./zurueck.js";
 export function starteSeite({ app, modul, zeichne, bildHinweis, kompetenz }) {
   initVideos(app.speicher);
   const wurzel = document.getElementById("trainer");
-  if (!wurzel) return undefined;
+  if (!wurzel) {
+    initScrollbereiche();
+    return undefined;
+  }
   const query = window.location.search;
   const zahlen = modul.URL_ZAHLEN || [];
   const texte = modul.URL_TEXTE || [];
@@ -36,6 +40,7 @@ export function starteSeite({ app, modul, zeichne, bildHinweis, kompetenz }) {
     bildHinweis,
     seitenPfad: window.location.pathname.split("/").pop() || "",
   });
+  initScrollbereiche();
   if (kompetenz && vomTutor(query)) {
     const zeile = () => uebungsZeile({ appTitel: app.titel, kompetenz, ...trainer.stand() });
     const absatz = document.createElement("p");
