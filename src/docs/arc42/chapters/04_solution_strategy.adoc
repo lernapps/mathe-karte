@@ -22,7 +22,7 @@ und reicht es dem Kern hinein, statt dass der Kern die App kennt.
 |===
 | Thema | Entscheidung | ADR
 | Betrieb | Statische Site auf GitHub Pages, kein Backend | xref:09_architecture_decisions.adoc#adr-001[ADR-001]
-| Repository und Build | Monorepo, Eleventy 3.1.6 exakt gepinnt | xref:09_architecture_decisions.adoc#adr-012[ADR-012]
+| Repository und Build | Monorepo, Eleventy 3.1.7 exakt gepinnt | xref:09_architecture_decisions.adoc#adr-012[ADR-012]
 | Wiederverwendung | Kern einmal unter `/kern/`, App-Konfiguration per Dependency Inversion | xref:09_architecture_decisions.adoc#adr-013[ADR-013]
 | Adressen | Basis-URL an einer Stelle; Organisation `lernapps`, Repo `lernapps.github.io` | xref:09_architecture_decisions.adoc#adr-015[ADR-015]
 | Seiten | Kompetenzseiten aus Markdown-Front-Matter mit festem Gerüst; Regeln als Build-Fehler | xref:09_architecture_decisions.adoc#adr-017[ADR-017], xref:09_architecture_decisions.adoc#adr-008[ADR-008]
