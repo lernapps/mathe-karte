@@ -1,6 +1,7 @@
 <%/* lern-apps: overlay of the v4 theme footer (docToolchain main-4.x@6de96fb7). Changes are marked
      "lern-app-template"; re-sync with the theme when upgrading.
-     1) localStorage key lernapps:mathe-karte:dtc-theme (rule own-data-only of lernapps.net), as in header.gsp */%>
+     1) localStorage key lernapps:mathe-karte:dtc-theme (rule own-data-only of lernapps.net), as in header.gsp
+     2) every icon link has the name of its list item as aria-label (axe link-name; rule accessible of lernapps.net) */%>
 
     <footer class="bg-dark py-5 row d-print-none">
         <div class="container-fluid mx-sm-5">
@@ -12,7 +13,7 @@
                         <% if (config.site_footerMail) { %>
                         <li aria-label="User mailing list" class="list-inline-item mx-2 h3" data-original-title="User mailing list" data-placement="top"
                             data-toggle="tooltip" title="">
-                            <a class="text-white" href="mailto:${config.site_footerMail}" rel="noopener noreferrer"
+                            <a aria-label="User mailing list" class="text-white" href="mailto:${config.site_footerMail}" rel="noopener noreferrer"
                                target="_blank">
                                 <i class="fa fa-envelope"></i>
                             </a>
@@ -21,7 +22,7 @@
                         <% if (config.site_footerTwitter) { %>
                         <li aria-label="Twitter" class="list-inline-item mx-2 h3" data-original-title="Twitter" data-placement="top"
                             data-toggle="tooltip" title="">
-                            <a class="text-white" href="${config.site_footerTwitter}" rel="noopener noreferrer"
+                            <a aria-label="Twitter" class="text-white" href="${config.site_footerTwitter}" rel="noopener noreferrer"
                                target="_blank">
                                 <i class="fab fa-twitter"></i>
                             </a>
@@ -30,7 +31,7 @@
                         <% if (config.site_footerSO) { %>
                         <li aria-label="Stack Overflow" class="list-inline-item mx-2 h3" data-original-title="Stack Overflow" data-placement="top"
                             data-toggle="tooltip" title="">
-                            <a class="text-white" href="${config.site_footerSO}" rel="noopener noreferrer"
+                            <a aria-label="Stack Overflow" class="text-white" href="${config.site_footerSO}" rel="noopener noreferrer"
                                target="_blank">
                                 <i class="fab fa-stack-overflow"></i>
                             </a>
@@ -48,7 +49,7 @@
                         <% if (config.site_footerGithub) { %>
                         <li aria-label="GitHub" class="list-inline-item mx-2 h3" data-original-title="GitHub" data-placement="top"
                             data-toggle="tooltip" title="">
-                            <a class="text-white" href="${config.site_footerGithub}" rel="noopener noreferrer"
+                            <a aria-label="GitHub" class="text-white" href="${config.site_footerGithub}" rel="noopener noreferrer"
                                target="_blank">
                                 <i class="fab fa-github"></i>
                             </a>
@@ -58,7 +59,7 @@
                         <% if (config.site_footerSlack) { %>
                         <li aria-label="Slack" class="list-inline-item mx-2 h3" data-original-title="Slack" data-placement="top"
                             data-toggle="tooltip" title="">
-                            <a class="text-white" href="${config.site_footerSlack}" rel="noopener noreferrer"
+                            <a aria-label="Slack" class="text-white" href="${config.site_footerSlack}" rel="noopener noreferrer"
                                target="_blank">
                                 <i class="fab fa-slack"></i>
                             </a>
