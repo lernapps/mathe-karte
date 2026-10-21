@@ -68,3 +68,15 @@ a:hover { color: var(--g-800); }
    scrollen; ein scrollender Block wäre per Tastatur nicht erreichbar. */
 .td-content pre,
 .td-content pre > code { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Regel usable-at-360px von lernapps.net: Auf schmalen Bildschirmen bricht die Navigationsleiste um, und breite
+   Tabellen, Code und lange Wörter brechen in ihrer Zelle um, statt die ganze Seite zu verbreitern. */
+@media (max-width: 47.99rem) {
+  .td-navbar .navbar-nav { flex-wrap: wrap; }
+  .td-navbar .nav-item { white-space: normal; }
+  .td-content table.tableblock { table-layout: auto; width: 100% !important; }
+  .td-content table.tableblock th,
+  .td-content table.tableblock td { hyphens: auto; overflow-wrap: anywhere; }
+  .td-content :not(pre) > code { white-space: normal; overflow-wrap: anywhere; }
+  .td-content :is(h1, h2, h3, h4, h5, h6) { hyphens: auto; overflow-wrap: anywhere; }
+}
