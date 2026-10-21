@@ -1,7 +1,7 @@
 # Lern-Apps (Monorepo) – instructions for AI agents
 
 All learning apps (Mathe, Physik, Chemie; about 20 per school year) and later the Mathe-Karte live in this one
-repository: one shared kern, one layout, one build (Eleventy 3.1.6), deployed to GitHub Pages at
+repository: one shared kern, one layout, one build (Eleventy 3.1.7), deployed to GitHub Pages at
 `https://lernapps.github.io/`. The old single-app repos (`raifdmueller.github.io/*-trainer`, `mathe-karte`,
 `lern-app-template`) were deleted on 23.09.2026: never link to them or rely on them.
 

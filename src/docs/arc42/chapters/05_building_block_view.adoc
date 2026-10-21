@@ -33,7 +33,7 @@ Person(kind, "Lernende", "Kind, ~13 Jahre")
 Person(autor, "App-Autor:in", "Mensch mit Claude Code und dem Skill lern-app")
 
 System_Boundary(lernapps, "Lern-Apps (Monorepo lernapps.github.io)") {
-  Container(build, "Build", "Node, Eleventy 3.1.6", "lib/, eleventy.config.js: Apps laden, Bilder zeichnen, prüfen, ?v= setzen")
+  Container(build, "Build", "Node, Eleventy 3.1.7", "lib/, eleventy.config.js: Apps laden, Bilder zeichnen, prüfen, ?v= setzen")
   Container(layout, "Layout", "Nunjucks", "src/_includes/, src/start.njk, test.njk, manifest.njk, index.njk, llms.njk")
   Container(kern, "Kern", "ES-Module, CSS", "src/kern/ → /kern/: Zufall, Zahlen, Prüfung, Trainer, Test, Video, Speicher, SVG")
   Container(apps, "Apps", "ES-Module, Markdown, Nunjucks", "src/<app>/: app.config.js, <id>.md, aufgaben/, vis/, llms.njk, tutor.njk")
