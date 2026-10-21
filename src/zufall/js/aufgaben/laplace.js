@@ -48,6 +48,9 @@ export const LAPLACE_EREIGNISSE = {
 const KARTEN_FARBEN = [["Kreuz", "♣", "#212121"], ["Pik", "♠", "#212121"], ["Herz", "♥", "#c62828"], ["Karo", "♦", "#c62828"]];
 const KARTEN_WERTE = ["7", "8", "9", "10", "B", "D", "K", "A"];
 const WERT_NAMEN = { B: "Bube", D: "Dame", K: "König", A: "Ass" };
+// „Herz Bube, B“: der Name enthält den Wert, den die Karte zeigt, als eigenes Wort (axe label-content-name-mismatch;
+// „(B)“ zählt dort nicht als Wort). „Pik 7“ enthält ihn ohnehin.
+const kartenName = (farbe, wert) => (WERT_NAMEN[wert] ? `${farbe} ${WERT_NAMEN[wert]}, ${wert}` : `${farbe} ${wert}`);
 
 function mengeWuerfel(code) {
   const ev = LAPLACE_EREIGNISSE.wuerfel[code] || LAPLACE_EREIGNISSE.wuerfel.gerade;
@@ -80,7 +83,7 @@ function mengeKarten(code) {
   const ev = LAPLACE_EREIGNISSE.karten[code] || LAPLACE_EREIGNISSE.karten.herz;
   const elemente = [];
   for (const [farbe, symbol, hex] of KARTEN_FARBEN) for (const wert of KARTEN_WERTE) {
-    elemente.push({ id: `${farbe}${wert}`, label: `${symbol}${wert}`, name: `${farbe} ${WERT_NAMEN[wert] ?? wert}`, farbe: hex, guenstig: ev.test({ farbe, wert }) });
+    elemente.push({ id: `${farbe}${wert}`, label: `${symbol}${wert}`, name: kartenName(farbe, wert), farbe: hex, guenstig: ev.test({ farbe, wert }) });
   }
   return { art: "karten", kontext: "Ein Skatspiel hat 32 Karten: je 8 Karten in Kreuz, Pik, Herz und Karo (7, 8, 9, 10, Bube, Dame, König, Ass). Du ziehst eine Karte.", ereignisName: ev.name, code, elemente };
 }

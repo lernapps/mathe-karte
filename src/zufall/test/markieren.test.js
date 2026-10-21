@@ -33,8 +33,16 @@ test("zugängliche Namen: Farbe und Nummer bei Kugeln, Farbe und Wert bei Karten
   assert.match(text, /aria-label="blaue Kugel 2"/);
   assert.match(text, /aria-label="gelbe Kugel 1"/);
   const karten = zeichne(laplace.erzeugeAufgabe(erzeugeZufall(1), { experiment: "karten", ereignis: "bube" })).text;
-  assert.match(karten, /aria-label="Herz Bube"/);
+  assert.match(karten, /aria-label="Herz Bube, B"/);
+  assert.match(karten, /aria-label="Pik 7"/);
   assert.equal(knoepfe(karten).length, 32);
+});
+
+// axe label-content-name-mismatch: der sichtbare Text eines Knopfs steht in seinem Namen. Eine Bildkarte zeigt „♥B“;
+// „Herz Bube“ allein enthält das B nicht als Wort, „Herz Bube (B)“ für axe auch nicht.
+test("der Name einer Karte enthält ihren sichtbaren Wert", () => {
+  const { menge } = laplace.erzeugeAufgabe(erzeugeZufall(1), { experiment: "karten", ereignis: "bube" });
+  for (const e of menge.elemente) assert.ok(new RegExp(`(^| )${e.label.slice(1)}$`).test(e.name), `${e.name} enthält ${e.label}`);
 });
 
 test("Markierung überlebt das Neuzeichnen nach Prüfen: aus aufgabe.markiert, mit Haken", () => {
