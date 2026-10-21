@@ -5,7 +5,7 @@
 === ADR-001: Statische Site auf GitHub Pages, kein Backend
 
 *Kontext.* Die Nutzer sind Kinder; die Apps kosten nichts und werden von einer Person mit einem
-KI-Agenten gebaut. edugo nennt als Qualitätsziel „Zero-server deployability“. Die Mathe-Karte führt
+KI-Agenten gebaut. Qualitätsziel ist „Zero-server deployability“. Die Mathe-Karte führt
 `backend: none` als Eigenschaft jedes Eintrags.
 
 *Entscheidung.* Alle Lern-Apps sind eine statische Site auf GitHub Pages. Es gibt keinen Server, keine

@@ -1,8 +1,8 @@
 # Datenmodell der Mathe-Karte
 
-Die Daten der Karte liegen als Markdown mit flachem YAML-Frontmatter unter `src/karte/daten/` (edugo-kompatibel: nur Strings, Zahlen und `[a, b]`-Listen, keine verschachtelten Maps). Eleventy liest sie beim Build als Daten der Karte (`src/karte/karte.11tydata.js` → `lib/karte/laden.js`), prüft Referenzen und Enums und rendert daraus `data.json` (ohne Zeitstempel, deterministisch) und die statischen Seiten. Jeder Datenfehler bricht `npm run build` ab. Die Felder je Typ beschreibt `src/karte/schemas/<typ>.schema.json`.
+Die Daten der Karte liegen als Markdown mit flachem YAML-Frontmatter unter `src/karte/daten/` (flach: nur Strings, Zahlen und `[a, b]`-Listen, keine verschachtelten Maps). Eleventy liest sie beim Build als Daten der Karte (`src/karte/karte.11tydata.js` → `lib/karte/laden.js`), prüft Referenzen und Enums und rendert daraus `data.json` (ohne Zeitstempel, deterministisch) und die statischen Seiten. Jeder Datenfehler bricht `npm run build` ab. Die Felder je Typ beschreibt `src/karte/schemas/<typ>.schema.json`.
 
-Einträge (Apps) stehen nicht mehr als Markdown hier: eine App des Repositorys trägt sie in ihrer Konfiguration `src/<app>/js/app.config.js` – `APP.kartenEintrag` mit den edugo-Feldern und je Kompetenz `kartenKnoten` (Liste von Knoten-ids). id, Titel, Adresse, Quellcode und Beschreibung kommen aus `APP`, `jahrgaenge` fehlt → `[APP.klasse]`. Apps außerhalb des Repositorys (und übergangsweise noch nicht migrierte) stehen in `externe-eintraege.js`.
+Einträge (Apps) stehen nicht mehr als Markdown hier: eine App des Repositorys trägt sie in ihrer Konfiguration `src/<app>/js/app.config.js` – `APP.kartenEintrag` mit den Eintrags-Feldern und je Kompetenz `kartenKnoten` (Liste von Knoten-ids). id, Titel, Adresse, Quellcode und Beschreibung kommen aus `APP`, `jahrgaenge` fehlt → `[APP.klasse]`. Apps außerhalb des Repositorys (und übergangsweise noch nicht migrierte) stehen in `externe-eintraege.js`.
 
 ## Typen und Ablage
 
@@ -18,7 +18,7 @@ Knoten stehen nicht für Lehrplaneinheiten, sondern für Inhalte: welche Einheit
 
 ## Abdeckung
 
-Der Build (`lib/karte/daten.js`) berechnet je Kompetenz `abdeckung` (Liste der Eintrags-ids, die den Knoten nennen) und `status`: `keine` (kein Eintrag), `ungeprueft` (Einträge vorhanden, keiner mit `dsgvo: green`), `gruen` (mindestens ein Eintrag mit `dsgvo: green`). Grün vergibt kein Eintrag selbst, sondern erst eine Prüfung (edugo: `backend: none`, `external-requests: none` und Netzwerk-Audit).
+Der Build (`lib/karte/daten.js`) berechnet je Kompetenz `abdeckung` (Liste der Eintrags-ids, die den Knoten nennen) und `status`: `keine` (kein Eintrag), `ungeprueft` (Einträge vorhanden, keiner mit `dsgvo: green`), `gruen` (mindestens ein Eintrag mit `dsgvo: green`). Grün vergibt kein Eintrag selbst, sondern erst eine Prüfung (`backend: none`, `external-requests: none` und Netzwerk-Audit).
 
 ## Zwei verschiedene Arten von "nichts"
 

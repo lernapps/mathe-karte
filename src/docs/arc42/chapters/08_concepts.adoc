@@ -233,7 +233,7 @@ reine Daten ohne DOM; Build, Seiten und Tests lesen sie, der Kern nie.
 | `APP.pfad` | Ordner unter `src/` und URL-Pfad; `lib/apps.js:15` prüft die Gleichheit.
 | `APP.titel`, `kurzname`, `beschreibung`, `intro`, `klasse` | Texte für Übersicht, Kopf, Manifest, Karte.
 | `APP.fach` | Wählt die Fachfarbe (8.11); unbekanntes Fach bricht den Build.
-| `APP.kartenEintrag` | edugo-Felder für die Mathe-Karte (8.14); optional.
+| `APP.kartenEintrag` | Eintrags-Felder für die Mathe-Karte (8.14); optional.
 | `KOMPETENZEN` | Reihenfolge = Checklisten-Nummer; je Eintrag `id`, `titel`, `kurz`, `seite`, `generator`, optional `kartenKnoten`.
 |===
 
@@ -315,7 +315,7 @@ Seite nennt (`:31-33`).
 Entschieden in xref:09_architecture_decisions.adoc#adr-018[ADR-018]. Die Daten liegen als Markdown mit
 flachem YAML-Front-Matter unter `src/karte/daten/` (Leitideen, Kompetenzen = Knoten, Lehrpläne von 16
 Ländern, Zuordnungen); Schemas in `src/karte/schemas/`, Beschreibung in `src/karte/daten/README.md`.
-Eine App erscheint auf der Karte, wenn ihre Konfiguration `APP.kartenEintrag` (edugo-Felder
+Eine App erscheint auf der Karte, wenn ihre Konfiguration `APP.kartenEintrag` (Eintrags-Felder
 `aktiv-level`, `backend`, `external-requests`, `dsgvo`, `evidence`, `jahrgaenge`, `lizenz`, `stand`)
 trägt und Kompetenzen `kartenKnoten` nennen (`lib/karte/eintraege.js:15-34`). Unbekannte Knoten brechen
 den Build. Apps außerhalb des Repos stehen in `src/karte/daten/externe-eintraege.js` (heute leer).

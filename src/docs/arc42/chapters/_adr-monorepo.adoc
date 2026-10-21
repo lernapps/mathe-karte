@@ -214,7 +214,7 @@ Eintragsdatei eingetragen. Titel, Adresse und Kompetenzen standen damit doppelt 
 laufen.
 
 *Entscheidung.* Die Karte liegt unter `src/karte/` und wird von Eleventy gebaut (Commits `e6123d1`,
-`cfcfb9e`). Eine App trägt ihren Eintrag selbst: `APP.kartenEintrag` mit den edugo-Feldern und
+`cfcfb9e`). Eine App trägt ihren Eintrag selbst: `APP.kartenEintrag` mit den Eintrags-Feldern und
 `kartenKnoten` je Kompetenz. Titel, Adresse, Quellcode und Beschreibung kommen aus `APP`. Ein
 unbekannter Knoten bricht den Build (`lib/karte/eintraege.js:37-50`). Die Karte ist keine App.
 
