@@ -160,7 +160,7 @@ Für Termfelder mit Variablen (Feldtyp "variablenterm", z. B. binomische Formeln
 
 URL: {{ app.basisUrl }}index.html
 Checkliste aller Kompetenzen mit Selbsteinschätzung pro Zeile: Sicher / Teils / Noch
-üben (Radiobuttons, localStorage, Schlüssel `{{ app.id }}.selbsteinschaetzung`).
+üben (Radiobuttons, localStorage, Schlüssel `{{ app.speicher }}.selbsteinschaetzung`).
 Der Tutor kann das Kind bitten, seine Einschätzung vorzulesen, um zu entscheiden,
 wo er anfängt. Für Aufgaben nicht hierhin verlinken.
 
@@ -185,7 +185,7 @@ Rückfrage als falsch. "Abbrechen" führt zur Startseite, ohne zu speichern.
   Die Ziffern sind die Kompetenznummern der Checkliste. Bei der Nummer kannst du
   denselben Test unter test.html?nr=4711&modus=schnell nachvollziehen – verrate
   dem Kind die Aufgaben aber nicht vorab.
-- Das letzte Ergebnis liegt im localStorage (`{{ app.id }}.test`) und erscheint in
+- Das letzte Ergebnis liegt im localStorage (`{{ app.speicher }}.test`) und erscheint in
   der Checkliste der Startseite als Spalte "Test" mit der Zeile "Letzter Test:
   Nr. 4711, Schnelltest, 23.09.2026".
 

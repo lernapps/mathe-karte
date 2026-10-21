@@ -4,8 +4,11 @@
  */
 
 export const APP = {
-  // localStorage-Präfix aus der alten Einzel-App. Nie ändern, sonst ist die gespeicherte Selbsteinschätzung weg.
+  // Name der App in der Mathe-Karte (Einträge, abdeckung, data.json). Nie ändern.
   id: "prozent-trainer",
+  // localStorage-Präfix: die App ist ein Baustein der Mathe-Karte und speichert nur unter deren Namen im Katalog von
+  // lernapps.net (Regel own-data-only, lib/apps.js prüft es). Nie ändern, sonst ist die Selbsteinschätzung weg.
+  speicher: "lernapps:mathe-karte:prozent",
   pfad: "prozent", // Ordner unter src/ und Pfad der App: <Basis-URL>prozent/
   titel: "Prozent-Trainer",
   kurzname: "Prozente", // Name unter dem App-Symbol (Manifest)

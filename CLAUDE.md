@@ -113,8 +113,10 @@ repository: one shared kern, one layout, one build (Eleventy 3.1.6), deployed to
 7. `npm test && npm run build`, then check the page in the browser.
 
 ## New app
-1. `src/<pfad>/js/app.config.js` with `APP = { id, pfad, titel, kurzname, fach, klasse, beschreibung, intro }` and
-   `KOMPETENZEN`. `id` is the localStorage prefix – never change it after launch. `pfad` equals the folder name.
+1. `src/<pfad>/js/app.config.js` with `APP = { id, speicher, pfad, titel, kurzname, fach, klasse, beschreibung, intro }` and
+   `KOMPETENZEN`. `speicher: "lernapps:mathe-karte:<pfad>"` is the localStorage prefix (rule own-data-only of
+   lernapps.net; `lib/apps.js` checks it); `id` names the app on the map. Never change either after launch. `pfad`
+   equals the folder name.
 2. `src/<pfad>/<pfad>.11tydata.js`: `import { appDaten } from "../../lib/app-daten.js"; export default appDaten("<pfad>");`
 3. Icons (`favicon.svg`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`) in the subject colour.
 4. `llms.njk` and `tutor.njk` (front matter: `permalink: "{{ page.filePathStem }}.txt"` resp. `.md`,

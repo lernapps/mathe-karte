@@ -1,6 +1,6 @@
 /*
  * Selbsteinschätzung und letztes Testergebnis im localStorage – der einzige Speicherort, immer mit try/catch. Generisch.
- * Der Kern kennt keine App: die Seite übergibt das Präfix (APP.id) an erzeugeSpeicher (Dependency Inversion).
+ * Der Kern kennt keine App: die Seite übergibt das Präfix (APP.speicher) an erzeugeSpeicher (Dependency Inversion).
  */
 export const STUFEN = ["S", "T", "Ü"];
 
@@ -47,7 +47,7 @@ function schreibe(schluessel, daten) {
 /** Speicherfunktionen für eine App; alle Schlüssel beginnen mit `<praefix>.`. */
 /** @param {string} praefix */
 export function erzeugeSpeicher(praefix) {
-  if (typeof praefix !== "string" || praefix.trim() === "") throw new Error("Speicher braucht ein Präfix (APP.id)");
+  if (typeof praefix !== "string" || praefix.trim() === "") throw new Error("Speicher braucht ein Präfix (APP.speicher)");
   const SCHLUESSEL = `${praefix}.selbsteinschaetzung`;
   const SCHLUESSEL_TEST = `${praefix}.test`;
 

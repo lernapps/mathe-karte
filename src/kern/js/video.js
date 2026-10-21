@@ -1,5 +1,5 @@
 /* Zwei-Klick-Einbettung für YouTube-Videos: keine Anfrage an YouTube/Google, bevor der Lernende klickt. Generisch.
- * Das localStorage-Präfix übergibt die Seite (APP.id); die Farbe kommt aus der CSS-Variablen der Fachfarbe. */
+ * Das localStorage-Präfix übergibt die Seite (APP.speicher); die Farbe kommt aus der CSS-Variablen der Fachfarbe. */
 import { el } from "./aufgabe-eingabe.js";
 
 /** @typedef {{ id: string, titel: string, kanal: string }} VideoDaten */
@@ -136,7 +136,7 @@ function zeigePlatzhalter(section, daten, praefix) {
 }
 
 /**
- * praefix: APP.id. Wandelt alle Elemente class="video-karte" mit data-youtube-id und data-titel in Zwei-Klick-Karten um:
+ * praefix: APP.speicher. Wandelt alle Elemente class="video-karte" mit data-youtube-id und data-titel in Zwei-Klick-Karten um:
  * den Abschnitt #video bei einem Video, je ein <div> mit <h3> bei mehreren (videos: im Front Matter, TD-17).
  * @param {string} praefix @param {ParentNode} [wurzel]
  */

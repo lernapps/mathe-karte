@@ -19,7 +19,7 @@ import { vomTutor, zurueckKnopf } from "./zurueck.js";
  */
 export function starteTestseite({ app, kompetenzen, generatoren }) {
   const KOMPETENZEN = nummeriere(kompetenzen);
-  const { speichereTest } = erzeugeSpeicher(app.id);
+  const { speichereTest } = erzeugeSpeicher(app.speicher);
   const query = window.location.search;
   const nr = leseSeed(query) ?? zufaelligeAufgabennummer();
   let modus = leseModus(query);

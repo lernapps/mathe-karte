@@ -115,7 +115,7 @@ Autor:in, kein Baustein der Site: Er wird weder gebaut noch ausgeliefert, sonder
 | `test/kern/`, `test/build/`, `test/apps/`, `src/<app>/test/`, `src/karte/test/`, `.github/workflows/`
 | [[bb-speicher]]Browser-Speicher
 | Merkt Selbsteinschätzung, letzten Test und Video-Merker, nur im Browser des Kindes.
-| Schlüssel `<APP.id>.selbsteinschaetzung`, `<APP.id>.test`, `<APP.id>.video-direkt`, `talkitover.provider`
+| Schlüssel `<APP.speicher>.selbsteinschaetzung`, `<APP.speicher>.test`, `<APP.speicher>.video-direkt`, `lernapps:mathe-karte:talkitover.provider`
 | `localStorage`; Zugriff nur über `src/kern/js/storage.js`, `src/kern/js/video.js`, `src/kern/vendor/talkitover.js`
 |===
 

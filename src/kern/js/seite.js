@@ -10,10 +10,10 @@ import { starteTrainer } from "./ui.js";
 import { initVideos } from "./video.js";
 import { vomTutor, zurueckKnopf, uebungsZeile } from "./zurueck.js";
 
-/** App-Konfiguration (APP in js/app.config.js). @typedef {{ id: string, titel: string }} App */
+/** App-Konfiguration (APP in js/app.config.js). @typedef {{ id: string, speicher: string, titel: string }} App */
 
 /**
- * app: APP aus js/app.config.js (id = localStorage-Präfix). modul: der Generator (js/aufgaben/<id>.js); welche
+ * app: APP aus js/app.config.js (speicher = localStorage-Präfix). modul: der Generator (js/aufgaben/<id>.js); welche
  * URL-Parameter er annimmt, sagen seine Exporte URL_ZAHLEN und URL_TEXTE. zeichne(svg, aufgabe, ergebnis|undefined)
  * zeichnet das Bild zur Aufgabe in der Übung (optional), bildHinweis ergänzt dessen Beschriftung.
  * kompetenz: { nr, titel } für die Ergebniszeile von "Zurück zu Claude" (nur mit ?von=tutor, ADR-021).
@@ -21,7 +21,7 @@ import { vomTutor, zurueckKnopf, uebungsZeile } from "./zurueck.js";
  *   kompetenz?: { nr: number, titel: string } }} seite
  */
 export function starteSeite({ app, modul, zeichne, bildHinweis, kompetenz }) {
-  initVideos(app.id);
+  initVideos(app.speicher);
   const wurzel = document.getElementById("trainer");
   if (!wurzel) return undefined;
   const query = window.location.search;
