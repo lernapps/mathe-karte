@@ -1,7 +1,7 @@
 # Lern-Apps (Monorepo) – instructions for AI agents
 
 All learning apps (Mathe, Physik, Chemie; about 20 per school year) and later the Mathe-Karte live in this one
-repository: one shared kern, one layout, one build (Eleventy 3.1.6), deployed to GitHub Pages at
+repository: one shared kern, one layout, one build (Eleventy 3.1.7), deployed to GitHub Pages at
 `https://lernapps.github.io/`. The old single-app repos (`raifdmueller.github.io/*-trainer`, `mathe-karte`,
 `lern-app-template`) were deleted on 23.09.2026: never link to them or rely on them.
 
@@ -137,7 +137,8 @@ repository: one shared kern, one layout, one build (Eleventy 3.1.6), deployed to
 - The reviewer posts a PR review (type comment) starting with `## KI-Review`, with the lines `Stand: <head SHA>` and
   `Ergebnis: freigegeben` or `Ergebnis: Änderungen nötig`, and the findings. Unfixed findings get a reason in the PR.
 - The check `ki-review` (`.github/workflows/ki-review.yml`, read-only token, no LLM call) is green only if the newest
-  such review from `raifdmueller` came after the last commit and names the head SHA. Every new commit needs a new review.
+  such review from an account with admin permission on the repo (the
+  owners of the lernapps organisation, or an admin of this repo) came after the last commit and names the head SHA. Every new commit needs a new review.
 - Architecture review (ADR-030): if a PR touches ADR bodies (`src/docs/arc42/chapters/_adr-*.adoc`), the dated ATAM reports
   (`_atam-*.adoc`) or arc42 chapter 1, 4, 5, 9 or 10 (`ARCHITEKTUR_PFADE` in `scripts/ki-review-pruefen.js`), the review needs a section
   `### Architektur (ATAM)` evaluating the change against the utility tree (chapter 10) and the newest ATAM report

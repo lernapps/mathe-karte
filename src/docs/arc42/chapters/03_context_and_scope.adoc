@@ -68,7 +68,7 @@ Rel(lernapps, pages, "wird ausgeliefert als ein Artefakt", "deploy-pages")
 | GitHub Issues | Nichts. Die Seite enthält nur einen Link; erst der Klick öffnet GitHub. | Rückmeldungen als Issues, die die Autor:in liest. GitHub verlangt ein Konto und ein Mindestalter von 13 Jahren.
 | GitHub | Quellcode, Commits, Pull Requests | CI-Läufe (`pruefen.yml`, `pages.yml`), Organisation und Rechte
 | GitHub Pages | Ein Artefakt: Eleventy-Ausgabe `_site/` mit der Doku unter `_site/docs/` | HTTPS-Auslieferung unter `https://lernapps.github.io/`
-| Paketquellen | Anfragen von `npm ci` und `scripts/dtc-v4.sh` | Eleventy 3.1.6 samt transitiven Paketen (`package-lock.json`); docToolchain `main-4.x@6de96fb7` und seine Gradle-Abhängigkeiten
+| Paketquellen | Anfragen von `npm ci` und `scripts/dtc-v4.sh` | Eleventy 3.1.7 samt transitiven Paketen (`package-lock.json`); docToolchain `main-4.x@6de96fb7` und seine Gradle-Abhängigkeiten
 |===
 
 Der Skill `lern-app`, mit dem die Autor:in neue Apps anlegt, ist kein Nachbar mehr: Er liegt seit PR #7

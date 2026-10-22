@@ -94,7 +94,8 @@ not a finding.
 ## Phase 4 — Post the result
 
 Post it as a PR review of type "comment" (you may not approve your own account's PR; "comment" works and
-starts the check). The body must start with the heading line, and the lines `Stand:` and `Ergebnis:` must
+starts the check), from an account with admin permission on the repo (an owner of the lernapps organisation, or
+an admin of this repo): the check counts only those. The body must start with the heading line, and the lines `Stand:` and `Ergebnis:` must
 appear exactly as shown, each on its own line, without bold:
 
 ```
