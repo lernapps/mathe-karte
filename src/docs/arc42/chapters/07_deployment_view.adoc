@@ -109,7 +109,7 @@ HTML-Seite selbst kann bis zu zehn Minuten alt sein (xref:11_technical_risks.ado
 
 [source,bash]
 ----
-npm ci                          # Eleventy 3.1.6 exakt nach package-lock.json
+npm ci                          # Eleventy 3.1.7 exakt nach package-lock.json
 npm test                        # Unit-, Vertrags- und Build-Tests
 npm run build                   # _site/, bricht bei Regelverstößen ab
 npm run serve                   # Dev-Server

@@ -1,8 +1,8 @@
 /*
  * Check `ki-review` (#24, ADR-027): Ist der aktuelle Stand eines PRs von einem KI-Review freigegeben?
  * Ein Beitrag (PR-Kommentar oder Review-Text) zählt als KI-Review, wenn
- *   - ein Konto aus `konten` ihn geschrieben hat: ein Owner der Organisation, also ein Konto mit Admin-Rechten am Repo
- *     (der Workflow fragt die Rechte der Autoren aus reviewAutoren ab),
+ *   - ein Konto aus `konten` ihn geschrieben hat: ein Konto mit Admin-Rechten am Repo, also ein Owner der Organisation
+ *     oder ein Admin dieses Repos (der Workflow fragt die Rechte der Autoren aus reviewAutoren ab),
  *   - er mit der Überschrift `## KI-Review` beginnt,
  *   - er nach dem letzten Commit kam (`zeit` > `commitZeit`) und
  *   - seine Zeile `Stand: <sha>` (mindestens 7 Zeichen) den Kopf-Commit des PRs nennt.
@@ -75,7 +75,7 @@ export function pruefeKiReview({ beitraege, kopfSha, commitZeit, konten, dateien
   if (!neuestes) {
     return {
       ok: false,
-      grund: `Kein KI-Review für ${kopf.slice(0, 7)} nach dem letzten Commit (${commitZeit}) von einem Owner der Organisation. ` +
+      grund: `Kein KI-Review für ${kopf.slice(0, 7)} nach dem letzten Commit (${commitZeit}) von einem Owner der Organisation oder Admin des Repos. ` +
         "Review in frischem Kontext laufen lassen (werkzeuge/review/ki-review.md) und das Ergebnis posten.",
     };
   }
