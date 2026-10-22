@@ -21,7 +21,9 @@ als PR-Review vom Typ „Comment“; es beginnt mit `## KI-Review` und nennt `St
 
 Der Check `ki-review` (`.github/workflows/ki-review.yml`, `scripts/ki-review-pruefen.js`) macht den
 Schritt sichtbar. Er ist grün, wenn das neueste KI-Review eines berechtigten Kontos nach dem letzten
-Commit kam, den Kopf-Commit nennt und „freigegeben“ sagt. Nach jedem neuen Commit fehlt er, bis ein neues Review kommt. Der
+Commit kam, den Kopf-Commit nennt und „freigegeben“ sagt. Berechtigt ist jedes Konto mit Admin-Rechten am
+Repo: die Owner der Organisation lernapps und Admins dieses Repos (seit 22.10.2026; vorher allein das Konto des
+Product Owners). Nach jedem neuen Commit fehlt er, bis ein neues Review kommt. Der
 Check ruft kein Sprachmodell auf, braucht kein Secret und liest nur, mit dem `GITHUB_TOKEN` und
 Leserechten. Er startet nur bei `pull_request_review`: Ein `issue_comment`-Lauf hinge am letzten
 Commit von `main` und erschiene nicht im PR, und ein zusätzlicher `pull_request`-Lauf ließe sein rotes
@@ -57,7 +59,9 @@ Begründung im PR. Das mindert xref:11_technical_risks.adoc#r-026[R-026], löst 
 Autor und Reviewer posten über dasselbe Konto, der Check prüft also Konto, Zeitpunkt und Stand, nicht die
 Unabhängigkeit des Kontexts. Ein Review aus demselben Modell teilt dessen blinde Flecken. Workflow und
 Skript kommen aus dem PR-Zweig; ein PR könnte den Check selbst aufweichen, deshalb
-gehört jede Änderung an `ki-review.yml` und `ki-review-pruefen.js` ausdrücklich ins Review. Admins
+gehört jede Änderung an `ki-review.yml` und `ki-review-pruefen.js` ausdrücklich ins Review. Seit
+22.10.2026 darf jedes Konto mit Admin-Rechten das Review posten, nicht mehr nur das des Product Owners; der
+Kreis wächst damit, aber nicht über die hinaus, die den Branch-Schutz ohnehin umgehen können. Admins
 können den Branch-Schutz weiter umgehen. Ein fehlerhaftes Beispiel in einem Lerntext fängt das Review nur,
 wenn es nachrechnet; die Checkliste verlangt das (xref:11_technical_risks.adoc#r-025[R-025]).
 

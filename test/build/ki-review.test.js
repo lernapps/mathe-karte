@@ -2,7 +2,7 @@
 // eines berechtigten Kontos mit „Ergebnis: freigegeben“ für genau diesen Stand vorliegt.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { pruefeKiReview, beruehrteArchitektur, ARCHITEKTUR_PFADE } from "../../scripts/ki-review-pruefen.js";
+import { pruefeKiReview, beruehrteArchitektur, ARCHITEKTUR_PFADE, reviewAutoren } from "../../scripts/ki-review-pruefen.js";
 
 const KOPF = "0123456789abcdef0123456789abcdef01234567";
 const COMMIT_ZEIT = "2026-09-24T10:00:00Z";
@@ -109,4 +109,24 @@ test("die Auslösepfade: ADRs, ATAM-Berichte im Anhang, Kapitel 1, 4, 5, 9 und 1
 test("ein Abschnitt nur im Fließtext oder mit anderer Ebene zählt nicht", () => {
   const text = `## KI-Review\nStand: ${KOPF}\nErgebnis: freigegeben\nSiehe ### Architektur (ATAM) später\n#### Architektur (ATAM)`;
   assert.equal(pruefeMit([review({ text })], ["src/docs/arc42/chapters/_adr-risiko.adoc"]).ok, false);
+});
+
+// Berechtigt ist jeder Owner der Organisation (Admin des Repos). Der Workflow fragt dafür nur die Autoren ab, die ein
+// KI-Review gepostet haben, und nur gültige GitHub-Logins (keine Bots, nichts, was den API-Pfad verändern könnte).
+test("reviewAutoren nennt jeden Autor eines KI-Reviews einmal, sonst niemanden", () => {
+  const autoren = reviewAutoren([
+    review({ autor: "raifdmueller" }),
+    review({ autor: "mrsimpson" }),
+    review({ autor: "mrsimpson", zeit: "2026-09-24T11:00:00Z" }),
+    { autor: "jemand", zeit: "2026-09-24T10:05:00Z", text: "Sieht gut aus" },
+    review({ autor: "github-actions[bot]" }),
+    review({ autor: "../orgs/x" }),
+  ]);
+  assert.deepEqual(autoren, ["mrsimpson", "raifdmueller"]);
+});
+
+test("ohne berechtigtes Konto sagt der Grund, wer ein Review posten darf", () => {
+  const e = pruefeKiReview({ beitraege: [review({ autor: "jemand" })], kopfSha: KOPF, commitZeit: COMMIT_ZEIT, konten: [] });
+  assert.equal(e.ok, false);
+  assert.match(e.grund, /Owner der Organisation/);
 });
