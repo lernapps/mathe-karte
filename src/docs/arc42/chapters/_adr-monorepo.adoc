@@ -426,3 +426,42 @@ einen richtigen Schritt als falsch werten
 (xref:11_technical_risks.adoc#r-023[R-023]); die Leitfrage statt der fertigen Korrektur lässt das Kind
 widersprechen, und das Ergebnis prüft weiter die App. Ob der Tutor Schritte richtig beurteilt, prüft kein
 automatischer Test, nur der Tutor-Dialog (xref:08_concepts.adoc#section-test-concept[8.3]).
+
+[[adr-032]]
+=== ADR-032: Speicher-Präfix `lernapps:mathe-karte:<pfad>`: die Apps als Bausteine der Mathe-Karte
+
+*Kontext.* lernapps.net liefert von jeder gelisteten App eine Kopie unter `lernapps.net/apps/start/<id>/`
+aus. Alle Apps des Katalogs teilen sich damit einen Ursprung und denselben `localStorage`. Die Regel
+own-data-only von lernapps.net verlangt deshalb, dass eine App nur Schlüssel liest und schreibt, die mit
+ihrem Namen im Katalog beginnen, hier `lernapps:mathe-karte:`. binom, prozent und zufall waren einmal eigene
+Apps und speicherten unter `binom-trainer.…`, `prozent-trainer.…` und `zufall-trainer.…`; dasselbe `APP.id`
+ist zugleich der Name der App in der Mathe-Karte (Einträge, `abdeckung`, `data.json`, öffentlicher Vertrag).
+
+*Entscheidung.* Jede App bekommt das Feld `APP.speicher = "lernapps:mathe-karte:<pfad>"`; der Kern
+(`erzeugeSpeicher`, `initVideos`) bekommt es statt `APP.id` (<<adr-013,ADR-013>>).
+`lib/apps.js` bricht den Build ab, wenn eine App es nicht so setzt. `APP.id` bleibt. Der eingebundene
+Tutor-Button und das Theme der Doku speichern ebenfalls mit dem Präfix. Die Daten unter den alten
+Schlüsseln werden nicht übernommen.
+
+*Status.* Accepted. Vom Owner der Organisation entschieden am 21.10.2026, mit dem Product Owner abgestimmt.
+
+[cols="2,1,1,1",options="header"]
+|===
+| Ziel | `APP.speicher`, alte Daten verworfen (Referenz) | `APP.id` wird das Präfix | Alte Schlüssel einmal übernehmen
+| QZ-1 Datenschutz | 0 | 0 | -1
+| QZ-2 Tutor-Anschluss | 0 | -1 | 0
+| QZ-3 Richtige Rückmeldung | 0 | 0 | 0
+| QZ-4 Neue Apps schnell | 0 | 0 | 0
+| QZ-5 Zugänglich | 0 | 0 | 0
+| *Summe* | *0* | *-1* | *-1*
+|===
+
+`APP.id` als Präfix hätte die Namen in `data.json` und die Deep Links der Karte geändert (QZ-2 −1). Die
+alten Schlüssel zu übernehmen, hieße fremde Schlüssel zu lesen, also genau das, was own-data-only
+verbietet; die Kopie auf lernapps.net bestünde die Prüfung nicht (QZ-1 −1).
+
+*Konsequenzen.* Die Apps erfüllen own-data-only, und lernapps.net kann sie als Kopie ausliefern. Lernende
+verlieren mit Version 0.12.0 einmalig ihre Selbsteinschätzung, das letzte Testergebnis und die
+Video-Einstellung; die Daten lagen nur auf ihrem Gerät, sie markieren die Stufen neu. Eine neue App muss
+`speicher` setzen; der Build sagt es ihr. Accepted without further tracked risk.
+
