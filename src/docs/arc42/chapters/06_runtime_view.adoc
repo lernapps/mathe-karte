@@ -127,7 +127,7 @@ loop je Kompetenz (1 Aufgabe im Schnelltest)
   test -> app : pruefeAntwort(…).korrekt
 end
 test -> storage : speichereTest({ nr, modus, datum, ergebnis })
-storage -> ls : setItem("<APP.id>.test", …)
+storage -> ls : setItem("<APP.speicher>.test", …)
 test -> kind : "Test Nr. 4711 (<App>, Schnelltest): 1 ✓ 2 ~ 3 ✗"
 kind -> claude : fügt die Zeile ein
 @enduml
@@ -146,8 +146,8 @@ participant "Kern: Video\n(video.js)" as video
 participant "Browser-Speicher" as ls
 participant "YouTube\n(youtube-nocookie.com)" as yt
 
-seite -> video : initVideos(APP.id)
-video -> ls : getItem("<APP.id>.video-direkt")
+seite -> video : initVideos(APP.speicher)
+video -> ls : getItem("<APP.speicher>.video-direkt")
 alt Merker nicht gesetzt
   video -> seite : Platzhalter: neutrales Play-Symbol (Kreis + Dreieck), Titel, Kanal, Hinweis
   note right of seite : 0 Requests an fremde Hosts

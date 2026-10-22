@@ -59,9 +59,10 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="${content.rootpath}ms-icon-144x144.png">
     <%/* lern-apps (aus lern-app-template): overlay of the v4 theme header (docToolchain main-4.x@6de96fb7).
-         Only two changes, both marked "lern-app-template"; re-sync with the theme when upgrading.
+         Only three changes, all marked "lern-app-template"; re-sync with the theme when upgrading.
          1) theme-color from microsite.colorPrimary - Refs docToolchain/docToolchain#1700
-         2) project stylesheet css/lern-app.css below doctoolchain-v4.css */%>
+         2) project stylesheet css/lern-app.css below doctoolchain-v4.css
+         3) localStorage key lernapps:mathe-karte:dtc-theme (rule own-data-only of lernapps.net), as in footer.gsp */%>
     <meta name="theme-color" content="${config.site_colorPrimary ?: '#ffffff'}">
 
     <script src="${content.rootpath}js/jquery-3.5.1.min.js"></script>
@@ -251,7 +252,7 @@
         // apply persisted colour scheme before first paint (no flash)
         (function () {
             try {
-                var t = localStorage.getItem('dtc-theme');
+                var t = localStorage.getItem('lernapps:mathe-karte:dtc-theme'); // lern-app-template (3)
                 if (!t) {
                     t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                 }

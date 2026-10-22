@@ -17,9 +17,9 @@ function zeigeLetztenTest(letzterTest) {
   document.querySelector("[data-letzter-test]")?.replaceChildren("Letzter Test: ", link);
 }
 
-/** app: APP aus js/app.config.js (id = localStorage-Präfix). @param {{ app: import("./seite.js").App }} seite */
+/** app: APP aus js/app.config.js (speicher = localStorage-Präfix). @param {{ app: import("./seite.js").App }} seite */
 export function starteStartseite({ app }) {
-  const speicher = erzeugeSpeicher(app.id);
+  const speicher = erzeugeSpeicher(app.speicher);
   const letzterTest = speicher.ladeLetztenTest();
   if (letzterTest) zeigeLetztenTest(letzterTest);
 

@@ -20,7 +20,8 @@
  */
 (function () {
   const VERSION = "1.1.0";
-  const STORAGE_KEY = "talkitover.provider";
+  // Local change for lernapps.net (rule own-data-only): every key starts with the app's catalog name.
+  const STORAGE_KEY = "lernapps:mathe-karte:talkitover.provider";
 
   /* Above this length a provider link is no longer safe. Beyond it the prompt
    * goes to the clipboard instead — a click more for the reader, but nothing

@@ -7,6 +7,7 @@ import {
   nummeriere, MODI, MODUS_NAMEN, SYMBOLE, STUFEN_NAMEN, leseModus, testAufgaben, fasseZusammen, ergebnisZeile, testLink,
 } from "./testablauf.js";
 import { erzeugeTestaufgabe, pruefeTestaufgabe, istLeer, bildFuer } from "./testaufgaben.js";
+import { initScrollbereiche } from "./scrollbereich.js";
 import { el, zeigeEingaben, zeigeAufgabentext, lieseAntworten } from "./aufgabe-eingabe.js";
 import { kopiereText } from "./aufgabenlink.js";
 import { erzeugeSpeicher } from "./storage.js";
@@ -19,7 +20,8 @@ import { vomTutor, zurueckKnopf } from "./zurueck.js";
  */
 export function starteTestseite({ app, kompetenzen, generatoren }) {
   const KOMPETENZEN = nummeriere(kompetenzen);
-  const { speichereTest } = erzeugeSpeicher(app.id);
+  const { speichereTest } = erzeugeSpeicher(app.speicher);
+  initScrollbereiche();
   const query = window.location.search;
   const nr = leseSeed(query) ?? zufaelligeAufgabennummer();
   let modus = leseModus(query);

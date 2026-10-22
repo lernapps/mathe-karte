@@ -55,3 +55,28 @@ a:hover { color: var(--g-800); }
 .kacheln .kachel { margin: 0; min-width: 0; }
 .kacheln .kachel img { max-width: 100%; height: auto; }
 .kacheln table.risikomatrix td { text-align: center; }
+
+/* Regel accessible von lernapps.net (WCAG 1.4.1, axe link-in-text-block): Links im Fließtext sind unterstrichen.
+   Die Farbe allein hebt sie nur 2:1 vom Text ab, verlangt sind 3:1. */
+.td-content a:not(.btn) { text-decoration: underline; }
+
+/* Regel accessible von lernapps.net (axe color-contrast): Kommentare im Code waren #5a6072 auf #15171d, 2,9:1.
+   #9aa3b5 hat 7:1. */
+.td-content pre .com { color: #9aa3b5; }
+
+/* Regel accessible von lernapps.net (axe scrollable-region-focusable): Code-Blöcke brechen um, statt waagerecht zu
+   scrollen; ein scrollender Block wäre per Tastatur nicht erreichbar. */
+.td-content pre,
+.td-content pre > code { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Regel usable-at-360px von lernapps.net: Auf schmalen Bildschirmen bricht die Navigationsleiste um, und breite
+   Tabellen, Code und lange Wörter brechen in ihrer Zelle um, statt die ganze Seite zu verbreitern. */
+@media (max-width: 47.99rem) {
+  .td-navbar .navbar-nav { flex-wrap: wrap; }
+  .td-navbar .nav-item { white-space: normal; }
+  .td-content table.tableblock { table-layout: auto; width: 100% !important; }
+  .td-content table.tableblock th,
+  .td-content table.tableblock td { hyphens: auto; overflow-wrap: anywhere; }
+  .td-content :not(pre) > code { white-space: normal; overflow-wrap: anywhere; }
+  .td-content :is(h1, h2, h3, h4, h5, h6) { hyphens: auto; overflow-wrap: anywhere; }
+}

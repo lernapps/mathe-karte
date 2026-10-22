@@ -5,9 +5,11 @@
  */
 
 export const APP = {
-  // localStorage-Präfix. Nie ändern, sonst ist die gespeicherte Selbsteinschätzung weg. Getrennt vom URL-Pfad,
-  // damit ein Umzug des Pfads die Daten nicht verliert.
+  // Name der App in der Mathe-Karte (Einträge, abdeckung, data.json). Nie ändern.
   id: "binom-trainer",
+  // localStorage-Präfix: die App ist ein Baustein der Mathe-Karte und speichert nur unter deren Namen im Katalog von
+  // lernapps.net (Regel own-data-only, lib/apps.js prüft es). Nie ändern, sonst ist die Selbsteinschätzung weg.
+  speicher: "lernapps:mathe-karte:binom",
   pfad: "binom", // Ordner unter src/ und Pfad der App: <Basis-URL>binom/
   titel: "Binomische Formeln",
   kurzname: "Binome", // Name unter dem App-Symbol (Manifest)

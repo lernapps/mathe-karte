@@ -229,7 +229,8 @@ reine Daten ohne DOM; Build, Seiten und Tests lesen sie, der Kern nie.
 [cols="2,4",options="header"]
 |===
 | Eintrag | Bedeutung
-| `APP.id` | Präfix aller `localStorage`-Schlüssel; nach dem Start nie ändern. Getrennt vom Pfad, damit ein Umzug keine Daten verliert (`binom-trainer` für `/binom/`).
+| `APP.id` | Name der App in der Mathe-Karte (Einträge, `abdeckung`, `data.json`); nach dem Start nie ändern (`binom-trainer` für `/binom/`).
+| `APP.speicher` | Präfix aller `localStorage`-Schlüssel: `lernapps:mathe-karte:<pfad>`. Alle Apps des Katalogs von lernapps.net teilen sich einen Ursprung; die Regel own-data-only verlangt den Namen im Katalog vorn. `lib/apps.js` prüft es; nach dem Start nie ändern.
 | `APP.pfad` | Ordner unter `src/` und URL-Pfad; `lib/apps.js:15` prüft die Gleichheit.
 | `APP.titel`, `kurzname`, `beschreibung`, `intro`, `klasse` | Texte für Übersicht, Kopf, Manifest, Karte.
 | `APP.fach` | Wählt die Fachfarbe (8.11); unbekanntes Fach bricht den Build.
