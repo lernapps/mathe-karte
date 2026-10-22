@@ -33,8 +33,6 @@ jobs:
       REPO: ${{ github.repository }}
       NR: ${{ github.event.pull_request.number }}
       KOPF_SHA: ${{ github.event.pull_request.head.sha }}
-      # Konten, deren KI-Review zählt. Änderung nur per PR.
-      KI_REVIEW_KONTEN: raifdmueller
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
@@ -49,5 +47,16 @@ jobs:
           gh api --paginate "repos/$REPO/pulls/$NR/files" \
             --jq '.[] | .filename, (.previous_filename // empty)' > dateien.txt
           echo "COMMIT_ZEIT=$(gh api "repos/$REPO/commits/$KOPF_SHA" --jq .commit.committer.date)" >> "$GITHUB_ENV"
+      # Berechtigt ist jeder Owner der Organisation: Owner haben Admin-Rechte an jedem ihrer Repos. Gefragt werden nur
+      # die Autoren von KI-Reviews (reviewAutoren lässt nur gültige Logins durch); ohne Antwort zählt der Autor nicht.
+      - name: Owner unter den Autoren bestimmen
+        run: |
+          konten=""
+          for login in $(node scripts/ki-review-pruefen.js --autoren beitraege.json); do
+            recht=$(gh api "repos/$REPO/collaborators/$login/permission" --jq .permission 2>/dev/null || true)
+            if [ "$recht" = admin ]; then konten="$konten,$login"; fi
+          done
+          echo "berechtigt: ${konten#,}"
+          echo "KI_REVIEW_KONTEN=${konten#,}" >> "$GITHUB_ENV"
       - name: KI-Review prüfen
         run: node scripts/ki-review-pruefen.js beitraege.json dateien.txt

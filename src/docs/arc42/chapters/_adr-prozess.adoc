@@ -21,7 +21,8 @@ als PR-Review vom Typ „Comment“; es beginnt mit `## KI-Review` und nennt `St
 
 Der Check `ki-review` (`.github/workflows/ki-review.yml`, `scripts/ki-review-pruefen.js`) macht den
 Schritt sichtbar. Er ist grün, wenn das neueste KI-Review eines berechtigten Kontos nach dem letzten
-Commit kam, den Kopf-Commit nennt und „freigegeben“ sagt. Nach jedem neuen Commit fehlt er, bis ein neues Review kommt. Der
+Commit kam, den Kopf-Commit nennt und „freigegeben“ sagt. Berechtigt ist jeder Owner der Organisation
+lernapps, erkannt an Admin-Rechten am Repo (seit 22.10.2026; vorher allein das Konto des Product Owners). Nach jedem neuen Commit fehlt er, bis ein neues Review kommt. Der
 Check ruft kein Sprachmodell auf, braucht kein Secret und liest nur, mit dem `GITHUB_TOKEN` und
 Leserechten. Er startet nur bei `pull_request_review`: Ein `issue_comment`-Lauf hinge am letzten
 Commit von `main` und erschiene nicht im PR, und ein zusätzlicher `pull_request`-Lauf ließe sein rotes

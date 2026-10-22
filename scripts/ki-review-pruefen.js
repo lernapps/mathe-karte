@@ -1,7 +1,8 @@
 /*
  * Check `ki-review` (#24, ADR-027): Ist der aktuelle Stand eines PRs von einem KI-Review freigegeben?
  * Ein Beitrag (PR-Kommentar oder Review-Text) zählt als KI-Review, wenn
- *   - ein Konto aus `konten` ihn geschrieben hat,
+ *   - ein Konto aus `konten` ihn geschrieben hat: ein Owner der Organisation, also ein Konto mit Admin-Rechten am Repo
+ *     (der Workflow fragt die Rechte der Autoren aus reviewAutoren ab),
  *   - er mit der Überschrift `## KI-Review` beginnt,
  *   - er nach dem letzten Commit kam (`zeit` > `commitZeit`) und
  *   - seine Zeile `Stand: <sha>` (mindestens 7 Zeichen) den Kopf-Commit des PRs nennt.
@@ -9,7 +10,8 @@
  * Ändert der PR eine Datei unter ARCHITEKTUR_PFADE (ADR-030), braucht das Review zusätzlich den Abschnitt
  * `### Architektur (ATAM)`.
  *   node scripts/ki-review-pruefen.js <beitraege.json> [<dateien.txt>]
- *   Umgebung: KOPF_SHA, COMMIT_ZEIT, KI_REVIEW_KONTEN (Logins, durch Komma getrennt)
+ *   Umgebung: KOPF_SHA, COMMIT_ZEIT, KI_REVIEW_KONTEN (die berechtigten Logins, durch Komma getrennt)
+ *   node scripts/ki-review-pruefen.js --autoren <beitraege.json>   die Autoren der KI-Reviews, je Zeile einer
  * Die Datei hält ein JSON-Array aus { autor, zeit, text }; der Workflow holt es mit `gh api`.
  * `dateien.txt` nennt je Zeile eine geänderte Datei des PRs (`pulls/{n}/files`, auch alte Namen).
  */
@@ -54,6 +56,14 @@ function alsReview(beitrag) {
   };
 }
 
+/** GitHub-Logins: Buchstaben, Ziffern, Bindestrich. Bots ([bot]) und alles andere fragt der Workflow nicht ab. */
+const LOGIN = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/;
+
+/** Die Autoren der Beiträge, die als KI-Review aussehen, sortiert und je einmal: deren Rechte fragt der Workflow ab. */
+export function reviewAutoren(beitraege) {
+  return [...new Set(beitraege.map(alsReview).filter((r) => r && LOGIN.test(r.autor)).map((r) => r.autor))].sort();
+}
+
 export function pruefeKiReview({ beitraege, kopfSha, commitZeit, konten, dateien = [] }) {
   const kopf = kopfSha.toLowerCase();
   const nachCommit = Date.parse(commitZeit);
@@ -65,7 +75,7 @@ export function pruefeKiReview({ beitraege, kopfSha, commitZeit, konten, dateien
   if (!neuestes) {
     return {
       ok: false,
-      grund: `Kein KI-Review für ${kopf.slice(0, 7)} nach dem letzten Commit (${commitZeit}) von ${konten.join(", ")}. ` +
+      grund: `Kein KI-Review für ${kopf.slice(0, 7)} nach dem letzten Commit (${commitZeit}) von einem Owner der Organisation. ` +
         "Review in frischem Kontext laufen lassen (werkzeuge/review/ki-review.md) und das Ergebnis posten.",
     };
   }
@@ -83,7 +93,10 @@ export function pruefeKiReview({ beitraege, kopfSha, commitZeit, konten, dateien
   return { ok: true, grund: `KI-Review für ${kopf.slice(0, 7)} von ${neuestes.autor}: freigegeben.` };
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv[2] === "--autoren") {
+  const autoren = reviewAutoren(JSON.parse(fs.readFileSync(process.argv[3], "utf8")));
+  if (autoren.length > 0) console.log(autoren.join("\n"));
+} else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const beitraege = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
   const dateien = process.argv[3]
     ? fs.readFileSync(process.argv[3], "utf8").split("\n").map((d) => d.trim()).filter(Boolean)
