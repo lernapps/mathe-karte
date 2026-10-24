@@ -1,15 +1,110 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter prozentsatz
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Prozentsatz berechnen
+description: "Den Prozentsatz berechnen mit $p = \\frac{W}{G} \\cdot 100$: Erklärung, Beispiel, Prozentbalken und Übungsaufgaben."
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          „18 von 24 Schülern haben ein Haustier“ – ist das viel? Erst der Prozentsatz macht solche Angaben
+          vergleichbar: 75 % sagen sofort, wie groß der Anteil ist, egal ob die Klasse 24 oder 30 Schüler hat. Im
+          Alltag und in der Klassenarbeit ist das eine der häufigsten Fragen: „Wie viel Prozent sind das?“
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: formula
+        formula: 'p = \frac{W}{G} \cdot 100'
+      - type: text
+        text: >-
+          Der **Prozentsatz** $p\,\%$ ist der Anteil des **Prozentwerts** $W$ (der Teil) am **Grundwert** $G$ (das
+          Ganze), in Hundertsteln geschrieben.
+      - type: note
+        title: Merkhilfe
+        blocks:
+          - type: text
+            text: Teil durch Ganzes – immer durch das Ganze teilen, nie umgekehrt. Dann mal 100.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Haustiere in der Klasse
+        blocks:
+          - type: text
+            text: In einer Klasse sind 24 Schüler. 18 davon haben ein Haustier. Wie viel Prozent der Klasse sind das?
+          - type: table
+            caption: Die Größen im Beispiel und die Rechnung
+            rowHeaders: true
+            rows:
+              - ["Grundwert $G$", "24 Schüler (die ganze Klasse)"]
+              - ["Prozentwert $W$", "18 Schüler (der Teil)"]
+              - ["Rechnung", "$p = \\frac{18}{24} \\cdot 100 = 0{,}75 \\cdot 100 = 75$"]
+              - ["Prozentsatz", "**$p\\,\\%$ = 75 %**"]
+          - type: text
+            text: "Probe: 75 % von 24 sind $24 \\cdot 0{,}75 = 18$. Passt."
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        draw: { kind: bar, part: 18, whole: 24 }
+        alt: Ein Balken für 24 Schüler; 18 davon sind blau, das sind 75 %.
+        caption: >-
+          Der ganze Balken ist der Grundwert: 24 Schüler sind 100 %. Der blaue Teil ist der Prozentwert: 18 Schüler
+          sind 75 %.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: >-
+          [Prozentsatz berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt |
+          Lehrerschmidt](https://www.youtube.com/watch?v=YdBcJa8-81s) vom Kanal Lehrerschmidt. Der Link öffnet YouTube;
+          vorher lädt diese Seite nichts von dort.
+      - type: text
+        text: >-
+          Noch eine Erklärung in anderen Worten: [Prozentrechnung mittels
+          Formeln](https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln) bei serlo.org.
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: prozentsatz-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
-        links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+      - type: vue-component
+        id: prozentsatz-aufgabe
+        component: ProzentProzentsatz
+        examples:
+          accepted:
+            - { answer: { prozentsatz: "3" }, seed: 1 }
+            - { answer: { prozentsatz: "3 %" }, seed: 1 }
+            - { answer: { prozentsatz: "9/300*100" }, seed: 1 }
+            - { answer: { prozentsatz: "15" }, seed: 2 }
+          rejected:
+            - { answer: { prozentsatz: "0,03" }, seed: 1 }
+            - { answer: { prozentsatz: "3333,3" }, seed: 1 }
+            - { answer: { prozentsatz: "" } }
+      - type: generated
+        id: prozentsatz-rechnen
+        practice: Und jetzt ohne Geschichte, nur die Rechnung.
+        given:
+          G: { oneOf: [20, 25, 40, 50, 80, 120, 125, 150, 200, 250, 300, 400, 500, 600, 800] }
+          W: { int: [2, 300] }
+        where: ["W < G", "decimals(W * 100 / G) <= 1"]
+        task:
+          text: "Wie viel Prozent sind {{W}} von {{G}}?"
+        answer: { value: "W * 100 / G", compare: { number: { format: percent, decimals: 1 } } }
+        mistakes:
+          - {
+              value: "W / G",
+              message: "Das ist der Anteil als Dezimalzahl. Mal 100 nehmen, dann hast du den Prozentsatz.",
+            }
+          - {
+              value: "G * 100 / W",
+              message: "Du hast das Ganze durch den Teil geteilt. Richtig ist: Teil durch Ganzes (W / G).",
+            }
+        hint: "Teile den Teil {{W}} durch das Ganze {{G}} und nimm das Ergebnis mal 100."
+        steps:
+          - '$p = \frac{W}{G} \cdot 100$'
+          - '$p = \frac{{{W}}}{{{G}}} \cdot 100 = {{answer}}$, also {{answer}} %.'

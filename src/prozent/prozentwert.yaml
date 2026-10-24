@@ -1,15 +1,111 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter prozentwert
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Prozentwert berechnen
+description: "Den Prozentwert berechnen mit $W = \\frac{G \\cdot p}{100}$: Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben."
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          „20 % Rabatt auf 80 €“ – wie viel sparst du wirklich? Der Prozentwert ist der Teil des Ganzen, den die
+          Prozente beschreiben. Wenn du ihn schnell ausrechnen kannst, weißt du beim Einkaufen, beim Handy-Akku und in
+          jeder Statistik sofort, worum es geht.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: formula
+        formula: 'W = \frac{G \cdot p}{100}'
+      - type: text
+        text: >-
+          Der **Grundwert** $G$ ist das Ganze (100 %). Der **Prozentsatz** $p\,\%$ sagt, welcher Anteil gemeint ist.
+          Der **Prozentwert** $W$ ist dieser Anteil in der Einheit des Grundwerts (€, Schüler, mAh …). mAh
+          (Milliamperestunden) gibt an, wie viel Ladung ein Akku speichert.
+      - type: note
+        title: Merkhilfe
+        blocks:
+          - type: text
+            text: Erst 1 % ausrechnen ($G$ geteilt durch 100), dann mal $p$ nehmen.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Rabatt auf ein Skateboard
+        blocks:
+          - type: text
+            text: Ein Skateboard kostet 250 €. Es gibt 12 % Rabatt. Wie viel Euro sparst du?
+          - type: table
+            caption: Die Größen im Beispiel und die Rechnung
+            rowHeaders: true
+            rows:
+              - ["Grundwert $G$", "250 € (der volle Preis)"]
+              - ["Prozentsatz $p$", "12 %"]
+              - ["Rechnung", "$W = \\frac{250 \\cdot 12}{100} = 30$"]
+              - ["Prozentwert $W$", "**30 €** Rabatt"]
+          - type: text
+            text: "Über 1 %: 250 € : 100 = 2,50 € sind 1 %. Dann 2,50 € · 12 = 30 €."
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        draw: { kind: hundred-grid, filled: 12 }
+        alt: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau.
+        caption: >-
+          Das Hunderterfeld ist der Grundwert: 100 Kästchen = 100 % = 250 €. Jedes Kästchen ist 1 % = 2,50 €. Die 12
+          blauen Kästchen sind der Prozentwert: 12 · 2,50 € = 30 €.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: >-
+          [Prozentwert berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt |
+          Lehrerschmidt](https://www.youtube.com/watch?v=XDvDfzdP_Fc) vom Kanal Lehrerschmidt. Der Link öffnet YouTube;
+          vorher lädt diese Seite nichts von dort.
+      - type: text
+        text: >-
+          Noch eine Erklärung in anderen Worten: [Prozentrechnung mittels
+          Formeln](https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln) bei serlo.org.
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: prozentwert-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
-        links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+      - type: vue-component
+        id: prozentwert-aufgabe
+        component: ProzentProzentwert
+        examples:
+          accepted:
+            - { answer: { prozentwert: "74,70" }, seed: 1 }
+            - { answer: { prozentwert: "74.7 €" }, seed: 1 }
+            - { answer: { prozentwert: "1245*6/100" }, seed: 1 }
+            - { answer: { prozentwert: "1870" }, seed: 2 }
+          rejected:
+            - { answer: { prozentwert: "7470" }, seed: 1 }
+            - { answer: { prozentwert: "1170,30" }, seed: 1 }
+            - { answer: { prozentwert: "75" }, seed: 1 }
+            - { answer: { prozentwert: "74" }, seed: 1 }
+            - { answer: { prozentwert: "" } }
+            - { answer: { prozentwert: "abc" } }
+      - type: generated
+        id: prozentwert-rechnen
+        practice: Und jetzt ohne Geschichte, nur die Rechnung.
+        given:
+          G: { int: [20, 2000], step: 10 }
+          p: { oneOf: [2, 3, 4, 5, 6, 8, 10, 12, 12.5, 15, 18, 20, 24, 25, 30, 35, 40, 45, 60, 65, 70, 75, 80, 85, 90] }
+        where: ["decimals(G * p / 100) <= 2"]
+        task:
+          text: "Berechne {{p}} % von {{G}} €."
+        answer: { value: "G * p / 100", compare: { number: { format: money } } }
+        mistakes:
+          - { value: "G * p", message: "Du hast vergessen, durch 100 zu teilen: {{p}} % sind {{p}} Hundertstel." }
+          - {
+              value: "G - G * p / 100",
+              message: "Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.",
+            }
+        hint: "Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal {{p}}."
+        steps:
+          - '$W = \frac{G \cdot p}{100}$'
+          - '$W = \frac{{{G}} \cdot {{p}}}{100} = {{answer}}$, also {{answer}} €.'
