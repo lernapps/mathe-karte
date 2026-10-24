@@ -1,15 +1,123 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter klammern-multiplizieren
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Zwei Klammern multiplizieren
+description: "Zwei Klammern multiplizieren: (a + b)(c + d) = ac + ad + bc + bd. Erklärung, Beispiel, Flächenbild und Übungsaufgaben mit Sofort-Feedback."
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Terme wie $(x + 3)(x + 5)$ begegnen dir ab jetzt überall: beim Vereinfachen, beim Lösen von Gleichungen und
+          bei Flächen. Ausmultiplizieren macht aus dem Produkt eine Summe, mit der du weiterrechnen kannst. Die drei
+          binomischen Formeln sind nichts anderes als Abkürzungen für genau diese Rechnung. Wer Klammer mal Klammer
+          sicher kann, kann jede Formel selbst herleiten, falls er sie einmal vergisst.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: formula
+        formula: "(a + b)(c + d) = ac + ad + bc + bd"
+      - type: text
+        text: >-
+          Jedes Glied der ersten Klammer wird mit **jedem** Glied der zweiten Klammer multipliziert. Bei je zwei
+          Gliedern sind das $2 \cdot 2 =$ **4 Produkte**. Danach fasst du gleichartige Glieder zusammen, zum Beispiel
+          $5x + 3x = 8x$.
+      - type: definition
+        term: Ausmultiplizieren
+        explanation: >-
+          Ein Produkt mit Klammern in eine Summe ohne Klammern umformen: Jedes Glied der einen Klammer wird mit jedem
+          Glied der anderen multipliziert.
+      - type: definition
+        term: Glied
+        explanation: >-
+          Ein Teil einer Summe, mit seinem Vorzeichen. Steht in einer Klammer ein Minus, gehört es zum Glied dahinter:
+          $(x - 1)$ hat die Glieder $x$ und $-1$.
+      - type: text
+        text: "Achte beim Multiplizieren auf die Vorzeichen: Plus mal Minus gibt Minus, Minus mal Minus gibt Plus."
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Nicht nur außen rechnen! $(x + 3)(x + 5)$ ist nicht $x^2 + 15$ – die gemischten Glieder $5x$ und $3x$
+              gehören dazu.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: "Multipliziere aus und fasse zusammen: (2x − 1)(x + 4)"
+        blocks:
+          - type: table
+            caption: "Der Rechenweg für (2x − 1)(x + 4)"
+            rowHeaders: true
+            rows:
+              - ["Glieder", "erste Klammer: $2x$ und $-1$; zweite Klammer: $x$ und $4$"]
+              - ["Vier Produkte", "$2x \\cdot x + 2x \\cdot 4$ $- 1 \\cdot x - 1 \\cdot 4$"]
+              - ["Ausgerechnet", "$2x^2 + 8x - x - 4$"]
+              - ["Zusammengefasst", "**$2x^2 + 7x - 4$**"]
+          - type: text
+            text: "Ohne Minus geht es genauso: $(x + 3)(x + 5)$ $= x^2 + 5x + 3x + 15$ $= x^2 + 8x + 15$."
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: vue-component
+        component: BinomBild
+        props: { art: klammern, vorgaben: { m1: 1, n1: 3, m2: 1, n2: 5 } }
+        nojs: >-
+          Ein Rechteck mit den Seiten $x + 3$ (links, in die Abschnitte $x$ und $3$ geteilt) und $x + 5$ (oben, in die
+          Abschnitte $x$ und $5$ geteilt). Es zerfällt in vier Teilflächen: $x^2$ (blau), $5x$ und $3x$ (gelb) und $15$
+          (grün). Jedes Feld ist Zeile mal Spalte. Zusammen sind sie $(x + 3)(x + 5)$ $= x^2 + 8x + 15$.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: >-
+          [Ausmultiplizieren – Klammern auflösen](https://www.youtube.com/watch?v=X5E2bqby8f0), ein Video von
+          Lehrerschmidt auf YouTube. Zum Nachlesen:
+          [Klammern ausmultiplizieren bei Serlo](https://de.serlo.org/mathe/1525/klammern-ausmultiplizieren).
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: klammern-multiplizieren-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
+      - type: single-choice
+        id: klammern-vier-produkte
+        text: Jemand rechnet $(x + 3)(x + 5) = x^2 + 15$. Was ist daran falsch?
+        options:
+          - text: "Es fehlen die Produkte $x \\cdot 5$ und $3 \\cdot x$."
+            correct: true
+            info: "Jedes Glied mal jedes Glied sind vier Produkte: $x^2 + 5x + 3x + 15$ $= x^2 + 8x + 15$."
+          - text: "Das erste Glied muss $2x$ heißen."
+            correct: false
+            info: "Das erste Produkt ist $x \\cdot x = x^2$. $2x$ wäre $x + x$."
+          - text: "Das letzte Glied muss $8$ heißen."
+            correct: false
+            info: "Das letzte Produkt ist $3 \\cdot 5 = 15$, das stimmt. Die $8$ gehört zum Mittelglied: $5x + 3x = 8x$."
+        explanation: "Nur außen rechnen reicht nicht: $(x + 3)(x + 5)$ $= x^2 + 5x + 3x + 15$ $= x^2 + 8x + 15$."
         links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+          - {
+              title: Klammern ausmultiplizieren (Serlo),
+              url: "https://de.serlo.org/mathe/1525/klammern-ausmultiplizieren",
+            }
+      - type: vue-component
+        id: klammern-ueben
+        component: BinomTermAufgabe
+        props:
+          art: klammern
+          pruefen: Prüfen
+          loesungZeigen: Lösung zeigen
+          tipp: Tipp
+          rechenweg: "Lösung:"
+        examples:
+          accepted:
+            - { answer: "x^2+10x+24", seed: 1 }
+            - { answer: "24 + 10x + x²", seed: 1 }
+            - { answer: "3x^2-28x+32", seed: 2 }
+          rejected:
+            - { answer: "x^2+24", seed: 1 }
+            - { answer: "x^2-10x+24", seed: 1 }
+            - { answer: "(x+4)(x+6)", seed: 1 }
+            - { answer: "3x^2+28x+32", seed: 2 }
