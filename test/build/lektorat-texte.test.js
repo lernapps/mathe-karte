@@ -32,3 +32,11 @@ test("L-042: keine Seite schreit ein „NICHT“ in Großbuchstaben", () => {
 test("L-048: Seiten sprechen wie eine Lehrkraft, nicht wie die App („der Trainer akzeptiert“)", () => {
   assert.deepEqual(treffer(/Trainer akzeptiert/gi), []);
 });
+
+// Die Beschreibung einer Seite und die Zusammenfassung eines Kapitels zeigt der explainer als reinen Text (Inhalt,
+// Tutor-Prompt): eine Formel in $…$ erschiene dort als roher LaTeX-Code.
+test("description und summary enthalten keine Formel in $…$", () => {
+  const roh = seiten.filter(([name]) => name.endsWith(".yaml"))
+    .flatMap(([name, text]) => text.split("\n").filter((z) => /^(description|summary):.*\$/.test(z)).map((z) => `${name}: ${z}`));
+  assert.deepEqual(roh, []);
+});

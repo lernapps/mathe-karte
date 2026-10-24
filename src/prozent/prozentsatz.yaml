@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
 title: Prozentsatz berechnen
-description: "Den Prozentsatz berechnen mit $p = \\frac{W}{G} \\cdot 100$: Erklärung, Beispiel, Prozentbalken und Übungsaufgaben."
+description: "Den Prozentsatz berechnen mit p = W : G · 100. Erklärung, Beispiel, Prozentbalken und Übungsaufgaben."
 blocks:
   - type: section
     id: warum

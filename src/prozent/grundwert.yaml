@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
 title: Grundwert berechnen
-description: "Den Grundwert berechnen mit $G = \\frac{W \\cdot 100}{p}$: Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben."
+description: "Den Grundwert berechnen mit G = W · 100 : p. Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben."
 blocks:
   - type: section
     id: warum

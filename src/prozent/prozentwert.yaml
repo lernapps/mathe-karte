@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
 title: Prozentwert berechnen
-description: "Den Prozentwert berechnen mit $W = \\frac{G \\cdot p}{100}$: Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben."
+description: "Den Prozentwert berechnen mit W = G · p : 100. Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben."
 blocks:
   - type: section
     id: warum
