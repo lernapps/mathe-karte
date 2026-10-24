@@ -1,15 +1,173 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter veraenderung
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Prozentuale Zunahme und Abnahme
+description: >-
+  Den neuen Wert nach einer Erhöhung oder Senkung um p % berechnen, und rückwärts den alten Wert: Faktor-Methode,
+  Beispiele, Balkenbild und Übungen.
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Preise steigen, Rabatte senken, Gehälter wachsen, die Mehrwertsteuer kommt obendrauf: Fast jede
+          Prozentaufgabe im Alltag ist eine Veränderung. Der Trick ist der Faktor – mit ihm rechnest du eine Erhöhung
+          oder Senkung in einem Schritt, und du kannst sie auch rückwärts rechnen.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: text
+        text: "Bei einer **Erhöhung** um $p\\,\\%$:"
+      - type: formula
+        formula: '\text{neuer Wert} = \text{alter Wert} \cdot (1 + \frac{p}{100})'
+      - type: text
+        text: "Bei einer **Senkung** um $p\\,\\%$:"
+      - type: formula
+        formula: '\text{neuer Wert} = \text{alter Wert} \cdot (1 - \frac{p}{100})'
+      - type: text
+        text: >-
+          Der alte Wert ist der Grundwert (100 %). Nach einer Erhöhung um 25 % sind es 125 %, also Faktor 1,25. Nach
+          einer Senkung um 25 % sind es 75 %, also Faktor 0,75.
+      - type: definition
+        term: vermehrter Grundwert
+        explanation: Der neue Wert nach einer Erhöhung um $p\,\%$, also $(100 + p)\,\%$ des alten Werts.
+      - type: definition
+        term: verminderter Grundwert
+        explanation: Der neue Wert nach einer Senkung um $p\,\%$, also $(100 - p)\,\%$ des alten Werts.
+      - type: text
+        text: "**Rückwärts** (alter Wert gesucht) teilst du durch den Faktor:"
+      - type: formula
+        formula: '\text{alter Wert} = \text{neuer Wert} : \text{Faktor}'
+      - type: note
+        title: Typischer Fehler
+        blocks:
+          - type: text
+            text: >-
+              Die Prozente auf den neuen Wert beziehen. Die 25 % Rabatt beziehen sich immer auf den alten Preis – der
+              neue Preis ist nicht 100 %.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Neuer Wert gesucht
+        blocks:
+          - type: text
+            text: Eine Hose kostet 80 €. Im Ausverkauf gibt es 25 % Rabatt. Was kostet sie jetzt?
+          - type: table
+            caption: Senkung um 25 % mit dem Faktor
+            rowHeaders: true
+            rows:
+              - ["Alter Wert", "80 € = 100 %"]
+              - ["Faktor", "$1 - \\frac{25}{100} = 0{,}75$"]
+              - ["Neuer Wert", "$80 \\cdot 0{,}75 = 60$, also **60 €**"]
+      - type: example
+        title: Alter Wert gesucht
+        blocks:
+          - type: text
+            text: Nach einer Preiserhöhung um 25 % kostet ein Ticket 100 €. Was hat es vorher gekostet?
+          - type: table
+            caption: Rückwärts rechnen durch den Faktor
+            rowHeaders: true
+            rows:
+              - ["Neuer Wert", "100 € = 125 % des alten Preises"]
+              - ["Faktor", "$1 + \\frac{25}{100} = 1{,}25$"]
+              - ["Alter Wert", "$100 : 1{,}25 = 80$, also **80 €**"]
+          - type: text
+            text: >-
+              Falsch wäre: 100 € − 25 % von 100 € = 75 €. Die 25 % beziehen sich auf den alten Preis, nicht auf
+              100 €.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        draw: { kind: bar, part: 80, whole: 80 }
+        alt: Ein ganz blauer Balken für den alten Preis 80 €, das sind 100 %.
+        caption: "Der alte Preis 80 € ist der Grundwert: 100 %."
+      - type: figure
+        draw: { kind: bar, part: 60, whole: 80 }
+        alt: Ein Balken für 80 €, davon 60 € blau, das sind 75 %.
+        caption: >-
+          Der neue Preis 60 € nach 25 % Rabatt, gemessen am alten Preis: 75 %. Der Faktor 0,75 führt vom oberen zum
+          unteren Balken.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: >-
+          Senkung: [Rabatt, Nachlass, Preissenkung berechnen | Prozentrechnung - einfach erklärt |
+          Lehrerschmidt](https://www.youtube.com/watch?v=7qPr-ik4wp8) vom Kanal Lehrerschmidt.
+      - type: text
+        text: >-
+          Erhöhung: [Preiserhöhung, Aufschlag berechnen | Prozentrechnung - einfach erklärt |
+          Lehrerschmidt](https://www.youtube.com/watch?v=hyKgJKGCjHc) vom Kanal Lehrerschmidt.
+      - type: text
+        text: >-
+          Die Links öffnen YouTube; vorher lädt diese Seite nichts von dort. Noch eine Erklärung in anderen Worten:
+          [Der verminderte und vermehrte
+          Grundwert](https://de.serlo.org/mathe/116824/der-verminderte-und-vermehrte-grundwert) bei serlo.org.
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: veraenderung-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
-        links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+      - type: vue-component
+        id: veraenderung-aufgabe
+        component: ProzentVeraenderung
+        examples:
+          accepted:
+            - { answer: { alt: "600" }, seed: 1 }
+            - { answer: { alt: "714/1,19" }, seed: 1 }
+            - { answer: { neu: "39" }, seed: 3 }
+          rejected:
+            - { answer: { alt: "578,34" }, seed: 1 }
+            - { answer: { neu: "81" }, seed: 3 }
+            - { answer: { neu: "21" }, seed: 3 }
+      - type: generated
+        id: veraenderung-senkung
+        practice: Und jetzt ohne Geschichte, nur die Rechnung.
+        given:
+          alt: { int: [20, 400], step: 5 }
+          p: { oneOf: [5, 10, 12, 15, 20, 25, 30, 40] }
+        where: ["decimals(alt * (1 - p / 100)) <= 2"]
+        task:
+          text: "Ein Preis von {{alt}} € wird um {{p}} % gesenkt. Wie hoch ist der neue Preis?"
+        answer: { value: "alt * (1 - p / 100)", compare: { number: { format: money } } }
+        mistakes:
+          - {
+              value: "alt * (1 + p / 100)",
+              message: "Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.",
+            }
+          - {
+              value: "alt * p / 100",
+              message: "Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.",
+            }
+        hint: "Nach der Senkung sind es 100 % − {{p}} % des alten Preises. Rechne mit dem Faktor 1 − {{p}}/100."
+        steps:
+          - '$\text{neuer Wert} = \text{alter Wert} \cdot (1 - \frac{p}{100})$'
+          - '$\text{neuer Wert} = {{alt}} \cdot (1 - \frac{{{p}}}{100}) = {{answer}}$, also {{answer}} €.'
+      - type: generated
+        id: veraenderung-rueckwaerts
+        practice: Rückwärts gerechnet, ohne Geschichte.
+        given:
+          neu: { int: [20, 600] }
+          p: { oneOf: [5, 10, 20, 25, 50] }
+        where: ["decimals(neu / (1 + p / 100)) <= 2"]
+        task:
+          text: "Nach einer Erhöhung um {{p}} % beträgt ein Preis {{neu}} €. Wie hoch war er vorher?"
+        answer: { value: "neu / (1 + p / 100)", compare: { number: { format: money } } }
+        mistakes:
+          - {
+              value: "neu * (1 - p / 100)",
+              message: "Die {{p}} % beziehen sich auf den alten Preis, nicht auf {{neu}} €. Der neue Preis ist nicht 100 %.",
+            }
+          - {
+              value: "neu * (1 + p / 100)",
+              message: "Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.",
+            }
+        hint: "{{neu}} € sind 100 % + {{p}} % des alten Preises. Teile durch den Faktor 1 + {{p}}/100."
+        steps:
+          - '$\text{alter Wert} = \text{neuer Wert} : (1 + \frac{p}{100})$'
+          - '$\text{alter Wert} = {{neu}} : (1 + \frac{{{p}}}{100}) = {{answer}}$, also {{answer}} €.'

@@ -1,15 +1,146 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter sachaufgaben
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Sachaufgaben übersetzen
+description: >-
+  Sachaufgaben zur Prozentrechnung in eine Gleichung oder einen Dreisatz übersetzen: Gleichung wählen, Dreisatz
+  ausfüllen, mit Hunderterfeld.
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          In der Klassenarbeit und im Alltag steht nie „Berechne W“, sondern eine Geschichte mit Zahlen. Die
+          eigentliche Kunst ist die Übersetzung: aus dem Text eine Gleichung oder einen Dreisatz machen. Danach ist es
+          nur noch Rechnen. Beide Wege führen zum Ziel – der Dreisatz ist sicher, die Gleichung ist schnell.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: section
+        id: gleichung
+        title: "Weg 1: Gleichung"
+        blocks:
+          - type: text
+            text: "Bestimme, was gesucht ist, und wähle die passende Formel. Teil gesucht:"
+          - type: formula
+            formula: 'W = \frac{G \cdot p}{100}'
+          - type: text
+            text: "Ganzes gesucht:"
+          - type: formula
+            formula: 'G = \frac{W \cdot 100}{p}'
+          - type: text
+            text: "Prozentsatz gesucht:"
+          - type: formula
+            formula: 'p = \frac{W}{G} \cdot 100'
+      - type: section
+        id: dreisatz
+        title: "Weg 2: Dreisatz"
+        blocks:
+          - type: definition
+            term: Dreisatz
+            explanation: >-
+              Ein Rechenweg in drei Zeilen über eine Zwischengröße. In der Prozentrechnung immer über 1 %: von 100 %
+              zu 1 % teilst du durch 100, von 1 % zu $p\,\%$ nimmst du mal $p$.
+          - type: table
+            caption: Dreisatz für 12 % von 250 €
+            rowHeaders: true
+            rows:
+              - ["100 %", "250 €"]
+              - ["1 %", "250 € : 100 = 2,50 €"]
+              - ["12 %", "2,50 € · 12 = 30 €"]
+          - type: note
+            title: Merkhilfe
+            blocks:
+              - type: text
+                text: >-
+                  Erst durch 100, dann mal $p$. Das funktioniert auch rückwärts: von $p\,\%$ zu 1 % teilst du durch
+                  $p$, von 1 % zu 100 % nimmst du mal 100.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Welche Gleichung passt?
+        blocks:
+          - type: text
+            text: "„Ein Skateboard kostet 250 €. Es gibt 12 % Rabatt. Wie viel Euro Rabatt sind das?“"
+          - type: table
+            caption: Drei Gleichungen, eine passt
+            header: [Gleichung, Passt sie?]
+            rows:
+              - [
+                  "$W = \\frac{250 \\cdot 12}{100}$",
+                  "**Ja.** Gesucht ist der Teil (Rabatt in €), also $W = \\frac{G \\cdot p}{100}$.",
+                ]
+              - [
+                  "$W = \\frac{250 \\cdot 100}{12}$",
+                  "Nein – das ist die Grundwert-Formel. Sie ergibt rund 2083 €, mehr als der ganze Preis.",
+                ]
+              - [
+                  "$W = \\frac{12}{250} \\cdot 100$",
+                  "Nein – das wäre ein Prozentsatz. Sie ergibt 4,8 und hat keine Einheit.",
+                ]
+          - type: text
+            text: "Ergebnis: $W = 30$, also 30 €. Probe mit dem Dreisatz: 1 % = 2,50 €, 12 % = 30 €. Passt."
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        draw: { kind: hundred-grid, filled: 12 }
+        alt: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau.
+        caption: >-
+          Hunderterfeld: 100 Kästchen sind der Grundwert 250 €, ein Kästchen ist 1 % = 2,50 €. Die 12 blauen Kästchen
+          sind 12 % = 30 €.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: >-
+          [Prozentrechnung - Prozentsatz berechnen mit Formel / mit Dreisatz |
+          Lehrerschmidt](https://www.youtube.com/watch?v=fvzgrNy9S0Q) vom Kanal Lehrerschmidt. Der Link öffnet YouTube;
+          vorher lädt diese Seite nichts von dort.
+      - type: text
+        text: >-
+          Noch eine Erklärung in anderen Worten: [Mehrschrittige Anwendungsaufgaben zur
+          Prozentrechnung](https://de.serlo.org/mathe/174159/mehrschrittige-anwendungsaufgaben-zur-prozentrechnung) bei
+          serlo.org.
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: sachaufgaben-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
-        links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+      - type: vue-component
+        id: sachaufgaben-aufgabe
+        component: ProzentSachaufgaben
+        examples:
+          accepted:
+            - { answer: { eins: "26", prozent: "650" }, seed: 1 }
+            - { answer: { eins: "2600/100", prozent: "650 mAh" }, seed: 1 }
+            - { answer: { gleichung: "G = 408 · 100 / 80", ergebnis: "510" }, seed: 2 }
+          rejected:
+            - { answer: { eins: "260000", prozent: "650" }, seed: 1 }
+            - { answer: { gleichung: "G = 408 · 80 / 100", ergebnis: "326,4" }, seed: 2 }
+            - { answer: { gleichung: "G = 408 · 100 / 80", ergebnis: "500" }, seed: 2 }
+      - type: generated
+        id: sachaufgaben-dreisatz
+        practice: Ein Dreisatz ohne Geschichte.
+        given:
+          G: { int: [150, 1500], step: 50 }
+          p: { oneOf: [2, 4, 5, 8, 12, 15, 20, 25, 30, 40, 60, 75] }
+        where: ["decimals(G * p / 100) <= 2"]
+        task:
+          text: "100 % sind {{G}} €. Wie viel Euro sind {{p}} %? Rechne über 1 %."
+        answer: { value: "G / 100 * p", compare: { number: { format: money } } }
+        mistakes:
+          - {
+              value: "G * 100 / p",
+              message: "Das ist die Grundwert-Formel. Hier ist der Grundwert {{G}} € schon bekannt; gesucht ist ein Teil davon.",
+            }
+          - { value: "G / 100", message: "Das ist erst 1 %. Jetzt noch mal {{p}} nehmen." }
+        hint: "Von 100 % auf 1 %: {{G}} € durch 100 teilen. Von 1 % auf {{p}} %: mal {{p}}."
+        steps:
+          - "100 % sind {{G}} €."
+          - '1 % sind $\frac{{{G}}}{100}$ €.'
+          - '{{p}} % sind $\frac{{{G}}}{100} \cdot {{p}} = {{answer}}$, also {{answer}} €.'
