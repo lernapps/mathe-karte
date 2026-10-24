@@ -1,3 +1,4 @@
+// Use Case: Binomische Formeln üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel binom).
 // BinomSvg.vue zeichnet eine Zeichnung aus BinomFlaeche.ts. Getestet wird, was es zeichnet: die Formen der Bilder,
 // ihre Aufteilung nach den Längen, Farben, Beschriftungen und das Label für Screenreader.
 import { expect, test } from "vite-plus/test";

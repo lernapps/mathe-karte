@@ -1,5 +1,19 @@
+// Use Case: Wahrscheinlichkeit üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel zufall).
+import fc from "fast-check";
 import { describe, expect, test } from "vite-plus/test";
-import { alleFormen, bruch, gleich, lies, runde, stimmt, text, trifft, urteil } from "./ZufallBruch.ts";
+import {
+  type Bruch,
+  alleFormen,
+  bruch,
+  gleich,
+  lies,
+  plus,
+  runde,
+  stimmt,
+  text,
+  trifft,
+  urteil,
+} from "./ZufallBruch.ts";
 
 describe("Brüche", () => {
   test("kürzen und schreiben", () => {
@@ -62,5 +76,45 @@ describe("Urteil nach der Rundungsregel", () => {
     expect(trifft("2/6", bruch(1, 3))).toBe(true);
     expect(trifft("0", bruch(1, 6))).toBe(false);
     expect(gleich(bruch(2, 4), bruch(1, 2))).toBe(true);
+  });
+});
+
+// Use Case: Antwort prüfen (QZ-3, QS-19), Risiko R-025 – Lesen und Urteil über beliebige Wahrscheinlichkeiten.
+describe("Eigenschaften des Urteils", () => {
+  const p = fc
+    .tuple(fc.integer({ min: 1, max: 999 }), fc.integer({ min: 1, max: 999 }))
+    .map(([a, b]) => bruch(Math.min(a, b), Math.max(a, b)));
+  const komma = (b: Bruch, d: number): string => {
+    const r = runde(b, d);
+    const rest = Math.round(((r.z % r.n) / r.n) * 10 ** d);
+    return `${Math.trunc(r.z / r.n)},${String(rest).padStart(d, "0")}`;
+  };
+
+  test("der Bruch selbst, ein ungekürzter Bruch und der Wert auf 2 bis 4 Stellen gerundet stimmen", () => {
+    fc.assert(
+      fc.property(p, fc.integer({ min: 2, max: 4 }), fc.integer({ min: 2, max: 5 }), (w, d, k) => {
+        expect(stimmt(text(w), w)).toBe(true);
+        expect(stimmt(`${w.z * k}/${w.n * k}`, w)).toBe(true);
+        expect(stimmt(komma(w, d), w)).toBe(true);
+      }),
+    );
+  });
+
+  test("ein um eine Einheit der zweiten Stelle verschobener Wert stimmt nicht", () => {
+    fc.assert(
+      fc.property(p, (w) => {
+        const daneben = plus(runde(w, 2), bruch(1, 100));
+        expect(stimmt(komma(daneben, 2), w)).toBe(false);
+      }),
+    );
+  });
+
+  test("lies liest jede Schreibweise des Bruchs als denselben Wert", () => {
+    fc.assert(
+      fc.property(p, (w) => {
+        const gelesen = lies(text(w));
+        expect(gelesen !== undefined && gleich(gelesen.wert, w)).toBe(true);
+      }),
+    );
   });
 });

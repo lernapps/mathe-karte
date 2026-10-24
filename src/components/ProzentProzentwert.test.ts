@@ -1,3 +1,4 @@
+// Use Case: Prozentrechnung üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel prozent).
 // Tests der Übung „Prozentwert berechnen“: andere richtige Schreibweisen, typische Fehler mit Grund, Zahlenbereiche.
 import { expect, test } from "vite-plus/test";
 import { MELDUNGEN, about, check, describe, generate, grund, solution, wrong } from "./ProzentProzentwert.ts";

@@ -1,3 +1,4 @@
+// Use Case: Prozentrechnung üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel prozent).
 // Tests dessen, was die Übung (ProzentUebung.vue) prüft und zeigt: Prüfung aller Felder, der Grund einer falschen
 // Antwort in seiner Reihenfolge (leer, fast richtig, Diagnose) und die Beschreibung für die Seite ohne JavaScript.
 import { expect, test } from "vite-plus/test";

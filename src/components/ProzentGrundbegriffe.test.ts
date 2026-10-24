@@ -1,3 +1,4 @@
+// Use Case: Prozentrechnung üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel prozent).
 // Tests der Übung „Grundbegriffe erkennen“.
 import { expect, test } from "vite-plus/test";
 import { MELDUNGEN, check, describe, generate, grund, solution, wrong } from "./ProzentGrundbegriffe.ts";

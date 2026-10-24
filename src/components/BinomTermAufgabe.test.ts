@@ -1,3 +1,4 @@
+// Use Case: Binomische Formeln üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel binom).
 // Die Übung mit Termeingabe (BinomTermAufgabe.ts): je Art die Aufgaben, andere richtige Schreibweisen, die typischen
 // Fehler mit ihrer Meldung, Randfälle und die Beschreibung für Tutor und Seite ohne JavaScript.
 import { describe, expect, test } from "vite-plus/test";

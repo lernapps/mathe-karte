@@ -1,3 +1,4 @@
+// Use Case: Mathe-Karte – jede Seite verlinkt ihren Knoten in der Lehrplan-Karte.
 // Tests des Verweises auf die Lehrplan-Karte: relative Adresse mit dem Knoten, nur gültige Knoten-ids.
 import { expect, test } from "vite-plus/test";
 import { karteAdresse } from "./KarteVerweis.ts";

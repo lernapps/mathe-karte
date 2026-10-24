@@ -1,3 +1,4 @@
+// Use Case: Wahrscheinlichkeit üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel zufall).
 import { describe, expect, test } from "vite-plus/test";
 import { check, describe as beschreibe, generate, grund, solution, TIPP, wrong } from "./ZufallTerm.ts";
 import { lies, text } from "./ZufallBruch.ts";

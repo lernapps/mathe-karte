@@ -1,3 +1,4 @@
+// Use Case: Wahrscheinlichkeit üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel zufall).
 import { describe, expect, test } from "vite-plus/test";
 import { urnenBild } from "./ZufallUrnen.ts";
 import { URNEN } from "./ZufallModell.ts";

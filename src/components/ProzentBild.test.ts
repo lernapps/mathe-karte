@@ -1,3 +1,4 @@
+// Use Case: Prozentrechnung üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel prozent).
 // Tests des Bilds zur Aufgabe (ProzentBild.vue zeichnet, was diese Funktionen berechnen): Hunderterfeld, Prozentbalken,
 // Vergleichsbalken, ihr Name für Screenreader und das Umbrechen langer Beschriftungen.
 import { expect, test } from "vite-plus/test";

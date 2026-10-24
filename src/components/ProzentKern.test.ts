@@ -1,5 +1,8 @@
+// Use Case: Prozentrechnung üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel prozent).
 // Tests des Rechenkerns: Brüche, Zufall, Schreibweise, Eingaben lesen und die Rundungsregel.
+import fc from "fast-check";
 import { describe, expect, test } from "vite-plus/test";
+import { type Bruch, plus, runde as rundeExakt } from "./Bruch.ts";
 import {
   alsBruch,
   bruch,
@@ -91,5 +94,37 @@ describe("Rundungsregel", () => {
     expect(loesungsText(drittel, "prozent")).toBe("33,3");
     expect(loesungsText(bruch(147, 2), "geld")).toBe("73,50");
     expect(loesungsText(bruch(9, 8), "zahl")).toBe("1,125");
+  });
+});
+
+// Use Case: Antwort prüfen (QZ-3, QS-6/QS-7), Risiko R-025 – die Rundungsregel über beliebige Werte (fast-check).
+describe("Eigenschaften der Rundungsregel", () => {
+  // ein Prozentwert G · p / 100 mit G und p aus den Bereichen der Aufgaben
+  const wert = fc
+    .tuple(fc.integer({ min: 1, max: 5000 }), fc.integer({ min: 1, max: 999 }))
+    .map(([g, p10]) => bruch(g * p10, 1000));
+  const kommaText = (b: Bruch, d: number): string => {
+    const r = rundeExakt(b, d);
+    const ganz = Math.trunc(r.z / r.n);
+    const rest = Math.round(((r.z % r.n) / r.n) * 10 ** d);
+    return d === 0 ? String(ganz) : `${ganz},${String(rest).padStart(d, "0")}`;
+  };
+
+  test("der exakte Bruch und der richtig gerundete Wert mit genug Stellen sind richtig", () => {
+    fc.assert(
+      fc.property(wert, fc.integer({ min: 2, max: 6 }), (w, d) => {
+        expect(pruefeZahl(`${w.z}/${w.n}`, w, "zahl").status).toBe("richtig");
+        expect(pruefeZahl(kommaText(w, d), w, "zahl").status).toBe("richtig");
+      }),
+    );
+  });
+
+  test("ein um eine Einheit der letzten Stelle verschobener Wert ist falsch", () => {
+    fc.assert(
+      fc.property(wert, fc.integer({ min: 2, max: 4 }), (w, d) => {
+        const daneben = plus(rundeExakt(w, d), bruch(1, 10 ** d));
+        expect(pruefeZahl(kommaText(daneben, d), w, "zahl").status).toBe("falsch");
+      }),
+    );
   });
 });

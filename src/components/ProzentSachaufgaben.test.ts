@@ -1,3 +1,4 @@
+// Use Case: Prozentrechnung üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel prozent).
 // Tests der Übung „Sachaufgaben übersetzen“: beide Typen, Gleichung und Dreisatz.
 import { expect, test } from "vite-plus/test";
 import { MELDUNGEN, check, describe, generate, grund, solution, wrong } from "./ProzentSachaufgaben.ts";

@@ -1,3 +1,4 @@
+// Use Case: Binomische Formeln üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel binom).
 // Die Übung "Geschickt rechnen" (BinomKopfrechnen.ts): Aufgaben aller drei Formeln, Prüfung von Formel und Ergebnis,
 // typische Fehler mit Meldung, das Bild vor und nach dem Prüfen und die Beschreibung für den Tutor.
 import { describe, expect, test } from "vite-plus/test";

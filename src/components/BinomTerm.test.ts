@@ -1,5 +1,7 @@
+// Use Case: Binomische Formeln üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel binom).
 // Die gemeinsamen Term-Hilfen des Kapitels "Binomische Formeln" (BinomTerm.ts, BinomParser.ts): Polynome bauen und
 // schreiben, Terme lesen, Gleichwertigkeit und Form prüfen, Binom-Struktur erkennen, Fehlterme zuordnen.
+import fc from "fast-check";
 import { describe, expect, test } from "vite-plus/test";
 import { leseTerm } from "./BinomParser.ts";
 import {
@@ -145,5 +147,95 @@ describe("Zufall und Rechenweg", () => {
     expect(zuLatex("(2x − 5)² = 4x² − 2 · 2x · 5 + 25")).toBe("(2x - 5)^2 = 4x^2 - 2 \\cdot 2x \\cdot 5 + 25");
     expect(zuLatex("x² + □x")).toBe("x^2 + \\text{□}x");
     expect(schrittMarkdown(["Glieder: ", "a = x, b = 3", " fertig"])).toBe("Glieder: $a = x, b = 3$ fertig");
+  });
+});
+
+// Use Case: Terme eingeben (QZ-3, QS-19), Risiko R-012/R-025 – Gleichwertigkeit und Form über beliebige Binome
+// (fast-check), wie die Property-Tests des alten Kerns (test/kern/termantwort.property.test.js).
+describe("Eigenschaften der Termprüfung", () => {
+  // ohne "e": der Parser könnte es als Eulersche Zahl lesen; ohne "p" (π)
+  const variable = fc.constantFrom(..."abcdxyzmnrstuvw");
+  const koeffizient = fc.integer({ min: -12, max: 12 }).filter((k) => k !== 0);
+  const gliedText = (k: number, v: string, erstes: boolean): string => {
+    const betrag = Math.abs(k) === 1 && v ? "" : String(Math.abs(k));
+    const vorzeichen = k < 0 ? (erstes ? "-" : " - ") : erstes ? "" : " + ";
+    return `${vorzeichen}${betrag}${v}`;
+  };
+  const summeText = (glieder: [number, string][]): string =>
+    glieder
+      .filter(([k]) => k !== 0)
+      .map(([k, v], i) => gliedText(k, v, i === 0))
+      .join("") || "0";
+  const linear = (k: number, x: string, q: number): string =>
+    `(${summeText([
+      [k, x],
+      [q, ""],
+    ])})`;
+  const binom = fc
+    .record({
+      k: koeffizient,
+      q: koeffizient,
+      m: koeffizient,
+      r: koeffizient,
+      x: variable,
+      fall: fc.integer({ min: 0, max: 3 }),
+    })
+    .map(({ k, q, m, r, x, fall }) => {
+      const [faktorisiert, [a, b, c]] =
+        fall === 0
+          ? [`${linear(k, x, q)}^2`, [k * k, 2 * k * q, q * q]]
+          : fall === 1
+            ? [`${linear(k, x, -q)}^2`, [k * k, -2 * k * q, q * q]]
+            : fall === 2
+              ? [`${linear(k, x, q)}${linear(k, x, -q)}`, [k * k, 0, -q * q]]
+              : [`${linear(k, x, q)}*${linear(m, x, r)}`, [k * m, k * r + q * m, q * r]];
+      return {
+        faktorisiert,
+        ausmultipliziert: summeText([
+          [a, `${x}^2`],
+          [b, x],
+          [c, ""],
+        ]),
+        b,
+        x,
+        c,
+        a,
+      };
+    });
+
+  test("ausmultiplizierte und faktorisierte Form sind gleichwertig und in ihrer Form richtig", () => {
+    fc.assert(
+      fc.property(binom, ({ faktorisiert, ausmultipliziert }) => {
+        expect(sindGleichwertig(faktorisiert, ausmultipliziert)).toBe(true);
+        expect(pruefeTerm(ausmultipliziert, faktorisiert, "ausmultipliziert").korrekt).toBe(true);
+      }),
+    );
+  });
+
+  test("ohne Mittelglied oder mit falschem Vorzeichen am Ende ist ein Binom nicht gleichwertig", () => {
+    fc.assert(
+      fc.property(binom, ({ faktorisiert, a, b, c, x }) => {
+        if (b !== 0)
+          expect(
+            sindGleichwertig(
+              faktorisiert,
+              summeText([
+                [a, `${x}^2`],
+                [c, ""],
+              ]),
+            ),
+          ).toBe(false);
+        expect(
+          sindGleichwertig(
+            faktorisiert,
+            summeText([
+              [a, `${x}^2`],
+              [b, x],
+              [-c, ""],
+            ]),
+          ),
+        ).toBe(false);
+      }),
+    );
   });
 });

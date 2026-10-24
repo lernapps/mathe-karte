@@ -1,3 +1,4 @@
+// Use Case: Binomische Formeln üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel binom).
 // Das Bild zum Beispiel (BinomBild.vue, Logik in BinomBild.ts): feste Werte, gelöst gezeichnet, für jede Seite des
 // Kapitels; die Texte im Bild sind die Werte des Beispiels auf der Seite.
 import { expect, test } from "vite-plus/test";
