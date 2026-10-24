@@ -1,8 +1,8 @@
 ---
 archetype: explainer
 phase: code
-prePushFailures: 0
-failedChecks: { checks-pass: 2, pages-reachable: 1 }
+prePushFailures: 1
+failedChecks: { checks-pass: 3, pages-reachable: 2 }
 ---
 
 # Plan: Mathe-Karte als explainer
