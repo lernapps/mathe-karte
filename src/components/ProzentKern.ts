@@ -2,28 +2,22 @@
 // lesen und nach einer Rundungsregel prüfen. Rein, ohne DOM; portiert aus kern/js (zufall, bruch, zahlen, zahlantwort)
 // der alten Lern-App.
 
-/** Ein gekürzter Bruch z/n mit n > 0. */
-export interface Bruch {
-  z: number;
-  n: number;
-}
+import {
+  type Bruch,
+  bruch,
+  durch,
+  endStellen as endStellenBruch,
+  gleich,
+  mal,
+  minus,
+  plus,
+  runde as rundeBruch,
+  zahl,
+} from "./Bruch.ts";
+import { type Zufall, mulberry32, zufallAusFolge } from "./Zufallszahlen.ts";
 
-const ggt = (a: number, b: number): number => (b === 0 ? Math.abs(a) : ggt(b, a % b));
-
-/** Der gekürzte Bruch z/n. */
-export function bruch(z: number, n = 1): Bruch {
-  if (n === 0) throw new Error("Division durch null");
-  const g = ggt(z, n) || 1;
-  const s = n < 0 ? -1 : 1;
-  return { z: (s * z) / g, n: (s * n) / g };
-}
-
-export const plus = (a: Bruch, b: Bruch): Bruch => bruch(a.z * b.n + b.z * a.n, a.n * b.n);
-export const minus = (a: Bruch, b: Bruch): Bruch => bruch(a.z * b.n - b.z * a.n, a.n * b.n);
-export const mal = (a: Bruch, b: Bruch): Bruch => bruch(a.z * b.z, a.n * b.n);
-export const durch = (a: Bruch, b: Bruch): Bruch => bruch(a.z * b.n, a.n * b.z);
-export const zahl = (b: Bruch): number => b.z / b.n;
-export const gleich = (a: Bruch, b: Bruch): boolean => a.z === b.z && a.n === b.n;
+export { type Bruch, bruch, durch, gleich, mal, minus, plus, zahl } from "./Bruch.ts";
+export type { Zufall } from "./Zufallszahlen.ts";
 
 /** Der exakte Bruch einer endlichen Dezimalzahl: 12.5 → 25/2. */
 export function alsBruch(x: number): Bruch {
@@ -35,15 +29,8 @@ export function alsBruch(x: number): Bruch {
 
 /** Wie viele Nachkommastellen der Bruch als Dezimalzahl hat; null, wenn er nicht abbricht oder mehr als 6 hat. */
 export function endStellen(b: Bruch): number | null {
-  for (let d = 0; d <= 6; d++) if (Number.isInteger((b.z * 10 ** d) / b.n)) return d;
-  return null;
-}
-
-/** Zufall einer Aufgabe (mulberry32): dieselbe Nummer gibt dieselbe Aufgabe. */
-export interface Zufall {
-  ganzzahl(min: number, max: number): number;
-  wahl<T>(liste: readonly T[]): T;
-  mischen<T>(liste: readonly T[]): T[];
+  const stellen = endStellenBruch(b);
+  return stellen <= 6 ? stellen : null;
 }
 
 /**
@@ -53,30 +40,10 @@ export interface Zufall {
 export function erzeugeZufall(seed: number, salz = ""): Zufall {
   let h = 2166136261;
   for (const zeichen of `${salz}#${seed}`) h = Math.imul(h ^ (zeichen.codePointAt(0) ?? 0), 16777619);
-  let a = h >>> 0;
-  const naechste = (): number => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-  const wahl = <T>(liste: readonly T[]): T => liste[Math.floor(naechste() * liste.length)] as T;
-  return {
-    ganzzahl: (min, max) => min + Math.floor(naechste() * (max - min + 1)),
-    wahl,
-    mischen<T>(liste: readonly T[]): T[] {
-      const kopie = [...liste];
-      for (let i = kopie.length - 1; i > 0; i--) {
-        const j = Math.floor(naechste() * (i + 1));
-        [kopie[i], kopie[j]] = [kopie[j] as T, kopie[i] as T];
-      }
-      return kopie;
-    },
-  };
+  return zufallAusFolge(mulberry32(h >>> 0));
 }
 
-/** Kaufmännisch runden, robust gegen 1,005-Fälle. */
+/** Kaufmännisch runden für die Anzeige (formatZahl); geprüft wird exakt mit Brüchen (pruefeZahl). */
 export function runde(x: number, stellen = 2): number {
   const faktor = 10 ** stellen;
   return Math.round((x + Number.EPSILON) * faktor + 1e-9 * Math.sign(x)) / faktor;
@@ -205,15 +172,13 @@ export function pruefeZahl(text: unknown, exakt: Bruch, art: Art, stellen = STEL
       : { status: "leer", meldung: MELDUNG_KEINE_ZAHL };
   }
   if (gleich(eingabe.wert, exakt)) return { status: "richtig" };
-  const wert = zahl(eingabe.wert);
-  const ziel = zahl(exakt);
   if (eingabe.typ === "term") {
-    return art === "geld" && runde(wert, stellen) === runde(ziel, stellen)
+    return art === "geld" && gleich(rundeBruch(eingabe.wert, stellen), rundeBruch(exakt, stellen))
       ? { status: "richtig" }
       : { status: "falsch" };
   }
   const d = eingabe.stellen;
-  if (d > 12 || Math.abs(wert - runde(ziel, d)) > 1e-9) return { status: "falsch" };
+  if (d > 12 || !gleich(eingabe.wert, rundeBruch(exakt, d))) return { status: "falsch" };
   if (d < stellen) return { status: "hinweis", meldung: `Fast – runde auf ${stellenText(stellen)}.` };
   return { status: "richtig" };
 }

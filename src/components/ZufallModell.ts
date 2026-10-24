@@ -3,43 +3,16 @@
 // Ereignisse in Worten (genau einmal, mindestens einmal, kein Mal, alle gleich, eine Reihenfolge).
 // Eine Urne schreibt sich kurz „3r2b1g“: 3 rote, 2 blaue, 1 gelbe Kugel. Ein Pfad ist die Folge der Ergebnis-Kürzel
 // („rb“: erst rot, dann blau); er ist zugleich die Id seines Knotens im Baum.
+import { type Zufall, mulberry32, zufallAusFolge } from "./Zufallszahlen.ts";
 import { type Bruch, bruch, EINS, mal, summe } from "./ZufallBruch.ts";
 
 // --- Zufall ---------------------------------------------------------------------------------------------------------
 
-export interface Zufall {
-  ganzzahl(min: number, max: number): number;
-  wahl<T>(liste: readonly T[]): T;
-  mischen<T>(liste: readonly T[]): T[];
-}
+export type { Zufall } from "./Zufallszahlen.ts";
 
 /** Ein deterministischer Zufall: derselbe Seed gibt dieselbe Folge. */
 export function zufallAus(seed: number): Zufall {
-  let a = Math.trunc(seed) >>> 0;
-  const naechste = () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-  const wahl = <T>(liste: readonly T[]): T => {
-    const x = liste[Math.floor(naechste() * liste.length)];
-    if (x === undefined) throw new RangeError("Wahl aus einer leeren Liste");
-    return x;
-  };
-  return {
-    ganzzahl: (min, max) => min + Math.floor(naechste() * (max - min + 1)),
-    wahl,
-    mischen<T>(liste: readonly T[]): T[] {
-      const kopie = [...liste];
-      for (let i = kopie.length - 1; i > 0; i--) {
-        const j = Math.floor(naechste() * (i + 1));
-        [kopie[i], kopie[j]] = [kopie[j] as T, kopie[i] as T];
-      }
-      return kopie;
-    },
-  };
+  return zufallAusFolge(mulberry32(Math.trunc(seed) >>> 0));
 }
 
 // --- Versuche -------------------------------------------------------------------------------------------------------

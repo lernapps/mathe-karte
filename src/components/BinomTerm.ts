@@ -2,6 +2,7 @@
 // LaTeX), Eingaben prüfen (Gleichwertigkeit, Form, Binom-Struktur, Fehlterme) und der Zufall der Aufgaben. Reine
 // Funktionen; aus terme.js, binom.js und termantwort.js der alten Lern-App übernommen. Ein Glied ist
 // { k: Koeffizient, e: { variable: Hochzahl } }, ein Polynom eine Liste von Gliedern.
+import { type Zufall, mulberry32, zufallAusFolge } from "./Zufallszahlen.ts";
 import { auswerten, kinder, leseTerm, type GelesenerTerm, type Knoten } from "./BinomParser.ts";
 
 export interface Glied {
@@ -127,30 +128,12 @@ export const quadratLatex = (g: Glied): string => quadratText(g, LATEX);
 
 // --- Zufall ------------------------------------------------------------------
 
-export interface Zufall {
-  ganzzahl(min: number, max: number): number;
-  wahl<T>(liste: readonly T[]): T;
-}
+export type { Zufall } from "./Zufallszahlen.ts";
 
 /** Deterministischer Zufall (mulberry32) zu einer Aufgabennummer: gleiche Nummer, gleiche Aufgabe. */
 export function erzeugeZufall(seed: number): Zufall {
   // aufeinanderfolgende Nummern (1, 2, 3, …) erst streuen, sonst ähneln sich ihre ersten Zufallszahlen
-  let a = Math.imul(seed ^ 0x9e3779b9, 0x85ebca6b) >>> 0;
-  const naechste = (): number => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-  return {
-    ganzzahl: (min, max) => min + Math.floor(naechste() * (max - min + 1)),
-    wahl<T>(liste: readonly T[]): T {
-      const wert = liste[Math.floor(naechste() * liste.length)];
-      if (wert === undefined) throw new Error("leere Liste");
-      return wert;
-    },
-  };
+  return zufallAusFolge(mulberry32(Math.imul(seed ^ 0x9e3779b9, 0x85ebca6b) >>> 0));
 }
 
 // --- Prüfen ------------------------------------------------------------------
