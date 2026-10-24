@@ -1,15 +1,113 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter pfadregel-1
-description: Platzhalter, bis die Seite umgezogen ist.
+title: 1. Pfadregel
+description: Die erste Pfadregel (Produktregel) anwenden – entlang eines Pfades im Baumdiagramm multiplizieren.
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Der Baum zeigt dir alle Wege – aber wie wahrscheinlich ist ein bestimmter Weg? Die erste Pfadregel beantwortet
+          genau das. Sie ist die Rechenregel hinter jeder mehrstufigen Aufgabe, und sie ist kurz: multiplizieren.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: definition
+        term: 1. Pfadregel
+        explanation: >-
+          Die Wahrscheinlichkeit eines Pfades ist das **Produkt** der Wahrscheinlichkeiten aller Zweige auf diesem Pfad
+          (Produktregel).
+      - type: formula
+        formula: 'P(\text{Pfad}) = P(\text{1. Zweig}) \cdot P(\text{2. Zweig}) \cdot \text{…}'
+      - type: text
+        text: >-
+          Merkhilfe: **Entlang** des Pfades wird **mal** gerechnet. „Erst rot *und dann* blau“ heißt multiplizieren.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Erst rot, dann blau
+        blocks:
+          - type: text
+            text: >-
+              Urne mit 3 roten, 2 blauen und 1 gelben Kugel. Du ziehst zweimal **mit Zurücklegen**. Wie groß ist
+              $P(\text{rot, blau})$?
+          - type: text
+            text: |-
+              1. 1. Zweig: $P(\text{rot}) = \frac{3}{6}$.
+              2. 2. Zweig: $P(\text{blau}) = \frac{2}{6}$ (mit Zurücklegen ist die Urne wieder voll).
+              3. $P(\text{rot, blau}) = \frac{3}{6} \cdot \frac{2}{6} = \frac{6}{36} = \frac{1}{6}$.
+      - type: note
+        title: Häufiger Fehler
+        blocks:
+          - type: text
+            text: >-
+              $\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$ wäre größer als jede der beiden einzelnen Wahrscheinlichkeiten –
+              unmöglich für „erst das eine *und* dann das andere“. Ein Pfad ist *nie wahrscheinlicher* als einer seiner
+              Zweige.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: vue-component
+        component: ZufallBaum
+        props:
+          titel: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mit Zurücklegen; der Pfad rot-blau ist orange
+          urne: 3r2b1g
+          zuege: 2
+          modus: mit
+          hervor: [rb]
+          zeigePfad: true
+        nojs: |-
+          Der Baum aus dem Beispiel: Urne mit 3 roten (R), 2 blauen (B) und 1 gelben (G) Kugel, zweimal mit
+          Zurücklegen. Auf beiden Stufen stehen dieselben Zweige: rot 3/6, blau 2/6, gelb 1/6. Der Pfad rot-blau ist
+          orange. Unter den neun Enden stehen die Pfadwahrscheinlichkeiten: rot-rot 1/4, rot-blau 1/6, rot-gelb 1/12,
+          blau-rot 1/6, blau-blau 1/9, blau-gelb 1/18, gelb-rot 1/12, gelb-blau 1/18, gelb-gelb 1/36.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: |-
+          - Video: [Produktregel | Wahrscheinlichkeitsrechnung - einfach erklärt](https://www.youtube.com/watch?v=fLPxMfgUxVk) von Lehrerschmidt (YouTube)
+          - Noch eine Erklärung: [Pfadregeln](https://de.serlo.org/mathe/189811/pfadregeln) bei serlo.org
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: pfadregel-1-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
-        links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+      - type: vue-component
+        id: pfad-im-baum
+        component: ZufallPfad
+        examples:
+          accepted:
+            - { answer: "1/4", seed: 1 }
+            - { answer: "1/2*1/2", seed: 1 }
+            - { answer: "25 %", seed: 1 }
+          rejected:
+            - { answer: "2" }
+            - { answer: "" }
+            - { answer: "1/2+1/2", seed: 1 }
+      - type: generated
+        id: pfadregel-1-urne
+        given:
+          r: { int: [2, 5] }
+          b: { int: [1, 4] }
+          g: { int: [1, 3] }
+        where:
+          - "round(r * b / ((r + b + g) * (r + b + g)), 2) != round(r / (r + b + g) + b / (r + b + g), 2)"
+        task:
+          text: >-
+            In einer Urne liegen {{r}} rote, {{b}} blaue und {{g}} gelbe Kugeln. Du ziehst zweimal mit Zurücklegen.
+            Wie groß ist $P(\text{rot, blau})$? Gib das Ergebnis als Dezimalzahl an, auf zwei Nachkommastellen
+            gerundet.
+        answer: { value: "round(r * b / ((r + b + g) * (r + b + g)), 2)", compare: { number: { decimals: 2 } } }
+        mistakes:
+          - value: "round(r / (r + b + g) + b / (r + b + g), 2)"
+            message: "Du hast addiert. Entlang eines Pfades wird multipliziert (1. Pfadregel)."
+        hint: "Rechne erst P(rot) und P(blau) für einen Zug aus. Dann multiplizierst du die beiden."
+        steps:
+          - 'Alle Kugeln: {{r}} + {{b}} + {{g}}. $P(\text{rot})$ und $P(\text{blau})$ sind Anzahl durch alle Kugeln.'
+          - 'Mit Zurücklegen bleibt die Urne gleich: $P(\text{rot, blau}) = P(\text{rot}) \cdot P(\text{blau}) \approx {{answer}}$.'
