@@ -8,9 +8,10 @@ test.use({ javaScriptEnabled: false });
 for (const pfad of inhaltsSeiten) {
   test(`ohne JS: Regel, Übung und Bild sichtbar auf /${pfad}`, async ({ page }) => {
     await page.goto(pfad);
-    await expect(page.locator("[id='regel']")).toBeVisible();
-    await expect(page.locator("[id='uebung']")).toBeVisible();
-    const abschnitt = page.locator("[id='bild']");
+    // Der explainer setzt die id eines Abschnitts auf seine Überschrift: <section><h2 id="bild">.
+    await expect(page.locator("h2[id='regel']")).toBeVisible();
+    await expect(page.locator("h2[id='uebung']")).toBeVisible();
+    const abschnitt = page.locator("section:has(> h2[id='bild'])");
     await expect(abschnitt).toHaveCount(1);
     const bild = abschnitt.locator("svg, img").first();
     await expect(bild).toBeVisible();

@@ -13,6 +13,13 @@ blocks:
           Die meisten Fehler in der Prozentrechnung passieren, bevor du überhaupt rechnest: Die Zahlen landen an der
           falschen Stelle. Wenn du in jeder Textaufgabe sofort siehst, was das Ganze, der Teil und der Prozentsatz ist,
           hast du die Aufgabe schon halb gelöst – und weißt, welche Formel dran ist.
+      - type: vue-component
+        component: KarteVerweis
+        props:
+          knoten: prozent-grundbegriffe
+          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
+          link: Lehrplan-Karte.
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=prozent-grundbegriffe).
   - type: section
     id: regel
     title: Regel
