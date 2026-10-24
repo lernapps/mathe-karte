@@ -1,15 +1,112 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter zweite-binomische
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Zweite binomische Formel
+description: "Die zweite binomische Formel (a − b)² = a² − 2ab + b²: Erklärung mit Flächenbild, Beispiel, Video und Übungsaufgaben mit Sofort-Feedback."
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Die zweite Formel ist die Schwester der ersten – nur mit Minus in der Klammer. Genau dieses Minus macht sie
+          tückisch: Beim Ausmultiplizieren von $(x - 5)^2$ passieren die meisten Vorzeichenfehler. Wer die Formel
+          kennt, schreibt das Ergebnis in einer Zeile hin. Und wer weiß, *warum* am Ende $+b^2$ steht, verwechselt die
+          Vorzeichen nicht mehr.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: formula
+        formula: "(a - b)^2 = a^2 - 2ab + b^2"
+      - type: text
+        text: >-
+          $a$ ist das erste Glied, $b$ das zweite (ohne das Minus). Du quadrierst beide Glieder, das **Mittelglied**
+          $-2ab$ ist negativ, das letzte Glied $+b^2$ ist positiv.
+      - type: text
+        text: >-
+          Warum plus? $(a - b)^2 = (a - b)(a - b)$. Das letzte Produkt ist $(-b) \cdot (-b) = +b^2$: Minus mal Minus
+          gibt Plus. Im Bild ziehst du von $a^2$ zwei Streifen $a \cdot b$ ab; die Ecke $b^2$ steckt in beiden
+          Streifen, ist also doppelt weg und kommt einmal zurück.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              $(a - b)^2$ ist nicht $a^2 - b^2$. Das Mittelglied $-2ab$ fehlt sonst, und das $b^2$ ist immer plus.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: "Multipliziere aus: (x − 5)²"
+        blocks:
+          - type: table
+            caption: "Der Rechenweg für (x − 5)²"
+            rowHeaders: true
+            rows:
+              - ["Glieder", "$a = x$, $b = 5$"]
+              - ["Formel", "$x^2 - 2 \\cdot x \\cdot 5 + 5^2$"]
+              - ["Ausgerechnet", "**$x^2 - 10x + 25$**"]
+          - type: text
+            text: "Mit Zahlen davor: $(2a - 3b)^2$ $= 4a^2 - 12ab + 9b^2$."
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: vue-component
+        component: BinomBild
+        props: { art: zweite, vorgaben: { m: 1, n: 5 } }
+        nojs: >-
+          Ein Quadrat mit der Seite $x$. Rechts und unten ist je ein Streifen der Breite $5$ markiert (rot): Beide
+          Streifen $5x$ werden abgezogen. Die grüne Ecke $25$ rechts unten steckt in beiden Streifen, ist also doppelt
+          abgezogen und kommt einmal zurück ($+25$). Übrig bleibt links oben das blaue Quadrat $(x - 5)^2$, also
+          $(x - 5)^2 = x^2 - 10x + 25$.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: >-
+          [2.binomische Formel – ganz einfach erklärt mit Beispielen!](https://www.youtube.com/watch?v=P9Moh6nUSI8),
+          ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen:
+          [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: zweite-binomische-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
+      - type: single-choice
+        id: zweite-binomische-erkennen
+        text: Jemand rechnet $(x - 4)^2 = x^2 - 8x - 16$. Was ist daran falsch?
+        options:
+          - text: "Das letzte Glied ist $+16$, denn $(-4) \\cdot (-4) = +16$."
+            correct: true
+            info: "Minus mal Minus gibt Plus. Richtig ist $(x - 4)^2 = x^2 - 8x + 16$."
+          - text: "Das Mittelglied muss $+8x$ heißen."
+            correct: false
+            info: "Bei $(a - b)^2$ ist das Mittelglied negativ: $-2 \\cdot x \\cdot 4 = -8x$. Das stimmt schon."
+          - text: "Das Mittelglied muss $-4x$ heißen."
+            correct: false
+            info: "Das Mittelglied kommt zweimal vor: $x \\cdot (-4)$ und $(-4) \\cdot x$, zusammen $-8x$."
+        explanation: "Nach der zweiten binomischen Formel ist $(x - 4)^2$ $= x^2 - 2 \\cdot x \\cdot 4 + 4^2$ $= x^2 - 8x + 16$."
         links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+          - { title: Binomische Formeln (Serlo), url: "https://de.serlo.org/mathe/1499/binomische-formeln" }
+      - type: vue-component
+        id: zweite-binomische-ueben
+        component: BinomTermAufgabe
+        props:
+          art: zweite
+          pruefen: Prüfen
+          loesungZeigen: Lösung zeigen
+          tipp: Tipp
+          rechenweg: "Lösung:"
+        examples:
+          accepted:
+            - { answer: "x^2-12x+36", seed: 1 }
+            - { answer: "36 − 12x + x²", seed: 1 }
+            - { answer: "9a^2-24a+16", seed: 2 }
+          rejected:
+            - { answer: "x^2-36", seed: 1 }
+            - { answer: "x^2-12x-36", seed: 1 }
+            - { answer: "x^2+12x+36", seed: 1 }
+            - { answer: "(x-6)^2", seed: 1 }
+            - { answer: "3a^2-24a+16", seed: 2 }
