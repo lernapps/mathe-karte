@@ -9,6 +9,17 @@ intro: |
   [Architektur-Doku](https://lernapps.github.io/mathe-karte/docs/).
 languages: [de]
 chapters: [prozent, binom, zufall]
+sources:
+  - title: Kerncurriculum Mathematik Sekundarstufe I, Hessisches Kultusministerium
+    url: https://kultusministerium.hessen.de/unterricht/kerncurricula/sekundarstufe-i/mathematik
+  - title: Prozentrechnung mittels Formeln (serlo.org)
+    url: https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln
+  - title: Binomische Formeln (serlo.org)
+    url: https://de.serlo.org/mathe/1499/binomische-formeln
+  - title: Pfadregeln (serlo.org)
+    url: https://de.serlo.org/mathe/189811/pfadregeln
+  - title: Erklärvideos von Lehrerschmidt (YouTube), auf jeder Seite unter „Video dazu“ verlinkt
+    url: https://www.youtube.com/@Lehrerschmidt
 tutor:
   rules: |
     - Gerechnet wird auf Papier und in der App, nicht im Chat. Das Ergebnis tippt das Kind in die App; im Chat
