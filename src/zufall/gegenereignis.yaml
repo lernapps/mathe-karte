@@ -1,15 +1,113 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter gegenereignis
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Gegenereignis
+description: "Die Gegenwahrscheinlichkeit 1 − P(E) berechnen, auch für „mindestens einmal“."
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Manche Ereignisse haben sehr viele günstige Ergebnisse – „mindestens einmal eine 6 bei drei Würfen“ zum
+          Beispiel. Die alle zu zählen dauert ewig. Das Gegenteil ist im Baum oft nur ein einziger Pfad. Wer den Umweg
+          über das Gegenereignis kennt, spart Zeit und Fehler.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: definition
+        term: Gegenereignis
+        explanation: >-
+          Das Gegenereignis „nicht E“ enthält alle Ergebnisse, die *nicht* zu E gehören. E und „nicht E“ zusammen
+          decken alles ab.
+      - type: text
+        text: "Die Wahrscheinlichkeiten von E und „nicht E“ ergeben zusammen 1:"
+      - type: formula
+        formula: 'P(\text{nicht } E) = 1 - P(E)'
+      - type: text
+        text: >-
+          Der wichtigste Trick: **„mindestens einmal“** rechnet man über das Gegenereignis **„kein einziges Mal“**.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Keine 6 würfeln
+        blocks:
+          - type: text
+            text: |-
+              Du würfelst einmal. Wie groß ist die Wahrscheinlichkeit, *keine* 6 zu würfeln?
+
+              1. $P(6) = \frac{1}{6}$.
+              2. $P(\text{keine } 6) = 1 - \frac{1}{6} = \frac{5}{6}$.
+      - type: example
+        title: Der Trick mit „mindestens einmal“
+        blocks:
+          - type: text
+            text: |-
+              Du würfelst dreimal. Wie groß ist $P(\text{mindestens eine } 6)$?
+
+              1. Gegenereignis: *kein einziges Mal* eine 6. Das ist ein einziger Pfad: keine 6, keine 6, keine 6.
+              2. Nach der [1. Pfadregel](/zufall/pfadregel-1/) multiplizierst du entlang des Pfades:
+                 $\frac{5}{6} \cdot \frac{5}{6} \cdot \frac{5}{6}$ $= (\frac{5}{6})^3$ $= \frac{125}{216}$.
+              3. $P(\text{mindestens eine } 6)$ $= 1 - \frac{125}{216}$ $= \frac{91}{216} \approx 42\,\%$.
+
+              Ohne den Trick müsstest du 7 Pfade addieren. Mit dem Trick ist es eine Rechnung.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: vue-component
+        component: ZufallBaum
+        props:
+          titel: Baumdiagramm zum dreimaligen Würfeln; orange ist der einzige Pfad von „kein einziges Mal 6“
+          experiment: wuerfel
+          zuege: 3
+          ereignis: keins
+          zeigePfad: true
+        nojs: |-
+          Der Baum zum dreimaligen Würfeln. Auf jeder Stufe gibt es zwei Zweige: 6 mit 1/6 und „keine 6“ (K) mit 5/6.
+          Orange ist der einzige Pfad des Gegenereignisses „kein einziges Mal 6“: keine 6, keine 6, keine 6, also
+          5/6 · 5/6 · 5/6 = 125/216. Unter den acht Enden stehen die Pfadwahrscheinlichkeiten: 1/216, 5/216, 5/216,
+          25/216, 5/216, 25/216, 25/216 und 125/216.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: |-
+          - Zu dieser Seite gibt es kein eigenes Video. Wie man Pfade multipliziert, zeigt das Video auf der Seite [1. Pfadregel](/zufall/pfadregel-1/#video).
+          - Noch eine Erklärung: [Gegenereignis](https://de.serlo.org/mathe/1691/gegenereignis) bei serlo.org
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: gegenereignis-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
-        links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+      - type: vue-component
+        id: gegenwahrscheinlichkeit
+        component: ZufallGegen
+        examples:
+          accepted:
+            - { answer: "91/216", seed: 1 }
+            - { answer: "1-(5/6)^3", seed: 1 }
+            - { answer: "0,42", seed: 1 }
+          rejected:
+            - { answer: "0" }
+            - { answer: "125/216", seed: 1 }
+            - { answer: "" }
+      - type: generated
+        id: gegenereignis-direkt
+        given:
+          p: { decimal: [0.05, 0.95], step: 0.05 }
+        where:
+          - "p != 0.5"
+        task:
+          text: >-
+            Die Wahrscheinlichkeit, dass es morgen regnet, ist {{p}}. Wie groß ist die Wahrscheinlichkeit, dass es
+            morgen *nicht* regnet?
+        answer: { value: "1 - p", compare: { number: { decimals: 2 } } }
+        mistakes:
+          - value: "p"
+            message: "Das ist P(Regen). Gefragt ist das Gegenereignis: 1 − P(Regen)."
+        hint: "Regen und kein Regen ergeben zusammen 1."
+        steps:
+          - '$P(\text{kein Regen}) = 1 - P(\text{Regen}) = 1 - {{p}} = {{answer}}$'
