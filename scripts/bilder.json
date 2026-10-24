@@ -1,0 +1,94 @@
+[
+  {
+    "bild": "zufall-baumdiagramm",
+    "komponente": "ZufallBaum",
+    "props": {
+      "titel": "Baumdiagramm zur Urne mit 3 roten und 2 blauen Kugeln, zweimal ohne Zurücklegen",
+      "urne": "3r2b",
+      "zuege": 2,
+      "modus": "ohne",
+      "zeigePfad": true
+    }
+  },
+  {
+    "bild": "zufall-ergebnisformen",
+    "komponente": "ZufallBaum",
+    "props": {
+      "titel": "Baumdiagramm zur Urne mit 3 roten und 2 blauen Kugeln, zweimal ohne Zurücklegen; orange sind die zwei Pfade von „genau einmal rot“",
+      "urne": "3r2b",
+      "zuege": 2,
+      "modus": "ohne",
+      "ereignis": "genau1r",
+      "zeigePfad": true
+    }
+  },
+  {
+    "bild": "zufall-gegenereignis",
+    "komponente": "ZufallBaum",
+    "props": {
+      "titel": "Baumdiagramm zum dreimaligen Würfeln; orange ist der einzige Pfad von „kein einziges Mal 6“",
+      "experiment": "wuerfel",
+      "zuege": 3,
+      "ereignis": "keins",
+      "zeigePfad": true
+    }
+  },
+  {
+    "bild": "zufall-laplace",
+    "komponente": "ZufallMenge",
+    "props": {
+      "titel": "die zwei blauen Kugeln sind orange umrandet",
+      "urne": "3r2b1g",
+      "ereignis": "b",
+      "modus": "hervor"
+    }
+  },
+  {
+    "bild": "zufall-ohne-zuruecklegen",
+    "komponente": "ZufallUrnen",
+    "props": {
+      "urne": "3r2b1g",
+      "erster": "r",
+      "zweiter": "b",
+      "zeigePfad": true
+    }
+  },
+  {
+    "bild": "zufall-pfade-uebersetzen",
+    "komponente": "ZufallBaum",
+    "props": {
+      "titel": "Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mit Zurücklegen; orange sind die drei Pfade von „beide gleich“",
+      "urne": "3r2b1g",
+      "zuege": 2,
+      "modus": "mit",
+      "ereignis": "allegleich",
+      "zeigePfad": true
+    }
+  },
+  {
+    "bild": "zufall-pfadregel-1",
+    "komponente": "ZufallBaum",
+    "props": {
+      "titel": "Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mit Zurücklegen; der Pfad rot-blau ist orange",
+      "urne": "3r2b1g",
+      "zuege": 2,
+      "modus": "mit",
+      "hervor": [
+        "rb"
+      ],
+      "zeigePfad": true
+    }
+  },
+  {
+    "bild": "zufall-pfadregel-2",
+    "komponente": "ZufallBaum",
+    "props": {
+      "titel": "Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ohne Zurücklegen; orange sind die vier Pfade von „genau einmal rot“",
+      "urne": "3r2b1g",
+      "zuege": 2,
+      "modus": "ohne",
+      "ereignis": "genau1r",
+      "zeigePfad": true
+    }
+  }
+]

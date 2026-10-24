@@ -14,7 +14,8 @@
     "lint": "eslint .",
     "typecheck": "vp check && vue-tsc --noEmit",
     "audit": "node scripts/audit.js",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "bilder": "node scripts/bilder.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7",

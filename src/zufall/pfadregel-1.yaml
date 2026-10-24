@@ -8,8 +8,14 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Der Baum zeigt dir alle Wege – aber wie wahrscheinlich ist ein bestimmter Weg? Die erste Pfadregel beantwortet
-          genau das. Sie ist die Rechenregel hinter jeder mehrstufigen Aufgabe, und sie ist kurz: multiplizieren.
+          Der Baum zeigt dir alle Wege – aber wie wahrscheinlich ist ein bestimmter Weg? Die erste Pfadregel beantwortet genau das. Sie ist die Rechenregel hinter jeder mehrstufigen Aufgabe, und sie ist kurz: multiplizieren.
+      - type: vue-component
+        component: KarteVerweis
+        props:
+          knoten: zufall-pfadregel-1
+          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
+          link: Lehrplan-Karte.
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-pfadregel-1).
   - type: section
     id: regel
     title: Regel
@@ -17,8 +23,7 @@ blocks:
       - type: definition
         term: 1. Pfadregel
         explanation: >-
-          Die Wahrscheinlichkeit eines Pfades ist das **Produkt** der Wahrscheinlichkeiten aller Zweige auf diesem Pfad
-          (Produktregel).
+          Die Wahrscheinlichkeit eines Pfades ist das **Produkt** der Wahrscheinlichkeiten aller Zweige auf diesem Pfad (Produktregel).
       - type: formula
         formula: 'P(\text{Pfad}) = P(\text{1. Zweig}) \cdot P(\text{2. Zweig}) \cdot \text{…}'
       - type: text
@@ -33,8 +38,7 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Urne mit 3 roten, 2 blauen und 1 gelben Kugel. Du ziehst zweimal **mit Zurücklegen**. Wie groß ist
-              $P(\text{rot, blau})$?
+              Urne mit 3 roten, 2 blauen und 1 gelben Kugel. Du ziehst zweimal **mit Zurücklegen**. Wie groß ist $P(\text{rot, blau})$?
           - type: text
             text: |-
               1. 1. Zweig: $P(\text{rot}) = \frac{3}{6}$.
@@ -45,27 +49,21 @@ blocks:
         blocks:
           - type: text
             text: >-
-              $\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$ wäre größer als jede der beiden einzelnen Wahrscheinlichkeiten –
-              unmöglich für „erst das eine *und* dann das andere“. Ein Pfad ist *nie wahrscheinlicher* als einer seiner
-              Zweige.
+              $\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$ wäre größer als jede der beiden einzelnen Wahrscheinlichkeiten – unmöglich für „erst das eine *und* dann das andere“. Ein Pfad ist *nie wahrscheinlicher* als einer seiner Zweige.
   - type: section
     id: bild
     title: Bild
     blocks:
-      - type: vue-component
-        component: ZufallBaum
-        props:
-          titel: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mit Zurücklegen; der Pfad rot-blau ist orange
-          urne: 3r2b1g
-          zuege: 2
-          modus: mit
-          hervor: [rb]
-          zeigePfad: true
-        nojs: |-
+      - type: figure
+        image: images/zufall-pfadregel-1.svg
+        alt: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mit Zurücklegen; der Pfad rot-blau ist orange
+        caption: |-
           Der Baum aus dem Beispiel: Urne mit 3 roten (R), 2 blauen (B) und 1 gelben (G) Kugel, zweimal mit
           Zurücklegen. Auf beiden Stufen stehen dieselben Zweige: rot 3/6, blau 2/6, gelb 1/6. Der Pfad rot-blau ist
           orange. Unter den neun Enden stehen die Pfadwahrscheinlichkeiten: rot-rot 1/4, rot-blau 1/6, rot-gelb 1/12,
           blau-rot 1/6, blau-blau 1/9, blau-gelb 1/18, gelb-rot 1/12, gelb-blau 1/18, gelb-gelb 1/36.
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
   - type: section
     id: video
     title: Video dazu
@@ -100,9 +98,7 @@ blocks:
           - "round(r * b / ((r + b + g) * (r + b + g)), 2) != round(r / (r + b + g) + b / (r + b + g), 2)"
         task:
           text: >-
-            In einer Urne liegen {{r}} rote, {{b}} blaue und {{g}} gelbe Kugeln. Du ziehst zweimal mit Zurücklegen.
-            Wie groß ist $P(\text{rot, blau})$? Gib das Ergebnis als Dezimalzahl an, auf zwei Nachkommastellen
-            gerundet.
+            In einer Urne liegen {{r}} rote, {{b}} blaue und {{g}} gelbe Kugeln. Du ziehst zweimal mit Zurücklegen. Wie groß ist $P(\text{rot, blau})$? Gib das Ergebnis als Dezimalzahl an, auf zwei Nachkommastellen gerundet.
         answer: { value: "round(r * b / ((r + b + g) * (r + b + g)), 2)", compare: { number: { decimals: 2 } } }
         mistakes:
           - value: "round(r / (r + b + g) + b / (r + b + g), 2)"

@@ -8,10 +8,14 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Wer jede Wahrscheinlichkeit bis zum gekürzten Bruch ausrechnet, verliert Zeit und macht Rechenfehler. Oft
-          reicht der Term: $\frac{3}{6} \cdot \frac{2}{5}$. Frag deine Lehrerin oder deinen Lehrer, ob du in der
-          Klassenarbeit ausrechnen musst. Wichtig ist, dass der Term stimmt – und genau das übst du hier: Du erkennst,
-          welcher Term zu einem Ereignis passt und welcher einen typischen Fehler enthält.
+          Wer jede Wahrscheinlichkeit bis zum gekürzten Bruch ausrechnet, verliert Zeit und macht Rechenfehler. Oft reicht der Term: $\frac{3}{6} \cdot \frac{2}{5}$. Frag deine Lehrerin oder deinen Lehrer, ob du in der Klassenarbeit ausrechnen musst. Wichtig ist, dass der Term stimmt – und genau das übst du hier: Du erkennst, welcher Term zu einem Ereignis passt und welcher einen typischen Fehler enthält.
+      - type: vue-component
+        component: KarteVerweis
+        props:
+          knoten: zufall-ergebnisform
+          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
+          link: Lehrplan-Karte.
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-ergebnisform).
   - type: section
     id: regel
     title: Regel
@@ -30,8 +34,7 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Nur ein Pfad statt aller, entlang des Pfades addiert statt multipliziert, die Pfade des Gegenereignisses
-              oder mit statt ohne Zurücklegen gerechnet.
+              Nur ein Pfad statt aller, entlang des Pfades addiert statt multipliziert, die Pfade des Gegenereignisses oder mit statt ohne Zurücklegen gerechnet.
   - type: section
     id: beispiel
     title: Beispiel
@@ -59,19 +62,15 @@ blocks:
     id: bild
     title: Bild
     blocks:
-      - type: vue-component
-        component: ZufallBaum
-        props:
-          titel: Baumdiagramm zur Urne mit 3 roten und 2 blauen Kugeln, zweimal ohne Zurücklegen; orange sind die zwei Pfade von „genau einmal rot“
-          urne: 3r2b
-          zuege: 2
-          modus: ohne
-          ereignis: genau1r
-          zeigePfad: true
-        nojs: |-
+      - type: figure
+        image: images/zufall-ergebnisformen.svg
+        alt: Baumdiagramm zur Urne mit 3 roten und 2 blauen Kugeln, zweimal ohne Zurücklegen; orange sind die zwei Pfade von „genau einmal rot“
+        caption: |-
           Der Baum aus dem Beispiel: 3 rote (R) und 2 blaue (B) Kugeln, zweimal ohne Zurücklegen. Erste Stufe:
           rot 3/5, blau 2/5. Nach rot: rot 2/4, blau 2/4; nach blau: rot 3/4, blau 1/4. Orange sind die zwei Pfade von
           „genau einmal rot“: rot-blau 3/10 und blau-rot 3/10. Zusammen 3/5.
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
   - type: section
     id: video
     title: Video dazu
@@ -112,7 +111,6 @@ blocks:
             correct: false
             info: Das sind nur fünf Sechstel, erweitert mit 3. Beim Multiplizieren werden die Zähler und die Nenner miteinander multipliziert.
         explanation: >-
-          Kommt derselbe Faktor mehrmals vor, darfst du eine Potenz schreiben: fünf Sechstel mal fünf Sechstel mal fünf
-          Sechstel ist fünf Sechstel hoch drei, ausgerechnet 125 Zweihundertsechzehntel.
+          Kommt derselbe Faktor mehrmals vor, darfst du eine Potenz schreiben: fünf Sechstel mal fünf Sechstel mal fünf Sechstel ist fünf Sechstel hoch drei, ausgerechnet 125 Zweihundertsechzehntel.
         links:
           - { title: Pfadregeln (serlo.org), url: "https://de.serlo.org/mathe/189811/pfadregeln" }

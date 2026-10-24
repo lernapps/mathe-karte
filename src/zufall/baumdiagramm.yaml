@@ -8,9 +8,14 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Sobald du zweimal ziehst, wirfst oder würfelst, wird es unübersichtlich: Was kann beim ersten Mal passieren,
-          was danach? Das Baumdiagramm ordnet alle Möglichkeiten Stufe für Stufe. Mit einem sauberen Baum lösen sich die
-          Pfadregeln fast von allein – ohne Baum verliert man schnell einen Fall.
+          Sobald du zweimal ziehst, wirfst oder würfelst, wird es unübersichtlich: Was kann beim ersten Mal passieren, was danach? Das Baumdiagramm ordnet alle Möglichkeiten Stufe für Stufe. Mit einem sauberen Baum lösen sich die Pfadregeln fast von allein – ohne Baum verliert man schnell einen Fall.
+      - type: vue-component
+        component: KarteVerweis
+        props:
+          knoten: zufall-baumdiagramm
+          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
+          link: Lehrplan-Karte.
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-baumdiagramm).
   - type: section
     id: regel
     title: Regel
@@ -18,8 +23,7 @@ blocks:
       - type: definition
         term: mehrstufiger Zufallsversuch
         explanation: >-
-          Ein Zufallsversuch aus mehreren Zügen (Stufen), zum Beispiel zweimal aus einer Urne ziehen oder dreimal eine
-          Münze werfen.
+          Ein Zufallsversuch aus mehreren Zügen (Stufen), zum Beispiel zweimal aus einer Urne ziehen oder dreimal eine Münze werfen.
       - type: text
         text: Für jede Stufe zeichnest du **Zweige** zu allen möglichen Ergebnissen.
       - type: text
@@ -43,8 +47,7 @@ blocks:
         blocks:
           - type: text
             text: >-
-              In einer Urne liegen 3 rote und 2 blaue Kugeln. Du ziehst zweimal **ohne Zurücklegen**. Das Bild unten
-              zeigt den fertigen Baum.
+              In einer Urne liegen 3 rote und 2 blaue Kugeln. Du ziehst zweimal **ohne Zurücklegen**. Das Bild unten zeigt den fertigen Baum.
           - type: text
             text: |-
               1. **1. Stufe:** 5 Kugeln. $P(\text{rot}) = \frac{3}{5}$, $P(\text{blau}) = \frac{2}{5}$. Zusammen 1.
@@ -58,19 +61,16 @@ blocks:
     id: bild
     title: Bild
     blocks:
-      - type: vue-component
-        component: ZufallBaum
-        props:
-          titel: Baumdiagramm zur Urne mit 3 roten und 2 blauen Kugeln, zweimal ohne Zurücklegen
-          urne: 3r2b
-          zuege: 2
-          modus: ohne
-          zeigePfad: true
-        nojs: |-
+      - type: figure
+        image: images/zufall-baumdiagramm.svg
+        alt: Baumdiagramm zur Urne mit 3 roten und 2 blauen Kugeln, zweimal ohne Zurücklegen
+        caption: |-
           Ein Baumdiagramm zur Urne mit 3 roten (R) und 2 blauen (B) Kugeln, zweimal ohne Zurücklegen. Vom Start
           gehen zwei Zweige aus: rot mit 3/5 und blau mit 2/5. Nach rot folgen rot mit 2/4 und blau mit 2/4, nach blau
           folgen rot mit 3/4 und blau mit 1/4. Unter den vier Enden stehen die Pfadwahrscheinlichkeiten:
           rot-rot 3/10, rot-blau 3/10, blau-rot 3/10, blau-blau 1/10. Zusammen ergeben sie 1.
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
   - type: section
     id: video
     title: Video dazu
@@ -100,8 +100,7 @@ blocks:
           b: { int: [2, 5] }
         task:
           text: >-
-            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst zweimal ohne Zurücklegen. Welcher
-            Nenner steht an den Zweigen der zweiten Stufe?
+            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst zweimal ohne Zurücklegen. Welcher Nenner steht an den Zweigen der zweiten Stufe?
         answer: { value: "r + b - 1", compare: { number: { format: integer } } }
         mistakes:
           - value: "r + b"

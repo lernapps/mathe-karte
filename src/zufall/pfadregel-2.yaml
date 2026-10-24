@@ -8,9 +8,14 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Viele Fragen passen nicht zu einem einzigen Pfad: „genau einmal rot“ kann rot-blau oder blau-rot sein. Die
-          zweite Pfadregel sagt, wie du solche Pfade zusammenrechnest. Und darauf kommt es an: das Ereignis in Worten
-          richtig in Pfade zu übersetzen.
+          Viele Fragen passen nicht zu einem einzigen Pfad: „genau einmal rot“ kann rot-blau oder blau-rot sein. Die zweite Pfadregel sagt, wie du solche Pfade zusammenrechnest. Und darauf kommt es an: das Ereignis in Worten richtig in Pfade zu übersetzen.
+      - type: vue-component
+        component: KarteVerweis
+        props:
+          knoten: zufall-pfadregel-2
+          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
+          link: Lehrplan-Karte.
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-pfadregel-2).
   - type: section
     id: regel
     title: Regel
@@ -26,8 +31,7 @@ blocks:
           Merkhilfe: **entlang** des Pfades **mal**, **über** mehrere Pfade **plus**.
       - type: text
         text: >-
-          Mehr dazu: [Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben](/zufall/ergebnisformen/) und
-          [Ereignisse in Pfade übersetzen](/zufall/pfade-uebersetzen/).
+          Mehr dazu: [Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben](/zufall/ergebnisformen/) und [Ereignisse in Pfade übersetzen](/zufall/pfade-uebersetzen/).
   - type: section
     id: beispiel
     title: Beispiel
@@ -37,8 +41,7 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ziehen **ohne Zurücklegen**. Wie groß ist
-              $P(\text{genau einmal rot})$?
+              Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ziehen **ohne Zurücklegen**. Wie groß ist $P(\text{genau einmal rot})$?
           - type: text
             text: |-
               1. Pfade finden: rot-blau, rot-gelb, blau-rot, gelb-rot. (rot-rot ist *zweimal* rot, gehört nicht dazu.)
@@ -47,26 +50,21 @@ blocks:
               3. Addieren: $\frac{6}{30} + \frac{3}{30} + \frac{6}{30} + \frac{3}{30}$ $= \frac{18}{30} = \frac{3}{5}$.
           - type: text
             text: >-
-              Kürzer: „genau einmal rot“ = rot-nicht rot + nicht rot-rot:
-              $\frac{3}{6} \cdot \frac{3}{5} + \frac{3}{6} \cdot \frac{3}{5}$ $= 2 \cdot \frac{9}{30} = \frac{3}{5}$.
+              Kürzer: „genau einmal rot“ = rot-nicht rot + nicht rot-rot: $\frac{3}{6} \cdot \frac{3}{5} + \frac{3}{6} \cdot \frac{3}{5}$ $= 2 \cdot \frac{9}{30} = \frac{3}{5}$.
   - type: section
     id: bild
     title: Bild
     blocks:
-      - type: vue-component
-        component: ZufallBaum
-        props:
-          titel: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ohne Zurücklegen; orange sind die vier Pfade von „genau einmal rot“
-          urne: 3r2b1g
-          zuege: 2
-          modus: ohne
-          ereignis: genau1r
-          zeigePfad: true
-        nojs: |-
+      - type: figure
+        image: images/zufall-pfadregel-2.svg
+        alt: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ohne Zurücklegen; orange sind die vier Pfade von „genau einmal rot“
+        caption: |-
           Der Baum aus dem Beispiel: 3 rote (R), 2 blaue (B) und 1 gelbe (G) Kugel, zweimal ohne Zurücklegen. Erste
           Stufe: rot 3/6, blau 2/6, gelb 1/6. Nach rot: rot 2/5, blau 2/5, gelb 1/5; nach blau: rot 3/5, blau 1/5,
           gelb 1/5; nach gelb: rot 3/5, blau 2/5 (gelb ist leer). Orange sind die vier Pfade von „genau einmal rot“:
           rot-blau 1/5, rot-gelb 1/10, blau-rot 1/5, gelb-rot 1/10. Zusammen 3/5.
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
   - type: section
     id: video
     title: Video dazu
@@ -110,9 +108,7 @@ blocks:
           - "round(2 * r * b / ((r + b) * (r + b)), 2) != round(r * b / ((r + b) * (r + b)), 2)"
         task:
           text: >-
-            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst zweimal mit Zurücklegen. Wie groß ist
-            die Wahrscheinlichkeit, genau einmal Rot zu ziehen? Gib sie als Dezimalzahl an, auf zwei
-            Nachkommastellen gerundet.
+            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst zweimal mit Zurücklegen. Wie groß ist die Wahrscheinlichkeit, genau einmal Rot zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet.
         answer: { value: "round(2 * r * b / ((r + b) * (r + b)), 2)", compare: { number: { decimals: 2 } } }
         mistakes:
           - value: "round(r * b / ((r + b) * (r + b)), 2)"

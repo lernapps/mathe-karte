@@ -8,9 +8,14 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Die Pfadregeln sind leicht – schwer ist die Frage davor: Welche Pfade gehören überhaupt zum Ereignis? „Genau
-          einmal rot“ klingt nach einem Pfad, sind aber zwei. „Beide gleich“ sind so viele Pfade, wie es Farben gibt.
-          Wer diese Übersetzung sicher kann, löst die meisten Aufgaben zu Baumdiagrammen.
+          Die Pfadregeln sind leicht – schwer ist die Frage davor: Welche Pfade gehören überhaupt zum Ereignis? „Genau einmal rot“ klingt nach einem Pfad, sind aber zwei. „Beide gleich“ sind so viele Pfade, wie es Farben gibt. Wer diese Übersetzung sicher kann, löst die meisten Aufgaben zu Baumdiagrammen.
+      - type: vue-component
+        component: KarteVerweis
+        props:
+          knoten: zufall-ereignis-uebersetzen
+          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
+          link: Lehrplan-Karte.
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-ereignis-uebersetzen).
   - type: section
     id: regel
     title: Regel
@@ -34,8 +39,7 @@ blocks:
         blocks:
           - type: text
             text: >-
-              Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ziehen **mit Zurücklegen**. Wie groß ist
-              $P(\text{beide gleich})$?
+              Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ziehen **mit Zurücklegen**. Wie groß ist $P(\text{beide gleich})$?
           - type: text
             text: |-
               1. Pfade: rot-rot, blau-blau, gelb-gelb.
@@ -46,20 +50,16 @@ blocks:
     id: bild
     title: Bild
     blocks:
-      - type: vue-component
-        component: ZufallBaum
-        props:
-          titel: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mit Zurücklegen; orange sind die drei Pfade von „beide gleich“
-          urne: 3r2b1g
-          zuege: 2
-          modus: mit
-          ereignis: allegleich
-          zeigePfad: true
-        nojs: |-
+      - type: figure
+        image: images/zufall-pfade-uebersetzen.svg
+        alt: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mit Zurücklegen; orange sind die drei Pfade von „beide gleich“
+        caption: |-
           Der Baum aus dem Beispiel: 3 rote (R), 2 blaue (B) und 1 gelbe (G) Kugel, zweimal mit Zurücklegen. Auf
           beiden Stufen: rot 3/6, blau 2/6, gelb 1/6. Orange sind die drei Pfade von „beide gleich“: rot-rot 1/4,
           blau-blau 1/9 und gelb-gelb 1/36. Unter den übrigen Enden stehen rot-blau 1/6, rot-gelb 1/12, blau-rot 1/6,
           blau-gelb 1/18, gelb-rot 1/12, gelb-blau 1/18.
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
   - type: section
     id: video
     title: Video dazu
@@ -94,9 +94,7 @@ blocks:
           - "round((r * r + b * b) / ((r + b) * (r + b)), 2) != round(2 * r * b / ((r + b) * (r + b)), 2)"
         task:
           text: >-
-            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst zweimal mit Zurücklegen. Wie groß ist
-            die Wahrscheinlichkeit, dass beide Kugeln dieselbe Farbe haben? Gib sie als Dezimalzahl an, auf zwei
-            Nachkommastellen gerundet.
+            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst zweimal mit Zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass beide Kugeln dieselbe Farbe haben? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet.
         answer: { value: "round((r * r + b * b) / ((r + b) * (r + b)), 2)", compare: { number: { decimals: 2 } } }
         mistakes:
           - value: "round(r * r / ((r + b) * (r + b)), 2)"

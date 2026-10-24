@@ -61,6 +61,11 @@ curriculum map (`karte/`) is still built with Eleventy 3.1.7. Deployed to GitHub
 - The explainer validates every YAML file against its schema and fails with `file:line: place: what to do`; it
   property-tests every `generated` exercise over 200 seeds and every exercise component over 50; it checks every
   internal link and anchor, also in `llms.txt` and `tutor.md`.
+- Pictures: the example picture of a page (section `bild`) must show without JavaScript. When a block (`figure`
+  with `draw`) cannot draw it, the component that draws the exercise picture draws it too: list it in
+  `scripts/bilder.json` and run `npm run bilder` (Vue SSR → `src/images/<kapitel>-<seite>.svg`, shown as a `figure`
+  block). `node scripts/bilder.mjs --uebernehmen` converts a `vue-component` under `bild` once; `npm test` fails when
+  a file differs from what its component draws. No hand-drawn SVGs.
 - Components: no network, no `innerHTML`/`v-html`/`eval`, browser globals only once mounted, imports only from
   `vue`, the lernapps packages and `src/components/`, max 20 kB gzip (lint plugin of lernapps.net).
 - Licences (`lib/pruefe-lizenzen.js`, run by `npm test`): every package in `package-lock.json` needs a licence from the

@@ -29,6 +29,7 @@ export default [
       "lib/**/*.js",
       "test/**/*.js",
       "scripts/**/*.js",
+      "scripts/**/*.mjs",
       "karte/test/**/*.js",
       "karte/lib/**/*.js",
       "karte/_data/**/*.js",

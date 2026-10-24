@@ -8,9 +8,14 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Fast jede Wahrscheinlichkeitsaufgabe beginnt mit dieser Frage: Wie viele Ergebnisse gibt es überhaupt, und wie
-          viele davon sind „gut“ für mich? Wer das sauber zählt, hat den ersten Schritt jeder Aufgabe geschafft. Alles
-          Weitere – Baumdiagramme, Pfadregeln – baut darauf auf.
+          Fast jede Wahrscheinlichkeitsaufgabe beginnt mit dieser Frage: Wie viele Ergebnisse gibt es überhaupt, und wie viele davon sind „gut“ für mich? Wer das sauber zählt, hat den ersten Schritt jeder Aufgabe geschafft. Alles Weitere – Baumdiagramme, Pfadregeln – baut darauf auf.
+      - type: vue-component
+        component: KarteVerweis
+        props:
+          knoten: zufall-laplace
+          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
+          link: Lehrplan-Karte.
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-laplace).
   - type: section
     id: regel
     title: Regel
@@ -27,8 +32,7 @@ blocks:
         explanation: Ein Ergebnis, das zum Ereignis $E$ gehört. **Möglich** ist dagegen alles, was passieren kann.
       - type: text
         text: >-
-          Die Wahrscheinlichkeit ist immer eine Zahl zwischen 0 (unmöglich) und 1 (sicher). Du kannst sie als Bruch,
-          als Dezimalzahl oder in Prozent schreiben: $\frac{1}{4} = 0{,}25 = 25\,\%$.
+          Die Wahrscheinlichkeit ist immer eine Zahl zwischen 0 (unmöglich) und 1 (sicher). Du kannst sie als Bruch, als Dezimalzahl oder in Prozent schreiben: $\frac{1}{4} = 0{,}25 = 25\,\%$.
   - type: section
     id: beispiel
     title: Beispiel
@@ -48,29 +52,23 @@ blocks:
         blocks:
           - type: text
             text: >-
-              In einer Urne liegen 3 rote, 2 blaue und 1 gelbe Kugel. Du ziehst blind eine Kugel.
-              $P(\text{blau}) = \frac{2}{6} = \frac{1}{3} \approx 33{,}3\,\%$.
+              In einer Urne liegen 3 rote, 2 blaue und 1 gelbe Kugel. Du ziehst blind eine Kugel. $P(\text{blau}) = \frac{2}{6} = \frac{1}{3} \approx 33{,}3\,\%$.
       - type: note
         title: Achtung
         blocks:
           - type: text
             text: >-
-              Die Farben sind nicht die Ergebnisse! Jede einzelne Kugel ist ein Ergebnis. Es gibt 6 Kugeln, nicht
-              3 Farben – sonst würdest du $\frac{1}{3}$ für jede Farbe rechnen, und das ist falsch.
+              Die Farben sind nicht die Ergebnisse! Jede einzelne Kugel ist ein Ergebnis. Es gibt 6 Kugeln, nicht 3 Farben – sonst würdest du $\frac{1}{3}$ für jede Farbe rechnen, und das ist falsch.
   - type: section
     id: bild
     title: Bild
     blocks:
-      - type: vue-component
-        component: ZufallMenge
-        props:
-          titel: die zwei blauen Kugeln sind orange umrandet
-          urne: 3r2b1g
-          ereignis: b
-          modus: hervor
-        nojs: >-
-          Die Urne aus dem zweiten Beispiel: 6 Kugeln nebeneinander, 3 rote, 2 blaue und 1 gelbe. Die zwei blauen
-          Kugeln sind orange umrandet. Also ist $P(\text{blau}) = \frac{2}{6}$.
+      - type: figure
+        image: images/zufall-laplace.svg
+        alt: "Die Kugeln in der Urne: die zwei blauen Kugeln sind orange umrandet"
+        caption: "Die Urne aus dem zweiten Beispiel: 6 Kugeln nebeneinander, 3 rote, 2 blaue und 1 gelbe. Die zwei blauen Kugeln sind orange umrandet. Also ist $P(\\text{blau}) = \\frac{2}{6}$."
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
   - type: section
     id: video
     title: Video dazu
@@ -106,9 +104,7 @@ blocks:
           - "round(b / (r + b + g), 2) != round(b / (r + g), 2)"
         task:
           text: >-
-            In einer Urne liegen {{r}} rote, {{b}} blaue und {{g}} gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß
-            ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei
-            Nachkommastellen gerundet.
+            In einer Urne liegen {{r}} rote, {{b}} blaue und {{g}} gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet.
         answer: { value: "round(b / (r + b + g), 2)", compare: { number: { decimals: 2 } } }
         mistakes:
           - value: "round(1 / 3, 2)"
