@@ -1,33 +1,27 @@
-# Lern-Apps
+# Mathe-Karte
 
-Interaktive Lern-Apps für Mathe, Physik und Chemie in einem Repository: ein gemeinsamer Kern, eine App je Thema,
-gebaut mit [Eleventy](https://www.11ty.dev/) zu statischem HTML und ausgeliefert über GitHub Pages unter
-<https://lernapps.github.io/>.
+Prozentrechnung, binomische Formeln und Wahrscheinlichkeit für die Klassen 7 und 8, dazu eine Lehrplan-Karte:
+<https://lernapps.github.io/mathe-karte/>. Teil von [lernapps.net](https://lernapps.net/).
 
-Jede Seite ist ohne JavaScript lesbar (Text und Bild); JavaScript treibt nur Übung, Test und Selbsteinschätzung.
-Kein Server, kein Tracking, keine externen Requests vor dem Klick auf ein Video.
+Jede Seite erklärt eine Sache mit Regel, Beispiel und Bild und endet mit Übungsaufgaben, die sofort sagen, ob das
+Ergebnis stimmt. Jede Seite ist ohne JavaScript lesbar, Text und Bild. Kein Server, kein Tracking, keine Anfrage an
+fremde Server vor einem Klick.
 
-```bash
-npm ci          # Eleventy (exakt gepinnt) installieren
-npm test        # Unit- und Vertragstests
-npm run build   # _site bauen; bricht bei Regelverstößen ab
-npm run serve   # lokal ansehen: http://localhost:8080/
-```
-
-Apps: [Binomische Formeln](src/binom/) (Mathe, Klasse 8), [Prozent-Trainer](src/prozent/) (Mathe, Klasse 8), [Zufall-Trainer](src/zufall/) (Mathe, Klasse 8, Wahrscheinlichkeitsrechnung). Wie man eine App oder Kompetenz anlegt, steht in
-[CLAUDE.md](CLAUDE.md).
-
-## Claude-Skill `lern-app`
-
-Der Skill, mit dem Claude aus einem Lehrplan-Thema eine neue App in diesem Repository baut, liegt unter
-[`werkzeuge/skill/lern-app/`](werkzeuge/skill/lern-app/SKILL.md). Eleventy liest nur `src/`, der Skill landet also
-nicht auf der Site. Installation für Claude Code per Symlink:
+Die Seiten sind ein _explainer_ von lernapps.net ([`@lernapps/app-templates`](https://github.com/lernapps/app-templates)):
+Der Inhalt steht als YAML in [`src/`](src/), Übungen sind deklarierte `generated`-Aufgaben oder Vue-Komponenten in
+[`src/components/`](src/components/). Die Lehrplan-Karte in [`karte/`](karte/) baut Eleventy. Warum, steht in
+ADR-033 der [Architektur-Doku](https://lernapps.github.io/mathe-karte/docs/).
 
 ```bash
-ln -s <repo>/werkzeuge/skill/lern-app ~/.claude/skills/lern-app
+npm ci                 # Abhängigkeiten installieren (lernapps-Pakete von GitHub, auf einen Commit gepinnt)
+npm test               # Unit-Tests (node:test und vp test)
+npm run build          # dist/ bauen: explainer, dann die Karte; bricht bei Regelverstößen ab
+npm run dev            # explainer lokal ansehen
+npx lernapps check     # alle Prüfungen von lernapps.net samt Browser-Tests
 ```
 
-`<repo>` ist der absolute Pfad dieses Checkouts. Danach steht der Skill in jeder Claude-Code-Sitzung zur Verfügung.
+Wie man eine Seite oder ein Kapitel anlegt, steht in [CLAUDE.md](CLAUDE.md) und im Inhaltsleitfaden
+[`.agents/skills/app-content/`](.agents/skills/app-content/SKILL.md).
 
 ## Lizenz
 

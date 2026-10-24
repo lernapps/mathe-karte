@@ -1,135 +1,101 @@
-# Lern-Apps (Monorepo) – instructions for AI agents
+# Mathe-Karte – instructions for AI agents
 
-All learning apps (Mathe, Physik, Chemie; about 20 per school year) and later the Mathe-Karte live in this one
-repository: one shared kern, one layout, one build (Eleventy 3.1.7), deployed to GitHub Pages at
-`https://lernapps.github.io/`. The old single-app repos (`raifdmueller.github.io/*-trainer`, `mathe-karte`,
+The Mathe-Karte of lernapps.net: Prozentrechnung, binomische Formeln and Wahrscheinlichkeit for school years 7 and
+8, plus the curriculum map. Since ADR-033 the pages are a lernapps.net **explainer** (`@lernapps/app-templates`,
+built with Vite+): content is YAML in `src/`, exercises are `generated` blocks or Vue exercise components. Only the
+curriculum map (`karte/`) is still built with Eleventy 3.1.7. Deployed to GitHub Pages at
+`https://lernapps.github.io/mathe-karte/`. The old single-app repos (`raifdmueller.github.io/*-trainer`,
 `lern-app-template`) were deleted on 23.09.2026: never link to them or rely on them.
 
 ## Project rules
-- Output is static HTML. Every page is fully readable without JavaScript – text AND picture. JS only powers exercises,
-  checking, the test, self-assessment and the interactive redraw of pictures. Vanilla ES modules, no framework.
-- No external requests before the learner clicks a video card; then only youtube-nocookie.com (two-click embed in
-  `src/kern/js/video.js`). No CDN, no web fonts, no analytics, no cookies. localStorage only for self-assessment, the
-  last test result and the video preference, always wrapped in try/catch.
-- Mature libraries only. Eleventy is pinned exactly (`npm install --save-dev --save-exact @11ty/eleventy@<version>`);
-  never run `npx eleventy` without the installed package (use `npm run build`).
-- Mobile-first (360 px), WCAG-friendly, `lang="de"`, German UI, German domain terms in identifiers (Ubiquitous
-  Language), English for generic structure.
+- Output is static HTML. Every page is fully readable without JavaScript – text AND picture. The explainer renders
+  it; JS only powers exercises and components.
+- No external requests before a click. Videos are plain links (`https://www.youtube.com/watch?v=…`), no embeds. No
+  CDN, no web fonts, no analytics, no cookies. The explainer stores only the learner's tutor provider (through
+  `@lernapps/tooling/storage`); the map stores nothing.
+- Write only content: YAML in `src/`, components in `src/components/`. Never change the runtime in `node_modules`
+  (rule `explainer-only-content`); fixes arrive with `lernapps update` in its own PR.
+- Before writing content, read in full from the files: `node_modules/@lernapps/tooling/skills/archetypes/
+  lernapps-explainer/SKILL.md` and its `references/`, `lernapps-explainer-design`, `lernapps-content-questions`.
+  Schema: `node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json`.
+- The lernapps packages are pinned to a commit in `package.json`; Eleventy is pinned exactly. Mature libraries only.
+- Mobile-first (360 px), WCAG 2.2 AA, `lang="de"`, German UI, German domain terms in identifiers (Ubiquitous
+  Language), English for generic structure. Component names carry the chapter prefix (`Prozent…`, `Binom…`,
+  `Zufall…`).
 - Every file under 500 lines (the build fails otherwise). SOLID, DRY, KISS.
 - TDD: write the test first, see it fail, implement, see it pass. `npm test` and `npm run build` green at every commit.
-  Conventional Commits, small steps, add files by name (never `git add -A` / `git add .`), feature branches.
-- URL parameters, anchors and `seed`/`nr` are a public contract used by the AI tutor: document every change in the
-  app's `llms.njk`, never rename existing ones. `tutor.njk` is the learner-facing prompt; under 120 lines, German.
-- Verify UI changes in a browser (Playwright) before reporting them done: without JS (text + picture visible),
-  360 px and 1280 px, zero console errors, zero external requests before the video click.
-- Browser tests (`e2e/`, Playwright + axe-core, #26) automate most of that check in the `browser` workflow. Run them
-  locally with `npm run build && npm run test:browser` (once: `npx --package=@playwright/test playwright install
-  chromium`; never `npx playwright`). They derive the page list from `lib/apps.js`, so new apps are covered.
+  Conventional Commits, small steps, add files by name (never `git add -A` / `git add .`), feature branches. The git
+  hooks of lernapps.net run `lernapps check --pre-commit` / `--pre-push`; never `--no-verify`.
+- Page ids, section ids, exercise ids and the address `/<kapitel>/<seite>/?<übung>=<n>#<übung>` are a public contract
+  used by the AI tutor (the explainer writes `llms.txt`, `tutor.md` per page and the tutor prompt from the content).
+  Never rename an id; moving a page means changing `karte/daten/kapitel.js` in the same PR.
+- Verify UI changes in a browser before reporting them done: `npx lernapps check` runs the explainer's end-to-end
+  tests and ours (`e2e/*.spec.js`: axe, no external request, 360 px, without JS) over every page incl. the map.
 
 ## Layout of the repository
-- `src/_data/site.js` – THE one place holding the base URL. `lib/adressen.js` derives pathPrefix, canonicals, app
-  URLs, repository and source links from it. Moving the repo (e.g. into an organisation) means changing one line.
-  Keep a single default export (Eleventy reads data files with named exports differently).
-- `src/kern/` – the generic kern, shipped once at `/kern/` (`js/`, `css/stil.css`, `vendor/talkitover.js`). Apps
-  import it relatively (`../kern/js/seite.js` from a page, `../../../kern/js/zahlantwort.js` from `js/aufgaben/`). No
-  symlinks, no copies per app. The kern NEVER imports an app configuration: pages pass `APP`, `KOMPETENZEN` and
-  generators in (`starteSeite`, `starteStartseite`, `starteTestseite`, `erzeugeSpeicher(praefix)`,
-  `initVideos(praefix)`) – Dependency Inversion.
-- `src/<app>/` – one folder per app: `js/app.config.js` (APP + KOMPETENZEN), `<id>.md` per competency,
-  `js/aufgaben/<id>.js` (generator + checker), `js/vis/<id>.js` (picture), `test/<id>.test.js`, `llms.njk`,
-  `tutor.njk`, `<app>.11tydata.js` (one line), `favicon.svg`, `icon-192.png`, `icon-512.png`,
-  `apple-touch-icon.png`, optional `css/<app>.css`.
-- `src/_includes/basis.njk` (head, menu with number badges, footer with site version, subject colour) and
-  `kompetenz.njk` (Warum / Regel / Beispiel / Bild / Video / Übung from front matter). `src/start.njk`,
-  `src/test.njk` and `src/manifest.njk` paginate over all apps; `src/index.njk` and `src/llms.njk` are the overview.
-- `src/karte/` – the Mathe-Karte at `/karte/` (not an app: no `app.config.js`). Curriculum data as flat-front-matter
-  Markdown in `src/karte/daten/` (ignored as pages, read by `karte.11tydata.js` → `lib/karte/laden.js`; data model in
-  `src/karte/daten/README.md`). Pages are static (`index`, `karte-statisch`, `apps`, `laender`, `ueber`, `llms.txt`,
-  `data.json`); `js/start.js` turns the static list into the interactive map. URL parameters `land`, `jahrgang`,
-  `leitidee`, `luecken`, `knoten` and the shape of `data.json` are a public contract (`src/karte/llms.njk`).
-- An app appears on the map when its config has `APP.kartenEintrag` (entry fields: `aktiv-level`, `backend`,
-  `external-requests`, `dsgvo`, `evidence`, `jahrgaenge`, `lizenz`, `stand`) and competencies carry `kartenKnoten: [<node
-  id>]`. Unknown node ids fail the build. Apps outside the repo: `src/karte/daten/externe-eintraege.js`.
-- `lib/` – build-time Node code: `apps.js` (loads every `src/*/js/app.config.js`), `bild.js` (static SVG),
-  `fachfarben.js`, `versionierung.js`, `pruefungen.js`, `adressen.js`, `app-daten.js`.
-- `werkzeuge/skill/lern-app/` – the Claude skill that turns a curriculum topic into a new app here (workflow around
-  this file: worktree, competencies, videos, PR). Outside `src/`, so Eleventy ignores it; the line limit still applies.
-  Install: `ln -s <repo>/werkzeuge/skill/lern-app ~/.claude/skills/lern-app`.
-- `test/kern/`, `test/build/`, `test/apps/` (generator contract for every competency of every app) and
-  `src/<app>/test/`.
-- `docs/`, `docs/site/`, `docToolchainConfig.groovy`, `dtcw`, `scripts/dtc-v4.sh` – architecture docs (see
-  "Architecture").
+- `src/` – the explainer, nothing else (the runtime refuses other files): `app.yaml` (title, intro, chapters),
+  `<kapitel>/chapter.yaml` (title, summary, order of pages), `<kapitel>/<seite>.yaml` (sections `warum`, `regel`,
+  `beispiel`, `bild`, `video`, `uebung`), `components/<Name>.vue` + `<Name>.ts` + `<Name>.test.ts`, `main.ts`.
+- `karte/` – the curriculum map at `/karte/` (Eleventy input: pages `*.njk`, `_data/site.js`, `_includes/`, `js/`,
+  `css/`, `schemas/`, `daten/`, `lib/`, `test/`). `karte/_data/site.js` is THE one place holding the base URL;
+  `lib/adressen.js` derives the rest. Curriculum data as flat-front-matter Markdown in `karte/daten/` (model in
+  `karte/daten/README.md`). The chapters appear on the map through `karte/daten/kapitel.js` (entry fields
+  `aktiv-level`, `backend`, `external-requests`, `dsgvo`, `evidence`, `jahrgaenge`, `lizenz`, `stand`; per page its
+  node ids); `karte/lib/kapitel.js` fails the build if a page does not exist. Unknown node ids fail the build. Apps
+  outside the repo: `karte/daten/externe-eintraege.js`. URL parameters `land`, `jahrgang`, `leitidee`, `luecken`,
+  `knoten` and the shape of `data.json` are a public contract (`karte/llms.njk`).
+- `vite.config.ts` – explainer plugin plus `karte()` (`karte/lib/vite-plugin.js`), which runs Eleventy
+  (`eleventy.config.js`) after the explainer and then checks the whole `dist/`.
+- `lib/` – build-time Node code shared by the checks: `adressen.js`, `fachfarben.js`, `pruefungen.js`,
+  `pruefe-ausgabe.js`, `pruefe-links.js`, `pruefe-lizenzen.js`, `versionierung.js`.
+- `public/` – favicons, copied to the root of `dist/`.
+- `test/build/`, `karte/test/` (node:test), `src/components/*.test.ts` (`vp test`), `e2e/` (Playwright).
+- `docs/` – architecture docs (see "Architecture"); `werkzeuge/review/` – the AI review checklist.
+- `AGENTS.md`, `.agents/skills/app-content/`, `.vibe/plans/` – written by the lernapps.net generator.
 
-## Build rules (enforced by `npm run build`)
-- The required check `test-und-build` (`pruefen.yml`) also runs `npm audit --audit-level=high` and `npm run lint`
-  (ESLint flat config: `no-eval`, `no-implied-eval`, `no-unsanitized` against T-003). Never set `innerHTML`; build DOM.
+## Build rules (enforced by `npm run build`, `npm test` and `lernapps check`)
+- The required check `test-und-build` (`pruefen.yml`) runs `npm run audit` (high/critical fail; exceptions only with
+  reason and expiry date in `scripts/audit.js`), `npm run lint` (ESLint for the JavaScript part: `no-eval`,
+  `no-implied-eval`, `no-unsanitized`), `npm run typecheck` (`vp check`: format, lint with the lernapps.net rules,
+  type-aware; `vue-tsc --noEmit`), `npm test`, `npm run build`. The required check `browser` runs `lernapps check`.
+- The explainer validates every YAML file against its schema and fails with `file:line: place: what to do`; it
+  property-tests every `generated` exercise over 200 seeds and every exercise component over 50; it checks every
+  internal link and anchor, also in `llms.txt` and `tutor.md`.
+- Components: no network, no `innerHTML`/`v-html`/`eval`, browser globals only once mounted, imports only from
+  `vue`, the lernapps packages and `src/components/`, max 20 kB gzip (lint plugin of lernapps.net).
 - Licences (`lib/pruefe-lizenzen.js`, run by `npm test`): every package in `package-lock.json` needs a licence from the
-  allowlist (shipped packages permissive only; dev packages also MPL-2.0), every file under `src/**/vendor/` a licence
+  allowlist (shipped packages permissive only; dev packages also MPL-2.0), every file under `**/vendor/` a licence
   header. Changing the allowlist needs an ADR (ADR-029). `abhaengigkeiten.yml` runs Dependency Review on every PR
-  (required check `abhaengigkeiten` since 25.09.2026).
-- `npm run typecheck` (`tsc --checkJs`, `strict`, `jsconfig.json`) checks `src/kern/js` only, also in the required check.
-  Type kern code with JSDoc (`@param`, `@returns`, `@typedef`); cast with `/** @type {…} */ (x)` only where the DOM or a
-  contract guarantees more than tsc can see, and say why in a comment.
-- After writing `_site`, `eleventy.config.js` runs `lib/pruefungen.js`: no external resources in HTML, no external
-  imports in JS/CSS, every source file under 500 lines, per competency `<id>.md` + generator + `test/<id>.test.js`,
-  the app's `llms.txt` mentions every page. Any violation fails the build.
-- Dead links (`lib/pruefe-links.js`): every `href`/`src` in `_site/**/*.html` that points into the site (relative,
-  root-relative or `https://lernapps.github.io/…`) must hit an existing file, and a `#anchor` an existing id. External
-  links and `mailto:` stay unchecked; `docs/` is skipped (docToolchain adds it only in the deploy).
-- Tutor link allowlist (ADR-023, `pruefeTutorLinks`): `tutor.md` and `llms.txt` of every app, the root `llms.txt` and
-  `karte/llms.txt` may link only to relative targets, `https://lernapps.github.io/`, `/blob/main/` and `/tree/main/` of
-  the own repository (no issues or fork commits: anyone can change them),
+  (required check `abhaengigkeiten`).
+- After the explainer, `eleventy.config.js` checks all of `dist/`: no external resources in HTML, no external imports
+  in JS/CSS, every source file under 500 lines, no dead internal links or anchors (`lib/pruefe-links.js`; `docs/` is
+  skipped), the report link on every map page.
+- Tutor link allowlist (ADR-023, `pruefeTutorLinks`): every `llms.txt` and `tutor.md` in `dist/` may link only to
+  relative targets, `https://lernapps.github.io/mathe-karte/`, `/blob/main/` and `/tree/main/` of the own repository,
   `https://de.serlo.org/` and `https://www.youtube.com/watch?v=`. Any other URL fails the build. These files are
   prompts in a child's chat; widen the allowlist only with an ADR.
-- Every app-page link (`.html`) in a built `tutor.md` carries `von=tutor` before any `#` (`pruefeTutorHerkunft`, ADR-021);
-  without it the button „Zurück zu Claude“ is missing.
-- The tutor contract (`lib/llms-vertrag.js`, TD-3): every deep link in an app's `llms.txt` and `tutor.md` must hit an
-  existing page and anchor, use only parameters the generator exports (`URL_ZAHLEN`, `URL_TEXTE`, plus `seed`/`nr`;
-  `test.html`: `nr`, `seed`, `modus`), and each value must change the task (a default is fine if another documented
-  value, e.g. from `zuege=2|3`, changes it for every task number). Every generator parameter must appear in the page's
-  `###` section, the `## URL-Parameter …` section or the page's row in the parameter table; that row may name only
-  accepted parameters.
-- Cache busting: the build appends `?v=<hash over all shipped JS/CSS>` to every local import, `<script src>` and
-  stylesheet. Never write `?v=` in sources. The footer shows the site version from `package.json`; bump it
-  (SemVer) on user-visible changes.
-- Pictures: the same drawing function renders the static SVG at build time (mini DOM in `src/kern/js/svg.js`) and
-  redraws it in the browser. Use `svgEl` from `svg.js`; never touch `document` in `js/vis/`. No hand-drawn SVGs.
-- Subject colour: `APP.fach` selects the colour from `lib/fachfarben.js` (mathe `#1d4ed8`, physik `#c2410c`,
-  chemie `#6d28d9`, biologie `#15803d`, informatik `#0f766e`); white text meets WCAG AA. Unknown subject = build error.
-- Numeric answers follow one rule (`src/kern/js/zahlantwort.js`): declare `art` and, if needed, `stellen`; build
-  fields with `zahlenfeld`, check with `pruefeZahlAntwort`, diagnose with `passtZu`. No per-call tolerances.
+- Map only: the build appends `?v=<hash>` to every local import, script and stylesheet of the map; the explainer's
+  assets carry their hash in the file name. Bump the version in `package.json` (SemVer) on user-visible changes.
 
-## New competency in an existing app
-1. Test first: `src/<app>/test/<id>.test.js` for the generator (and pure helpers); see it fail.
-2. `src/<app>/js/aufgaben/<id>.js`: `erzeugeAufgabe(zufall, vorgaben)` and `pruefeAntwort(aufgabe, antworten)`,
-   optional `URL_ZAHLEN`, `URL_TEXTE`, `testVorgaben`. `test/apps/vertrag.test.js` checks it automatically.
-3. Picture: `src/<app>/js/vis/<id>.js` exporting `zeichne…(svg, aufgabe, ergebnis)`.
-4. Add the entry to `KOMPETENZEN` in `src/<app>/js/app.config.js` (`id`, `titel`, `kurz`, `seite: "<id>.html"`,
-   `generator: "./aufgaben/<id>.js"`). Menu, checklist, test and overview pick it up.
-5. `src/<app>/<id>.md` with front matter only: `kompetenz`, `beschreibung`, `warum`, `regel`, `beispiel` (Markdown or
-   HTML), `video: { id, titel, kanal, hinweis? }` (`hinweis`: one optional sentence shown in the video box) or, for several videos, `videos: [{ ueberschrift, id, titel, kanal, hinweis? }]` (one card `#video-1`, `#video-2` … each under „Video dazu“), or without a video either `videoVerweis` (one learner-facing sentence linking a related page's `#video`) or nothing (no video section; see `werkzeuge/skill/lern-app/references/videos.md`), optional `serlo: { url, titel }` (a verified `https://de.serlo.org/…` article, rendered as a plain link after the video; the build rejects other hosts), `bild: { text, funktion, seed, geloest, vorgaben, uebung, uebungFunktion }` (`text` describes the example only – the picture never changes; the exercise draws its own picture captioned "Bild zur Aufgabe Nr. N", `uebung` is an optional extra sentence for that caption; `uebungFunktion` optionally draws the exercise picture with a different function from the same module).
-6. Document page, URL parameters and deep links in `src/<app>/llms.njk` (use `{{ app.basisUrl }}`, never a
-   literal URL); mention it in `tutor.njk` if the tutor should send learners there.
-7. `npm test && npm run build`, then check the page in the browser.
+## New page in an existing chapter
+1. Read the explainer skill and its references (see Project rules).
+2. Write `src/<kapitel>/<seite>.yaml` and list it in `chapter.yaml`. Every page needs an exercise in a last section
+   `uebung`: a `generated` block with `mistakes`, `hint` and `steps`, or a quiz question, or an exercise component
+   (test first: `src/components/<Name>.test.ts`, then `<Name>.ts` and `<Name>.vue`).
+3. Add the page with its node ids to `karte/daten/kapitel.js`.
+4. `npm test && npm run build`, then `npx lernapps check`.
 
-## New app
-1. `src/<pfad>/js/app.config.js` with `APP = { id, speicher, pfad, titel, kurzname, fach, klasse, beschreibung, intro }` and
-   `KOMPETENZEN`. `speicher: "lernapps:mathe-karte:<pfad>"` is the localStorage prefix (rule own-data-only of
-   lernapps.net; `lib/apps.js` checks it); `id` names the app on the map. Never change either after launch. `pfad`
-   equals the folder name.
-2. `src/<pfad>/<pfad>.11tydata.js`: `import { appDaten } from "../../lib/app-daten.js"; export default appDaten("<pfad>");`
-3. Icons (`favicon.svg`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`) in the subject colour.
-4. `llms.njk` and `tutor.njk` (front matter: `permalink: "{{ page.filePathStem }}.txt"` resp. `.md`,
-   `layout: false`, `eleventyExcludeFromCollections: true`); copy `src/binom/` as the pattern.
-5. Add competencies as above. Start page, test page, manifest, overview entry and root `llms.txt` come for free.
+## New chapter
+A folder `src/<kapitel>/` with `chapter.yaml`, listed in `src/app.yaml`, and an entry in `karte/daten/kapitel.js`
+(`id` names it on the map and in `data.json`: never change it).
 
 ## Build, test, deploy
-- `npm ci`, `npm test`, `npm run build` (output `_site/`), `npm run serve` (dev server under `/lern-apps/`).
-- `.github/workflows/pruefen.yml`: test + build on every push and PR. `.github/workflows/pages.yml`: on push to
-  `main`, test + build, then build the arc42 docs (`scripts/dtc-v4.sh generateSite`), copy them to `_site/docs/` and
-  deploy both as ONE artifact via `actions/upload-pages-artifact` + `actions/deploy-pages`. A repo named
-  `<org>.github.io` gets Pages auto-enabled in legacy branch mode; switch it once to source "GitHub Actions" with
-  `gh api -X PUT repos/<owner>/<repo>/pages -f build_type=workflow` (POST fails because Pages already exists).
+- `npm ci`, `npm test`, `npm run build` (output `dist/`), `npm run dev` (explainer only), `npx lernapps check`.
+- Browser tests locally: `npm run build && npm run test:browser`; where Playwright's own Chromium is missing set
+  `LERNAPPS_CHROMIUM` to an installed Chromium (`lernapps check` does that itself).
+- `.github/workflows/pruefen.yml` and `browser.yml` on every push and PR. `.github/workflows/pages.yml`: on push to
+  `main`, test + build, then the arc42 docs (`scripts/dtc-v4.sh generateSite`) into `dist/docs/`, deployed as ONE
+  artifact via `actions/upload-pages-artifact` + `actions/deploy-pages`.
 
 ## AI review before every merge (#24, ADR-027)
 - Before a PR is proposed for merge, a reviewer in a FRESH context (sub-agent or new session, not the author;
@@ -182,8 +148,8 @@ _Architecture Decision: See [ADR-023](docs/arc42/chapters/_adr-risiko.adoc) (arc
 
 | Dimension        | Score | Level                  | Evidence                                                                 |
 | ---------------- | ----- | ---------------------- | ------------------------------------------------------------------------ |
-| Code Type        | 2     | Business Logic         | term parser and rounding in `src/kern/js/`, generators and checkers per app |
-| Language         | 2     | Dynamically typed      | JavaScript ES modules; `tsc --checkJs` only for `src/kern`               |
+| Code Type        | 2     | Business Logic         | exercise generators and checkers (YAML `generated`, Vue components in `src/components/`) |
+| Language         | 2     | Dynamically typed      | TypeScript in `src/components/`, JavaScript for the map and the checks   |
 | Deployment       | 2     | Public-facing app      | user input: public GitHub Pages site, no accounts, no personal data      |
 | Data Sensitivity | 0     | Public data            | user input: no data storage; localStorage holds only self-assessment levels |
 | Blast Radius     | 1     | Performance / DoS      | user input: a broken app is unavailable or wrong, no data loss           |
@@ -198,16 +164,16 @@ branch protection, secret scanning with push protection, org-wide 2FA and the tu
 
 | Measure                | Status  | Details                                                                        |
 | ---------------------- | ------- | ------------------------------------------------------------------------------ |
-| Linter & Formatter     | Present | ESLint flat config `eslint.config.js` in required check (#21); no formatter     |
-| Type Checking          | Present | `tsc --checkJs` (strict) in required check, scope `src/kern` (#25)              |
+| Linter & Formatter     | Present | ESLint for the JavaScript part (#21), `vp check` (oxlint + lernapps.net rules, `vp fmt`) for `src/` |
+| Type Checking          | Present | `vp check` (type-aware) and `vue-tsc` in required check, scope `src/` (#25, ADR-033) |
 | Pre-Commit Hooks       | N/A     | Won't (#27): the required check runs the same gates                             |
-| Dependency Check       | Present | `npm audit --audit-level=high` in `pruefen.yml` (#20); exact pins, `npm ci`     |
+| Dependency Check       | Present | `npm run audit` in `pruefen.yml` (#20, exceptions with expiry, ADR-033); pins, `npm ci` |
 | CI Build & Unit Tests  | Present | `pruefen.yml`, required check `test-und-build`                                  |
 | SAST                   | Present | CodeQL default setup, secret scanning with push protection, Dependabot (#19)    |
 | AI Code Review         | Present | fresh-context review before every merge, check `ki-review` (#24, ADR-027)       |
 | AI Design Review       | Present | ATAM section in the review when ADRs or arc42 ch. 1/4/5/9/10 change, enforced by `ki-review`; quarterly ATAM baseline (ADR-030) |
-| Property-Based Tests   | Present | fast-check, `test/kern/*.property.test.js` (#22; found and fixed #30)           |
-| Browser Tests          | Present | Playwright + axe-core in `e2e/`, workflow `browser.yml`, required check `browser` (#26, ADR-026) |
+| Property-Based Tests   | Present | explainer build: 200 seeds per `generated` exercise, 50 per component (ADR-033)  |
+| Browser Tests          | Present | `lernapps check` with Playwright + axe-core (`e2e/`), workflow `browser.yml`, required check `browser` (#26, ADR-026, ADR-033) |
 | SonarQube Quality Gate | N/A     | Won't (#28): file length ≤ 500 lines and ESLint cover it                        |
 | Sampling Review (~20%) | Present | 100 %: the PO merges every PR; a human approval is not enforceable (a single maintainer cannot approve their own PR), but the required check `ki-review` enforces a fresh-context review on every PR (ADR-027) |
 | Tutor link allowlist   | Present | `pruefeTutorLinks` in `lib/pruefungen.js` (ADR-023, M-22)                       |

@@ -339,8 +339,9 @@ alles, was die Agenten dabei führt und was ihre Fehler fängt. Er gehört in di
 Baustein gleich trifft: Er ist ein Querschnittskonzept wie Test (8.3) und Sicherheit (8.2), keine einzelne
 Qualitätsanforderung für Kapitel 10.
 
-Die Führung besteht aus drei Teilen. `CLAUDE.md` legt Projektregeln und Semantic Contracts fest, der Skill
-`werkzeuge/skill/lern-app/` mit seinen `references/` beschreibt den Weg zu einer neuen App, und die ADRs in
+Die Führung besteht aus drei Teilen. `CLAUDE.md` legt Projektregeln und Semantic Contracts fest, die Skills von
+lernapps.net (`lernapps-explainer` und seine `references/`) und der Inhaltsleitfaden `.agents/skills/app-content/`
+beschreiben den Weg zu einer neuen Seite, und die ADRs in
 Kapitel 9 halten Entscheidungen fest. Die Fehlerkorrektur misst das Rad unten. Es folgt dem Modell der
 link:https://llm-coding.github.io/Semantic-Anchors/harness-inventory/[Harness Inventory^] und des
 link:https://llm-coding.github.io/Semantic-Anchors/harness-coverage-wheel.html[Harness Coverage Wheel^]

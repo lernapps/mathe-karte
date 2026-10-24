@@ -71,8 +71,10 @@ Rel(lernapps, pages, "wird ausgeliefert als ein Artefakt", "deploy-pages")
 | Paketquellen | Anfragen von `npm ci` und `scripts/dtc-v4.sh` | Eleventy 3.1.7 samt transitiven Paketen (`package-lock.json`); docToolchain `main-4.x@6de96fb7` und seine Gradle-Abhängigkeiten
 |===
 
-Der Skill `lern-app`, mit dem die Autor:in neue Apps anlegt, ist kein Nachbar mehr: Er liegt seit PR #7
-im Monorepo unter `werkzeuge/skill/lern-app/`. Die alten Einzel-Repos (`raifdmueller.github.io/<app>/`),
+Seit xref:09_architecture_decisions.adoc#adr-033[ADR-033] ist lernapps.net ein Nachbar mit eigener Laufzeit:
+Der explainer (`@lernapps/app-templates`) rendert die Seiten, `@lernapps/tooling` prüft sie, beide von GitHub auf
+einen Commit gepinnt. Ihre Skills (`lernapps-explainer`, `lernapps-content-questions`) ersetzen den früheren Skill
+`lern-app` des Repos. Die alten Einzel-Repos (`raifdmueller.github.io/<app>/`),
 die alte Mathe-Karte, die Vorlage `lern-app-template` und das alte Skill-Repo `lern-app-skill` sind
 am 23.09.2026 gelöscht worden; ihre Pages-Adressen liefern 404. Das erledigte Risiko steht als xref:11_technical_risks.adoc#r-016[R-016] in Kapitel 11.
 

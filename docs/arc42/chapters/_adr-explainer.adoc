@@ -1,0 +1,62 @@
+[[adr-033]]
+=== ADR-033: Die Seiten baut der explainer von lernapps.net, Eleventy nur noch die Karte
+
+*Kontext.* lernapps.net bietet für Lern-Apps Archetypen mit fertiger Laufzeit an (`@lernapps/app-templates`).
+Der Archetyp _explainer_ passt auf die Mathe-Karte: Kapitel aus Seiten mit Abschnitten, Formeln, Bildern und
+einer Übung auf jeder Seite, ohne JavaScript lesbar. Bisher baute Eleventy jede Kompetenzseite aus
+Markdown-Front-Matter, einem eigenen Kern (`src/kern/`, rund 30 Module) und je App eigenen Generatoren und
+Bildern (<<adr-012,ADR-012>>, <<adr-013,ADR-013>>, <<adr-016,ADR-016>>, <<adr-017,ADR-017>>). Jede neue
+Seitenform hieß: Kern erweitern, Layout erweitern, Prüfungen erweitern. Der Product Owner hat am 24.10.2026
+entschieden, alle drei Apps auf einmal umzubauen, Eleventy sofort zu ersetzen, Übungen, die nicht in die
+Deklaration passen, als Vue-Komponenten zu bauen, und die Karte bei Eleventy zu lassen.
+
+*Entscheidung.* Der explainer baut die Site aus YAML in `src/`: `app.yaml`, je Kapitel (`prozent`, `binom`,
+`zufall`) ein Ordner mit `chapter.yaml` und einer Datei je Seite. Die Seiten-ids sind die alten
+Kompetenz-ids. Übungen sind `generated`-Blöcke (Aufgabe aus einem Seed, Lösung als Ausdruck, typische Fehler
+mit Meldung), wo die Deklaration reicht, sonst Vue-Übungskomponenten in `src/components/` mit reiner Logik
+(`generate`, `check`, `solution`, `wrong`) und Test. Laufzeit und Prüfungen kommen von lernapps.net, gepinnt
+auf einen Commit (`package.json`), und laufen mit `lernapps check` im Pflicht-Check `browser`. Vite+ baut
+den explainer nach `dist/`; ein kleines Plugin (`karte/lib/vite-plugin.js`) startet danach Eleventy für die
+Karte (`karte/` → `dist/karte/`) und prüft die ganze Ausgabe (fremde Ressourcen, Zeilen, tote Links,
+Tutor-Allowlist). Die Karte liest ihre Einträge aus `karte/daten/kapitel.js` statt aus App-Konfigurationen.
+Videos sind einfache Links, der explainer kennt keine Einbettung. `npm run audit` bricht bei Warnungen ab
+Stufe high ab, außer bei einer Ausnahme mit Grund und Ablaufdatum (`scripts/audit.js`), weil lernapps.net
+vite-plus exakt pinnt.
+
+*Status.* Accepted. Vom Product Owner entschieden am 24.10.2026.
+
+[cols="2,1,1,1",options="header"]
+|===
+| Ziel | explainer, Karte bei Eleventy (Referenz) | Eleventy und eigener Kern bleiben | explainer auch für die Karte
+| QZ-1 Datenschutz | 0 | -1 | 0
+| QZ-2 Tutor-Anschluss | 0 | +1 | 0
+| QZ-3 Richtige Rückmeldung | 0 | 0 | 0
+| QZ-4 Neue Apps schnell | 0 | -1 | -1
+| QZ-5 Zugänglich | 0 | 0 | -1
+| *Summe* | *0* | *-1* | *-2*
+|===
+
+Der eigene Kern behielte den alten Tutor-Vertrag (QZ-2 +1). Er bettete aber YouTube nach zwei Klicks ein,
+während der explainer vor einem Klick nichts lädt und keine Einbettung kennt (QZ-1 −1). Jede neue Seitenform
+bliebe eigener Code (QZ-4 −1). Die Karte als explainer: Ihre Filter nach Land, Jahrgang und Leitidee sind
+weder Block noch Übung. Sie hieße eine große Komponente ohne Übungsvertrag (QZ-4 −1), und ihre statische
+Liste ginge in einem `nojs`-Text verloren (QZ-5 −1).
+
+*Konsequenzen.*
+
+* Der Tutor-Vertrag ändert sich einmal (R-003, R-036): `/<app>/<id>.html?seed=…&nr=…` wird
+  `/<kapitel>/<seite>/?<übung>=<n>#<übung>`, die Testseite und die Parameter der Generatoren entfallen.
+  Alte Links aus Chats führen auf die 404-Seite. `llms.txt`, `tutor.md` je Seite und den Tutor-Prompt schreibt
+  der explainer aus dem Inhalt; die Allowlist (<<adr-023,ADR-023>>) prüft sie weiter.
+* Testseite, Selbsteinschätzung und Video-Einstellung entfallen, der explainer speichert nur die Wahl des
+  Tutor-Anbieters (über `@lernapps/tooling/storage`, Präfix nach <<adr-032,ADR-032>>). R-008 sinkt.
+* Laufzeit und Prüfungen gehören lernapps.net (R-035). Ein Fehler dort trifft alle Seiten; eine Korrektur
+  kommt mit `lernapps update`. Der eigene Kern, `talkitover.js` (R-007) und die Prüfungen des alten Layouts
+  entfallen. Eleventy bleibt nur für die Karte (R-015 sinkt).
+* Neue Abhängigkeiten im Build: Vite+, Vue, TypeScript, vue-tsc, beide Pakete von lernapps.net (MIT). Die
+  Komponenten prüft das Lint-Plugin von lernapps.net (kein Netz, kein `innerHTML`, kein `eval`); den
+  JavaScript-Teil weiter ESLint.
+* Ersetzt: <<adr-005,ADR-005>> (Videos sind Links), <<adr-007,ADR-007>> (kein Diagnosetest),
+  <<adr-013,ADR-013>>, <<adr-016,ADR-016>>, <<adr-017,ADR-017>>, <<adr-021,ADR-021>> (der explainer zeigt
+  „Zurück zum Tutor“). <<adr-012,ADR-012>> und <<adr-014,ADR-014>> gelten nur noch für die Karte.
+  <<adr-006,ADR-006>> und <<adr-009,ADR-009>> leben in den Übungskomponenten weiter.
