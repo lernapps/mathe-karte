@@ -1,5 +1,7 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
 title: Wahrscheinlichkeit
-summary: Platzhalter, bis die Seiten umgezogen sind.
+summary: >-
+  Wahrscheinlichkeitsrechnung für Klasse 8: von der Laplace-Formel über das Baumdiagramm und beide Pfadregeln bis
+  zum Gegenereignis und zum Ziehen ohne Zurücklegen – mit Bildern und Übungen, die dir sofort sagen, ob es stimmt.
 pages:
   [laplace, baumdiagramm, pfadregel-1, gegenereignis, ohne-zuruecklegen, pfadregel-2, ergebnisformen, pfade-uebersetzen]

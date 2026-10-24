@@ -1,15 +1,118 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter ergebnisformen
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Produkt, Summe, Potenz
+description: "Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben: den passenden Term zu einem Ereignis im Baumdiagramm erkennen."
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Wer jede Wahrscheinlichkeit bis zum gekürzten Bruch ausrechnet, verliert Zeit und macht Rechenfehler. Oft
+          reicht der Term: $\frac{3}{6} \cdot \frac{2}{5}$. Frag deine Lehrerin oder deinen Lehrer, ob du in der
+          Klassenarbeit ausrechnen musst. Wichtig ist, dass der Term stimmt – und genau das übst du hier: Du erkennst,
+          welcher Term zu einem Ereignis passt und welcher einen typischen Fehler enthält.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: text
+        text: |-
+          Ein Term für $P(E)$ hat immer denselben Aufbau:
+
+          - Jeder passende Pfad wird ein **Produkt** seiner Zweige (1. Pfadregel).
+          - Die Produkte aller passenden Pfade werden **addiert** (2. Pfadregel).
+          - Kommt derselbe Faktor mehrmals vor, darfst du eine **Potenz** schreiben.
+      - type: formula
+        formula: '\frac{5}{6} \cdot \frac{5}{6} \cdot \frac{5}{6} = (\frac{5}{6})^3'
+      - type: note
+        title: Typische falsche Terme
+        blocks:
+          - type: text
+            text: >-
+              Nur ein Pfad statt aller, entlang des Pfades addiert statt multipliziert, die Pfade des Gegenereignisses
+              oder mit statt ohne Zurücklegen gerechnet.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Genau einmal rot, ohne Zurücklegen
+        blocks:
+          - type: text
+            text: >-
+              Urne mit 3 roten und 2 blauen Kugeln, zweimal ziehen **ohne Zurücklegen**. Ereignis: genau einmal rot.
+          - type: table
+            caption: Ein richtiger und zwei falsche Terme für P(genau einmal rot)
+            rowHeaders: true
+            rows:
+              - [
+                  "Richtig",
+                  '$\frac{3}{5} \cdot \frac{2}{4} + \frac{2}{5} \cdot \frac{3}{4}$ $= \frac{12}{20} = \frac{3}{5}$',
+                ]
+              - ["Nur ein Pfad", '$\frac{3}{5} \cdot \frac{2}{4}$ – blau-rot fehlt']
+              - [
+                  "Mit Zurücklegen",
+                  '$\frac{3}{5} \cdot \frac{2}{5} + \frac{2}{5} \cdot \frac{3}{5}$ – der Nenner muss kleiner werden',
+                ]
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: vue-component
+        component: ZufallBaum
+        props:
+          titel: Baumdiagramm zur Urne mit 3 roten und 2 blauen Kugeln, zweimal ohne Zurücklegen; orange sind die zwei Pfade von „genau einmal rot“
+          urne: 3r2b
+          zuege: 2
+          modus: ohne
+          ereignis: genau1r
+          zeigePfad: true
+        nojs: |-
+          Der Baum aus dem Beispiel: 3 rote (R) und 2 blaue (B) Kugeln, zweimal ohne Zurücklegen. Erste Stufe:
+          rot 3/5, blau 2/5. Nach rot: rot 2/4, blau 2/4; nach blau: rot 3/4, blau 1/4. Orange sind die zwei Pfade von
+          „genau einmal rot“: rot-blau 3/10 und blau-rot 3/10. Zusammen 3/5.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: |-
+          - Video: [Summenregel | Wahrscheinlichkeitsrechnung | Mathematik](https://www.youtube.com/watch?v=Pi1M1F2l024) von Lehrerschmidt (YouTube)
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: ergebnisformen-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
+      - type: vue-component
+        id: term-waehlen
+        component: ZufallTerm
+        examples:
+          accepted:
+            - { answer: 2, seed: 1 }
+          rejected:
+            - { answer: 0, seed: 1 }
+            - { answer: 1, seed: 1 }
+      - type: single-choice
+        id: potenz-erkennen
+        text: Du würfelst dreimal und rechnest P(keine 6, keine 6, keine 6). Welcher Term ist gleich dem Produkt?
+        material:
+          - type: formula
+            formula: '\frac{5}{6} \cdot \frac{5}{6} \cdot \frac{5}{6}'
+        options:
+          - text: fünf Sechstel hoch drei
+            correct: true
+            info: Derselbe Faktor dreimal multipliziert ist die dritte Potenz. Ausgerechnet sind das 125 Zweihundertsechzehntel.
+          - text: drei mal fünf Sechstel
+            correct: false
+            info: Das ist fünf Sechstel plus fünf Sechstel plus fünf Sechstel, also eine Summe. Sie ist größer als 1 und keine Wahrscheinlichkeit.
+          - text: fünf hoch drei durch sechs
+            correct: false
+            info: Hier ist nur der Zähler hoch drei genommen. Bei der Potenz eines Bruchs kommt auch der Nenner hoch drei.
+          - text: fünfzehn Achtzehntel
+            correct: false
+            info: Das sind nur fünf Sechstel, erweitert mit 3. Beim Multiplizieren werden die Zähler und die Nenner miteinander multipliziert.
+        explanation: >-
+          Kommt derselbe Faktor mehrmals vor, darfst du eine Potenz schreiben: fünf Sechstel mal fünf Sechstel mal fünf
+          Sechstel ist fünf Sechstel hoch drei, ausgerechnet 125 Zweihundertsechzehntel.
         links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+          - { title: Pfadregeln (serlo.org), url: "https://de.serlo.org/mathe/189811/pfadregeln" }

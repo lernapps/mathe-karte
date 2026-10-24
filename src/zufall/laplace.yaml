@@ -1,15 +1,121 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter laplace
-description: Platzhalter, bis die Seite umgezogen ist.
+title: Laplace-Formel
+description: "Die Laplace-Formel anwenden: P(E) ist die Zahl der günstigen durch die Zahl aller möglichen Ergebnisse."
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Fast jede Wahrscheinlichkeitsaufgabe beginnt mit dieser Frage: Wie viele Ergebnisse gibt es überhaupt, und wie
+          viele davon sind „gut“ für mich? Wer das sauber zählt, hat den ersten Schritt jeder Aufgabe geschafft. Alles
+          Weitere – Baumdiagramme, Pfadregeln – baut darauf auf.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: definition
+        term: Laplace-Versuch
+        explanation: Ein Zufallsversuch, bei dem alle Ergebnisse **gleich wahrscheinlich** sind.
+      - type: text
+        text: "Bei einem Laplace-Versuch gilt für ein Ereignis $E$:"
+      - type: formula
+        formula: 'P(E) = \frac{\text{Anzahl der günstigen Ergebnisse}}{\text{Anzahl aller möglichen Ergebnisse}}'
+      - type: definition
+        term: günstiges Ergebnis
+        explanation: Ein Ergebnis, das zum Ereignis $E$ gehört. **Möglich** ist dagegen alles, was passieren kann.
+      - type: text
+        text: >-
+          Die Wahrscheinlichkeit ist immer eine Zahl zwischen 0 (unmöglich) und 1 (sicher). Du kannst sie als Bruch,
+          als Dezimalzahl oder in Prozent schreiben: $\frac{1}{4} = 0{,}25 = 25\,\%$.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Eine gerade Zahl würfeln
+        blocks:
+          - type: text
+            text: Du würfelst einmal. Wie groß ist die Wahrscheinlichkeit für eine gerade Zahl?
+          - type: text
+            text: |-
+              1. Mögliche Ergebnisse: 1, 2, 3, 4, 5, 6 – das sind **6**.
+              2. Günstige Ergebnisse (gerade Zahl): 2, 4, 6 – das sind **3**.
+              3. $P(\text{gerade Zahl}) = \frac{3}{6} = \frac{1}{2} = 0{,}5 = 50\,\%$.
+      - type: example
+        title: Eine blaue Kugel ziehen
+        blocks:
+          - type: text
+            text: >-
+              In einer Urne liegen 3 rote, 2 blaue und 1 gelbe Kugel. Du ziehst blind eine Kugel.
+              $P(\text{blau}) = \frac{2}{6} = \frac{1}{3} \approx 33{,}3\,\%$.
+      - type: note
+        title: Achtung
+        blocks:
+          - type: text
+            text: >-
+              Die Farben sind nicht die Ergebnisse! Jede einzelne Kugel ist ein Ergebnis. Es gibt 6 Kugeln, nicht
+              3 Farben – sonst würdest du $\frac{1}{3}$ für jede Farbe rechnen, und das ist falsch.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: vue-component
+        component: ZufallMenge
+        props:
+          titel: die zwei blauen Kugeln sind orange umrandet
+          urne: 3r2b1g
+          ereignis: b
+          modus: hervor
+        nojs: >-
+          Die Urne aus dem zweiten Beispiel: 6 Kugeln nebeneinander, 3 rote, 2 blaue und 1 gelbe. Die zwei blauen
+          Kugeln sind orange umrandet. Also ist $P(\text{blau}) = \frac{2}{6}$.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: |-
+          - Video: [einstufiger Zufallsversuch | Wahrscheinlichkeitsrechnung - einfach erklärt](https://www.youtube.com/watch?v=rkLmLaFHodo) von Lehrerschmidt (YouTube). Im Video heißt das „einstufiger Zufallsversuch“ – gemeint ist dasselbe.
+          - Noch eine Erklärung: [Laplace-Experiment](https://de.serlo.org/mathe/1755/laplace-experiment) bei serlo.org
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: laplace-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
-        links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+      - type: vue-component
+        id: laplace-zaehlen
+        component: ZufallLaplace
+        examples:
+          accepted:
+            - { answer: "1/4", seed: 1 }
+            - { answer: "8/32", seed: 1 }
+            - { answer: "25 %", seed: 1 }
+          rejected:
+            - { answer: "2" }
+            - { answer: "" }
+            - { answer: "Hälfte" }
+      - type: generated
+        id: laplace-urne
+        given:
+          r: { int: [2, 6] }
+          b: { int: [1, 5] }
+          g: { int: [2, 4] }
+        where:
+          - "round(b / (r + b + g), 2) != round(1 / 3, 2)"
+          - "round(b / (r + b + g), 2) != round(b / (r + g), 2)"
+        task:
+          text: >-
+            In einer Urne liegen {{r}} rote, {{b}} blaue und {{g}} gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß
+            ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei
+            Nachkommastellen gerundet.
+        answer: { value: "round(b / (r + b + g), 2)", compare: { number: { decimals: 2 } } }
+        mistakes:
+          - value: "round(1 / 3, 2)"
+            message: "Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe."
+          - value: "round(b / (r + g), 2)"
+            message: "Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen."
+        hint: "Zähle alle Kugeln: Das sind die möglichen Ergebnisse. Die blauen sind die günstigen."
+        steps:
+          - "Mögliche Ergebnisse: {{r}} + {{b}} + {{g}} Kugeln. Günstig: {{b}} blaue Kugeln."
+          - 'P(blau) = günstig durch möglich $\approx {{answer}}$.'
