@@ -22,7 +22,7 @@ customTasks = []
 
 microsite = [:]
 microsite.with {
-    // Die Doku liegt auf GitHub Pages unter https://lernapps.github.io/docs/.
+    // Die Doku liegt auf GitHub Pages unter https://lernapps.github.io/mathe-karte/docs/.
     // contextPath bleibt '/': das Theme macht daraus relative Pfade, die unter jedem Unterordner funktionieren.
     contextPath = '/'
     siteFolder = 'site'
@@ -30,12 +30,12 @@ microsite.with {
     footerMail = ''
     footerTwitter = ''
     footerSO = ''
-    footerGithub = 'https://github.com/lernapps/lernapps.github.io'
+    footerGithub = 'https://github.com/lernapps/mathe-karte'
     footerSlack = ''
     footerText = '<small class="text-white">Gebaut mit <a href="https://doctoolchain.org">docToolchain</a> und <a href="https://asciidoctor.org">Asciidoctor</a> · Vorlage: <a href="https://arc42.org">arc42</a></small>'
-    issueUrl = 'https://github.com/lernapps/lernapps.github.io/issues/new'
+    issueUrl = 'https://github.com/lernapps/mathe-karte/issues/new'
     branch = System.getenv("DTC_PROJECT_BRANCH") ?: 'main'
-    gitRepoUrl = 'https://github.com/lernapps/lernapps.github.io/edit/main/docs'
+    gitRepoUrl = 'https://github.com/lernapps/mathe-karte/edit/main/docs'
     landingPage = 'landingpage.gsp'
     // Markenfarbe der Lern-App (wie favicon.svg und theme_color im Web-Manifest).
     // Kontrast: #1d4ed8 auf Karte/Hintergrund 6,0-6,7:1, weiße Schrift auf Button 6,7:1; Links #1e40af 7,9:1.

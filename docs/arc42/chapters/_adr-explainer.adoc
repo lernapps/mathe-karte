@@ -28,26 +28,39 @@ vite-plus exakt pinnt.
 [cols="2,1,1,1",options="header"]
 |===
 | Ziel | explainer, Karte bei Eleventy (Referenz) | Eleventy und eigener Kern bleiben | explainer auch für die Karte
-| QZ-1 Datenschutz | 0 | -1 | 0
+| QZ-1 Datenschutz | 0 | 0 | 0
 | QZ-2 Tutor-Anschluss | 0 | +1 | 0
 | QZ-3 Richtige Rückmeldung | 0 | 0 | 0
 | QZ-4 Neue Apps schnell | 0 | -1 | -1
 | QZ-5 Zugänglich | 0 | 0 | -1
-| *Summe* | *0* | *-1* | *-2*
+| *Summe* | *0* | *0* | *-2*
 |===
 
-Der eigene Kern behielte den alten Tutor-Vertrag (QZ-2 +1). Er bettete aber YouTube nach zwei Klicks ein,
-während der explainer vor einem Klick nichts lädt und keine Einbettung kennt (QZ-1 −1). Jede neue Seitenform
-bliebe eigener Code (QZ-4 −1). Die Karte als explainer: Ihre Filter nach Land, Jahrgang und Leitidee sind
-weder Block noch Übung. Sie hieße eine große Komponente ohne Übungsvertrag (QZ-4 −1), und ihre statische
-Liste ginge in einem `nojs`-Text verloren (QZ-5 −1).
+Der eigene Kern behielte den alten Tutor-Vertrag (QZ-2 +1), aber jede neue Seitenform bliebe eigener Code im Kern,
+im Layout und in den Prüfungen (QZ-4 −1). Beim Datenschutz sind beide gleich: Vor dem Klick lädt keine Seite etwas.
+Nach dem Klick erfährt YouTube bei der alten Einbettung über youtube-nocookie.com weniger als beim Link auf
+youtube.com, dafür lädt der Link nichts, bis das Kind die Seite von YouTube selbst öffnet (R-009). Bei der
+Richtigkeit sind beide gleich, weil Prüfer, Rundungsregel und Termparser portiert sind und dieselben Property-Tests
+haben. Die Karte als explainer: Ihre Filter nach Land, Jahrgang und Leitidee sind weder Block noch Übung. Sie hieße
+eine große Komponente ohne Übungsvertrag (QZ-4 −1), und ihre statische Liste ginge in einem `nojs`-Text verloren
+(QZ-5 −1). Bei Gleichstand der ersten beiden Spalten entschied der Product Owner für den Archetyp von lernapps.net.
 
 *Konsequenzen.*
 
 * Der Tutor-Vertrag ändert sich einmal (R-003, R-036): `/<app>/<id>.html?seed=…&nr=…` wird
-  `/<kapitel>/<seite>/?<übung>=<n>#<übung>`, die Testseite und die Parameter der Generatoren entfallen.
-  Alte Links aus Chats führen auf die 404-Seite. `llms.txt`, `tutor.md` je Seite und den Tutor-Prompt schreibt
-  der explainer aus dem Inhalt; die Allowlist (<<adr-023,ADR-023>>) prüft sie weiter.
+  `/<kapitel>/<seite>/?<übung>=<n>#<übung>`, die Testseite und die Parameter der Generatoren entfallen. Statische
+  Weiterleitungen (`lib/weiterleitungen.js`, `noindex`) führen alte Links auf die neue Seite; Aufgabennummern und
+  Parameter gehen dabei verloren. `llms.txt`, eine `tutor.md` je Seite und den Tutor-Prompt schreibt der explainer
+  aus dem Inhalt; die Allowlist (<<adr-023,ADR-023>>) prüft sie weiter.
+* Der Tutor-Prompt (`tutor.md`, aus `src/app.yaml`) bleibt unter 120 Zeilen, der Build prüft es (M-09). Die
+  `tutor.md` je Seite sind erzeugte Aufgabendaten mit allen Nummern und Lösungen, bis über 500 Zeilen; ein Review
+  liest stattdessen ihr YAML und die Komponenten. R-006 bleibt bei mittel, weil die Allowlist alle Tutor-Dateien
+  prüft und keine Anweisung aus freiem Text der Lernenden stammt.
+* Die Prüfer gibt es je Kapitel, die gemeinsamen Teile einmal (`src/components/Bruch.ts`, `Zufallszahlen.ts`).
+  Was nur ein Kapitel braucht (Termparser, Baum), bleibt dort; eine Korrektur an Bruch oder Zufall erreicht alle
+  Kapitel in einem Commit (R-001). Property-Tests mit fast-check prüfen Bruch, Rundung, Antworturteil und
+  Termgleichheit über beliebige Eingaben (R-025, R-012).
+* Videos sind Links auf youtube.com; erst wer klickt, verlässt die Seite (R-009).
 * Testseite, Selbsteinschätzung und Video-Einstellung entfallen, der explainer speichert nur die Wahl des
   Tutor-Anbieters (über `@lernapps/tooling/storage`, Präfix nach <<adr-032,ADR-032>>). R-008 sinkt.
 * Laufzeit und Prüfungen gehören lernapps.net (R-035). Ein Fehler dort trifft alle Seiten; eine Korrektur

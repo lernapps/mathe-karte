@@ -15,6 +15,7 @@ import { pruefeLinks } from "./lib/pruefe-links.js";
 
 // Gepatchte Kopien des docToolchain-Themes (Architektur-Doku, TD-10): fremder Code, von der Zeilengrenze ausgenommen.
 const THEME_KOPIEN = /^docs\/site\/assets\/css\/(asciidoctor|main\.min\.[0-9a-f]+)\.css$/;
+const MAX_PROMPT_ZEILEN = 119;
 const NICHT_QUELLEN = new Set(["node_modules", ".git", "worktrees", "dist", "_site", ".playwright-mcp", "package-lock.json", "build", ".gradle", "test-results", "playwright-report"]);
 
 function alleDateien(ordner, ausnahmen = new Set()) {
@@ -45,6 +46,9 @@ export function pruefe(wurzel) {
   // Tote interne Links und Anker; die Doku unter docs/ baut docToolchain erst im Deploy dazu (pages.yml).
   const inhalte = Object.fromEntries(dateien.map((p) => [relativ(wurzel, p), p.endsWith(".html") ? fs.readFileSync(p, "utf8") : ""]));
   fehler.push(...pruefeLinks(inhalte, site.basis, { ausser: ["docs/"] }));
+  // Der Tutor-Prompt (aus src/app.yaml) bleibt unter 120 Zeilen, damit ein Review ihn ganz liest (M-09); die
+  // tutor.md je Seite sind erzeugte Aufgabendaten aus dem geprüften Inhalt und fallen nicht darunter (ADR-033).
+  fehler.push(...pruefeZeilen("dist/tutor.md", lies(path.join(wurzel, "tutor.md")), MAX_PROMPT_ZEILEN));
   for (const d of dateien.map((p) => relativ(wurzel, p)).filter((d) => /(^|\/)(llms\.txt|tutor\.md)$/.test(d))) {
     const text = lies(path.join(wurzel, d));
     fehler.push(...pruefeTutorText(d, text), ...pruefeTutorLinks(d, text, erlaubteTutorZiele(site)));
