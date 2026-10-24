@@ -132,6 +132,11 @@ const bild = computed(() =>
   fill: #b45309;
   font-weight: 700;
 }
+@media (prefers-color-scheme: dark) {
+  .zb-labels .zb-fehlt {
+    fill: #fbbf24;
+  }
+}
 .zb-treffer {
   fill: transparent;
 }

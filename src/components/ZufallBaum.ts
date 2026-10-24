@@ -176,8 +176,8 @@ export function baumBild(baum: Baum, o: BaumOptionen = {}): BaumBild {
       text: zeigeWert ? zweigText(k) : "?",
       betont: hervor.some((b) => liegtAufPfad(k.id, b)),
       buchstabe,
-      bx: (px + cx) / 2,
-      by: mitte + 4,
+      bx: cx,
+      by: cy - R - 20,
       titel: zeigeWert ? `P(${k.name}) = ${zweigText(k)}` : `Zweig ${buchstabe}: fehlt`,
     });
     knoten.push({

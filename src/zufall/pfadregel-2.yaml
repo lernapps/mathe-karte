@@ -1,15 +1,123 @@
 # yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
-title: Platzhalter pfadregel-2
-description: Platzhalter, bis die Seite umgezogen ist.
+title: 2. Pfadregel
+description: Die zweite Pfadregel (Summenregel) anwenden – die Pfade eines Ereignisses im Baumdiagramm addieren.
 blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Viele Fragen passen nicht zu einem einzigen Pfad: „genau einmal rot“ kann rot-blau oder blau-rot sein. Die
+          zweite Pfadregel sagt, wie du solche Pfade zusammenrechnest. Und darauf kommt es an: das Ereignis in Worten
+          richtig in Pfade zu übersetzen.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: definition
+        term: 2. Pfadregel
+        explanation: >-
+          Gehören mehrere Pfade zu einem Ereignis, dann **addierst** du ihre Pfadwahrscheinlichkeiten (Summenregel).
+      - type: formula
+        formula: 'P(E) = P(\text{Pfad 1}) + P(\text{Pfad 2}) + \text{…}'
+      - type: text
+        text: >-
+          Merkhilfe: **entlang** des Pfades **mal**, **über** mehrere Pfade **plus**.
+      - type: text
+        text: >-
+          Mehr dazu: [Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben](/zufall/ergebnisformen/) und
+          [Ereignisse in Pfade übersetzen](/zufall/pfade-uebersetzen/).
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Genau einmal rot
+        blocks:
+          - type: text
+            text: >-
+              Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ziehen **ohne Zurücklegen**. Wie groß ist
+              $P(\text{genau einmal rot})$?
+          - type: text
+            text: |-
+              1. Pfade finden: rot-blau, rot-gelb, blau-rot, gelb-rot. (rot-rot ist *zweimal* rot, gehört nicht dazu.)
+              2. Jeden Pfad multiplizieren: $\frac{3}{6} \cdot \frac{2}{5}$, $\frac{3}{6} \cdot \frac{1}{5}$,
+                 $\frac{2}{6} \cdot \frac{3}{5}$, $\frac{1}{6} \cdot \frac{3}{5}$.
+              3. Addieren: $\frac{6}{30} + \frac{3}{30} + \frac{6}{30} + \frac{3}{30}$ $= \frac{18}{30} = \frac{3}{5}$.
+          - type: text
+            text: >-
+              Kürzer: „genau einmal rot“ = rot-nicht rot + nicht rot-rot:
+              $\frac{3}{6} \cdot \frac{3}{5} + \frac{3}{6} \cdot \frac{3}{5}$ $= 2 \cdot \frac{9}{30} = \frac{3}{5}$.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: vue-component
+        component: ZufallBaum
+        props:
+          titel: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ohne Zurücklegen; orange sind die vier Pfade von „genau einmal rot“
+          urne: 3r2b1g
+          zuege: 2
+          modus: ohne
+          ereignis: genau1r
+          zeigePfad: true
+        nojs: |-
+          Der Baum aus dem Beispiel: 3 rote (R), 2 blaue (B) und 1 gelbe (G) Kugel, zweimal ohne Zurücklegen. Erste
+          Stufe: rot 3/6, blau 2/6, gelb 1/6. Nach rot: rot 2/5, blau 2/5, gelb 1/5; nach blau: rot 3/5, blau 1/5,
+          gelb 1/5; nach gelb: rot 3/5, blau 2/5 (gelb ist leer). Orange sind die vier Pfade von „genau einmal rot“:
+          rot-blau 1/5, rot-gelb 1/10, blau-rot 1/5, gelb-rot 1/10. Zusammen 3/5.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: |-
+          - Video: [Summenregel | Wahrscheinlichkeitsrechnung | Mathematik](https://www.youtube.com/watch?v=Pi1M1F2l024) von Lehrerschmidt (YouTube)
+          - Noch eine Erklärung: [Pfadregeln](https://de.serlo.org/mathe/189811/pfadregeln) bei serlo.org
   - type: section
     id: uebung
     title: Übung
     blocks:
-      - type: true-false
-        id: pfadregel-2-platzhalter
-        text: Diese Seite ist ein Platzhalter.
-        answer: true
-        explanation: Die Seite zieht gerade um.
-        links:
-          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }
+      - type: vue-component
+        id: pfade-addieren
+        component: ZufallPfade
+        props:
+          art: pfadregel
+        examples:
+          accepted:
+            - { answer: { antwort: "3/4" }, seed: 1 }
+            - { answer: { antwort: "1/2*1/2+1/2*1/2+1/2*1/2", auswahl: [kz, zk, zz] }, seed: 1 }
+            - { answer: { antwort: "75 %" }, seed: 1 }
+          rejected:
+            - { answer: { antwort: "1/4" }, seed: 1 }
+            - { answer: { antwort: "" } }
+      - type: vue-component
+        id: term-zur-summe
+        component: ZufallTerm
+        examples:
+          accepted:
+            - { answer: 2, seed: 1 }
+          rejected:
+            - { answer: 0, seed: 1 }
+            - { answer: 5 }
+      - type: generated
+        id: genau-einmal-rot
+        given:
+          r: { int: [1, 6] }
+          b: { int: [1, 6] }
+        where:
+          - "round(2 * r * b / ((r + b) * (r + b)), 2) != round(r * b / ((r + b) * (r + b)), 2)"
+        task:
+          text: >-
+            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst zweimal mit Zurücklegen. Wie groß ist
+            die Wahrscheinlichkeit, genau einmal Rot zu ziehen? Gib sie als Dezimalzahl an, auf zwei
+            Nachkommastellen gerundet.
+        answer: { value: "round(2 * r * b / ((r + b) * (r + b)), 2)", compare: { number: { decimals: 2 } } }
+        mistakes:
+          - value: "round(r * b / ((r + b) * (r + b)), 2)"
+            message: "Das ist nur ein Pfad. Genau einmal rot heißt rot-blau oder blau-rot: Addiere beide Pfade."
+        hint: "Welche zwei Pfade gehören zu „genau einmal rot“? Rechne jeden mit der 1. Pfadregel und addiere."
+        steps:
+          - 'Pfade: rot-blau und blau-rot. Beide haben dieselbe Wahrscheinlichkeit $P(\text{rot}) \cdot P(\text{blau})$.'
+          - '$P(\text{genau einmal rot}) = 2 \cdot P(\text{rot}) \cdot P(\text{blau}) \approx {{answer}}$'
