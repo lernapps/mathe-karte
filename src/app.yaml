@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Mathe-Karte
+intro: |
+  Prozentrechnung, binomische Formeln und Wahrscheinlichkeit für die Klassen 7 und 8: Jede Seite erklärt eine Sache,
+  zeigt ein Beispiel und ein Bild und hat Übungsaufgaben, die dir sofort sagen, ob dein Ergebnis stimmt. Welche
+  Kompetenz in welchem Bundesland dran ist, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/).
+languages: [de]
+chapters: [prozent, binom, zufall]

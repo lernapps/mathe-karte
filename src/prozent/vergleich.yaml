@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Platzhalter vergleich
+description: Platzhalter, bis die Seite umgezogen ist.
+blocks:
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: true-false
+        id: vergleich-platzhalter
+        text: Diese Seite ist ein Platzhalter.
+        answer: true
+        explanation: Die Seite zieht gerade um.
+        links:
+          - { title: Mathe-Karte, url: "https://lernapps.github.io/mathe-karte/karte/" }

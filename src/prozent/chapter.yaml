@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Prozentrechnung
+summary: Platzhalter, bis die Seiten umgezogen sind.
+pages: [grundbegriffe, prozentsatz, prozentwert, grundwert, veraenderung, vergleich, sachaufgaben]

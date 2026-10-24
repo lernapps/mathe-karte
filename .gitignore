@@ -1,11 +1,14 @@
 node_modules/
+dist/
 _site/
+test-results/
+playwright-report/
 .playwright-mcp/
 # Architektur-Doku (docToolchain)
 /build/
 /.gradle/
 # Übersichtsseite der Doku: erzeugt von scripts/dashboard.js (über scripts/dtc-v4.sh)
-/src/docs/uebersicht/_kennzahlen.adoc
-/src/docs/uebersicht/_risikomatrix.adoc
-/src/docs/uebersicht/_utility-tree.adoc
-/src/docs/uebersicht/_risikothemen.adoc
+/docs/uebersicht/_kennzahlen.adoc
+/docs/uebersicht/_risikomatrix.adoc
+/docs/uebersicht/_utility-tree.adoc
+/docs/uebersicht/_risikothemen.adoc

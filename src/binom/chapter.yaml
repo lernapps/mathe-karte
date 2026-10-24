@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Binomische Formeln
+summary: Platzhalter, bis die Seiten umgezogen sind.
+pages:
+  [
+    klammern-multiplizieren,
+    erste-binomische,
+    zweite-binomische,
+    dritte-binomische,
+    binome-rueckwaerts,
+    geschickt-rechnen,
+  ]
