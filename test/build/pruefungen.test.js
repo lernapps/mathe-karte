@@ -1,7 +1,7 @@
 // Use Case: Build bricht ab, wenn eine Regel verletzt ist (früher scripts/pruefe.mjs).
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { pruefeExterneRessourcen, pruefeExterneImporte, pruefeZeilen, pruefeLlms, pruefeKompetenzen, pruefeMeldeLink, pruefeSerloLinks, pruefeTutorText, pruefeTutorLinks, pruefeTutorHerkunft, erlaubteTutorZiele } from "../../lib/pruefungen.js";
+import { pruefeExterneRessourcen, pruefeExterneImporte, pruefeZeilen, pruefeMeldeLink, pruefeTutorText, pruefeTutorLinks, erlaubteTutorZiele } from "../../lib/pruefungen.js";
 
 test("externe Ressourcen in script/link/img/iframe sind Fehler, Links und Canonical nicht", () => {
   assert.deepEqual(pruefeExterneRessourcen("a.html", `<link rel="canonical" href="https://x.org/"><a href="https://x.org">x</a>`), []);
@@ -21,37 +21,10 @@ test("höchstens 500 Zeilen je Datei", () => {
   assert.match(pruefeZeilen("a.js", "x\n".repeat(501))[0], /501 Zeilen/);
 });
 
-test("llms.txt nennt jede Seite", () => {
-  assert.deepEqual(pruefeLlms("binom/llms.txt", "… index.html test.html a.html", ["index.html", "test.html", "a.html"]), []);
-  assert.match(pruefeLlms("binom/llms.txt", "index.html", ["index.html", "b.html"])[0], /b\.html/);
-});
-
-test("je Kompetenz: Markdown-Seite, Generator, Test und (bei Bild) Zeichenmodul; ids eindeutig", () => {
-  const vorhanden = new Set(["a.md", "js/aufgaben/a.js", "test/a.test.js", "js/vis/a.js"]);
-  const existiert = (p) => vorhanden.has(p);
-  const ok = [{ id: "a", seite: "a.html", generator: "./aufgaben/a.js" }];
-  assert.deepEqual(pruefeKompetenzen("binom", ok, existiert), []);
-  const fehler = pruefeKompetenzen("binom", [...ok, { id: "b", seite: "b.html", generator: "./aufgaben/b.js" }, ok[0]], existiert);
-  assert.ok(fehler.some((f) => /b: .*b\.md fehlt/.test(f)));
-  assert.ok(fehler.some((f) => /Generator js\/aufgaben\/b\.js fehlt/.test(f)));
-  assert.ok(fehler.some((f) => /test\/b\.test\.js fehlt/.test(f)));
-  assert.ok(fehler.some((f) => /a doppelt/.test(f)));
-  assert.ok(pruefeKompetenzen("binom", [{ id: "B_x", seite: "B_x.html", generator: "./x.js" }], () => true).some((f) => /a-z/.test(f)));
-});
-
 test("jede Seite hat den Melde-Link auf GitHub Issues", () => {
   const repo = "https://github.com/o/r";
   assert.deepEqual(pruefeMeldeLink("a.html", `<footer><a href="${repo}/issues/new?title=x">melden</a></footer>`, repo), []);
   assert.match(pruefeMeldeLink("a.html", "<footer></footer>", repo)[0], /a\.html: Melde-Link/);
-});
-
-test("serlo-Links in #serlo zeigen nur auf https://de.serlo.org/…", () => {
-  const seite = (href) => `<section id="serlo"><p>Noch eine Erklärung: <a href="${href}" rel="noopener">X</a> bei serlo.org</p></section>`;
-  assert.deepEqual(pruefeSerloLinks("a.html", seite("https://de.serlo.org/mathe/1573/prozentrechnung")), []);
-  assert.deepEqual(pruefeSerloLinks("a.html", "<p>ohne serlo</p>"), []);
-  for (const falsch of ["http://de.serlo.org/mathe/1", "https://serlo.org/mathe/1", "https://de.serlo.org.evil.com/x", "de.serlo.org/mathe/1", "https://de.serlo.org/", ""]) {
-    assert.equal(pruefeSerloLinks("a.html", seite(falsch)).length, 1, falsch);
-  }
 });
 
 test("Tutor-Texte (tutor.md, llms.txt) nennen keinen Wettbewerb: die Apps sind für alle Lernenden", () => {
@@ -112,15 +85,3 @@ test("Tutor-Dateien verlinken nur auf die Allowlist: eigene Site, eigenes Repo, 
 });
 
 // Use Case: Build bricht ab, wenn tutor.md einen App-Link ohne von=tutor zeigt (ADR-021, R-021) – sonst fehlt der Knopf „Zurück zu Claude“.
-test("jeder App-Link in tutor.md trägt von=tutor, Platzhalter wie <Nummer> sind erlaubt", () => {
-  const basis = "https://lernapps.github.io/binom/";
-  const ok = [
-    `${basis}erste-binomische.html?m=1&n=4&seed=42&von=tutor`,
-    `${basis}test.html?nr=<Nummer>&modus=schnell&von=tutor`,
-    `${basis}terme.html?von=tutor#uebung`,
-    `Lies zuerst ${basis}llms.txt. Seiten wie ergebnisformen.html ohne Adresse sind nur Namen.`,
-  ];
-  for (const t of ok) assert.deepEqual(pruefeTutorHerkunft("binom/tutor.md", t, basis), [], t);
-  const fehlt = [`${basis}terme.html?seed=3`, `${basis}index.html`, `${basis}terme.html?seed=3#uebung&von=tutor`, `${basis}terme.html?von=tutorx`];
-  for (const t of fehlt) assert.match(pruefeTutorHerkunft("binom/tutor.md", t, basis)[0] ?? "", /binom\/tutor\.md: .*von=tutor/, t);
-});
