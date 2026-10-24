@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { main, svgsAus, eigenstaendig, themaFuerSvg } from "../../scripts/bilder.mjs";
+import { main, svgsAus, eigenstaendig, themaFuerSvg, ohneKommentare } from "../../scripts/bilder.mjs";
 
 test("svgsAus findet jedes <svg> ohne Scope-Attribute, mit dem Zwischentitel davor", () => {
   const html = '<div data-v-ab12><svg aria-label="A" data-v-ab12><g/></svg><p class="t" data-v-ab12>Ohne</p>'
@@ -12,6 +12,12 @@ test("svgsAus findet jedes <svg> ohne Scope-Attribute, mit dem Zwischentitel dav
     { titel: undefined, svg: '<svg aria-label="A"><g/></svg>' },
     { titel: "Ohne", svg: '<svg aria-label="B"><g/></svg>' },
   ]);
+});
+
+test("ohneKommentare entfernt auch zusammengesetzte Kommentare und lässt kein <!-- stehen", () => {
+  assert.equal(ohneKommentare("a<!--[-->b<!--]-->c"), "abc");
+  assert.equal(ohneKommentare("x<!<!---->--y-->z"), "xz");
+  assert.equal(ohneKommentare("x<!--offen"), "xoffen");
 });
 
 test("eigenstaendig ergänzt Namensraum und Stil, themaFuerSvg übernimmt hell und dunkel", () => {

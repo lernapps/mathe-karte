@@ -32,9 +32,20 @@ export function themaFuerSvg(css) {
     + `@media (prefers-color-scheme: dark) { svg { ${nurVariablen(dunkel)}; } }\n`;
 }
 
+/** Entfernt HTML-Kommentare (Vues SSR-Marken wie <!--[-->), so lange, bis keiner mehr übrig ist (auch verschachtelte). */
+export function ohneKommentare(html) {
+  let vorher;
+  let text = html;
+  do {
+    vorher = text;
+    text = text.replace(/<!--[\s\S]*?-->/g, "");
+  } while (text !== vorher);
+  return text.replaceAll("<!--", "");
+}
+
 /** Die <svg>-Elemente einer gerenderten Komponente, je mit dem Text eines <p> direkt davor (Zwischentitel). */
 export function svgsAus(html) {
-  const ohneScope = html.replace(/ data-v-[0-9a-f]+(="")?/g, "").replace(/<!--[\s\S]*?-->/g, "");
+  const ohneScope = ohneKommentare(html.replace(/ data-v-[0-9a-f]+(="")?/g, ""));
   const ergebnis = [];
   const muster = /(?:<p[^>]*>([^<]*)<\/p>\s*(?:<div[^>]*>\s*)?)?(<svg\b[\s\S]*?<\/svg>)/g;
   for (const [, titel, svg] of ohneScope.matchAll(muster)) ergebnis.push({ titel: titel?.trim() || undefined, svg });

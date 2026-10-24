@@ -25,7 +25,7 @@ microsite.with {
     // Die Doku liegt auf GitHub Pages unter https://lernapps.github.io/docs/.
     // contextPath bleibt '/': das Theme macht daraus relative Pfade, die unter jedem Unterordner funktionieren.
     contextPath = '/'
-    siteFolder = '../site'
+    siteFolder = 'site'
     title = 'Lern-Apps · Architektur'
     footerMail = ''
     footerTwitter = ''
