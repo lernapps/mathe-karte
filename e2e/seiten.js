@@ -1,26 +1,29 @@
-// Seitenliste der Browser-Tests (#26), abgeleitet aus den App-Konfigurationen wie im Build: neue Apps laufen automatisch mit.
+// Seitenliste der eigenen Browser-Tests (#26), aus der gebauten Ausgabe dist/: jede Seite des explainers und der
+// Karte. Neue Kapitel und Seiten laufen so automatisch mit. Die Tests des explainers selbst stehen in explainer.e2e.ts.
 import fs from "node:fs";
-import { ladeApps } from "../lib/apps.js";
-import { leiteAdressenAb } from "../lib/adressen.js";
+import path from "node:path";
 
-export const apps = await ladeApps({ quelle: "src", adressen: leiteAdressenAb("https://lernapps.github.io/") });
+const WURZEL = "dist";
 
-/** Jede Kompetenzseite: { app, pfad, id } mit pfad relativ zur Wurzel, z. B. "binom/erste-binomische.html". */
-export const kompetenzSeiten = apps.flatMap((app) =>
-  app.kompetenzen.map((k) => ({ app: app.pfad, id: k.id, pfad: `${app.pfad}/${k.seite}` })));
+function htmlSeiten(ordner) {
+  return fs.readdirSync(path.join(WURZEL, ordner), { withFileTypes: true }).flatMap((e) => {
+    const pfad = path.posix.join(ordner, e.name);
+    if (e.isDirectory()) return e.name === "assets" ? [] : htmlSeiten(pfad);
+    return e.name.endsWith(".html") && e.name !== "404.html" ? [pfad] : [];
+  });
+}
 
-export const startSeiten = ["", ...apps.map((a) => `${a.pfad}/`)];
-export const testSeiten = apps.map((a) => `${a.pfad}/test.html`);
-// Die Architektur-Doku baut doku.yml mit docToolchain, nicht Eleventy: nur prüfen, wenn sie in _site liegt.
-const docs = fs.existsSync("_site/docs/index.html") ? ["docs/"] : [];
-const karte = fs.readdirSync("_site/karte").filter((d) => d.endsWith(".html")).map((d) => `karte/${d}`);
+// Ordner-Adressen wie auf GitHub Pages: prozent/grundwert/ statt prozent/grundwert/index.html.
+const adresse = (datei) => datei.replace(/(^|\/)index\.html$/, "$1");
+const alle = htmlSeiten("").map(adresse).sort();
 
-/** Alle App-Seiten: Start, Kompetenzen, Tests. */
-export const appSeiten = [...startSeiten, ...kompetenzSeiten.map((k) => k.pfad), ...testSeiten];
-export const alleSeiten = [...appSeiten, "karte/", ...karte.filter((k) => k !== "karte/index.html"), ...docs];
-
-/** Erste Kompetenzseite je App (für Übungs-, axe- und Ohne-JS-Tests). */
-export const eineJeApp = apps.map((app) => kompetenzSeiten.find((k) => k.app === app.pfad));
+/** Seiten des explainers: Start, Kapitel, Inhaltsseiten, Glossar. */
+export const explainerSeiten = alle.filter((p) => !p.startsWith("karte/"));
+/** Inhaltsseiten des explainers (<kapitel>/<seite>/), auf ihnen stehen die Übungen. */
+export const inhaltsSeiten = explainerSeiten.filter((p) => /^[^/]+\/[^/]+\/$/.test(p));
+/** Seiten der Lehrplan-Karte (Eleventy). */
+export const karteSeiten = alle.filter((p) => p.startsWith("karte/"));
+export const alleSeiten = [...explainerSeiten, ...karteSeiten];
 
 /** Sammelt Konsolenfehler und Skriptfehler einer Seite. */
 export function sammleFehler(page) {

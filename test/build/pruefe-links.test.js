@@ -1,4 +1,4 @@
-// Use Case: Site ausliefern – jeder interne Link und jede interne Ressource in _site führt auf eine Datei, die es
+// Use Case: Site ausliefern – jeder interne Link und jede interne Ressource in dist führt auf eine Datei, die es
 // gibt, und ein #anker auf eine id in dieser Seite (Harness-Rad: link-checker). Externe Links prüft der Build nicht.
 import { test } from "node:test";
 import assert from "node:assert/strict";

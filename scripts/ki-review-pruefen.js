@@ -30,13 +30,13 @@ const ATAM_ABSCHNITT = /^### Architektur \(ATAM\)[ \t]*$/m;
  * Änderung nur per PR, zusammen mit ADR-030 und `werkzeuge/review/ki-review.md`.
  */
 export const ARCHITEKTUR_PFADE = [
-  /^src\/docs\/arc42\/chapters\/_adr-[^/]*\.adoc$/,
-  /^src\/docs\/arc42\/chapters\/_atam-[^/]*\.adoc$/,
-  /^src\/docs\/arc42\/chapters\/09_[^/]*\.adoc$/,
-  /^src\/docs\/arc42\/chapters\/01_[^/]*\.adoc$/,
-  /^src\/docs\/arc42\/chapters\/10_[^/]*\.adoc$/,
-  /^src\/docs\/arc42\/chapters\/04_[^/]*\.adoc$/,
-  /^src\/docs\/arc42\/chapters\/05_[^/]*\.adoc$/,
+  /^docs\/arc42\/chapters\/_adr-[^/]*\.adoc$/,
+  /^docs\/arc42\/chapters\/_atam-[^/]*\.adoc$/,
+  /^docs\/arc42\/chapters\/09_[^/]*\.adoc$/,
+  /^docs\/arc42\/chapters\/01_[^/]*\.adoc$/,
+  /^docs\/arc42\/chapters\/10_[^/]*\.adoc$/,
+  /^docs\/arc42\/chapters\/04_[^/]*\.adoc$/,
+  /^docs\/arc42\/chapters\/05_[^/]*\.adoc$/,
 ];
 
 /** Die Dateien des PRs, die ein Architektur-Review nach ATAM auslösen. */

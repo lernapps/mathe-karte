@@ -47,7 +47,7 @@ a:hover { color: var(--g-800); }
   font-weight: 900;
 }
 
-/* Übersichtsseite (src/docs/uebersicht/): kein Workaround, sondern das Kachel-Raster der Seite.
+/* Übersichtsseite (docs/uebersicht/): kein Workaround, sondern das Kachel-Raster der Seite.
    Eine Spalte bis 22rem Breite, darüber so viele, wie passen; große Diagramme (.breit) nehmen die ganze Zeile. */
 .kacheln > .content { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1rem; }
 .kacheln .kachel.breit { grid-column: 1 / -1; }

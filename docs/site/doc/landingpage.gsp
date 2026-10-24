@@ -50,7 +50,7 @@
         </div>
         <div class="dtc-card">
             <h3><a href="https://github.com/lernapps/lernapps.github.io">Quellcode auf GitHub</a></h3>
-            <p>Das Monorepo samt dieser Doku (src/docs).</p>
+            <p>Das Monorepo samt dieser Doku (docs).</p>
         </div>
     </section>
 

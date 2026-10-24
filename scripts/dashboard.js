@@ -1,6 +1,6 @@
 /*
- * Kennzahlen, Risikomatrix und Utility Tree für die Übersichtsseite der Architektur-Doku (src/docs/uebersicht/).
- * Liest nur das Repository (package.json, App-Konfigurationen, Tests, arc42-Kapitel), kein Netz. Die drei
+ * Kennzahlen, Risikomatrix und Utility Tree für die Übersichtsseite der Architektur-Doku (docs/uebersicht/).
+ * Liest nur das Repository (package.json, Kapitel des explainers, Tests, arc42-Kapitel), kein Netz. Die drei
  * AsciiDoc-Dateien in ZIELE sind git-ignoriert; scripts/dtc-v4.sh erzeugt sie vor jedem Doku-Build neu.
  *   node scripts/dashboard.js
  */
@@ -8,13 +8,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
-import { ladeApps } from "../lib/apps.js";
-import site from "../src/_data/site.js";
+import kapitel from "../karte/daten/kapitel.js";
 import { SCHICHTEN, abdeckung } from "./harness-rad.js";
 
 const WURZEL = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const KAPITEL = "src/docs/arc42/chapters/";
-const ORDNER = "src/docs/uebersicht/";
+const KAPITEL = "docs/arc42/chapters/";
+const ORDNER = "docs/uebersicht/";
 
 export const ZIELE = {
   kennzahlen: `${ORDNER}_kennzahlen.adoc`,
@@ -127,7 +126,7 @@ export function leseNodeTestSumme(tap) {
 export function lesePlaywrightListe(ausgabe) {
   const t = ausgabe.match(/^Total: (\d+) tests? in (\d+) files?$/m);
   if (!t || t[1] === "0") {
-    throw new Error("playwright test --list fand keine Tests; die Specs lesen _site/, also erst npm ci und npm run build");
+    throw new Error("playwright test --list fand keine Tests; die Specs lesen dist/, also erst npm ci und npm run build");
   }
   return { tests: Number(t[1]), dateien: Number(t[2]) };
 }
@@ -149,9 +148,9 @@ export function zaehleUnitTests() {
   return leseNodeTestSumme(lauf.stdout ?? "");
 }
 
-/** Braucht npm ci und ein gebautes _site/ (die Specs lesen die Seitenliste daraus). */
+/** Braucht npm ci und ein gebautes dist/ (die Specs lesen die Seitenliste daraus). */
 export function zaehleBrowserTests() {
-  const cli = path.join(WURZEL, "node_modules/@playwright/test/cli.js");
+  const cli = path.join(WURZEL, "node_modules/playwright/cli.js");
   const lauf = spawnSync(process.execPath, [cli, "test", "--list"], { cwd: WURZEL, encoding: "utf8" });
   return lesePlaywrightListe(`${lauf.stdout ?? ""}${lauf.stderr ?? ""}`);
 }
@@ -197,13 +196,12 @@ function dateienUnter(ordner, endung) {
 }
 
 function alleDokuTexte() {
-  return ["CLAUDE.md", ...dateienUnter("src/docs", ".adoc")].map(lies);
+  return ["CLAUDE.md", ...dateienUnter("docs", ".adoc")].map(lies);
 }
 
 /** zaehler: für Tests austauschbar; ein echter node --test-Lauf aus einem Test heraus riefe sich selbst auf. */
 export async function sammleKennzahlen(zaehler = { unit: zaehleUnitTests, browser: zaehleBrowserTests }) {
   const paket = JSON.parse(lies("package.json"));
-  const apps = await ladeApps({ quelle: path.join(WURZEL, "src"), adressen: site });
   const kap11 = lies(`${KAPITEL}11_technical_risks.adoc`);
   const risiken = {};
   for (const r of leseRisiken(kap11)) risiken[r.prio] = (risiken[r.prio] ?? 0) + 1;
@@ -212,8 +210,8 @@ export async function sammleKennzahlen(zaehler = { unit: zaehleUnitTests, browse
   const audit = bewertung("harness-audit", /Harness-Audit vom (\d\d\.\d\d\.\d{4})/);
   return {
     version: paket.version,
-    apps: apps.length,
-    kompetenzen: apps.reduce((s, a) => s + a.kompetenzen.length, 0),
+    apps: kapitel.length,
+    kompetenzen: kapitel.reduce((s, k) => s + Object.keys(k.seiten).length, 0),
     unitTests: zaehler.unit(),
     browserTests: zaehler.browser(),
     pflichtChecks: lesePflichtChecks(alleDokuTexte()),
@@ -232,7 +230,7 @@ const liste = (objekt) => Object.entries(objekt).map(([k, n]) => `${n} ${k}`).jo
 export function schreibeKennzahlen(k) {
   const zeilen = [
     ["Version der Site", `${k.version} (\`package.json\`)`],
-    ["Apps und Kompetenzen", `link:../../[${k.apps} Apps] mit ${k.kompetenzen} Kompetenzen`],
+    ["Kapitel und Seiten", `link:../../[${k.apps} Kapitel] mit ${k.kompetenzen} Seiten`],
     ["Unit-Tests", `${k.unitTests.tests} Tests, ${k.unitTests.pass} grün${k.unitTests.fail ? `, ${k.unitTests.fail} rot` : ""}${
       k.unitTests.skipped ? `, ${k.unitTests.skipped} übersprungen` : ""} (Lauf beim Doku-Build; ${xref("08_concepts", "section-test-concept", "8.3")})`],
     ["Browser-Tests", `${k.browserTests.tests} Tests in ${k.browserTests.dateien} Specs (Playwright und axe-core, gezählt mit \`--list\`)`],
@@ -255,5 +253,5 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
     utilityTreeDiagramm(leseUtilityTree(lies(`${KAPITEL}10_quality_requirements.adoc`))));
   fs.writeFileSync(path.join(WURZEL, ZIELE.risikothemen),
     schreibeRisikothemen(leseRisikothemen(lies(`${KAPITEL}11_technical_risks.adoc`))));
-  console.log(`Übersicht: ${k.apps} Apps, ${k.unitTests.tests} Unit-Tests, Rad ${k.rad.vorhanden}/${k.rad.relevant}`);
+  console.log(`Übersicht: ${k.apps} Kapitel, ${k.unitTests.tests} Unit-Tests, Rad ${k.rad.vorhanden}/${k.rad.relevant}`);
 }

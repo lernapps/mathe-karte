@@ -6,8 +6,8 @@ name: Doku prüfen
 on:
   pull_request:
     paths:
-      - "src/docs/**"
-      - "src/site/**"
+      - "docs/**"
+      - "docs/site/**"
       - "docToolchainConfig.groovy"
       - "dtcw"
       - "scripts/dtc-v4.sh"
@@ -38,10 +38,10 @@ jobs:
       - name: Gibt es die Doku schon?
         id: vorhanden
         run: |
-          if [ -x scripts/dtc-v4.sh ] && [ -d src/docs ]; then
+          if [ -x scripts/dtc-v4.sh ] && [ -d docs ]; then
             echo "doku=ja" >> "$GITHUB_OUTPUT"
           else
-            echo "::notice::Keine Architektur-Doku (scripts/dtc-v4.sh, src/docs) im Stand – nichts zu bauen."
+            echo "::notice::Keine Architektur-Doku (scripts/dtc-v4.sh, docs) im Stand – nichts zu bauen."
             echo "doku=nein" >> "$GITHUB_OUTPUT"
           fi
 
@@ -52,7 +52,7 @@ jobs:
           cache: npm
 
       # Die Übersichtsseite (ADR-031) zählt die Unit-Tests per Lauf und die Browser-Tests per
-      # "playwright test --list"; die Specs lesen _site/. Also Abhängigkeiten und Site vor dem Doku-Build.
+      # "playwright test --list"; die Specs lesen dist/. Also Abhängigkeiten und Site vor dem Doku-Build.
       - name: Abhängigkeiten
         if: steps.vorhanden.outputs.doku == 'ja'
         run: npm ci

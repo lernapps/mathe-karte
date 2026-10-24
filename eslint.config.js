@@ -5,7 +5,8 @@ import nounsanitized from "eslint-plugin-no-unsanitized";
 import globals from "globals";
 
 export default [
-  { ignores: ["_site/", "build/", "node_modules/", "src/kern/vendor/"] },
+  // src/ ist der explainer (YAML, TypeScript, Vue): den prüft vite-plus mit dem Lint-Plugin von lernapps (vp check).
+  { ignores: ["_site/", "dist/", "build/", "node_modules/", ".claude/worktrees/", "src/"] },
   js.configs.recommended,
   nounsanitized.configs.recommended,
   {
@@ -16,9 +17,9 @@ export default [
       "no-unused-vars": ["error", { ignoreRestSiblings: true }],
     },
   },
-  // Browser-Code: Kern und Apps (Generatoren und Bilder laufen zusätzlich im Build unter Node).
+  // Browser-Code: die interaktive Karte und das Theme der Architektur-Doku.
   {
-    files: ["src/**/*.js"],
+    files: ["karte/js/**/*.js", "docs/site/**/*.js"],
     languageOptions: { globals: { ...globals.browser } },
   },
   // Node-Code: Build, Tests, Skripte, Eleventy-Datendateien.
@@ -28,14 +29,14 @@ export default [
       "lib/**/*.js",
       "test/**/*.js",
       "scripts/**/*.js",
-      "src/*/test/**/*.js",
-      "src/_data/**/*.js",
-      "src/*/*.11tydata.js",
-      "src/karte/daten/**/*.js",
+      "karte/test/**/*.js",
+      "karte/lib/**/*.js",
+      "karte/_data/**/*.js",
+      "karte/*.11tydata.js",
+      "karte/daten/**/*.js",
     ],
     languageOptions: { globals: { ...globals.node } },
-    // Kein DOM unter Node, T-003 betrifft nur den Browser. import() mit berechnetem Pfad lädt hier die eigenen
-    // App-Konfigurationen und Generatoren aus dem Repository, keine fremden Eingaben.
+    // Kein DOM unter Node, T-003 betrifft nur den Browser.
     rules: { "no-unsanitized/method": "off", "no-unsanitized/property": "off" },
   },
   // Browser-Tests (#26): Node, aber page.evaluate() führt einzelne Funktionen im Browser aus.

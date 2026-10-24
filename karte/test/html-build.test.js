@@ -1,7 +1,7 @@
 // Use Case: Mathe-Karte – Beschreibungen aus Markdown-Body als sicheres HTML auf den statischen Seiten.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { escapeHtml, absaetzeHtml } from '../../lib/karte/html.js';
+import { escapeHtml, absaetzeHtml } from '../lib/html.js';
 
 test('escapeHtml: maskiert &, <, >, "', () => {
   assert.equal(escapeHtml('a & <b> "c"'), 'a &amp; &lt;b&gt; &quot;c&quot;');

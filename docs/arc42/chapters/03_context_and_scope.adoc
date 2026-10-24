@@ -21,7 +21,7 @@ Systemgrenze zeigt xref:05_building_block_view.adoc#section-whitebox-overall-sys
 [[section-business-context]]
 === Fachlicher Kontext: Zwei Menschen, sieben Nachbarsysteme
 
-// tag::kontext-diagramm[] – auch auf der Übersichtsseite (src/docs/uebersicht/index.adoc)
+// tag::kontext-diagramm[] – auch auf der Übersichtsseite (docs/uebersicht/index.adoc)
 [plantuml, target=kontext-fachlich, format=svg]
 ....
 @startuml

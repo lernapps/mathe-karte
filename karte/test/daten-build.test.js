@@ -1,4 +1,4 @@
-// Use Case: Mathe-Karte – Markdown-Daten (src/karte/daten) lesen, Referenzen prüfen, Abdeckung berechnen.
+// Use Case: Mathe-Karte – Markdown-Daten (karte/daten) lesen, Referenzen prüfen, Abdeckung berechnen.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
@@ -6,7 +6,7 @@ import {
   leseTabelle,
   pruefeReferenzen,
   berechneAbdeckung,
-} from '../../lib/karte/daten.js';
+} from '../lib/daten.js';
 
 // --- Frontmatter-Parser -----------------------------------------------------
 

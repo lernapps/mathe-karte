@@ -15,7 +15,7 @@ import { pruefeLinks } from "./lib/pruefe-links.js";
 
 // Gepatchte Kopien des docToolchain-Themes (Architektur-Doku, TD-10): fremder Code, von der Zeilengrenze ausgenommen.
 const THEME_KOPIEN = /^docs\/site\/assets\/css\/(asciidoctor|main\.min\.[0-9a-f]+)\.css$/;
-const NICHT_QUELLEN = new Set(["node_modules", ".git", "dist", "_site", ".playwright-mcp", "package-lock.json", "build", ".gradle", "test-results", "playwright-report"]);
+const NICHT_QUELLEN = new Set(["node_modules", ".git", "worktrees", "dist", "_site", ".playwright-mcp", "package-lock.json", "build", ".gradle", "test-results", "playwright-report"]);
 
 function alleDateien(ordner, ausnahmen = new Set()) {
   const liste = [];

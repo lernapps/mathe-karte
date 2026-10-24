@@ -1,6 +1,7 @@
 name: Prüfen
 
-# Tests und Build (inkl. Build-Prüfungen) bei jedem Push und Pull Request.
+# Tests und Build (inkl. Build-Prüfungen) bei jedem Push und Pull Request: der explainer (vite-plus: Format, Lint mit
+# den Regeln von lernapps.net, Typen, Vue-Komponenten) und der JavaScript-Teil (Karte, lib/, scripts/: ESLint, node:test).
 on:
   push:
   pull_request:
@@ -20,9 +21,10 @@ jobs:
       - run: npm ci
       # Volle Abhängigkeitsliste prüfen, nicht --omit=dev: Die Site hat keine Laufzeit-Abhängigkeiten,
       # alles ist devDependency und läuft im Build, der das ausgelieferte HTML erzeugt (Supply Chain).
-      - run: npm audit --audit-level=high
+      # Bricht bei high/critical ab; Ausnahmen nur mit Grund und Ablaufdatum in scripts/audit.js (ADR-033).
+      - run: npm run audit
       - run: npm run lint
-      # Typprüfung mit tsc --checkJs, vorerst nur src/kern (jsconfig.json, #25).
+      # vp check (Format, Lint, typgeprüft) über src/ und vue-tsc über die Vue-Komponenten (ADR-033).
       - run: npm run typecheck
       - run: npm test
       - run: npm run build

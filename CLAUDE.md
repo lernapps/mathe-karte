@@ -57,7 +57,7 @@ repository: one shared kern, one layout, one build (Eleventy 3.1.7), deployed to
   Install: `ln -s <repo>/werkzeuge/skill/lern-app ~/.claude/skills/lern-app`.
 - `test/kern/`, `test/build/`, `test/apps/` (generator contract for every competency of every app) and
   `src/<app>/test/`.
-- `src/docs/`, `src/site/`, `docToolchainConfig.groovy`, `dtcw`, `scripts/dtc-v4.sh` – architecture docs (see
+- `docs/`, `docs/site/`, `docToolchainConfig.groovy`, `dtcw`, `scripts/dtc-v4.sh` – architecture docs (see
   "Architecture").
 
 ## Build rules (enforced by `npm run build`)
@@ -141,7 +141,7 @@ repository: one shared kern, one layout, one build (Eleventy 3.1.7), deployed to
 - The check `ki-review` (`.github/workflows/ki-review.yml`, read-only token, no LLM call) is green only if the newest
   such review from an account with admin permission on the repo (the
   owners of the lernapps organisation, or an admin of this repo) came after the last commit and names the head SHA. Every new commit needs a new review.
-- Architecture review (ADR-030): if a PR touches ADR bodies (`src/docs/arc42/chapters/_adr-*.adoc`), the dated ATAM reports
+- Architecture review (ADR-030): if a PR touches ADR bodies (`docs/arc42/chapters/_adr-*.adoc`), the dated ATAM reports
   (`_atam-*.adoc`) or arc42 chapter 1, 4, 5, 9 or 10 (`ARCHITEKTUR_PFADE` in `scripts/ki-review-pruefen.js`), the review needs a section
   `### Architektur (ATAM)` evaluating the change against the utility tree (chapter 10) and the newest ATAM report
   (appendix „Bewertungen“); without it `ki-review` stays red. Repeat ATAM, security review and harness audit quarterly.
@@ -152,11 +152,11 @@ repository: one shared kern, one layout, one build (Eleventy 3.1.7), deployed to
   invisible sub-agent.
 
 ## Architecture
-- arc42 documentation (German) lives in `src/docs/arc42/` (chapters in `chapters/`, ADRs in `chapters/_adr-*.adoc`,
-  index in chapter 9); theme overrides without CDN resources in `src/site/`; config `docToolchainConfig.groovy`.
-  Eleventy ignores `src/docs/` and `src/site/`. Live at `https://lernapps.github.io/docs/`.
-- Overview page `src/docs/uebersicht/` (ADR-031): `scripts/dtc-v4.sh` first runs `node scripts/dashboard.js`, which
-  writes key figures, risk matrix, utility tree and risk themes into git-ignored `src/docs/uebersicht/_*.adoc`. Never
+- arc42 documentation (German) lives in `docs/arc42/` (chapters in `chapters/`, ADRs in `chapters/_adr-*.adoc`,
+  index in chapter 9); theme overrides without CDN resources in `docs/site/`; config `docToolchainConfig.groovy`.
+  Eleventy ignores `docs/` and `docs/site/`. Live at `https://lernapps.github.io/docs/`.
+- Overview page `docs/uebersicht/` (ADR-031): `scripts/dtc-v4.sh` first runs `node scripts/dashboard.js`, which
+  writes key figures, risk matrix, utility tree and risk themes into git-ignored `docs/uebersicht/_*.adoc`. Never
   commit them; if you change the format of the chapter 11 risk table, the chapter 9 index or the utility tree, keep
   `test/build/dashboard.test.js` green. It runs the unit tests once and `playwright test --list` (needs `npm ci` and a
   built `_site/`), so run `npm run build` before `scripts/dtc-v4.sh`.
@@ -167,14 +167,14 @@ repository: one shared kern, one layout, one build (Eleventy 3.1.7), deployed to
   (Nygard, Pugh matrix against QZ-1…QZ-5, consequences naming risk IDs from chapter 11). Superseded ADRs stay in the
   index with status "Superseded by ADR-0xx". Diagrams: PlantUML with `!include <C4/...>`, never a URL.
 - Inter-page links: `xref:NN_file.adoc#anchor[]`, never `link:foo.adoc[]`.
-- `doku.yml` lints `src/docs` with asciidoc-linter pinned to a commit SHA (ADR-028) via `scripts/doku-lint.js`: ERRORs
+- `doku.yml` lints `docs` with asciidoc-linter pinned to a commit SHA (ADR-028) via `scripts/doku-lint.js`: ERRORs
   fail the job, WARNINGs don't. Pinned SHA: `911440ac35d5849349389cce7ba04311d75dca49` (after upstream #62). Locally: `pip install git+https://github.com/docToolchain/asciidoc-linter@<SHA>` in a
   venv, then `node scripts/doku-lint.js`.
 
 ## Risk Radar Assessment
 
 _Assessed on 2026-09-24 against the Vibe-Coding Risk Radar (https://llm-coding.github.io/vibe-coding-risk-radar/), confirmed by the Product Owner_
-_Architecture Decision: See [ADR-023](src/docs/arc42/chapters/_adr-risiko.adoc) (arc42 chapter 9)_
+_Architecture Decision: See [ADR-023](docs/arc42/chapters/_adr-risiko.adoc) (arc42 chapter 9)_
 
 ### Module: lernapps.github.io
 

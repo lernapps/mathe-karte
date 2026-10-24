@@ -80,7 +80,7 @@ zeigt ein MIT-Badge, GitHub erkennt aber keine `LICENSE`-Datei.
 asciidoc-linter per `pip install git+https://github.com/docToolchain/asciidoc-linter@<SHA>`, gepinnt auf
 den vollen Commit-SHA `911440ac35d5849349389cce7ba04311d75dca49` (angehoben am 24.09.2026, siehe zweiten Nachtrag); Python kommt über
 `actions/setup-python`, ebenfalls per SHA gepinnt. Der Wrapper `scripts/doku-lint.js` ruft den Linter mit
-`--format json` über `src/docs/**/*.adoc` auf: ERRORs brechen den Job, WARNINGs erscheinen nur als
+`--format json` über `docs/**/*.adoc` auf: ERRORs brechen den Job, WARNINGs erscheinen nur als
 Annotation. Der Linter selbst endet bei jedem Fund mit Exit-Code 1, auch bei einer Warnung; deshalb der
 Wrapper. Fehlalarme unterdrücken wir nur mit Begründung: Die Regel IMG001 sucht Bilder relativ zum
 Arbeitsverzeichnis und kennt `:imagesdir:` nicht. Abschalten ließe sie sich nur ganz (Konfiguration
@@ -205,7 +205,7 @@ dem nächsten ADR; ein ATAM in jedem PR kostet bei Text- und App-PRs Zeit, ohne 
 Harness-Rad führt „LLM design review“ ab Tier 2 als offene Lücke (xref:08_concepts.adoc#section-harness[8.16]).
 
 *Entscheidung.* Ein PR bekommt ein Architektur-Review nach ATAM nur, wenn er Entscheidungen oder
-Qualitätsdefinitionen ändert. Auslöser sind ADR-Texte (`src/docs/arc42/chapters/_adr-*.adoc`), die
+Qualitätsdefinitionen ändert. Auslöser sind ADR-Texte (`docs/arc42/chapters/_adr-*.adoc`), die
 datierten ATAM-Berichte selbst (`_atam-*.adoc`, sie sind die Bewertung, kein Nachtrag), Kapitel 9
 (`09_*.adoc`), die Qualitätsziele in Kapitel 1 (`01_*.adoc`), die Szenarien in Kapitel 10 (`10_*.adoc`),
 die Lösungsstrategie in Kapitel 4 (`04_*.adoc`) und die Bausteine in Kapitel 5 (`05_*.adoc`). Die Liste

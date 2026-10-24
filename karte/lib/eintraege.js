@@ -41,9 +41,9 @@ export function pruefeAppEintrag(app, knotenIds) {
   if (!app.kartenEintrag) fehler.push(`${konfig(app)}: Seiten mit Knoten, aber kartenEintrag fehlt`);
   if (!mitKnoten.length) fehler.push(`${konfig(app)}: kartenEintrag gesetzt, aber keine Seite hat Knoten`);
   for (const k of mitKnoten) {
-    if (!Array.isArray(k.kartenKnoten)) { fehler.push(`${konfig(app)}: kartenKnoten der Kompetenz "${k.id}" muss eine Liste sein`); continue; }
+    if (!Array.isArray(k.kartenKnoten)) { fehler.push(`${konfig(app)}: kartenKnoten der Seite "${k.id}" muss eine Liste sein`); continue; }
     for (const id of k.kartenKnoten) {
-      if (!knotenIds.has(id)) fehler.push(`${konfig(app)}: kartenKnoten "${id}" der Kompetenz "${k.id}" ist kein Knoten der Karte (karte/daten/kompetenzen/)`);
+      if (!knotenIds.has(id)) fehler.push(`${konfig(app)}: kartenKnoten "${id}" der Seite "${k.id}" ist kein Knoten der Karte (karte/daten/kompetenzen/)`);
     }
   }
   return fehler;

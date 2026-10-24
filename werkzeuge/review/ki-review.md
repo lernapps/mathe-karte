@@ -70,7 +70,7 @@ Check every point. A point that does not apply gets "n/a", never silence.
    bumped (SemVer). `CLAUDE.md` still true? Every file under 500 lines.
 
 8. **Architecture (ATAM), only if the PR touches a trigger path** (ADR-030). Trigger paths, the same list
-   as `ARCHITEKTUR_PFADE` in `scripts/ki-review-pruefen.js`: ADR bodies `src/docs/arc42/chapters/_adr-*.adoc`,
+   as `ARCHITEKTUR_PFADE` in `scripts/ki-review-pruefen.js`: ADR bodies `docs/arc42/chapters/_adr-*.adoc`,
    the dated ATAM reports (`_atam-*.adoc`),
    chapter 9 (`09_*.adoc`), the quality definitions in chapter 1 (`01_*.adoc`) and chapter 10 (`10_*.adoc`),
    the solution strategy (`04_*.adoc`) and the building blocks (`05_*.adoc`). Evaluate the change against the

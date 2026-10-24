@@ -84,10 +84,10 @@ test("Vendor-Dateien brauchen einen Lizenzkopf in den ersten 10 Zeilen", () => {
   assert.match(fehler[0], /src\/x\/vendor\/c\.js/);
 });
 
-test("das echte Repo: package-lock.json und alle src/**/vendor/-Dateien bestehen", () => {
+test("das echte Repo: package-lock.json und alle vendor/-Dateien bestehen", () => {
   const lockfile = JSON.parse(fs.readFileSync(path.join(WURZEL, "package-lock.json"), "utf8"));
   assert.deepEqual(pruefeLizenzen(lockfile), []);
-  const dateien = vendorDateien(path.join(WURZEL, "src"));
-  assert.ok(Object.keys(dateien).some((d) => d.endsWith("vendor/talkitover.js")));
+  // Seit dem explainer (ADR-033) liefert das Repo keine fremden Dateien mehr unter vendor/ aus; kommt eine dazu, braucht sie den Kopf.
+  const dateien = { ...vendorDateien(path.join(WURZEL, "src")), ...vendorDateien(path.join(WURZEL, "karte")) };
   assert.deepEqual(pruefeVendorKoepfe(dateien), []);
 });

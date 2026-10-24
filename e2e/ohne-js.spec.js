@@ -1,18 +1,19 @@
-// Ohne JavaScript (#26, Projektregel "Text UND Bild"): Erklärung und statisches Bild sind sichtbar – je App eine Seite.
-import { test, expect } from "@playwright/test";
-import { eineJeApp } from "./seiten.js";
+// Ohne JavaScript (#26, Projektregel "Text UND Bild"): Auf jeder Inhaltsseite sind Regel und Übung lesbar, und das
+// Bild (Abschnitt #bild) ist als SVG oder Grafik sichtbar. Die Prüfungen des explainers selbst: explainer.e2e.ts.
+import { test, expect } from "playwright/test";
+import { inhaltsSeiten } from "./seiten.js";
 
 test.use({ javaScriptEnabled: false });
 
-for (const { pfad } of eineJeApp) {
-  test(`ohne JS: Erklärung und Bild sichtbar auf /${pfad}`, async ({ page }) => {
+for (const pfad of inhaltsSeiten) {
+  test(`ohne JS: Regel, Übung und Bild sichtbar auf /${pfad}`, async ({ page }) => {
     await page.goto(pfad);
-    await expect(page.locator("#erklaerung")).toHaveAttribute("open", "");
-    await expect(page.locator("#warum p").first()).toBeVisible();
-    await expect(page.locator("#regel")).toBeVisible();
-    const bild = page.locator("#visualisierung svg");
+    await expect(page.locator("[id='regel']")).toBeVisible();
+    await expect(page.locator("[id='uebung']")).toBeVisible();
+    const abschnitt = page.locator("[id='bild']");
+    await expect(abschnitt).toHaveCount(1);
+    const bild = abschnitt.locator("svg, img").first();
     await expect(bild).toBeVisible();
-    expect(await bild.locator("*").count()).toBeGreaterThan(0);
     const box = await bild.boundingBox();
     expect(box.width).toBeGreaterThan(20);
     expect(box.height).toBeGreaterThan(20);

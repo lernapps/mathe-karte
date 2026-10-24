@@ -1,11 +1,11 @@
-// Use Case: Architektur-Doku pflegen – asciidoc-linter (ADR-028) prüft src/docs; ERRORs brechen den Doku-Job,
+// Use Case: Architektur-Doku pflegen – asciidoc-linter (ADR-028) prüft docs; ERRORs brechen den Doku-Job,
 // WARNINGs nicht. Der Wrapper scripts/doku-lint.js bewertet die JSON-Ausgabe (Harness-Rad: markdown-asciidoc-lint).
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { bewerte, bildDa } from "../../scripts/doku-lint.js";
 
-const befund = (severity, rule_id, message, file = "src/docs/a.adoc") => ({ file, line: 3, severity, rule_id, message });
+const befund = (severity, rule_id, message, file = "docs/a.adoc") => ({ file, line: 3, severity, rule_id, message });
 
 test("ERROR zählt als Fehler, WARNING und INFO nur als Warnung", () => {
   const r = bewerte([befund("error", "HEAD002", "skip"), befund("warning", "WS001", "ws"), befund("info", "IMG001", "alt")], () => false);
@@ -28,12 +28,12 @@ test("HEAD002 entfällt nur, wenn die Überschrift mit einem Inline-Makro beginn
 });
 
 test("bildDa sucht relativ zur .adoc-Datei und ihrem :imagesdir:", () => {
-  const dateien = new Set(["src/docs/images/logo.png"]);
+  const dateien = new Set(["docs/images/logo.png"]);
   const lies = () => "= Titel\n:imagesdir: ../images\n";
-  assert.equal(bildDa("src/docs/arc42/arc42.adoc", "logo.png", lies, (p) => dateien.has(p)), true);
-  assert.equal(bildDa("src/docs/arc42/arc42.adoc", "fehlt.png", lies, (p) => dateien.has(p)), false);
+  assert.equal(bildDa("docs/arc42/arc42.adoc", "logo.png", lies, (p) => dateien.has(p)), true);
+  assert.equal(bildDa("docs/arc42/arc42.adoc", "fehlt.png", lies, (p) => dateien.has(p)), false);
   const ohne = () => "= Titel\n";
-  assert.equal(bildDa("src/docs/images/x.adoc", "logo.png", ohne, (p) => dateien.has(p)), true);
+  assert.equal(bildDa("docs/images/x.adoc", "logo.png", ohne, (p) => dateien.has(p)), true);
 });
 
 test("doku.yml installiert den Linter und setup-python je an einem vollen Commit-SHA (ADR-028)", () => {

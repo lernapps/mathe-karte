@@ -53,6 +53,6 @@ Build-Schritt, aber nur zur Build-Zeit (TC-1, xref:09_architecture_decisions.ado
 | CV-3 | Die Site-Version steht nur in `package.json`; der Footer zeigt sie (`src/_data/site.js:11`, `:16`). SemVer, Anhebung bei sichtbaren Änderungen.
 | CV-4 | URL-Parameter, Anker und `seed`/`nr` sind öffentlicher Vertrag: Änderungen stehen im `llms.njk` der App, bestehende Namen werden nie umbenannt.
 | CV-5 | `tutor.njk` bleibt unter 120 Zeilen und auf Deutsch; im Lernendentext heißt es „Aufgabe Nr. 42“, nie „seed“.
-| CV-6 | Architektur als arc42 in AsciiDoc unter `src/docs/`, gebaut mit docToolchain; Diagramme in PlantUML mit der C4-Standardbibliothek. Kern- und Build-Entscheidungen brauchen ein ADR.
+| CV-6 | Architektur als arc42 in AsciiDoc unter `docs/`, gebaut mit docToolchain; Diagramme in PlantUML mit der C4-Standardbibliothek. Kern- und Build-Entscheidungen brauchen ein ADR.
 | CV-7 | Die Basis-URL steht an genau einer Stelle (`src/_data/site.js`); in Vorlagen nie eine literale Adresse, sondern `{{ app.basisUrl }}` bzw. `{{ site.basis }}`.
 |===

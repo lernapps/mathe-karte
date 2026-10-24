@@ -37,7 +37,7 @@ test("die Site einer Organisation an der Wurzel: Repository <org>.github.io, kei
 // Seit 27.09.2026: Die Mathe-Karte liegt im Repository lernapps/mathe-karte unter /mathe-karte/; die Wurzel gehört
 // der Startseite der Organisation. Eine falsche Basis-URL schickt den Tutor auf 404-Adressen (R-002).
 test("die Site-Konfiguration zeigt auf /mathe-karte/ im Repository lernapps/mathe-karte", async () => {
-  const { default: site } = await import("../../src/_data/site.js");
+  const { default: site } = await import("../../karte/_data/site.js");
   assert.equal(site.basis, "https://lernapps.github.io/mathe-karte/");
   assert.equal(site.pfadPraefix, "/mathe-karte/");
   assert.equal(site.repo, "https://github.com/lernapps/mathe-karte");

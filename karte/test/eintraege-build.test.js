@@ -1,8 +1,8 @@
 // Use Case: Mathe-Karte – App-Einträge kommen aus den App-Konfigurationen (APP.kartenEintrag, KOMPETENZEN[].kartenKnoten),
-// noch nicht migrierte Apps aus der Übergangsdatei src/karte/daten/externe-eintraege.js.
+// noch nicht migrierte Apps aus der Übergangsdatei karte/daten/externe-eintraege.js.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { eintragAusApp, pruefeAppEintrag, eintraegeFuerKarte } from '../../lib/karte/eintraege.js';
+import { eintragAusApp, pruefeAppEintrag, eintraegeFuerKarte } from '../lib/eintraege.js';
 
 const FELDER = {
   'aktiv-level': 2, backend: 'none', 'external-requests': 'on-consent', dsgvo: 'amber', evidence: 'anecdotal',
@@ -42,10 +42,10 @@ test('eintragAusApp: ohne kartenEintrag keine App der Karte; jahrgaenge fehlt �
   assert.deepEqual(eintragAusApp(app({ kartenEintrag: ohne })).jahrgaenge, [8]);
 });
 
-test('pruefeAppEintrag: unbekannter Knoten nennt App-Konfiguration und Kompetenz', () => {
+test('pruefeAppEintrag: unbekannter Knoten nennt karte/daten/kapitel.js und die Seite', () => {
   const fehler = pruefeAppEintrag(app(), new Set(['klammern-binome']));
   assert.equal(fehler.length, 1);
-  assert.match(fehler[0], /src\/binom\/js\/app\.config\.js/);
+  assert.match(fehler[0], /karte\/daten\/kapitel\.js/);
   assert.match(fehler[0], /terme-variable/);
   assert.match(fehler[0], /geschickt-rechnen/);
   assert.deepEqual(pruefeAppEintrag(app(), new Set(['klammern-binome', 'terme-variable'])), []);
@@ -55,7 +55,7 @@ test('pruefeAppEintrag: halbe Konfiguration (nur Knoten oder nur kartenEintrag) 
   const knoten = new Set(['klammern-binome', 'terme-variable']);
   assert.match(pruefeAppEintrag(app({ kartenEintrag: undefined }), knoten)[0], /kartenEintrag fehlt/);
   const ohneKnoten = app({ kompetenzen: [{ id: 'a' }] });
-  assert.match(pruefeAppEintrag(ohneKnoten, knoten)[0], /kartenKnoten/);
+  assert.match(pruefeAppEintrag(ohneKnoten, knoten)[0], /keine Seite hat Knoten/);
   assert.deepEqual(pruefeAppEintrag({ pfad: 'physik', kompetenzen: [{ id: 'a' }] }, knoten), []);
 });
 

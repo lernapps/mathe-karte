@@ -67,7 +67,7 @@ in Node.
 | M-11 | Workflows mit minimalen Rechten: `pruefen.yml` (auch für PRs) nur `contents: read`; `pages.yml` läuft nur auf `main` und hat nur `pages: write`, `id-token: write`. | T-001 (teilweise), T-013 (teilweise) | `.github/workflows/`
 | M-12 | Eleventy exakt gepinnt (`3.1.7`, ohne `^`), transitive Pakete über `package-lock.json`, in CI `npm ci`. Nie `npx eleventy` ohne installiertes Paket. | T-012 (teilweise) | `package.json`; `CLAUDE.md`; ADR-012
 | M-13 | docToolchain am festen Commit `6de96fb7…`, nicht an einem Zweig; der Cache hängt am SHA. | T-012 (teilweise) | `scripts/dtc-v4.sh`; `.github/workflows/pages.yml`
-| M-14 | Die Doku lädt nichts von fremden Hosts: Theme-CSS ohne CDN-Importe, Schriften und Symbole lokal. | T-007 | `src/site/assets/css/`; TD-10
+| M-14 | Die Doku lädt nichts von fremden Hosts: Theme-CSS ohne CDN-Importe, Schriften und Symbole lokal. | T-007 | `docs/site/assets/css/`; TD-10
 | M-15 | Branch-Schutz für `main`, seit 23.09.2026: PR-Pflicht, Pflicht-Check `test-und-build`, kein Force-Push, kein Löschen. Admins dürfen ihn umgehen. Er verlangt keine Freigabe (`required_approving_review_count: 0`): Ein einzelner Maintainer kann seinen eigenen PR nicht freigeben. | T-001 (teilweise), T-011, T-013 (teilweise) | `gh api repos/lernapps/lernapps.github.io/branches/main/protection`; xref:11_technical_risks.adoc#r-017[R-017]
 | M-17 | Die zweite Erklärung bei serlo.org ist ein reiner Link (`<a rel="noopener">` unter `#serlo`): kein iframe, kein Vorschaubild, keine Anfrage vor dem Klick. Erst der Klick des Kindes öffnet de.serlo.org; dann erfährt serlo.org (Serlo Education e.V., gemeinnützig, werbefrei, ohne Anmeldung) IP-Adresse und Browserdaten wie bei jedem Link. Der Build lässt unter `#serlo` nur `https://de.serlo.org/…` zu, ohne Netzabruf. | T-007 | `src/_includes/kompetenz.njk`; `lib/pruefungen.js` (`pruefeSerloLinks`)
 | M-18 | Die App überträgt keine Fotos und hat kein Upload-Feld; nur das Kind schickt ein Foto, in seinem eigenen Chat-Werkzeug. `tutor.md` und `llms.txt` bitten, nur das Blatt zu fotografieren, ohne Namen. Ob Fotos in den Chat gehen, entscheiden das Kind und seine Eltern. | T-014 (teilweise) | `src/<app>/tutor.njk`, `src/<app>/llms.njk`; ADR-022
@@ -399,7 +399,7 @@ C4-Diagramme bindet die Seite per `include::…[tag=…]` aus Kapitel 3 und 5 ei
 Diagramm-Kacheln verlinken ihr SVG in voller Größe, damit man es auf dem Handy zoomen kann.
 
 Kennzahlen, Risikomatrix, Utility Tree und Risikothemen schreibt `scripts/dashboard.js` in vier
-git-ignorierte Dateien `src/docs/uebersicht/_*.adoc` (xref:09_architecture_decisions.adoc#adr-031[ADR-031]).
+git-ignorierte Dateien `docs/uebersicht/_*.adoc` (xref:09_architecture_decisions.adoc#adr-031[ADR-031]).
 Es braucht kein Netz: Es liest `package.json`, die App-Konfigurationen, `CLAUDE.md`, die arc42-Kapitel und je Art den jüngsten Bericht im Anhang Bewertungen und
 startet zwei lokale Prozesse.
 Die Tests zählt es nicht im Quelltext, weil Schleifen viele davon erzeugen (die Browser-Tests je Seite aus

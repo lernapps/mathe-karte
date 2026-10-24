@@ -9,7 +9,7 @@ import {
 } from "../../scripts/dashboard.js";
 import { SCHICHTEN, abdeckung } from "../../scripts/harness-rad.js";
 
-const KAPITEL = "src/docs/arc42/chapters/";
+const KAPITEL = "docs/arc42/chapters/";
 const lies = (datei) => fs.readFileSync(datei, "utf8");
 
 const RISIKEN = [
@@ -87,7 +87,7 @@ test("leseNodeTestSumme liest die Summe eines echten node --test-Laufs (TAP), Sc
 });
 
 test("leseTestGlobs übernimmt die Globs aus package.json, damit der Zähl-Lauf genau npm test entspricht", () => {
-  assert.deepEqual(leseTestGlobs(JSON.parse(lies("package.json"))), ["test/**/*.test.js", "src/*/test/*.test.js"]);
+  assert.deepEqual(leseTestGlobs(JSON.parse(lies("package.json"))), ["test/**/*.test.js", "karte/test/*.test.js"]);
   assert.throws(() => leseTestGlobs({ scripts: { test: "vitest" } }), /node --test/);
 });
 
@@ -147,7 +147,7 @@ test("jedes offene Risiko aus Kapitel 11 steht in der Matrix, und jeder Link tri
 });
 
 test("die Übersichtsseite bindet die erzeugten Dateien ein, und Git ignoriert sie", () => {
-  const seite = lies("src/docs/uebersicht/index.adoc");
+  const seite = lies("docs/uebersicht/index.adoc");
   const ignoriert = lies(".gitignore");
   for (const ziel of Object.values(ZIELE)) {
     const name = ziel.split("/").pop();
@@ -162,13 +162,13 @@ test("die Übersichtsseite bindet die erzeugten Dateien ein, und Git ignoriert s
 });
 
 test("jedes Diagramm der Übersicht verlinkt sein SVG in voller Größe (auf 360 px sonst unlesbar)", () => {
-  const seite = lies("src/docs/uebersicht/index.adoc");
+  const seite = lies("docs/uebersicht/index.adoc");
   for (const ziel of ["kontext-fachlich", "bausteine-ebene-1", "uebersicht-utility-tree", "harness-rad"]) {
     assert.ok(seite.includes(`link:../images/${ziel}.svg[`), ziel);
   }
 });
 
-test("der Doku-Build in doku.yml und pages.yml baut die Site vor scripts/dtc-v4.sh (playwright --list braucht _site)", () => {
+test("der Doku-Build in doku.yml und pages.yml baut die Site vor scripts/dtc-v4.sh (playwright --list braucht dist/)", () => {
   for (const wf of ["doku.yml", "pages.yml"]) {
     const text = lies(`.github/workflows/${wf}`);
     const dtc = text.indexOf("scripts/dtc-v4.sh generateSite");

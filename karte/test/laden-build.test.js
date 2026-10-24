@@ -1,13 +1,14 @@
-// Use Case: Mathe-Karte – Eleventy-Daten der Karte aus src/karte/daten und den Apps; data.json deterministisch.
+// Use Case: Mathe-Karte – Eleventy-Daten der Karte aus karte/daten und den Kapiteln des explainers; data.json deterministisch.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { ladeKarte } from '../../lib/karte/laden.js';
-import { ladeApps } from '../../lib/apps.js';
+import { ladeKarte } from '../lib/laden.js';
+import { ladeKapitel } from '../lib/kapitel.js';
 import { leiteAdressenAb } from '../../lib/adressen.js';
-import externe from '../../src/karte/daten/externe-eintraege.js';
+import externe from '../daten/externe-eintraege.js';
+import kapitel from '../daten/kapitel.js';
 
-const apps = await ladeApps({ quelle: 'src', adressen: leiteAdressenAb('https://lernapps.github.io/') });
-const laden = (a = apps, e = externe) => ladeKarte({ ordner: 'src/karte/daten', apps: a, externe: e, version: '9.9.9' });
+const apps = ladeKapitel({ kapitel, quelle: 'src', adressen: leiteAdressenAb('https://lernapps.github.io/mathe-karte/') });
+const laden = (a = apps, e = externe) => ladeKarte({ ordner: 'karte/daten', apps: a, externe: e, version: '9.9.9' });
 const karte = await laden();
 
 test('ladeKarte: 5 Leitideen in Reihenfolge, 16 Lehrpläne, Hessen erfasst mit Stand 2021', () => {
@@ -19,16 +20,17 @@ test('ladeKarte: 5 Leitideen in Reihenfolge, 16 Lehrpläne, Hessen erfasst mit S
   assert.equal(karte.daten.version, '9.9.9');
 });
 
-test('ladeKarte: Binom kommt aus der App-Konfiguration und deckt klammern-binome ab', () => {
+test('ladeKarte: Binom kommt aus karte/daten/kapitel.js, zeigt auf das Kapitel und deckt klammern-binome ab', () => {
   const binom = karte.daten.eintraege.find((e) => e.id === 'binom-trainer');
-  assert.equal(binom.url, 'https://lernapps.github.io/binom/');
+  assert.equal(binom.url, 'https://lernapps.github.io/mathe-karte/binom/');
+  assert.equal(binom.quellcode, 'https://github.com/lernapps/mathe-karte/tree/main/src/binom');
   assert.deepEqual(binom.kompetenzen, ['klammern-binome']);
   const knoten = karte.daten.kompetenzen.find((k) => k.id === 'klammern-binome');
   assert.deepEqual(knoten.abdeckung, ['binom-trainer']);
   assert.equal(knoten.status, 'ungeprueft');
 });
 
-test('ladeKarte: Prozent- und Zufall-Trainer aus der Übergangsdatei, solange ihre App-Ordner fehlen', () => {
+test('ladeKarte: Prozent und Zufall stehen mit ihren Knoten auf der Karte', () => {
   const ids = karte.daten.eintraege.map((e) => e.id);
   assert.ok(ids.includes('prozent-trainer') && ids.includes('zufall-trainer'));
   assert.deepEqual(karte.daten.kompetenzen.find((k) => k.id === 'zufall-laplace').abdeckung, ['zufall-trainer']);

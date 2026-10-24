@@ -79,24 +79,24 @@ const pruefeMit = (beitraege, dateien) =>
   pruefeKiReview({ beitraege, kopfSha: KOPF, commitZeit: COMMIT_ZEIT, konten: KONTEN, dateien });
 
 test("Architekturänderung mit Abschnitt „Architektur (ATAM)“ ist freigegeben", () => {
-  const e = pruefeMit([review({ text: ATAM })], ["src/docs/arc42/chapters/_adr-prozess.adoc", "README.md"]);
+  const e = pruefeMit([review({ text: ATAM })], ["docs/arc42/chapters/_adr-prozess.adoc", "README.md"]);
   assert.equal(e.ok, true);
 });
 
 test("Architekturänderung ohne Abschnitt „Architektur (ATAM)“ fällt durch und nennt die Dateien", () => {
-  const e = pruefeMit([review()], ["src/docs/arc42/chapters/10_quality_requirements.adoc"]);
+  const e = pruefeMit([review()], ["docs/arc42/chapters/10_quality_requirements.adoc"]);
   assert.equal(e.ok, false);
   assert.match(e.grund, /### Architektur \(ATAM\)/);
   assert.match(e.grund, /10_quality_requirements\.adoc/);
 });
 
 test("ohne Architekturänderung braucht das Review keinen ATAM-Abschnitt", () => {
-  assert.equal(pruefeMit([review()], ["src/kern/js/zahlantwort.js", "src/docs/arc42/chapters/11_technical_risks.adoc"]).ok, true);
+  assert.equal(pruefeMit([review()], ["src/kern/js/zahlantwort.js", "docs/arc42/chapters/11_technical_risks.adoc"]).ok, true);
   assert.equal(pruefeMit([review()], []).ok, true);
 });
 
 test("die Auslösepfade: ADRs, ATAM-Berichte im Anhang, Kapitel 1, 4, 5, 9 und 10", () => {
-  const kapitel = "src/docs/arc42/chapters/";
+  const kapitel = "docs/arc42/chapters/";
   const treffer = ["_adr-vorlage.adoc", "_atam-2026-09-25.adoc", "01_introduction_and_goals.adoc", "04_solution_strategy.adoc",
     "05_building_block_view.adoc", "09_architecture_decisions.adoc", "10_quality_requirements.adoc"].map((d) => kapitel + d);
   // Security-Review, Harness-Audit und die Einleitung des Anhangs lösen nicht aus (ADR-030, Nachtrag 25.09.2026).
@@ -108,7 +108,7 @@ test("die Auslösepfade: ADRs, ATAM-Berichte im Anhang, Kapitel 1, 4, 5, 9 und 1
 
 test("ein Abschnitt nur im Fließtext oder mit anderer Ebene zählt nicht", () => {
   const text = `## KI-Review\nStand: ${KOPF}\nErgebnis: freigegeben\nSiehe ### Architektur (ATAM) später\n#### Architektur (ATAM)`;
-  assert.equal(pruefeMit([review({ text })], ["src/docs/arc42/chapters/_adr-risiko.adoc"]).ok, false);
+  assert.equal(pruefeMit([review({ text })], ["docs/arc42/chapters/_adr-risiko.adoc"]).ok, false);
 });
 
 // Berechtigt ist jeder Owner der Organisation (Admin des Repos). Der Workflow fragt dafür nur die Autoren ab, die ein

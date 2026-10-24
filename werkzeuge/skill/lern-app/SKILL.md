@@ -66,7 +66,7 @@ Follow "New competency" in `CLAUDE.md`, test-first:
 
 Brief sub-agents with `references/agent-auftrag.md` when you parallelise. Rough effort: an app with 6 competencies takes about 25–40 minutes of agent time.
 
-**Missing kern building block** (as term fields once were): stop the slice and build it in `src/kern/` as its own PR (with an ADR in `src/docs/arc42`, chapter 9), or at least as its own commit in the app PR with a test in `test/kern/`. The kern never imports an app config; pages pass `APP`, `KOMPETENZEN` and generators in.
+**Missing kern building block** (as term fields once were): stop the slice and build it in `src/kern/` as its own PR (with an ADR in `docs/arc42`, chapter 9), or at least as its own commit in the app PR with a test in `test/kern/`. The kern never imports an app config; pages pass `APP`, `KOMPETENZEN` and generators in.
 
 ## Phase 5 — Tutor layer
 

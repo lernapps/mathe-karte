@@ -1,7 +1,7 @@
 name: Pages
 
-# Baut die Site (Eleventy) und die Architektur-Doku (docToolchain) und liefert beide in EINEM Artefakt über
-# GitHub Pages aus: Apps unter https://lernapps.github.io/, Doku unter https://lernapps.github.io/docs/.
+# Baut die Site (explainer und Karte, vite.config.ts) und die Architektur-Doku (docToolchain) und liefert beide in
+# EINEM Artefakt über GitHub Pages aus: unter https://lernapps.github.io/mathe-karte/, Doku unter …/mathe-karte/docs/.
 # Pages-Quelle muss "GitHub Actions" sein. Achtung: Ein Repo <org>.github.io schaltet Pages beim Anlegen
 # automatisch im Branch-Modus ein; umstellen mit
 #   gh api -X PUT repos/<owner>/<repo>/pages -f build_type=workflow
@@ -67,19 +67,19 @@ jobs:
         # docToolchain v4 ist noch nicht veröffentlicht: das Skript holt main-4.x am festen Commit.
         run: scripts/dtc-v4.sh generateSite
 
-      - name: Doku nach _site/docs legen
+      - name: Doku nach dist/docs legen
         run: |
-          mkdir -p _site/docs
-          cp -r build/microsite/output/. _site/docs/
+          mkdir -p dist/docs
+          cp -r build/microsite/output/. dist/docs/
           # Die Vorlage der Startseite landet mit im Output; ausliefern soll man sie nicht.
           # Refs docToolchain/docToolchain#1703
-          rm -f _site/docs/landingpage.gsp
-          touch _site/.nojekyll
-          find _site -maxdepth 1 | sort
+          rm -f dist/docs/landingpage.gsp
+          touch dist/.nojekyll
+          find dist -maxdepth 1 | sort
 
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
-          path: _site
+          path: dist
 
   deploy:
     needs: build

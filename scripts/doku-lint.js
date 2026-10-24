@@ -1,5 +1,5 @@
 /*
- * Wrapper um asciidoc-linter (docToolchain, ADR-028) für die Architektur-Doku: prüft src/docs/**\/*.adoc.
+ * Wrapper um asciidoc-linter (docToolchain, ADR-028) für die Architektur-Doku: prüft docs/**\/*.adoc.
  *   node scripts/doku-lint.js            (asciidoc-linter muss im PATH liegen, sonst ASCIIDOC_LINTER=<Pfad>)
  * Warum ein Wrapper:
  *  - Der Linter endet mit Exit-Code 1, sobald er irgendetwas findet, auch nur eine Warnung. Wir wollen: ERROR bricht
@@ -50,8 +50,8 @@ export function bewerte(befunde, istBildDa = bildDa) {
 const annotation = (art, b) => `::${art} file=${b.file},line=${b.line ?? 1}::[${b.rule_id ?? "?"}] ${b.message}`;
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
-  const dateien = fs.readdirSync("src/docs", { recursive: true }).filter((d) => d.endsWith(".adoc"))
-    .map((d) => path.posix.join("src/docs", d.split(path.sep).join("/"))).sort();
+  const dateien = fs.readdirSync("docs", { recursive: true }).filter((d) => d.endsWith(".adoc"))
+    .map((d) => path.posix.join("docs", d.split(path.sep).join("/"))).sort();
   const linter = process.env.ASCIIDOC_LINTER ?? "asciidoc-linter";
   const lauf = spawnSync(linter, ["--format", "json", ...dateien], { encoding: "utf8" });
   let befunde;

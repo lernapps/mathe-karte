@@ -21,7 +21,7 @@ erzeugt daraus alles, was eine App sonst von Hand pflegen müsste.
 [[section-whitebox-overall-system]]
 === Ebene 1: Whitebox Lern-Apps
 
-// tag::bausteine-diagramm[] – auch auf der Übersichtsseite (src/docs/uebersicht/index.adoc)
+// tag::bausteine-diagramm[] – auch auf der Übersichtsseite (docs/uebersicht/index.adoc)
 [plantuml, target=bausteine-ebene-1, format=svg]
 ....
 @startuml
@@ -38,7 +38,7 @@ System_Boundary(lernapps, "Lern-Apps (Monorepo lernapps.github.io)") {
   Container(kern, "Kern", "ES-Module, CSS", "src/kern/ → /kern/: Zufall, Zahlen, Prüfung, Trainer, Test, Video, Speicher, SVG")
   Container(apps, "Apps", "ES-Module, Markdown, Nunjucks", "src/<app>/: app.config.js, <id>.md, aufgaben/, vis/, llms.njk, tutor.njk")
   Container(karte, "Mathe-Karte", "Markdown-Daten, Nunjucks, ES-Module", "src/karte/, lib/karte/ → /karte/")
-  Container(doku, "Architektur-Doku", "AsciiDoc, docToolchain v4", "src/docs/, src/site/ → /docs/")
+  Container(doku, "Architektur-Doku", "AsciiDoc, docToolchain v4", "docs/, docs/site/ → /docs/")
   Container(ci, "Tests und CI", "node --test, GitHub Actions", "test/, src/<app>/test/, .github/workflows/")
   ContainerDb(speicher, "Browser-Speicher", "localStorage", "Selbsteinschätzung, letzter Test, Video-Merker")
 }
@@ -108,7 +108,7 @@ Autor:in, kein Baustein der Site: Er wird weder gebaut noch ausgeliefert, sonder
 | [[bb-doku]]Architektur-Doku
 | Diese arc42-Dokumentation mit ADRs; eigenes Theme-Overlay ohne CDN-Ressourcen.
 | `scripts/dtc-v4.sh generateSite` → `build/microsite/output/`, ausgeliefert unter `/docs/`
-| `src/docs/`, `src/site/`, `docToolchainConfig.groovy`, `dtcw`, `scripts/dtc-v4.sh`
+| `docs/`, `docs/site/`, `docToolchainConfig.groovy`, `dtcw`, `scripts/dtc-v4.sh`
 | [[bb-ci]]Tests und CI
 | Unit-Tests für Kern, Build und Karte; Generator-Vertrag für jede Kompetenz jeder App; Test und Build bei jedem Push und PR; Deployment von Site und Doku.
 | `npm test` (297 Tests), `npm run build`; Workflows `pruefen.yml`, `pages.yml`
@@ -163,7 +163,7 @@ Rel(config, version, "eleventy.after")
 [cols="2,4,3",options="header"]
 |===
 | Komponente | Verantwortung | Quelle
-| Eleventy-Konfiguration | Verdrahtet alles: `src/kern` → `/kern/` (Passthrough), je App `js/`, Icons und CSS; ignoriert Tests, Karten-Daten, `src/docs` und `src/site`; ruft nach dem Schreiben Prüfungen und Versionierung auf. | `eleventy.config.js`
+| Eleventy-Konfiguration | Verdrahtet alles: `src/kern` → `/kern/` (Passthrough), je App `js/`, Icons und CSS; ignoriert Tests, Karten-Daten, `docs` und `docs/site`; ruft nach dem Schreiben Prüfungen und Versionierung auf. | `eleventy.config.js`
 | Adressen | Die einzige Basis-URL und alles daraus Abgeleitete (xref:09_architecture_decisions.adoc#adr-015[ADR-015]). | `src/_data/site.js:9`, `lib/adressen.js:7-24`
 | App-Lader | Jeder Ordner mit `js/app.config.js` ist eine App; prüft `id`, `pfad`, `titel`; nummeriert Kompetenzen. | `lib/apps.js:12-39`, `lib/app-daten.js`
 | Fachfarben | Tabelle der fünf Fächer; unbekanntes Fach bricht den Build (xref:09_architecture_decisions.adoc#adr-011[ADR-011]). | `lib/fachfarben.js:6-12`, `:29-32`
