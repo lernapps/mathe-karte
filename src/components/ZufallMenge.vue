@@ -4,7 +4,7 @@
 // „nicht E“; neutral: nichts hervorgehoben; markierbar: jedes Ergebnis ist ein Knopf, markiert mit blauem Rahmen und
 // Haken. Als Block zeigt es eine Urne (urne, ereignis), in einer Übung die Menge der Aufgabe (menge).
 import { computed, reactive } from "vue";
-import { MENGEN_TITEL, mengeBild, mengeFarben } from "./ZufallMenge.ts";
+import { MENGEN_TITEL, knopfName, mengeBild, mengeFarben } from "./ZufallMenge.ts";
 
 interface Element {
   id: string;
@@ -69,7 +69,7 @@ function umschalten(id: string) {
         :role="modus === 'markierbar' ? 'button' : undefined"
         :tabindex="modus === 'markierbar' ? 0 : undefined"
         :aria-pressed="modus === 'markierbar' ? markiert.has(e.id) : undefined"
-        :aria-label="modus === 'markierbar' ? e.name : undefined"
+        :aria-label="modus === 'markierbar' ? knopfName(e) : undefined"
         :class="modus === 'markierbar' ? 'zm-knopf' : ''"
         @click="umschalten(e.id)"
         @keydown.enter.prevent="umschalten(e.id)"

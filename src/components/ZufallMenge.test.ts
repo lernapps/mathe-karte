@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vite-plus/test";
 import {
   frage,
+  knopfName,
   mengeBild,
   mengeFarben,
   mengeKarten,
@@ -42,4 +43,10 @@ describe("Ergebnismengen", () => {
       expect(bild.elemente.length).toBeGreaterThan(0);
     }
   });
+});
+
+test("der Name eines wählbaren Felds beginnt mit seiner sichtbaren Beschriftung (axe label-content-name-mismatch)", () => {
+  expect(knopfName({ form: "feld", label: "1|1", name: "rot 1, blau 1" })).toBe("1|1: rot 1, blau 1");
+  expect(knopfName({ form: "feld", label: "rot", name: "rot" })).toBe("rot");
+  expect(knopfName({ form: "kugel", label: "rot", name: "rote Kugel 1" })).toBe("rote Kugel 1");
 });

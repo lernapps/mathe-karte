@@ -216,6 +216,14 @@ export interface ElementBild {
   guenstig: boolean;
 }
 
+/**
+ * Der Name eines wählbaren Elements für Screenreader. Zeigt ein Feld Text (Würfelpaar „1|1“), beginnt der Name damit:
+ * Wer per Sprache steuert, sagt, was er sieht (WCAG 2.5.3, axe label-content-name-mismatch).
+ */
+export function knopfName(e: Pick<ElementBild, "form" | "label" | "name">): string {
+  return e.form === "feld" && e.label !== e.name ? `${e.label}: ${e.name}` : e.name;
+}
+
 export interface MengeBild {
   breite: number;
   hoehe: number;

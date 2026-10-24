@@ -8,10 +8,14 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Bisher hast du Klammern aufgelöst. Oft brauchst du den umgekehrten Weg: Aus $x^2 + 6x + 9$ wird wieder
-          $(x + 3)^2$. Das nennt man faktorisieren. Ein Produkt verrät mehr als eine Summe – zum Beispiel, wann ein Term
-          null wird oder wie sich ein Bruch kürzen lässt. Später beim Lösen quadratischer Gleichungen („quadratische
-          Ergänzung“) ist genau dieser Blick der entscheidende Schritt.
+          Bisher hast du Klammern aufgelöst. Oft brauchst du den umgekehrten Weg: Aus $x^2 + 6x + 9$ wird wieder $(x + 3)^2$. Das nennt man faktorisieren. Ein Produkt verrät mehr als eine Summe – zum Beispiel, wann ein Term null wird oder wie sich ein Bruch kürzen lässt. Später beim Lösen quadratischer Gleichungen („quadratische Ergänzung“) ist genau dieser Blick der entscheidende Schritt.
+      - type: vue-component
+        component: KarteVerweis
+        props:
+          knoten: klammern-binome
+          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
+          link: Lehrplan-Karte.
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=klammern-binome).
   - type: section
     id: regel
     title: Regel
@@ -27,10 +31,7 @@ blocks:
         explanation: "Eine Summe als Produkt schreiben, zum Beispiel $x^2 + 6x + 9 = (x + 3)^2$."
       - type: text
         text: >-
-          So erkennst du die Formel: Such zwei **Quadrate** (erstes und letztes Glied). Daraus liest du $a$ und $b$
-          ab. Steht dazwischen ein **Mittelglied**, prüfst du, ob es $2 \cdot a \cdot b$ ist – sein Vorzeichen
-          entscheidet zwischen $(a + b)^2$ und $(a - b)^2$. Gibt es **kein Mittelglied** und steht ein Minus zwischen
-          den Quadraten, ist es die dritte Formel.
+          So erkennst du die Formel: Such zwei **Quadrate** (erstes und letztes Glied). Daraus liest du $a$ und $b$ ab. Steht dazwischen ein **Mittelglied**, prüfst du, ob es $2 \cdot a \cdot b$ ist – sein Vorzeichen entscheidet zwischen $(a + b)^2$ und $(a - b)^2$. Gibt es **kein Mittelglied** und steht ein Minus zwischen den Quadraten, ist es die dritte Formel.
       - type: text
         text: "Bei Lückenaufgaben rechnest du genauso: Das Mittelglied ist $2 \\cdot a \\cdot b$, das letzte Glied ist $b^2$."
       - type: note
@@ -54,53 +55,46 @@ blocks:
               - ["Ergebnis", "**$x^2 + 6x + 9 = (x + 3)^2$**"]
           - type: text
             text: >-
-              Genauso: $x^2 - 10x + 25 = (x - 5)^2$ und $x^2 - 16 = (x + 4)(x - 4)$. Lücken: Bei
-              $x^2 + \text{□}x + 25$ gehört $10$ in die Lücke, denn $2 \cdot x \cdot 5 = 10x$. Bei $x^2 + 8x + \text{□}$
-              gehört $16$ hinein, denn $b = 8 : 2 = 4$ und $4^2 = 16$.
+              Genauso: $x^2 - 10x + 25 = (x - 5)^2$ und $x^2 - 16 = (x + 4)(x - 4)$. Lücken: Bei $x^2 + \text{□}x + 25$ gehört $10$ in die Lücke, denn $2 \cdot x \cdot 5 = 10x$. Bei $x^2 + 8x + \text{□}$ gehört $16$ hinein, denn $b = 8 : 2 = 4$ und $4^2 = 16$.
   - type: section
     id: bild
     title: Bild
     blocks:
-      - type: vue-component
-        component: BinomBild
-        props: { art: rueckwaerts, vorgaben: { formel: 1, m: 1, n: 3 } }
-        nojs: >-
-          Das Flächenbild der ersten Formel, rückwärts gelesen: Ein Quadrat aus den Teilflächen $x^2$ (blau), zweimal
-          $3x$ (gelb) und $9$ (grün). Die Teilflächen sind gegeben, gesucht ist die Seite des Quadrats. Sie ist
-          $x + 3$, also $x^2 + 6x + 9 = (x + 3)^2$.
+      - type: figure
+        image: images/binom-binome-rueckwaerts.svg
+        alt: x² + 6x + 9 = (x + 3)². Teilflächen gegeben – welche Seite hat das Quadrat?
+        caption: "Das Flächenbild der ersten Formel, rückwärts gelesen: Ein Quadrat aus den Teilflächen $x^2$ (blau), zweimal $3x$ (gelb) und $9$ (grün). Die Teilflächen sind gegeben, gesucht ist die Seite des Quadrats. Sie ist $x + 3$, also $x^2 + 6x + 9 = (x + 3)^2$."
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
   - type: section
     id: video
     title: Video dazu
     blocks:
       - type: text
         text: >-
-          Die Formeln, die du hier rückwärts anwendest, erklären die Videos zur
-          [ersten](/binom/erste-binomische/#video), [zweiten](/binom/zweite-binomische/#video) und
-          [dritten binomischen Formel](/binom/dritte-binomische/#video). Zum Nachlesen:
-          [Faktorisieren bei Serlo](https://de.serlo.org/mathe/1605/faktorisieren).
+          Die Formeln, die du hier rückwärts anwendest, erklären die Videos zur [ersten](/binom/erste-binomische/#video), [zweiten](/binom/zweite-binomische/#video) und [dritten binomischen Formel](/binom/dritte-binomische/#video). Zum Nachlesen: [Faktorisieren bei Serlo](https://de.serlo.org/mathe/1605/faktorisieren).
   - type: section
     id: uebung
     title: Übung
     blocks:
       - type: single-choice
         id: rueckwaerts-erkennen
-        text: Welche binomische Formel passt zu $x^2 - 10x + 25$?
+        text: Welche binomische Formel passt zu x² - 10x + 25?
         options:
-          - text: "die 2. Formel: $(x - 5)^2$"
+          - text: "die 2. Formel: (x - 5)²"
             correct: true
-            info: "$x^2$ und $25 = 5^2$ sind die Quadrate, das Mittelglied $-10x = -2 \\cdot x \\cdot 5$ ist negativ."
-          - text: "die 1. Formel: $(x + 5)^2$"
+            info: "x² und 25 = 5² sind die Quadrate, das Mittelglied -10x = -2 · x · 5 ist negativ."
+          - text: "die 1. Formel: (x + 5)²"
             correct: false
-            info: "Das Mittelglied ist negativ. $(x + 5)^2$ ergibt $x^2 + 10x + 25$."
-          - text: "die 3. Formel: $(x + 5)(x - 5)$"
+            info: "Das Mittelglied ist negativ. (x + 5)² ergibt x² + 10x + 25."
+          - text: "die 3. Formel: (x + 5)(x - 5)"
             correct: false
-            info: "Das ergibt $x^2 - 25$, ohne Mittelglied. Hier steht aber ein Mittelglied $-10x$."
-          - text: "die 2. Formel: $(x - 10)^2$"
+            info: "Das ergibt x² - 25, ohne Mittelglied. Hier steht aber ein Mittelglied -10x."
+          - text: "die 2. Formel: (x - 10)²"
             correct: false
-            info: "Das Mittelglied ist $2 \\cdot a \\cdot b$: Halbiere $10$, dann ist $b = 5$, nicht $10$."
+            info: "Das Mittelglied ist 2 · a · b: Halbiere 10, dann ist b = 5, nicht 10."
         explanation: >-
-          $x^2$ und $25 = 5^2$ sind Quadrate, $-10x = -2 \cdot x \cdot 5$: Das ist die zweite Formel,
-          $x^2 - 10x + 25 = (x - 5)^2$.
+          x² und 25 = 5² sind Quadrate, -10x = -2 · x · 5: Das ist die zweite Formel, x² - 10x + 25 = (x - 5)².
         links:
           - { title: Faktorisieren (Serlo), url: "https://de.serlo.org/mathe/1605/faktorisieren" }
       - type: vue-component
