@@ -94,22 +94,25 @@ blocks:
             - { answer: 1, seed: 1 }
       - type: single-choice
         id: potenz-erkennen
-        text: Du würfelst dreimal. Welcher Term ist gleich $\frac{5}{6} \cdot \frac{5}{6} \cdot \frac{5}{6}$?
+        text: Du würfelst dreimal und rechnest P(keine 6, keine 6, keine 6). Welcher Term ist gleich dem Produkt?
+        material:
+          - type: formula
+            formula: '\frac{5}{6} \cdot \frac{5}{6} \cdot \frac{5}{6}'
         options:
-          - text: $(\frac{5}{6})^3$
+          - text: fünf Sechstel hoch drei
             correct: true
-            info: Derselbe Faktor dreimal multipliziert ist die dritte Potenz. Ausgerechnet sind das $\frac{125}{216}$.
-          - text: $3 \cdot \frac{5}{6}$
+            info: Derselbe Faktor dreimal multipliziert ist die dritte Potenz. Ausgerechnet sind das 125 Zweihundertsechzehntel.
+          - text: drei mal fünf Sechstel
             correct: false
-            info: Das ist $\frac{5}{6} + \frac{5}{6} + \frac{5}{6}$, also eine Summe. Sie ist größer als 1 und keine Wahrscheinlichkeit.
-          - text: $\frac{5^3}{6}$
+            info: Das ist fünf Sechstel plus fünf Sechstel plus fünf Sechstel, also eine Summe. Sie ist größer als 1 und keine Wahrscheinlichkeit.
+          - text: fünf hoch drei durch sechs
             correct: false
-            info: Hier ist nur der Zähler hoch 3 genommen. Bei einer Potenz eines Bruchs kommt auch der Nenner hoch 3.
-          - text: $\frac{15}{18}$
+            info: Hier ist nur der Zähler hoch drei genommen. Bei der Potenz eines Bruchs kommt auch der Nenner hoch drei.
+          - text: fünfzehn Achtzehntel
             correct: false
-            info: Das ist nur $\frac{5}{6}$ erweitert. Beim Multiplizieren werden die Zähler und die Nenner miteinander multipliziert.
+            info: Das sind nur fünf Sechstel, erweitert mit 3. Beim Multiplizieren werden die Zähler und die Nenner miteinander multipliziert.
         explanation: >-
-          Kommt derselbe Faktor mehrmals vor, darfst du eine Potenz schreiben: $\frac{5}{6} \cdot \frac{5}{6} \cdot
-          \frac{5}{6} = (\frac{5}{6})^3 = \frac{125}{216}$.
+          Kommt derselbe Faktor mehrmals vor, darfst du eine Potenz schreiben: fünf Sechstel mal fünf Sechstel mal fünf
+          Sechstel ist fünf Sechstel hoch drei, ausgerechnet 125 Zweihundertsechzehntel.
         links:
           - { title: Pfadregeln (serlo.org), url: "https://de.serlo.org/mathe/189811/pfadregeln" }
