@@ -17,9 +17,9 @@ export default [
       "no-unused-vars": ["error", { ignoreRestSiblings: true }],
     },
   },
-  // Browser-Code: die interaktive Karte und das Theme der Architektur-Doku.
+  // Browser-Code: die interaktive Karte.
   {
-    files: ["karte/js/**/*.js", "docs/site/**/*.js"],
+    files: ["karte/js/**/*.js"],
     languageOptions: { globals: { ...globals.browser } },
   },
   // Node-Code: Build, Tests, Skripte, Eleventy-Datendateien.

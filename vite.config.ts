@@ -5,16 +5,7 @@ import { lernapps } from "@lernapps/tooling/preset";
 import { explainer } from "@lernapps/app-templates/explainer/plugin";
 import { karte } from "./karte/lib/vite-plugin.js";
 
-const javascriptTeil = [
-  "karte/**",
-  "lib/**",
-  "scripts/**",
-  "test/**",
-  "e2e/**/*.js",
-  "docs/**",
-  "werkzeuge/**",
-  "*.js",
-];
+const javascriptTeil = ["karte/**", "lib/**", "scripts/**", "test/**", "e2e/**/*.js", "werkzeuge/**", "*.js"];
 
 export default lernapps({
   plugins: [explainer(), karte()],

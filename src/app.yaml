@@ -8,8 +8,6 @@ chapters: [prozent, binom, zufall]
 sources:
   - title: Lehrplan-Karte – welche Kompetenz in welchem Bundesland dran ist (für Lehrkräfte und Eltern)
     url: https://lernapps.github.io/mathe-karte/karte/
-  - title: Architektur-Doku – wie die Seite gebaut ist
-    url: https://lernapps.github.io/mathe-karte/docs/
   - title: Kerncurriculum Mathematik Sekundarstufe I, Hessisches Kultusministerium
     url: https://kultusministerium.hessen.de/unterricht/kerncurricula/sekundarstufe-i/mathematik
   - title: Prozentrechnung mittels Formeln (serlo.org)

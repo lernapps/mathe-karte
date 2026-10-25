@@ -56,7 +56,7 @@ curriculum map (`karte/`) is still built with Eleventy 3.1.7. Deployed to GitHub
   `pruefe-ausgabe.js`, `pruefe-links.js`, `pruefe-lizenzen.js`, `versionierung.js`.
 - `public/` – favicons, copied to the root of `dist/`.
 - `test/build/`, `karte/test/` (node:test), `src/components/*.test.ts` (`vp test`), `e2e/` (Playwright).
-- `docs/` – architecture docs (see "Architecture"); `werkzeuge/review/` – the AI review checklist.
+- `werkzeuge/review/` – the AI review checklist.
 - `AGENTS.md`, `.agents/skills/app-content/`, `.vibe/plans/` – written by the lernapps.net generator.
 
 ## Build rules (enforced by `npm run build`, `npm test` and `lernapps check`)
@@ -79,8 +79,7 @@ curriculum map (`karte/`) is still built with Eleventy 3.1.7. Deployed to GitHub
   header. Changing the allowlist needs an ADR (ADR-029). `abhaengigkeiten.yml` runs Dependency Review on every PR
   (required check `abhaengigkeiten`).
 - After the explainer, `eleventy.config.js` checks all of `dist/`: no external resources in HTML, no external imports
-  in JS/CSS, every source file under 500 lines, no dead internal links or anchors (`lib/pruefe-links.js`; `docs/` is
-  skipped), the report link on every map page.
+  in JS/CSS, every source file under 500 lines, no dead internal links or anchors (`lib/pruefe-links.js`), the report link on every map page.
 - Tutor link allowlist (ADR-023, `pruefeTutorLinks`): every `llms.txt` and `tutor.md` in `dist/` may link only to
   relative targets, `https://lernapps.github.io/mathe-karte/`, `/blob/main/` and `/tree/main/` of the own repository,
   `https://de.serlo.org/` and `https://www.youtube.com/watch?v=`. Any other URL fails the build. These files are
@@ -105,8 +104,7 @@ A folder `src/<kapitel>/` with `chapter.yaml`, listed in `src/app.yaml`, and an 
 - Browser tests locally: `npm run build && npm run test:browser`; where Playwright's own Chromium is missing set
   `LERNAPPS_CHROMIUM` to an installed Chromium (`lernapps check` does that itself).
 - `.github/workflows/pruefen.yml` and `browser.yml` on every push and PR. `.github/workflows/pages.yml`: on push to
-  `main`, test + build, then the arc42 docs (`scripts/dtc-v4.sh generateSite`) into `dist/docs/`, deployed as ONE
-  artifact via `actions/upload-pages-artifact` + `actions/deploy-pages`.
+  `main`, test + build, deployed via `actions/upload-pages-artifact` + `actions/deploy-pages`.
 
 ## AI review before every merge (#24, ADR-027)
 - Before a PR is proposed for merge, a reviewer in a FRESH context (sub-agent or new session, not the author;
@@ -118,40 +116,22 @@ A folder `src/<kapitel>/` with `chapter.yaml`, listed in `src/app.yaml`, and an 
 - The check `ki-review` (`.github/workflows/ki-review.yml`, read-only token, no LLM call) is green only if the newest
   such review from an account with admin permission on the repo (the
   owners of the lernapps organisation, or an admin of this repo) came after the last commit and names the head SHA. Every new commit needs a new review.
-- Architecture review (ADR-030): if a PR touches ADR bodies (`docs/arc42/chapters/_adr-*.adoc`), the dated ATAM reports
-  (`_atam-*.adoc`) or arc42 chapter 1, 4, 5, 9 or 10 (`ARCHITEKTUR_PFADE` in `scripts/ki-review-pruefen.js`), the review needs a section
-  `### Architektur (ATAM)` evaluating the change against the utility tree (chapter 10) and the newest ATAM report
-  (appendix „Bewertungen“); without it `ki-review` stays red. Repeat ATAM, security review and harness audit quarterly.
-- Dated assessments (ATAM, security review, harness audit) are snapshots: they live in the appendix
-  `13_bewertungen.adoc`, one dated section per quarter, one file per report (`_atam-JJJJ-MM-TT.adoc`,
-  `_security-…`, `_harness-audit-…`); never edit an old report. Results flow into chapters 8, 10 and 11.
 - Inside Herdr (`HERDR_ENV=1`) the reviewer runs as its own named Herdr Claude session (`review: PR #<n>`), not as an
   invisible sub-agent.
 
 ## Architecture
-- arc42 documentation (German) lives in `docs/arc42/` (chapters in `chapters/`, ADRs in `chapters/_adr-*.adoc`,
-  index in chapter 9); theme overrides without CDN resources in `docs/site/`; config `docToolchainConfig.groovy`.
-  `siteFolder` is relative to `inputPath` (`docs`). Live at `https://lernapps.github.io/mathe-karte/docs/`.
-- Overview page `docs/uebersicht/` (ADR-031): `scripts/dtc-v4.sh` first runs `node scripts/dashboard.js`, which
-  writes key figures, risk matrix, utility tree and risk themes into git-ignored `docs/uebersicht/_*.adoc`. Never
-  commit them; if you change the format of the chapter 11 risk table, the chapter 9 index or the utility tree, keep
-  `test/build/dashboard.test.js` green. It runs the unit tests once and `playwright test --list` (needs `npm ci` and a
-  built `dist/`), so run `npm run build` before `scripts/dtc-v4.sh`.
-- Build locally: `scripts/dtc-v4.sh generateSite` (docToolchain v4 pinned to `main-4.x@6de96fb7`, needs Java 17 and
-  Graphviz; first run clones and builds docToolchain). Output: `build/microsite/output/` (git-ignored). Check nav,
-  chapter pages, rendered diagrams and links there before pushing.
-- Every decision about the kern, the layout, the build, deployment or a new dependency needs an ADR in chapter 9
-  (Nygard, Pugh matrix against QZ-1…QZ-5, consequences naming risk IDs from chapter 11). Superseded ADRs stay in the
-  index with status "Superseded by ADR-0xx". Diagrams: PlantUML with `!include <C4/...>`, never a URL.
-- Inter-page links: `xref:NN_file.adoc#anchor[]`, never `link:foo.adoc[]`.
-- `doku.yml` lints `docs` with asciidoc-linter pinned to a commit SHA (ADR-028) via `scripts/doku-lint.js`: ERRORs
-  fail the job, WARNINGs don't. Pinned SHA: `911440ac35d5849349389cce7ba04311d75dca49` (after upstream #62). Locally: `pip install git+https://github.com/docToolchain/asciidoc-linter@<SHA>` in a
-  venv, then `node scripts/doku-lint.js`.
+- No architecture docs of its own: every explainer shares the architecture of lernapps.net
+  (`lernapps/app-templates`, `explainer/docs/arc42`) and its rules (`https://lernapps.net/tooling/rules/`). The
+  former arc42 docs of this repo described the old kern; they were deleted and live in git history. IDs such as
+  `QZ-3`, `R-025` or `ADR-033` in comments come from there.
+- What goes beyond the explainer (curriculum map, picture pre-rendering, link pages for old addresses, the planned
+  self-assessment module) is documented in `README.md`, section "Architektur". A new decision of that kind gets a
+  short paragraph there, with the reason.
 
 ## Risk Radar Assessment
 
 _Assessed on 2026-09-24 against the Vibe-Coding Risk Radar (https://llm-coding.github.io/vibe-coding-risk-radar/), confirmed by the Product Owner_
-_Architecture Decision: See [ADR-023](docs/arc42/chapters/_adr-risiko.adoc) (arc42 chapter 9)_
+_Architecture Decision: ADR-023 (former arc42 chapter 9, in git history)_
 
 ### Module: lernapps.github.io
 
@@ -182,7 +162,7 @@ branch protection, secret scanning with push protection, org-wide 2FA and the tu
 | CI Build & Unit Tests  | Present | `pruefen.yml`, required check `test-und-build`                                  |
 | SAST                   | Present | CodeQL default setup, secret scanning with push protection, Dependabot (#19)    |
 | AI Code Review         | Present | fresh-context review before every merge, check `ki-review` (#24, ADR-027)       |
-| AI Design Review       | Present | ATAM section in the review when ADRs or arc42 ch. 1/4/5/9/10 change, enforced by `ki-review`; quarterly ATAM baseline (ADR-030) |
+| AI Design Review       | N/A     | no own architecture docs since the move to the explainer (README, "Architektur") |
 | Property-Based Tests   | Present | explainer build: 200 seeds per `generated` exercise, 50 per component (ADR-033)  |
 | Browser Tests          | Present | `lernapps check` with Playwright + axe-core (`e2e/`), workflow `browser.yml`, required check `browser` (#26, ADR-026, ADR-033) |
 | SonarQube Quality Gate | N/A     | Won't (#28): file length ≤ 500 lines and ESLint cover it                        |
@@ -190,7 +170,7 @@ branch protection, secret scanning with push protection, org-wide 2FA and the tu
 | Tutor link allowlist   | Present | `pruefeTutorLinks` in `lib/pruefungen.js` (ADR-023, M-22)                       |
 | Org 2FA requirement    | Present | decided and enabled 2026-09-24 (R-017, M-21)                                    |
 | License compliance     | Present | `lib/pruefe-lizenzen.js` in `npm test`; Dependency Review in `abhaengigkeiten.yml`, required check `abhaengigkeiten` (ADR-029, M-24) |
-| Security review        | Present | full OWASP baseline 25.09.2026 (arc42 appendix „Bewertungen“, `_security-2026-09-25.adoc`), repeated quarterly with ATAM and the harness audit |
+| Security review        | Present | OWASP part of every KI-Review (`werkzeuge/review/ki-review.md`); the baseline of 25.09.2026 is in git history |
 
 ## Semantic Contracts
 Source: https://llm-coding.github.io/Semantic-Anchors/contracts/ — copied from lern-app-template so the repo is self-contained.

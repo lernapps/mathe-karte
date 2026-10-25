@@ -13,8 +13,6 @@ import { pruefeZeilen, pruefeMeldeLink, pruefeTutorText, pruefeTutorLinks, erlau
 import { pruefeAusgabe } from "./lib/pruefe-ausgabe.js";
 import { pruefeLinks } from "./lib/pruefe-links.js";
 
-// Gepatchte Kopien des docToolchain-Themes (Architektur-Doku, TD-10): fremder Code, von der Zeilengrenze ausgenommen.
-const THEME_KOPIEN = /^docs\/site\/assets\/css\/(asciidoctor|main\.min\.[0-9a-f]+)\.css$/;
 const MAX_PROMPT_ZEILEN = 119;
 const NICHT_QUELLEN = new Set(["node_modules", ".git", "worktrees", "dist", "_site", ".playwright-mcp", "package-lock.json", "build", ".gradle", "test-results", "playwright-report"]);
 
@@ -36,16 +34,16 @@ const relativ = (wurzel, p) => path.relative(wurzel, p).split(path.sep).join("/"
 export function pruefe(wurzel) {
   const fehler = [];
   const quellen = alleDateien(".", NICHT_QUELLEN)
-    .filter((p) => /\.(js|mjs|ts|vue|yaml|njk|md|css|txt|json|yml|svg)$/.test(p) && !THEME_KOPIEN.test(p));
+    .filter((p) => /\.(js|mjs|ts|vue|yaml|njk|md|css|txt|json|yml|svg)$/.test(p));
   for (const p of quellen) fehler.push(...pruefeZeilen(p, fs.readFileSync(p, "utf8")));
   const dateien = alleDateien(wurzel);
   fehler.push(...pruefeAusgabe(dateien, (p) => fs.readFileSync(p, "utf8")));
   for (const p of dateien.filter((d) => d.endsWith(".html") && relativ(wurzel, d).startsWith("karte/"))) {
     fehler.push(...pruefeMeldeLink(p, fs.readFileSync(p, "utf8"), site.repo));
   }
-  // Tote interne Links und Anker; die Doku unter docs/ baut docToolchain erst im Deploy dazu (pages.yml).
+  // Tote interne Links und Anker.
   const inhalte = Object.fromEntries(dateien.map((p) => [relativ(wurzel, p), p.endsWith(".html") ? fs.readFileSync(p, "utf8") : ""]));
-  fehler.push(...pruefeLinks(inhalte, site.basis, { ausser: ["docs/"] }));
+  fehler.push(...pruefeLinks(inhalte, site.basis));
   // Der Tutor-Prompt (aus src/app.yaml) bleibt unter 120 Zeilen, damit ein Review ihn ganz liest (M-09); die
   // tutor.md je Seite sind erzeugte Aufgabendaten aus dem geprüften Inhalt und fallen nicht darunter (ADR-033).
   fehler.push(...pruefeZeilen("dist/tutor.md", lies(path.join(wurzel, "tutor.md")), MAX_PROMPT_ZEILEN));

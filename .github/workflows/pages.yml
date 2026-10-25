@@ -1,7 +1,7 @@
 name: Pages
 
-# Baut die Site (explainer und Karte, vite.config.ts) und die Architektur-Doku (docToolchain) und liefert beide in
-# EINEM Artefakt über GitHub Pages aus: unter https://lernapps.github.io/mathe-karte/, Doku unter …/mathe-karte/docs/.
+# Baut die Site (explainer und Karte, vite.config.ts) und liefert sie über GitHub Pages aus:
+# https://lernapps.github.io/mathe-karte/. Die Architektur ist die gemeinsame des explainers (README).
 # Pages-Quelle muss "GitHub Actions" sein. Achtung: Ein Repo <org>.github.io schaltet Pages beim Anlegen
 # automatisch im Branch-Modus ein; umstellen mit
 #   gh api -X PUT repos/<owner>/<repo>/pages -f build_type=workflow
@@ -32,50 +32,7 @@ jobs:
       - run: npm test
       - run: npm run build
 
-      - name: Java 17 für docToolchain v4
-        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4.9.1
-        with:
-          distribution: temurin
-          java-version: 17
-
-      # lib/ von docToolchain v4 entsteht per Gradle-Build (~120 MB Jars). Der Cache hängt am gepinnten
-      # Commit; nur wenn DTC_SHA in scripts/dtc-v4.sh wechselt, baut CI lib/ neu. Refs docToolchain/docToolchain#1704
-      - name: Gepinnten docToolchain-Commit ermitteln
-        id: dtc
-        run: |
-          sha=$(sed -n 's/^DTC_SHA="\([0-9a-f]*\)"$/\1/p' scripts/dtc-v4.sh)
-          test -n "$sha"
-          echo "sha=$sha" >> "$GITHUB_OUTPUT"
-          echo "short=${sha:0:8}" >> "$GITHUB_OUTPUT"
-
-      - name: docToolchain v4 und Gradle-Abhängigkeiten aus dem Cache
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: |
-            ~/.doctoolchain/docToolchain-4.0.0-${{ steps.dtc.outputs.short }}
-            ~/.gradle/caches/modules-2
-            ~/.gradle/wrapper/dists
-          key: dtc-v4-${{ steps.dtc.outputs.sha }}
-          restore-keys: dtc-v4-
-
-      - name: Graphviz für PlantUML
-        run: sudo apt-get update && sudo apt-get install -y graphviz
-
-      - name: Architektur-Doku bauen (docToolchain)
-        env:
-          DTC_HEADLESS: "true"
-        # docToolchain v4 ist noch nicht veröffentlicht: das Skript holt main-4.x am festen Commit.
-        run: scripts/dtc-v4.sh generateSite
-
-      - name: Doku nach dist/docs legen
-        run: |
-          mkdir -p dist/docs
-          cp -r build/microsite/output/. dist/docs/
-          # Die Vorlage der Startseite landet mit im Output; ausliefern soll man sie nicht.
-          # Refs docToolchain/docToolchain#1703
-          rm -f dist/docs/landingpage.gsp
-          touch dist/.nojekyll
-          find dist -maxdepth 1 | sort
+      - run: touch dist/.nojekyll
 
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:

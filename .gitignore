@@ -4,12 +4,5 @@ _site/
 test-results/
 playwright-report/
 .playwright-mcp/
-# Architektur-Doku (docToolchain)
 /build/
-/.gradle/
-# Übersichtsseite der Doku: erzeugt von scripts/dashboard.js (über scripts/dtc-v4.sh)
-/docs/uebersicht/_kennzahlen.adoc
-/docs/uebersicht/_risikomatrix.adoc
-/docs/uebersicht/_utility-tree.adoc
-/docs/uebersicht/_risikothemen.adoc
 .claude/worktrees/

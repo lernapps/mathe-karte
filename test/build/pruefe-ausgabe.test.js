@@ -1,5 +1,5 @@
-// Use Case: Architektur-Doku ausliefern (TD-22/23) – dieselbe Regel "keine fremden Ressourcen" gilt für jede
-// gebaute Ausgabe, auch für die Doku aus docToolchain, die nicht durch Eleventy läuft.
+// Use Case: Site ausliefern – die Regel "keine fremden Ressourcen" gilt für jede gebaute Ausgabe, auch als Kommando
+// über einen beliebigen Ordner.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { pruefeAusgabe } from "../../lib/pruefe-ausgabe.js";

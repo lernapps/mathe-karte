@@ -50,13 +50,13 @@ Check every point. A point that does not apply gets "n/a", never silence.
    the issue, finding (L-xxx) or Use Case? Property-based tests for kern number or term code?
 3. **Security (OWASP Top 10).** No `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `document.write`, `eval`,
    `new Function` or string `setTimeout` (A03 Injection, T-003). No new external request, CDN, font or
-   import (A08). Every URL in `tutor.njk`, `llms.njk`, the root `llms.txt` and `karte/llms.txt` stays on the
-   tutor-link allowlist (ADR-023, `pruefeTutorLinks`); a widened allowlist needs an ADR. No text in
-   `tutor.njk` that tells the child's chat AI to do something outside its tutor role (T-015). Workflows:
+   import (A08). Every URL in `tutor.rules` and the pages (they become `tutor.md`, `llms.txt`) and in `karte/llms.txt` stays on the
+   tutor-link allowlist (ADR-023, `pruefeTutorLinks`); a widened allowlist needs a paragraph with its reason in the README. No text in
+   `tutor.rules` or a page that tells the child's chat AI to do something outside its tutor role (T-015). Workflows:
    minimal `permissions`, no secrets, third-party actions pinned to a SHA (A06). New dependencies: exact
    pin, needed at all?
-   New feature, input, dependency or workflow: check it against the STRIDE table in arc42 8.1. A threat
-   that no T-ID covers is a finding: it needs a new T-ID and a mitigation in 8.2.
+   New feature, input, dependency or workflow: which threat does it open (spoofing, tampering, information
+   disclosure, a prompt for the child's chat AI)? An unmitigated one is a finding.
 4. **Static first.** Every page is fully readable without JavaScript, text and picture. JS only for
    exercises, checking, test, self-assessment, redraw.
 5. **Privacy.** No request to another host before the learner clicks a video card; then only
@@ -65,22 +65,15 @@ Check every point. A point that does not apply gets "n/a", never silence.
 6. **Teacher voice and maths.** Texts are German, address the learner as "du", are friendly and exact.
    Recompute every example, rule and worked solution in the diff yourself. A wrong number in a learning app
    silently teaches a child something wrong (R-025): treat it as a blocker.
-7. **Docs and version.** Architecture change → ADR in chapter 9 with Pugh matrix and risk IDs; index updated.
-   Changed URL parameters or pages → `llms.njk` updated. User-visible change → version in `package.json`
+7. **Docs and version.** Something beyond the shared explainer architecture (lernapps.net) → a short paragraph
+   with its reason in `README.md`, section „Architektur“. Changed pages or ids → `karte/daten/kapitel.js` updated. User-visible change → version in `package.json`
    bumped (SemVer). `CLAUDE.md` still true? Every file under 500 lines.
 
-8. **Architecture (ATAM), only if the PR touches a trigger path** (ADR-030). Trigger paths, the same list
-   as `ARCHITEKTUR_PFADE` in `scripts/ki-review-pruefen.js`: ADR bodies `docs/arc42/chapters/_adr-*.adoc`,
-   the dated ATAM reports (`_atam-*.adoc`),
-   chapter 9 (`09_*.adoc`), the quality definitions in chapter 1 (`01_*.adoc`) and chapter 10 (`10_*.adoc`),
-   the solution strategy (`04_*.adoc`) and the building blocks (`05_*.adoc`). Evaluate the change against the
-   utility tree (arc42 10, „Utility Tree“) and the newest ATAM report (arc42 appendix „Bewertungen“):
-   which scenarios (QS-n) it affects; new or changed sensitivity points (SP-n) and tradeoff points (TP-n);
-   new risks with an R-ID from chapter 11, or „keine“; for a new or changed ADR, whether its Pugh matrix
-   and its consequences agree with QZ-1…QZ-5 and name the right R-IDs. Missing this section on a trigger
-   path turns the check `ki-review` red, even with „freigegeben“.
-
-Also look at CI: `gh pr checks <nr>`. A red `test-und-build` or CodeQL finding is a finding.
+8. **Architecture (ATAM), only if the PR touches a trigger path** (`ARCHITEKTUR_PFADE` in
+   `scripts/ki-review-pruefen.js`: the former arc42 docs under `docs/arc42/`, deleted when the site became a
+   lernapps.net explainer). Evaluate the change against the shared explainer architecture
+   (`lernapps/app-templates`, `explainer/docs/arc42`) and the README section „Architektur“: which quality goals it
+   affects, new risks or „keine“. Missing this section on a trigger path keeps `ki-review` red.
 
 ## Phase 3 — Verdict
 
@@ -119,14 +112,13 @@ Reviewer: <model>, frischer Kontext (<sub-agent | neue Session>)
 - Static first: …
 - Datenschutz: …
 - Lehrerstimme und Mathematik: …
-- ADR, Doku, Version: …
+- README, Doku, Version: …
 
 ### Architektur (ATAM)
 - Auslöser: <changed trigger files>
-- Szenarien: QS-… (utility tree, importance/difficulty)
-- Sensitivity/Tradeoff Points: SP-…/TP-… new or changed, or „keine“
-- Neue Risiken: R-… or „keine“
-- ADR gegen QZ-1…QZ-5: Pugh matrix and consequences consistent? …
+- Gemeinsame explainer-Architektur: still followed, or a deviation documented in the README?
+- Qualitätsziele: Datenschutz, richtige Rückmeldung, Tutor-Anschluss, neue Seiten schnell, zugänglich – affected?
+- Neue Risiken: … or „keine“
 ```
 
 Leave out the `### Architektur (ATAM)` section only when the PR touches no trigger path.
