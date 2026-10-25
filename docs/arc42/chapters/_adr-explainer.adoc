@@ -49,7 +49,7 @@ eine große Komponente ohne Übungsvertrag (QZ-4 −1), und ihre statische Liste
 
 * Der Tutor-Vertrag ändert sich einmal (R-003, R-036): `/<app>/<id>.html?seed=…&nr=…` wird
   `/<kapitel>/<seite>/?<übung>=<n>#<übung>`, die Testseite und die Parameter der Generatoren entfallen. Statische
-  Weiterleitungen (`lib/weiterleitungen.js`, `noindex`) führen alte Links auf die neue Seite; Aufgabennummern und
+  Verweisseiten (`lib/weiterleitungen.js`, `noindex`) nennen für alte Links den Link zur neuen Seite; Aufgabennummern und
   Parameter gehen dabei verloren. `llms.txt`, eine `tutor.md` je Seite und den Tutor-Prompt schreibt der explainer
   aus dem Inhalt; die Allowlist (<<adr-023,ADR-023>>) prüft sie weiter.
 * Der Tutor-Prompt (`tutor.md`, aus `src/app.yaml`) bleibt unter 120 Zeilen, der Build prüft es (M-09). Die

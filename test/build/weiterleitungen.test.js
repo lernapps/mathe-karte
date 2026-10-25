@@ -1,5 +1,5 @@
 // Use Case: Tutor-Link aus einem alten Chat (R-036, ADR-033) – die alten Adressen /<app>/<id>.html und
-// /<app>/test.html führen ohne JavaScript auf die neue Seite des explainers.
+// /<app>/test.html zeigen einen Link auf die neue Seite des explainers.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { weiterleitungen, weiterleitungsSeite } from "../../lib/weiterleitungen.js";
@@ -13,10 +13,10 @@ test("je Seite eine Weiterleitung von <kapitel>/<seite>.html nach <seite>/, je K
   assert.equal(liste.length, seiten + kapitel.length);
 });
 
-test("die Seite leitet ohne JavaScript weiter, ist nicht indexiert und nennt den Link", () => {
+test("die Seite ist nicht indexiert, nennt den Link und navigiert nicht selbst weg (lernapps check liest sie)", () => {
   const html = weiterleitungsSeite("grundwert/", "https://lernapps.github.io/mathe-karte/prozent/grundwert/");
   assert.match(html, /<html lang="de">/);
-  assert.match(html, /<meta http-equiv="refresh" content="0; url=grundwert\/">/);
+  assert.doesNotMatch(html, /http-equiv="refresh"/);
   assert.match(html, /<meta name="robots" content="noindex">/);
   assert.match(html, /<link rel="canonical" href="https:\/\/lernapps.github.io\/mathe-karte\/prozent\/grundwert\/">/);
   assert.match(html, /<a href="grundwert\/">/);

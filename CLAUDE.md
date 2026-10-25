@@ -29,7 +29,8 @@ curriculum map (`karte/`) is still built with Eleventy 3.1.7. Deployed to GitHub
 - Page ids, section ids, exercise ids and the address `/<kapitel>/<seite>/?<übung>=<n>#<übung>` are a public contract
   used by the AI tutor (the explainer writes `llms.txt`, `tutor.md` per page and the tutor prompt from the content).
   Never rename an id; moving a page means changing `karte/daten/kapitel.js` in the same PR. The old addresses
-  `/<app>/<id>.html` and `/<app>/test.html` redirect (`lib/weiterleitungen.js`, written by the build). The tutor
+  `/<app>/<id>.html` and `/<app>/test.html` show a noindex page linking the new one (`lib/weiterleitungen.js`,
+  written by the build; no meta refresh: `lernapps check` reads every page without JS and fails on navigation). The tutor
   prompt `dist/tutor.md` (from `src/app.yaml`, `tutor.rules`) stays under 120 lines; the build checks it.
 - Verify UI changes in a browser before reporting them done: `npx lernapps check` runs the explainer's end-to-end
   tests and ours (`e2e/*.spec.js`: axe, no external request, 360 px, without JS) over every page incl. the map.
