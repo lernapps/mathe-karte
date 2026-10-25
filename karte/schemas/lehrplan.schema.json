@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://lernapps.github.io/karte/schemas/lehrplan.schema.json",
+  "$id": "https://lernapps.net/mathe-karte/karte/schemas/lehrplan.schema.json",
   "title": "Lehrplan",
   "description": "Frontmatter einer Datei unter data/lehrplaene/. Ein Lehrplan eines Landes für eine Schulform.",
   "type": "object",

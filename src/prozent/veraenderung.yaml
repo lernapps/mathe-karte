@@ -19,7 +19,7 @@ blocks:
           knoten: prozent-veraenderung
           text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
           link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=prozent-veraenderung).
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-veraenderung).
   - type: section
     id: regel
     title: Regel

@@ -5,7 +5,7 @@ Read `AGENTS.md` first: it is the lernapps.net entry point (plans, skills, rules
 The Mathe-Karte of lernapps.net: Prozentrechnung, binomische Formeln and Wahrscheinlichkeit for school years 7 and
 8, plus the curriculum map. The pages are a lernapps.net **explainer** (`@lernapps/app-templates`, built with
 Vite+): content is YAML in `src/`, exercises are `generated` blocks or Vue exercise components. Only the curriculum
-map (`karte/`) is built with Eleventy 3.1.7. Deployed to GitHub Pages at `https://lernapps.github.io/mathe-karte/`.
+map (`karte/`) is built with Eleventy 3.1.7. Deployed to GitHub Pages at `https://lernapps.net/mathe-karte/`.
 
 ## Project rules
 - Every page is fully readable without JavaScript – text AND picture. No external requests before a click; videos

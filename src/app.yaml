@@ -7,7 +7,7 @@ languages: [de]
 chapters: [prozent, binom, zufall]
 sources:
   - title: Lehrplan-Karte – welche Kompetenz in welchem Bundesland dran ist (für Lehrkräfte und Eltern)
-    url: https://lernapps.github.io/mathe-karte/karte/
+    url: https://lernapps.net/mathe-karte/karte/
   - title: Kerncurriculum Mathematik Sekundarstufe I, Hessisches Kultusministerium
     url: https://kultusministerium.hessen.de/unterricht/kerncurricula/sekundarstufe-i/mathematik
   - title: Prozentrechnung mittels Formeln (serlo.org)

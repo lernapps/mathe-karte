@@ -15,7 +15,7 @@ blocks:
           knoten: zufall-ohne-zuruecklegen
           text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
           link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-ohne-zuruecklegen).
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-ohne-zuruecklegen).
   - type: section
     id: regel
     title: Regel

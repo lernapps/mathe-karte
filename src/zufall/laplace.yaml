@@ -15,7 +15,7 @@ blocks:
           knoten: zufall-laplace
           text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
           link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-laplace).
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-laplace).
   - type: section
     id: regel
     title: Regel

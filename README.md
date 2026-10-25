@@ -1,7 +1,7 @@
 # Mathe-Karte
 
 Prozentrechnung, binomische Formeln und Wahrscheinlichkeit für die Klassen 7 und 8, dazu eine Lehrplan-Karte:
-<https://lernapps.github.io/mathe-karte/>. Teil von [lernapps.net](https://lernapps.net/).
+<https://lernapps.net/mathe-karte/>. Teil von [lernapps.net](https://lernapps.net/).
 
 Jede Seite erklärt eine Sache mit Regel, Beispiel und Bild und endet mit Übungsaufgaben, die sofort sagen, ob das
 Ergebnis stimmt. Jede Seite ist ohne JavaScript lesbar, Text und Bild. Kein Server, kein Tracking, keine Anfrage an

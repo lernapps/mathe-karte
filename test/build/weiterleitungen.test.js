@@ -14,11 +14,11 @@ test("je Seite eine Weiterleitung von <kapitel>/<seite>.html nach <seite>/, je K
 });
 
 test("die Seite ist nicht indexiert, nennt den Link und navigiert nicht selbst weg (lernapps check liest sie)", () => {
-  const html = weiterleitungsSeite("grundwert/", "https://lernapps.github.io/mathe-karte/prozent/grundwert/");
+  const html = weiterleitungsSeite("grundwert/", "https://lernapps.net/mathe-karte/prozent/grundwert/");
   assert.match(html, /<html lang="de">/);
   assert.doesNotMatch(html, /http-equiv="refresh"/);
   assert.match(html, /<meta name="robots" content="noindex">/);
-  assert.match(html, /<link rel="canonical" href="https:\/\/lernapps.github.io\/mathe-karte\/prozent\/grundwert\/">/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/lernapps.net\/mathe-karte\/prozent\/grundwert\/">/);
   assert.match(html, /<a href="grundwert\/">/);
   assert.match(html, /<title>[^<]+<\/title>/);
   assert.doesNotMatch(html, /<script/);

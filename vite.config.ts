@@ -12,4 +12,6 @@ export default lernapps({
   fmt: { ignorePatterns: javascriptTeil },
   lint: { ignorePatterns: javascriptTeil },
   test: { include: ["karte/test/**/*.test.js", "test/**/*.test.js"] },
+  // Wie im Preset, aber ohne Fehler, wenn alle gestagten Dateien zum JavaScript-Teil gehören (z. B. karte/schemas/).
+  staged: { "*.{ts,tsx,json}": "vp fmt --no-error-on-unmatched-pattern" },
 });

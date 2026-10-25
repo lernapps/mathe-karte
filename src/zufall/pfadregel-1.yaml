@@ -15,7 +15,7 @@ blocks:
           knoten: zufall-pfadregel-1
           text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
           link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.github.io/mathe-karte/karte/?knoten=zufall-pfadregel-1).
+        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-pfadregel-1).
   - type: section
     id: regel
     title: Regel
