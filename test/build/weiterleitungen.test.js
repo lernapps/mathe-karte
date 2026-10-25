@@ -1,6 +1,6 @@
 // Use Case: Tutor-Link aus einem alten Chat (R-036, ADR-033) – die alten Adressen /<app>/<id>.html und
 // /<app>/test.html zeigen einen Link auf die neue Seite des explainers.
-import { test } from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 import { weiterleitungen, weiterleitungsSeite } from "../../lib/weiterleitungen.js";
 import kapitel from "../../karte/daten/kapitel.js";

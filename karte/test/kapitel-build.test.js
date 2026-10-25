@@ -1,5 +1,5 @@
 // Use Case: Mathe-Karte – die Kapitel des explainers stehen auf der Karte; eine fehlende Seite bricht den Build ab.
-import { test } from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";

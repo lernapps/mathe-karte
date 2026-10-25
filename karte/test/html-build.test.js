@@ -1,5 +1,5 @@
 // Use Case: Mathe-Karte – Beschreibungen aus Markdown-Body als sicheres HTML auf den statischen Seiten.
-import { test } from 'node:test';
+import { test } from 'vite-plus/test';
 import assert from 'node:assert/strict';
 import { escapeHtml, absaetzeHtml } from '../lib/html.js';
 

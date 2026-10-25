@@ -1,5 +1,5 @@
 // Use Case: Umzug des Repos (z. B. in eine GitHub-Organisation) – alle Adressen folgen aus EINER Basis-URL.
-import { test } from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 import { leiteAdressenAb } from "../../lib/adressen.js";
 

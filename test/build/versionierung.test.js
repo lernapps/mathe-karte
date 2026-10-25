@@ -1,5 +1,5 @@
 // Use Case: Auslieferung ohne Cache-Mischmasch – jede lokale JS/CSS-Referenz trägt dasselbe ?v=<Hash>.
-import { test } from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 import { versionsHash, versioniere } from "../../lib/versionierung.js";
 

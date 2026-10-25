@@ -13,7 +13,7 @@ Der Inhalt steht als YAML in [`src/`](src/), Übungen sind deklarierte `generate
 
 ```bash
 npm ci                 # Abhängigkeiten installieren (lernapps-Pakete von GitHub, auf einen Commit gepinnt)
-npm test               # Unit-Tests (node:test und vp test)
+npm test               # Unit-Tests (vp test)
 npm run build          # dist/ bauen: explainer, dann die Karte; bricht bei Regelverstößen ab
 npm run dev            # explainer lokal ansehen
 npx lernapps check     # alle Prüfungen von lernapps.net samt Browser-Tests
@@ -37,6 +37,10 @@ Was über den explainer hinausgeht:
   Vue-Komponente zur Build-Zeit als SVG.
 - **Verweisseiten** (`lib/weiterleitungen.js`): Die Adressen der alten Apps (`/prozent/grundwert.html`) zeigen einen
   Link auf die neue Seite.
+
+Geprüft und veröffentlicht wird mit dem Werkzeug von lernapps.net, wie bei jeder App aus dem Generator:
+`.github/workflows/pages.yml` führt `lernapps check` bei jedem Push und Pull Request aus, stellt jeden Pull Request
+als Vorschau unter `…/mathe-karte/pr-preview/pr-<Nummer>/` bereit und veröffentlicht `main` auf dem Branch `gh-pages`.
 
 Wie man eine Seite oder ein Kapitel anlegt, steht in [CLAUDE.md](CLAUDE.md) und im Inhaltsleitfaden
 [`.agents/skills/app-content/`](.agents/skills/app-content/SKILL.md).

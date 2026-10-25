@@ -1,5 +1,5 @@
 // Use Case: Mathe-Karte – Markdown-Daten (karte/daten) lesen, Referenzen prüfen, Abdeckung berechnen.
-import { test } from 'node:test';
+import { test } from 'vite-plus/test';
 import assert from 'node:assert/strict';
 import {
   leseFrontmatter,

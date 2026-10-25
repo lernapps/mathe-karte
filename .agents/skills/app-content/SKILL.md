@@ -90,7 +90,7 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 2. `src/<kapitel>/chapter.yaml` und je Seite die YAML-Datei mit den sechs Abschnitten; Kapitel in `src/app.yaml`.
 3. Übungen nach den Mustern oben, Test zuerst (`src/components/<Name>.test.ts`).
 4. Beispielbilder nach Figures; Eintrag in `karte/daten/kapitel.js` mit den Knoten.
-5. `npm test`, `npm run build`, `npx lernapps check`; dann Commit und PR mit KI-Review.
+5. `npm test`, `npm run build`, `npx lernapps check`; dann Commit und Pull Request.
 
 ## Rules learned from mistakes
 

@@ -1,5 +1,5 @@
 // Use Case: Site ausliefern – das lernapps-„L“ als favicon in der Wurzel der Ausgabe, auch für die Karte.
-import { test } from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 

@@ -1,49 +1,61 @@
 name: Pages
 
-# Baut die Site (explainer und Karte, vite.config.ts) und liefert sie über GitHub Pages aus:
-# https://lernapps.github.io/mathe-karte/. Die Architektur ist die gemeinsame des explainers (README).
-# Pages-Quelle muss "GitHub Actions" sein. Achtung: Ein Repo <org>.github.io schaltet Pages beim Anlegen
-# automatisch im Branch-Modus ein; umstellen mit
-#   gh api -X PUT repos/<owner>/<repo>/pages -f build_type=workflow
+# Checks the app and publishes it. The job `app` runs the app check of lernapps/tooling: `lernapps check`, the same
+# command the git hooks ran (format, lint, type check, unit tests, build, the checks of the built app, the end-to-end
+# tests), and keeps its validation report as the artifact "validation-report". On main, the job `deploy` publishes
+# the bundle it checked with the app publish action: to the gh-pages branch, which GitHub Pages serves from its root
+# (Settings → Pages → Deploy from a branch → gh-pages, / (root)). It checks that setting, waits until the app's
+# address serves the new bundle, and prints the address; on a failure, its message says what to do. On a pull request
+# from this repo, the job `preview` publishes the bundle the job `app` checked as a preview, with the app preview
+# action: at <the app's address>pr-preview/pr-<number>/, not indexed by search engines, updated on every push and
+# removed when the pull request is closed or merged; one comment on the pull request, in German for the creator,
+# links it. A pull request from a fork gets no preview: its token may not write. The actions first ask what the change
+# can affect (lernapps changes): a change of only the plan (.vibe/) or only docs (docs/**/*.md) checks, publishes and
+# previews nothing, and the jobs succeed with a notice. So the workflow runs on every push and pull request, with no
+# paths filter: a check skipped by a paths filter stays "Pending" and blocks a pull request that requires it. GitHub
+# may start no run for a push that creates main from commits it already has (the first publish): then start it by
+# hand, Actions → Pages → Run workflow on main (gh workflow run Pages --ref main), as the plan says; a run started by
+# hand checks and publishes everything.
 on:
   push:
     branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, closed] # closed: removes the preview
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  app:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
-
-      - run: touch dist/.nojekyll
-
-      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
-        with:
-          path: dist
-
+      - uses: lernapps/tooling/actions/app-check@0deff1055664cbe93de50b4f1e31d28003b49c66 # main
   deploy:
-    needs: build
+    if: github.ref == 'refs/heads/main'
+    needs: app
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
+      pages: write
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+      - uses: lernapps/tooling/actions/app-publish@0deff1055664cbe93de50b4f1e31d28003b49c66 # main
+  preview:
+    # a pull request from this repo only; on closing, it removes the preview without a check
+    if: >-
+      always() && github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (github.event.action == 'closed' || needs.app.result == 'success')
+    needs: app
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      pages: read # the app's address, for the comment
+    steps:
+      - uses: lernapps/tooling/actions/app-preview@0deff1055664cbe93de50b4f1e31d28003b49c66 # main

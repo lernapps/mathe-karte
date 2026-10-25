@@ -1,6 +1,6 @@
 // Use Case: Kompetenzseite ohne JavaScript – das Beispielbild ist eine SVG-Datei, gezeichnet von derselben Komponente
 // wie das Bild der Übung (scripts/bilder.mjs, ADR-033); eine veraltete Datei bricht den Test.
-import { test } from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { main, svgsAus, eigenstaendig, themaFuerSvg, ohneKommentare } from "../../scripts/bilder.mjs";

@@ -1,5 +1,5 @@
 // Use Case: Neue App anlegen – die Farbe folgt aus dem Fach; weiße Schrift bleibt lesbar (WCAG AA).
-import { test } from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 import { FACHFARBEN, kontrast, fachfarbe } from "../../lib/fachfarben.js";
 

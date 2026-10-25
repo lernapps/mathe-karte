@@ -1,5 +1,5 @@
 // Use Case: Mathe-Karte – Eleventy-Daten der Karte aus karte/daten und den Kapiteln des explainers; data.json deterministisch.
-import { test } from 'node:test';
+import { test } from 'vite-plus/test';
 import assert from 'node:assert/strict';
 import { ladeKarte } from '../lib/laden.js';
 import { ladeKapitel } from '../lib/kapitel.js';

@@ -1,6 +1,6 @@
 // Use Case: Mathe-Karte – App-Einträge kommen aus den App-Konfigurationen (APP.kartenEintrag, KOMPETENZEN[].kartenKnoten),
 // noch nicht migrierte Apps aus der Übergangsdatei karte/daten/externe-eintraege.js.
-import { test } from 'node:test';
+import { test } from 'vite-plus/test';
 import assert from 'node:assert/strict';
 import { eintragAusApp, pruefeAppEintrag, eintraegeFuerKarte } from '../lib/eintraege.js';
 

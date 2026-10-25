@@ -1,7 +1,7 @@
 // Use Case: Kompetenzseite – die Texte sprechen wie eine Lehrkraft (Lektorat Runde 2). Muster, die nie wiederkommen
 // sollen, werden in den Quellen aller Seiten des explainers gesucht (src/<kapitel>/*.yaml) und in den Texten der
 // Übungskomponenten (src/components/*.ts, *.vue).
-import { test } from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
