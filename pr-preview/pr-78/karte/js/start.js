@@ -1,8 +1,8 @@
 // Startseite: lädt Daten, verdrahtet Filter, Baum, Detail und URL-Zustand. Progressive Verbesserung: ohne JS
 // bleibt die statische Liste im HTML stehen; start() blendet den Filter ein und ersetzt die Liste durch den Baum.
-import { ladeDaten, kompetenzenFuer, zusammenfassung, istErfasst } from './daten.js?v=a99a8bd0';
-import { leseZustand, schreibeZustand } from './url-zustand.js?v=a99a8bd0';
-import { el, renderBaum, renderDetail } from './karte.js?v=a99a8bd0';
+import { ladeDaten, kompetenzenFuer, zusammenfassung, istErfasst } from './daten.js?v=531229d9';
+import { leseZustand, schreibeZustand } from './url-zustand.js?v=531229d9';
+import { el, renderBaum, renderDetail } from './karte.js?v=531229d9';
 
 const $ = (id) => document.getElementById(id);
 

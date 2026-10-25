@@ -1,12 +1,12 @@
 # Mathe-Karte – Hinweise für KI-Tutoren und Agenten
 
-Basis-URL: https://lernapps.github.io/mathe-karte/karte/
+Basis-URL: https://lernapps.net/mathe-karte/karte/
 Quellcode: https://github.com/lernapps/mathe-karte/tree/main/karte
-Teil der Lern-Apps (https://lernapps.github.io/mathe-karte/, Übersicht aller Apps: https://lernapps.github.io/mathe-karte/llms.txt).
+Teil der Lern-Apps (https://lernapps.net/mathe-karte/, Übersicht aller Apps: https://lernapps.net/mathe-karte/llms.txt).
 Apps auf der Karte (jede mit eigener llms.txt):
-- Binomische Formeln: https://lernapps.github.io/mathe-karte/binom/
-- Prozentrechnung: https://lernapps.github.io/mathe-karte/prozent/
-- Wahrscheinlichkeit: https://lernapps.github.io/mathe-karte/zufall/
+- Binomische Formeln: https://lernapps.net/mathe-karte/binom/
+- Prozentrechnung: https://lernapps.net/mathe-karte/prozent/
+- Wahrscheinlichkeit: https://lernapps.net/mathe-karte/zufall/
 
 ## Was die Karte ist
 

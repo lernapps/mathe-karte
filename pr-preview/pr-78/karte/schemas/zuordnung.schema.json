@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://lernapps.github.io/karte/schemas/zuordnung.schema.json",
+  "$id": "https://lernapps.net/mathe-karte/karte/schemas/zuordnung.schema.json",
   "title": "Zuordnung",
   "description": "Frontmatter einer Datei unter data/zuordnungen/. Der Body ist eine Markdown-Tabelle mit den Spalten kompetenz | jahrgang | einheit | pflicht; jede Zeile ordnet eine Kompetenz einem Jahrgang und einer Lehrplan-Einheit zu.",
   "type": "object",

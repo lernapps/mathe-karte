@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://lernapps.github.io/karte/schemas/kompetenz.schema.json",
+  "$id": "https://lernapps.net/mathe-karte/karte/schemas/kompetenz.schema.json",
   "title": "Kompetenz",
   "description": "Frontmatter einer Datei unter data/kompetenzen/. Ein Knoten der Kompetenzkarte; höchstens eine Hierarchieebene über parent.",
   "type": "object",

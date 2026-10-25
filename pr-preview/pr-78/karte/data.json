@@ -2638,7 +2638,7 @@
     {
       "id": "binom-trainer",
       "titel": "Binomische Formeln",
-      "url": "https://lernapps.github.io/mathe-karte/binom/",
+      "url": "https://lernapps.net/mathe-karte/binom/",
       "quellcode": "https://github.com/lernapps/mathe-karte/tree/main/src/binom",
       "kompetenzen": [
         "klammern-binome"
@@ -2658,7 +2658,7 @@
     {
       "id": "prozent-trainer",
       "titel": "Prozentrechnung",
-      "url": "https://lernapps.github.io/mathe-karte/prozent/",
+      "url": "https://lernapps.net/mathe-karte/prozent/",
       "quellcode": "https://github.com/lernapps/mathe-karte/tree/main/src/prozent",
       "kompetenzen": [
         "prozent-grundbegriffe",
@@ -2685,7 +2685,7 @@
     {
       "id": "zufall-trainer",
       "titel": "Wahrscheinlichkeit",
-      "url": "https://lernapps.github.io/mathe-karte/zufall/",
+      "url": "https://lernapps.net/mathe-karte/zufall/",
       "quellcode": "https://github.com/lernapps/mathe-karte/tree/main/src/zufall",
       "kompetenzen": [
         "zufall-laplace",

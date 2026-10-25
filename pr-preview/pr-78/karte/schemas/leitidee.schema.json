@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://lernapps.github.io/karte/schemas/leitidee.schema.json",
+  "$id": "https://lernapps.net/mathe-karte/karte/schemas/leitidee.schema.json",
   "title": "Leitidee",
   "description": "Frontmatter einer Datei unter data/leitideen/. Eine der fünf Leitideen der KMK-Bildungsstandards.",
   "type": "object",
