@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Lehrpläne Sek I und was Apps davon abdecken – Mathe-Karte</title>
+  <meta name="description" content="Karte der Mathe-Lehrpläne der Sekundarstufe I – welche Kompetenzen Lern-Apps schon üben und wo Lücken sind. Ohne Server, ohne Tracking.">
+  <link rel="canonical" href="https://lernapps.github.io/mathe-karte/karte/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1d4ed8">
+  <link rel="stylesheet" href="../kern/css/stil.css?v=6ec40465">
+  <link rel="stylesheet" href="css/karte.css?v=6ec40465">
+  <style>:root { --farbe-primaer: #1d4ed8; --farbe-primaer-dunkel: #1e3a8a; }</style>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="kopf">
+    <a class="marke" href="index.html">Mathe-Karte</a>
+    <nav class="themen" aria-label="Seiten der Karte">
+      <ul>
+        <li><a href="index.html" aria-current="page">Karte</a></li>
+        <li><a href="karte-statisch.html">Liste</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="laender.html">Länder</a></li>
+        <li><a href="ueber.html">Über</a></li>
+        <li><a href="../">Alle Lern-Apps</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+<h1>Die Karte</h1>
+    <p>Diese Karte zeigt die Mathe-Kompetenzen der Sekundarstufe I entlang der fünf KMK-Leitideen und
+    dazu, welche Lern-Apps eine Kompetenz schon üben und wo noch keine App eingetragen ist.
+    Sie zeigt nicht, wie gut eine App ist und nicht, ob ein Land, das noch niemand erfasst hat,
+    eine Kompetenz lehrt: „noch nicht erfasst“ heißt, die Karte weiß es nicht; „keine App“ heißt,
+    die Kompetenz ist erfasst, aber keine eingetragene App übt sie.</p>
+
+    <noscript><p>Ohne JavaScript siehst du unten alle Kompetenzen mit Jahrgang nach Hessen; ein Klick auf eine
+    Kompetenz klappt KMK-Standard, Beschreibung und Apps auf. Filter nach Land, Jahrgang und Leitidee brauchen JavaScript.</p></noscript>
+
+    <form class="filter" id="filter" aria-label="Karte filtern" hidden>
+      <label>Land
+        <select name="land" id="land"></select>
+      </label>
+      <label>Jahrgang
+        <select name="jahrgang" id="jahrgang">
+          <option value="">alle</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </label>
+      <label>Leitidee
+        <select name="leitidee" id="leitidee"><option value="">alle</option></select>
+      </label>
+      <label class="schalter">
+        <input type="checkbox" name="luecken" id="luecken"> Nur Lücken zeigen
+      </label>
+    </form>
+
+    <div id="hinweis-land" class="hinweis" hidden></div>
+    <p class="zusammenfassung" id="zusammenfassung" aria-live="polite">Hessen · Gymnasium · alle Jahrgänge: 85 Kompetenzen, 16 mit App, 69 ohne</p>
+
+    <div id="karte" data-mithelfen="https://github.com/lernapps/mathe-karte/blob/main/src/karte/daten/README.md">
+
+<section class="leitidee" id="zahl-und-operation">
+  <h2>Zahl und Operation</h2>
+  <ul class="baum liste">
+<li id="bruchrechnung-grundaufgaben"><details><summary><strong>Grundaufgaben der Bruchrechnung und Rechnen mit Bruchzahlen</strong> · Jahrgang 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen sinntragende Vorstellungen von Operationen rationaler Zahlen (z. B. schrittweiser, halbschriftlicher Verfahren)</blockquote>
+<p>Die Lernenden bestimmen Bruchteil, Ganzes und Anteil (die drei Grundaufgaben) und addieren, subtrahieren, multiplizieren und dividieren Bruchzahlen und Dezimalbrüche. Typische Aufgaben: drei Viertel von 20 Euro berechnen, das Ganze aus einem Bruchteil zurückrechnen, Brüche mit Hauptnenner addieren.</p>
+<p class="leise">Schlüsselwörter: Bruchrechnung, Bruchteil, Anteil, Ganzes, Hauptnenner, Bruchaddition, Bruchmultiplikation</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=bruchrechnung-grundaufgaben">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="brueche-begriff"><details><summary><strong>Brüche als Teil eines Ganzen, als Teil mehrerer Ganzer, als Maßzahl und als Verhältnis</strong> · Jahrgang 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> erläutern an Beispielen die verschiedenen Vorstellungen zum Bruchbegriff (insbesondere Teile eines oder mehrerer Ganzer, relative Anteile)</blockquote>
+<p>Die Lernenden deuten Brüche als Anteil, als Maßzahl und als Verhältnis, stellen Bruchteile an Kreisen, Rechtecken und Strecken dar und erkennen gleichwertige Brüche durch Kürzen und Erweitern. Typische Aufgaben: Bruchteile einer Figur einfärben, Brüche auf dem Zahlenstrahl finden, Anteile in Alltagssituationen bestimmen.</p>
+<p class="leise">Schlüsselwörter: Bruch, Anteil, Zähler, Nenner, Bruchteil, Verhältnis, Kürzen, Erweitern</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=brueche-begriff">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="dezimalbrueche"><details><summary><strong>Dezimalbrüche (abbrechend, periodisch) und Begründung für Abbruch bzw. Periodizität</strong> · Jahrgang 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen sinntragende Vorstellungen von rationalen Zahlen, insbesondere von natürlichen, ganzen und gebrochenen Zahlen entsprechend der Verwendungsnotwendigkeit</blockquote>
+<p>Die Lernenden wandeln Brüche in abbrechende oder periodische Dezimalbrüche um und begründen am Nenner, wann welcher Fall eintritt. Typische Aufgaben: 3/8 und 1/3 als Dezimalzahl schreiben, Zehnerbrüche in Kommaschreibweise übertragen, Periodenlänge bestimmen.</p>
+<p class="leise">Schlüsselwörter: Dezimalbruch, Dezimalzahl, periodisch, abbrechend, Zehnerbruch</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=dezimalbrueche">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="grundrechenarten-rechengesetze"><details><summary><strong>Grundrechenarten, Rechengesetze und vorteilhaftes Rechnen</strong> · Jahrgang 5, 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen Rechengesetze (z. B. Kommutativ-, Assoziativ-, Distributivgesetz), auch zum vorteilhaften Rechnen</blockquote>
+<p>Die Lernenden führen die vier Grundrechenarten mit natürlichen Zahlen und Brüchen schriftlich und im Kopf aus, beachten Vorrangregeln und nutzen Kommutativ-, Assoziativ- und Distributivgesetz zum vorteilhaften Rechnen. Typische Aufgaben: schriftliche Division mit zweistelligem Divisor, Terme mit Klammern auswerten, Rechenvorteile erkennen.</p>
+<p class="leise">Schlüsselwörter: Addition, Subtraktion, Multiplikation, Division, Kommutativgesetz, Assoziativgesetz, Distributivgesetz, Vorrangregeln, Kopfrechnen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=grundrechenarten-rechengesetze">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="klammern-binome"><details><summary><strong>Klammern und binomische Formeln</strong> · Jahrgang 8 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> stellen Terme auf, um allgemeine Zusammenhänge im Sachkontext zu beschreiben, formen sie um und interpretieren sie</blockquote>
+<p>Die Lernenden lösen Klammern auf, multiplizieren Summen aus und wenden die drei binomischen Formeln vorwärts und rückwärts an. Typische Aufgaben: (a+b)² ausmultiplizieren, x²−9 faktorisieren, quadratische Ergänzung vorbereiten.</p>
+<p class="leise">Schlüsselwörter: binomische Formeln, Klammern auflösen, quadratische Ergänzung, Faktorisieren</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/binom/">Binomische Formeln</a>
+· <a href="index.html?land=HE&amp;knoten=klammern-binome">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="natuerliche-zahlen"><details><summary><strong>Natürliche Zahlen (Stellenwertsystem, Darstellung, Anzahlen)</strong> · Jahrgang 5 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen sinntragende Vorstellungen von rationalen Zahlen, insbesondere von natürlichen, ganzen und gebrochenen Zahlen entsprechend der Verwendungsnotwendigkeit</blockquote>
+<p>Die Lernenden lesen und schreiben natürliche Zahlen bis in den Billionenbereich, verstehen das Dezimalsystem als Stellenwertsystem und kennen das Dualsystem als Alternative. Typische Aufgaben: Zahlen in Stellenwerttafeln eintragen, Anzahlen bestimmen, Zahlen in Worten und Ziffern schreiben.</p>
+<p class="leise">Schlüsselwörter: natürliche Zahlen, Stellenwertsystem, Dezimalsystem, Dualsystem, große Zahlen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=natuerliche-zahlen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="potenzen"><details><summary><strong>Potenzen mit natürlichen, ganzzahligen und rationalen Exponenten, n-te Wurzeln</strong> · Jahrgang 5, 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> erläutern Potenzen und Wurzeln und berechnen einfache Potenzen und Wurzeln</blockquote>
+<p>Die Lernenden erläutern Potenzen und Wurzeln, wenden die Potenzgesetze für natürliche, ganzzahlige und rationale Exponenten an und schreiben Wurzeln als Potenzen. Typische Aufgaben: Potenzen mit gleicher Basis multiplizieren, Zahlen in Zehnerpotenzschreibweise umwandeln, Gleichungen der Form x^n = a lösen.</p>
+<p class="leise">Schlüsselwörter: Potenz, Potenzgesetze, Exponent, n-te Wurzel, Zehnerpotenz, wissenschaftliche Schreibweise</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=potenzen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="prozentrechnung"><details><summary><strong>Prozentrechnung</strong> · Jahrgang 7, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden Prozent- und Zinsrechnung vorstellungsbasiert (z. B. Prozentstreifen) und sachgerecht</blockquote>
+<p>Überbegriff für alle Teilkompetenzen der Prozentrechnung: vom Prozentbegriff über die drei Grundaufgaben bis zu prozentualen Veränderungen, Zinsrechnung und Sachaufgaben. Die Lernenden nutzen Prozentangaben vorstellungsbasiert (Prozentstreifen, Hunderterfeld) und sachgerecht in Alltagssituationen.</p>
+<p class="leise">Schlüsselwörter: Prozent, Prozentrechnung, Anteil, Hundertstel</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=prozentrechnung">In der interaktiven Karte</a></p>
+</div></details>
+<ul class="liste">
+<li id="prozent-grundbegriffe"><details><summary><strong>Grundbegriffe erkennen: Grundwert, Prozentwert und Prozentsatz; einfache Prozentangaben</strong> · Jahrgang 5/6, 7 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden Prozent- und Zinsrechnung vorstellungsbasiert (z. B. Prozentstreifen) und sachgerecht</blockquote>
+<p>Die Lernenden verstehen Prozent als Hundertstel, wandeln zwischen Bruch-, Dezimal- und Prozentschreibweise um und erkennen in einer Textaufgabe, welche Zahl Grundwert, Prozentwert und Prozentsatz ist. Typische Aufgaben: einfache Prozentangaben wie 50 %, 25 %, 10 % deuten, die gegebenen und gesuchten Größen einer Sachaufgabe benennen.</p>
+<p class="leise">Schlüsselwörter: Grundwert, Prozentwert, Prozentsatz, Prozentbegriff, Hunderterfeld, Bruch-Dezimal-Prozent</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/prozent/">Prozent-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=prozent-grundbegriffe">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="prozent-grundwert"><details><summary><strong>Grundwert berechnen</strong> · Jahrgang 7 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden Prozent- und Zinsrechnung vorstellungsbasiert (z. B. Prozentstreifen) und sachgerecht</blockquote>
+<p>Die Lernenden berechnen den Grundwert aus Prozentwert und Prozentsatz, also das Ganze aus einem bekannten Anteil. Typische Aufgaben: 30 Euro sind 12 % - wie viel ist das Ganze, ursprüngliche Klassengröße aus dem Anteil der Fehlenden bestimmen.</p>
+<p class="leise">Schlüsselwörter: Grundwert, G = W · 100 / p, Rückwärtsrechnen, Ganzes bestimmen</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/prozent/">Prozent-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=prozent-grundwert">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="prozent-prozentsatz"><details><summary><strong>Prozentsatz berechnen</strong> · Jahrgang 7 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden Prozent- und Zinsrechnung vorstellungsbasiert (z. B. Prozentstreifen) und sachgerecht</blockquote>
+<p>Die Lernenden berechnen den Prozentsatz aus Prozentwert und Grundwert und erkennen die Bezugsgröße als Nenner. Typische Aufgaben: 20 von 80 sind wie viel Prozent, Wahlergebnisse in Prozent, Stimmenanteile vergleichen.</p>
+<p class="leise">Schlüsselwörter: Prozentsatz, p = W / G · 100, Anteil in Prozent</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/prozent/">Prozent-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=prozent-prozentsatz">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="prozent-prozentwert"><details><summary><strong>Prozentwert berechnen</strong> · Jahrgang 7 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden Prozent- und Zinsrechnung vorstellungsbasiert (z. B. Prozentstreifen) und sachgerecht</blockquote>
+<p>Die Lernenden berechnen den Prozentwert aus Grundwert und Prozentsatz mit Formel, Dreisatz oder Operator. Typische Aufgaben: 12 % von 250 Euro, Rabattbetrag bei 30 % Nachlass, Anteil einer Gruppe in absoluten Zahlen.</p>
+<p class="leise">Schlüsselwörter: Prozentwert, W = G · p / 100, Prozentformel, Dreisatz</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/prozent/">Prozent-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=prozent-prozentwert">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="prozent-sachaufgaben"><details><summary><strong>Sachaufgaben der Prozentrechnung in Gleichung oder Dreisatz übersetzen</strong> · Jahrgang 7 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden Prozent- und Zinsrechnung vorstellungsbasiert (z. B. Prozentstreifen) und sachgerecht</blockquote>
+<p>Die Lernenden übersetzen eine Sachaufgabe aus Presse, Alltag oder Wirtschaft in eine Gleichung oder eine Dreisatztabelle, wählen die passende Grundaufgabe, lösen und beurteilen das Ergebnis kritisch. Typische Aufgaben: Aufgaben mit aktuellem Zahlenmaterial, Runden und Genauigkeit beurteilen, Ergebnis mit Tabellenkalkulation prüfen.</p>
+<p class="leise">Schlüsselwörter: Sachaufgabe, Textaufgabe, Dreisatz, Gleichung aufstellen, Modellieren</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/prozent/">Prozent-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=prozent-sachaufgaben">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="prozent-veraenderung"><details><summary><strong>Prozentuale Zunahme und Abnahme (vermehrter und verminderter Grundwert)</strong> · Jahrgang 7, 8 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden Prozent- und Zinsrechnung vorstellungsbasiert (z. B. Prozentstreifen) und sachgerecht</blockquote>
+<p>Die Lernenden berechnen neue Werte nach prozentualer Zu- oder Abnahme über den Wachstumsfaktor 1 ± p/100 und rechnen aus dem neuen Wert auf den alten zurück. Typische Aufgaben: Preis nach 25 % Rabatt, alter Preis vor 19 % Mehrwertsteuer, Prozentsätze über 100 %.</p>
+<p class="leise">Schlüsselwörter: vermehrter Grundwert, verminderter Grundwert, Wachstumsfaktor, Änderung um, Änderung auf, Rabatt, Preiserhöhung</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/prozent/">Prozent-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=prozent-veraenderung">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="prozent-vergleich"><details><summary><strong>Zwei Werte prozentual vergleichen</strong> · Jahrgang 7 · 1 App · ungeprüft</summary>
+<div>
+<p class="leise">Kein KMK-Standard: landesspezifische Verfeinerung.</p>
+<p>Die Lernenden geben an, um wie viel Prozent ein Wert größer oder kleiner als ein anderer ist, und erkennen, dass die Bezugsgröße die Antwort bestimmt. Typische Aufgaben: 150 ist um wie viel Prozent größer als 120, um wie viel Prozent ist 120 kleiner als 150. Landesspezifische Verfeinerung nach G9-Lehrplan Hessen (Vergleich des Anteils).</p>
+<p class="leise">Schlüsselwörter: Vergleich, größer als, kleiner als, Bezugsgröße, Unterschied in Prozent</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/prozent/">Prozent-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=prozent-vergleich">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="prozent-von-prozenten"><details><summary><strong>Prozente von Prozenten und Verknüpfung von Prozentsätzen</strong> · Jahrgang 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden Prozent- und Zinsrechnung vorstellungsbasiert (z. B. Prozentstreifen) und sachgerecht</blockquote>
+<p>Die Lernenden unterscheiden Prozentpunkte und Prozente, verketten mehrere prozentuale Änderungen über Faktoren und erkennen, dass sich Prozentsätze nicht einfach addieren. Typische Aufgaben: erst 20 % Rabatt, dann 10 % Aufschlag; Anteil eines Anteils bestimmen.</p>
+<p class="leise">Schlüsselwörter: Prozente von Prozenten, Prozentpunkte, mehrfache Änderung, Verknüpfung von Prozentsätzen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=prozent-von-prozenten">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zinsrechnung"><details><summary><strong>Zinsrechnung (Jahres-, Monats- und Tageszinsen, Zinseszins)</strong> · Jahrgang 7, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen die Prozentrechnung bei Wachstumsprozessen (beispielsweise bei der Zinsrechnung), auch unter Verwendung digitaler Werkzeuge</blockquote>
+<p>Die Lernenden übertragen die Grundaufgaben der Prozentrechnung auf Kapital, Zinssatz und Zinsen, berechnen Monats- und Tageszinsen bei jährlicher Verzinsung und ermitteln Zinseszinsen schrittweise oder mit Wachstumsfaktor. Typische Aufgaben: Zinsen für 8 Monate, Kapital nach 5 Jahren mit Zinseszins, Verdopplungszeit mit Taschenrechner oder Tabellenkalkulation.</p>
+<p class="leise">Schlüsselwörter: Zinsen, Zinssatz, Kapital, Zinsformel, Zinseszins, Kapitalverdopplung</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=zinsrechnung">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+</ul>
+</li>
+<li id="rationale-zahlen"><details><summary><strong>Rationale Zahlen (Vorstellungsaufbau negative Zahlen, Zahl und Gegenzahl, Betrag)</strong> · Jahrgang 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> beschreiben die Notwendigkeit von Zahlbereichserweiterungen von N nach Z und Q sowie von Q nach R an Beispielen</blockquote>
+<p>Die Lernenden bauen Vorstellungen zu negativen Zahlen an Modellen wie Temperatur, Kontostand und Höhenangaben auf, kennen Zahl, Gegenzahl und Betrag und begründen die Erweiterung zu den rationalen Zahlen. Typische Aufgaben: Temperaturdifferenzen bestimmen, Zahlen an der Zahlengeraden einordnen, Beträge vergleichen.</p>
+<p class="leise">Schlüsselwörter: negative Zahlen, rationale Zahlen, Gegenzahl, Betrag, Zahlbereichserweiterung</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=rationale-zahlen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="rechnen-rational-reell"><details><summary><strong>Rechenverfahren und Rechengesetze im Bereich der rationalen und reellen Zahlen</strong> · Jahrgang 7, 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> rechnen mit natürlichen, ganzen und rationalen Zahlen, die im täglichen Leben vorkommen, sowohl zur Kontrolle als auch im Kopf und erklären die Bedeutung der Rechenoperationen</blockquote>
+<p>Die Lernenden rechnen mit negativen Zahlen unter Beachtung der Vorzeichen- und Klammerregeln und wenden die Rechenregeln für Quadratwurzeln an. Typische Aufgaben: Produkte und Quotienten negativer Zahlen bilden, Wurzelterme teilweise radizieren, Nenner rational machen.</p>
+<p class="leise">Schlüsselwörter: negative Zahlen rechnen, Vorzeichenregeln, Wurzelgesetze, Klammerregeln, Rechenregeln</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=rechnen-rational-reell">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="reelle-zahlen"><details><summary><strong>Reelle Zahlen (Quadratwurzeln, Irrationalität, die Zahl Pi)</strong> · Jahrgang 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen sinntragende Vorstellungen von reellen Zahlen (z. B. Vollständigkeit der Zahlengerade)</blockquote>
+<p>Die Lernenden verstehen die Quadratwurzel als nichtnegative Zahl, deren Quadrat der Radikand ist, erkennen irrationale Wurzeln, begründen die Erweiterung zu den reellen Zahlen und kennen Pi als Proportionalitätsfaktor am Kreis. Typische Aufgaben: Wurzeln schätzen und mit dem Taschenrechner nähern, Irrationalität von Wurzel 2 begründen.</p>
+<p class="leise">Schlüsselwörter: Quadratwurzel, irrational, reelle Zahlen, Pi, Näherungswert, Intervallschachtelung</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=reelle-zahlen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="runden"><details><summary><strong>Runden von natürlichen Zahlen, Dezimalbrüchen und Größen</strong> · Jahrgang 5, 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> runden Zahlen dem Sachverhalt entsprechend sinnvoll</blockquote>
+<p>Die Lernenden runden natürliche Zahlen und Dezimalbrüche auf eine vorgegebene Stelle und wählen bei Größen und Sachaufgaben eine sinnvolle Genauigkeit. Typische Aufgaben: auf Zehner, Hunderter oder zwei Nachkommastellen runden, Ergebnisse dem Sachverhalt angemessen angeben.</p>
+<p class="leise">Schlüsselwörter: Runden, Rundungsregeln, Genauigkeit, Näherungswert</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=runden">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="teilbarkeit"><details><summary><strong>Teilbarkeit, Teiler und Vielfache (ggT, kgV, Primzahlen)</strong> · Jahrgang 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> untersuchen Zahlen nach ihren Faktoren, in einfachen Fällen ohne digitale Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden bestimmen Teiler- und Vielfachenmengen, wenden Endstellen- und Quersummenregeln an, zerlegen Zahlen in Primfaktoren und berechnen ggT und kgV. Typische Aufgaben: Teilbarkeit durch 2, 3, 4, 5, 9, 10, 25 prüfen, kgV als Hauptnenner nutzen.</p>
+<p class="leise">Schlüsselwörter: Teiler, Vielfache, ggT, kgV, Primzahl, Primfaktorzerlegung, Teilbarkeitsregeln</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=teilbarkeit">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="terme-variable"><details><summary><strong>Terme und Variable (Aufstellen, Umformen, Wertgleichheit)</strong> · Jahrgang 5, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> stellen Terme auf, um allgemeine Zusammenhänge im Sachkontext zu beschreiben, formen sie um und interpretieren sie</blockquote>
+<p>Die Lernenden verwenden Variablen als unbekannte oder beliebige Zahl, stellen Terme zu Sachsituationen auf, formen sie nach Umformungsregeln um und prüfen Wertgleichheit. Typische Aufgaben: Terme zusammenfassen, ausmultiplizieren, ausklammern, Formeln umstellen.</p>
+<p class="leise">Schlüsselwörter: Term, Variable, Termumformung, Ausmultiplizieren, Zusammenfassen, Faktorisieren</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=terme-variable">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zahldarstellungen"><details><summary><strong>Darstellungen von Zahlen (Zahlenstrahl, Zahlengerade, Kreisdiagramm, Dezimalbrüche)</strong> · Jahrgang 5, 6, 7, 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> stellen Zahlen der Situation angemessen dar, z. B. unter anderem in Zehnerpotenzschreibweise</blockquote>
+<p>Die Lernenden stellen Zahlen am Zahlenstrahl und auf der Zahlengeraden dar, lesen Anteile aus Kreisdiagrammen ab und wechseln zwischen Bruch-, Dezimal- und Potenzschreibweise. Typische Aufgaben: Zahlen auf der Zahlengeraden markieren, Quadratwurzeln konstruieren, Anteile im Kreisdiagramm ablesen.</p>
+<p class="leise">Schlüsselwörter: Zahlenstrahl, Zahlengerade, Kreisdiagramm, Darstellungswechsel, Zehnerpotenz</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=zahldarstellungen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zahlen-vergleichen-ordnen"><details><summary><strong>Vergleichen und Ordnen von natürlichen, gebrochenen, rationalen und reellen Zahlen</strong> · Jahrgang 5, 6, 7, 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen sinntragende Vorstellungen von rationalen Zahlen, insbesondere von natürlichen, ganzen und gebrochenen Zahlen entsprechend der Verwendungsnotwendigkeit</blockquote>
+<p>Die Lernenden vergleichen und ordnen Zahlen aller in der Sekundarstufe I behandelten Zahlbereiche: natürliche Zahlen, Brüche und Dezimalbrüche, negative Zahlen und Quadratwurzeln. Typische Aufgaben: Zahlen der Größe nach sortieren, Brüche durch Erweitern vergleichbar machen, Wurzeln zwischen benachbarten ganzen Zahlen einordnen.</p>
+<p class="leise">Schlüsselwörter: vergleichen, ordnen, Kleinerrelation, Zahlenstrahl, Betrag</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=zahlen-vergleichen-ordnen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+  </ul>
+</section>
+<section class="leitidee" id="groessen-und-messen">
+  <h2>Größen und Messen</h2>
+  <ul class="baum liste">
+<li id="berechnungen-dreiecke-vielecke"><details><summary><strong>Berechnungen in Dreiecken und Vielecken (Anwendungen aus Technik und Physik)</strong> · Jahrgang 9, 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> berechnen Streckenlängen und Winkelgrößen, auch unter Nutzung des Satzes von Pythagoras, von trigonometrischen Beziehungen und Ähnlichkeitsbeziehungen, auch mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden berechnen Streckenlängen und Winkelgrößen in Dreiecken, Vielecken und räumlichen Figuren mit Pythagoras, Ähnlichkeit und Trigonometrie in Anwendungen aus Technik, Physik und Vermessung und vergleichen algebraische und geometrische Lösungswege. Typische Aufgaben: Dachneigung, Kraftzerlegung, Sichtweite, Turmhöhe aus zwei Standpunkten.</p>
+<p class="leise">Schlüsselwörter: Dreiecksberechnung, Vermessung, Anwendungen, Streckenlängen, Winkelgrößen, räumliche Figuren</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=berechnungen-dreiecke-vielecke">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="flaeche-umfang-dreieck-viereck-kreis"><details><summary><strong>Flächeninhalt und Umfang von Dreieck, Parallelogramm, Trapez, Raute, Drachen und Kreis</strong> · Jahrgang 7, 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> berechnen Flächeninhalt und Umfang von Rechteck, Dreieck und Kreis sowie daraus zusammengesetzten Figuren, auch mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden leiten die Flächenformeln für Dreieck, Parallelogramm, Trapez, Raute und Drachen aus dem Rechteck her, berechnen Umfang und Flächeninhalt des Kreises mit Pi und kennen ein Verfahren zur näherungsweisen Bestimmung von Pi. Typische Aufgaben: Fläche eines Trapezgrundstücks, Umfang eines Rades, Kreisfläche aus dem Durchmesser.</p>
+<p class="leise">Schlüsselwörter: Dreieck, Parallelogramm, Trapez, Raute, Drachen, Kreis, Kreisumfang, Kreisfläche, Pi, Höhe</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=flaeche-umfang-dreieck-viereck-kreis">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="flaeche-umfang-quadrat-rechteck"><details><summary><strong>Flächeninhalt und Umfang von Quadrat und Rechteck</strong> · Jahrgang 5, 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> berechnen Flächeninhalt und Umfang von Rechteck, Dreieck und Kreis sowie daraus zusammengesetzten Figuren, auch mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden berechnen Flächeninhalt und Umfang von Rechteck und Quadrat, verstehen die Formeln über das Auslegen mit Einheitsquadraten und rechnen mit Flächeneinheiten. Typische Aufgaben: Fläche eines Grundstücks, Zaunlänge, Kacheln für eine Wand.</p>
+<p class="leise">Schlüsselwörter: Flächeninhalt, Umfang, Rechteck, Quadrat, Flächeneinheiten, Quadratmeter</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=flaeche-umfang-quadrat-rechteck">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="groessenvorstellungen-schaetzen"><details><summary><strong>Größenvorstellungen, Repräsentanten, Schätzungen und Überschlagsrechnungen; Einheitsquadrat und Einheitswürfel</strong> · Jahrgang 5 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> schätzen Größen mit Hilfe von Vorstellungen über geeignete Repräsentanten (z. B. typisches Objekt für eine Standardgröße) und nutzen dies auch zur Plausibilitätsprüfung</blockquote>
+<p>Die Lernenden bauen Vorstellungen zu Größen über typische Repräsentanten auf, schätzen Längen, Massen, Zeitspannen, Flächen und Volumina, nutzen Einheitsquadrat und Einheitswürfel als Messvorstellung und prüfen Ergebnisse durch Überschlag auf Plausibilität. Typische Aufgaben: Höhe eines Zimmers schätzen, Überschlag beim Einkauf, Fläche in Einheitsquadraten auslegen.</p>
+<p class="leise">Schlüsselwörter: Größenvorstellung, Schätzen, Repräsentant, Überschlag, Einheitsquadrat, Einheitswürfel, Plausibilität</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=groessenvorstellungen-schaetzen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="messen-laenge-masse-geld-zeit"><details><summary><strong>Messvorgänge: Länge, Masse/Gewicht, Währung/Geld, Zeitpunkt und Zeitspanne</strong> · Jahrgang 5 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen das Grundprinzip des Messens als Vergleichen mit (Standard-)Einheiten, z. B. bei der Bestimmung von Längen, Flächeninhalten und Volumina, auch in Sachsituationen</blockquote>
+<p>Die Lernenden messen Längen, Massen und Zeitspannen, rechnen mit Geldbeträgen und Größen in Sachaufgaben aus dem Alltag und unterscheiden Zeitpunkt und Zeitspanne. Typische Aufgaben: Fahrzeiten aus Fahrplänen bestimmen, Einkaufsrechnungen, Gewichte addieren, Streckenlängen messen.</p>
+<p class="leise">Schlüsselwörter: Länge, Masse, Gewicht, Geld, Währung, Zeitspanne, Zeitpunkt, Sachrechnen, Messen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=messen-laenge-masse-geld-zeit">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="umrechnung-groessen"><details><summary><strong>Umrechnung von Größen und Vorsilben von Einheiten</strong> · Jahrgang 5, 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> wählen Einheiten von Größen situationsgerecht aus (insbesondere für Zeit, Masse, Geld, Länge, Fläche, Volumen und Winkel) und wandeln sie ggf. um</blockquote>
+<p>Die Lernenden wählen situationsgerechte Einheiten, rechnen Größenangaben zwischen Einheiten um und kennen die Vorsilben von Mikro bis Giga. Typische Aufgaben: 3,25 km in Meter, 2 h 15 min in Minuten, Speichergrößen in Byte, gemischte Schreibweisen vereinheitlichen.</p>
+<p class="leise">Schlüsselwörter: Einheiten umrechnen, Vorsilben, Kilo, Milli, Mega, Giga, Maßeinheit, Kommaschreibweise</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=umrechnung-groessen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="volumen-oberflaeche-prisma"><details><summary><strong>Volumen und Oberflächeninhalt beim Prisma</strong> · Jahrgang 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> berechnen Volumen und Oberflächeninhalt von Prisma, Pyramide, Zylinder, Kegel und Kugel sowie daraus zusammengesetzten Körpern, auch mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden berechnen Volumen und Oberflächeninhalt von Prismen als Grundfläche mal Höhe beziehungsweise als Summe aus Grundflächen und Mantel. Typische Aufgaben: Volumen eines Dachgeschosses mit dreieckiger Grundfläche, Oberfläche eines sechseckigen Bleistifts.</p>
+<p class="leise">Schlüsselwörter: Prisma, Volumen, Oberflächeninhalt, Grundfläche mal Höhe, Mantelfläche</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=volumen-oberflaeche-prisma">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="volumen-oberflaeche-pyramide-kegel-zylinder-kugel"><details><summary><strong>Volumen und Oberflächeninhalt bei Pyramide, Kegel, Zylinder und Kugel</strong> · Jahrgang 9, 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> berechnen Volumen und Oberflächeninhalt von Prisma, Pyramide, Zylinder, Kegel und Kugel sowie daraus zusammengesetzten Körpern, auch mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden berechnen Volumen und Oberflächeninhalt von Zylinder, Pyramide, Kegel und Kugel, verstehen die Formeln über Schüttversuche und Herleitungen und nutzen dabei den Satz des Pythagoras für Höhen und Mantellinien. Typische Aufgaben: Volumen einer Dose, Oberfläche einer Pyramide mit quadratischer Grundfläche, Volumen einer Kugel aus dem Umfang.</p>
+<p class="leise">Schlüsselwörter: Pyramide, Kegel, Zylinder, Kugel, Volumen, Oberflächeninhalt, Mantellinie, Formeln herleiten</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=volumen-oberflaeche-pyramide-kegel-zylinder-kugel">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="volumen-oberflaeche-quader-wuerfel"><details><summary><strong>Volumen und Oberflächeninhalt von Quader und Würfel</strong> · Jahrgang 5, 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> berechnen Volumen und Oberflächeninhalt von Prisma, Pyramide, Zylinder, Kegel und Kugel sowie daraus zusammengesetzten Körpern, auch mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden beschreiben und berechnen Volumen und Oberflächeninhalt von Quader, Würfel und daraus zusammengesetzten Körpern und rechnen mit Volumeneinheiten. Typische Aufgaben: Fassungsvermögen eines Aquariums, Farbe für die Oberfläche einer Kiste, Volumen einer Verpackung.</p>
+<p class="leise">Schlüsselwörter: Volumen, Oberflächeninhalt, Quader, Würfel, Volumeneinheiten, Liter, Kubikmeter</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=volumen-oberflaeche-quader-wuerfel">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="winkel-messen"><details><summary><strong>Winkel messen, zeichnen und klassifizieren; Winkelgrößen</strong> · Jahrgang 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> wählen Einheiten von Größen situationsgerecht aus (insbesondere für Zeit, Masse, Geld, Länge, Fläche, Volumen und Winkel) und wandeln sie ggf. um</blockquote>
+<p>Die Lernenden erkennen Winkel in der Umwelt, messen und schätzen Winkelgrößen, klassifizieren Winkel (spitz, recht, stumpf, gestreckt, überstumpf) und zeichnen Winkel vorgegebener Größe. Die Feinheit Minuten und Sekunden nennt das KC für 7/8; der G9-Lehrplan führt sie nicht auf. Typische Aufgaben: Winkel im Dreieck messen, 135-Grad-Winkel zeichnen, Uhrzeiger-Winkel bestimmen.</p>
+<p class="leise">Schlüsselwörter: Winkel, Grad, Winkelmessung, spitz, stumpf, Winkelarten, Geodreieck, Minuten, Sekunden</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=winkel-messen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="winkelsaetze"><details><summary><strong>Winkelsummensatz und Winkelsätze an Geradenkreuzungen</strong> · Jahrgang 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> berechnen Streckenlängen und Winkelgrößen, auch unter Nutzung des Satzes von Pythagoras, von trigonometrischen Beziehungen und Ähnlichkeitsbeziehungen, auch mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden kennen Scheitel-, Neben-, Stufen- und Wechselwinkel, den Winkelsummensatz in Dreieck, Viereck und n-Eck sowie den Basiswinkelsatz und berechnen damit unbekannte Winkel. Typische Aufgaben: fehlende Winkel an sich schneidenden Geraden berechnen, Winkel im gleichschenkligen Dreieck bestimmen.</p>
+<p class="leise">Schlüsselwörter: Winkelsumme, Scheitelwinkel, Nebenwinkel, Stufenwinkel, Wechselwinkel, Basiswinkelsatz, Innenwinkel</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=winkelsaetze">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zusammengesetzte-figuren"><details><summary><strong>Flächeninhalt und Umfang zusammengesetzter Figuren und Vielecke</strong> · Jahrgang 6, 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> berechnen Flächeninhalt und Umfang von Rechteck, Dreieck und Kreis sowie daraus zusammengesetzten Figuren, auch mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden berechnen Flächeninhalt und Umfang von Vielecken und zusammengesetzten Figuren durch Zerlegen in Grundfiguren oder Ergänzen, auch unter Berücksichtigung von Messgenauigkeit. Typische Aufgaben: Grundriss einer Wohnung berechnen, L-förmige Fläche zerlegen, Vieleck in Dreiecke teilen.</p>
+<p class="leise">Schlüsselwörter: zusammengesetzte Figuren, Vieleck, Zerlegung, Ergänzung, Flächeninhalt, Umfang</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=zusammengesetzte-figuren">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+  </ul>
+</section>
+<section class="leitidee" id="raum-und-form">
+  <h2>Raum und Form</h2>
+  <ul class="baum liste">
+<li id="aehnlichkeit-strahlensaetze"><details><summary><strong>Ähnlichkeit, zentrische Streckungen und Strahlensätze</strong> · Jahrgang 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> wenden Sätze der ebenen Geometrie (insbesondere den Satz des Pythagoras, den Satz des Thales, Ähnlichkeitsbeziehungen und trigonometrische Beziehungen) bei Konstruktionen, Berechnungen, Begründungen und Beweisen an</blockquote>
+<p>Die Lernenden vergrößern und verkleinern Figuren maßstabsgetreu, kennen die Eigenschaften ähnlicher Figuren, formulieren und begründen die Strahlensätze und berechnen damit Streckenlängen. Typische Aufgaben: Höhe eines Baums über Schattenlänge, Streckenteilung, Kartenmaßstab, DIN-Papierformate.</p>
+<p class="leise">Schlüsselwörter: Ähnlichkeit, Strahlensätze, zentrische Streckung, Maßstab, Streckfaktor, Längenverhältnis</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=aehnlichkeit-strahlensaetze">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="bewegungen-figuren"><details><summary><strong>Bewegungen von Figuren: Drehungen, Spiegelungen, Verschiebungen</strong> · Jahrgang 6, 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> entwickeln Vorstellungen im zwei- und dreidimensionalen Raum und operieren (z. B. verschieben, drehen, spiegeln) gedanklich mit den darin enthaltenen Objekten</blockquote>
+<p>Die Lernenden führen Achsenspiegelung, Punktspiegelung, Verschiebung und Drehung zeichnerisch aus, bestimmen Bildfiguren und beschreiben die Eigenschaften der Abbildungen. Typische Aufgaben: Figur an einer Achse spiegeln, um 90 Grad drehen, Verschiebungspfeil anwenden, Muster erzeugen.</p>
+<p class="leise">Schlüsselwörter: Achsenspiegelung, Punktspiegelung, Verschiebung, Drehung, Abbildung, Bildfigur, Kongruenzabbildung</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=bewegungen-figuren">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="grundfiguren-eben"><details><summary><strong>Ebene Grundfiguren (Quadrat, Rechteck, Dreieck, Kreis) und zusammengesetzte Flächen</strong> · Jahrgang 5 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> analysieren und klassifizieren geometrische Objekte der Ebene (insbesondere Winkel, Dreiecke, Vierecke) und des Raumes (insbesondere Prismen, Pyramiden, Zylinder, Kegel, Kugel)</blockquote>
+<p>Die Lernenden erkennen und benennen ebene Grundfiguren, beschreiben ihre Eigenschaften (Seiten, Ecken, Winkel) und zerlegen zusammengesetzte Flächen in Grundfiguren. Typische Aufgaben: Figuren in der Umwelt identifizieren, Eigenschaften entdecken, Figuren aus Rechtecken zusammensetzen.</p>
+<p class="leise">Schlüsselwörter: Quadrat, Rechteck, Dreieck, Kreis, ebene Figuren, Eigenschaften, zusammengesetzte Figuren</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=grundfiguren-eben">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="grundkoerper-prisma-zylinder"><details><summary><strong>Grundkörper Prisma und Kreiszylinder</strong> · Jahrgang 8, 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> analysieren und klassifizieren geometrische Objekte der Ebene (insbesondere Winkel, Dreiecke, Vierecke) und des Raumes (insbesondere Prismen, Pyramiden, Zylinder, Kegel, Kugel)</blockquote>
+<p>Die Lernenden kennen Prisma und Kreiszylinder mit Grundfläche, Höhe und Mantel, erkennen sie in der Umwelt und unterscheiden sie von anderen Körpern. Typische Aufgaben: Körper klassifizieren, Prismen nach ihrer Grundfläche benennen, Zylinder in Verpackungen erkennen.</p>
+<p class="leise">Schlüsselwörter: Prisma, Zylinder, Kreiszylinder, Grundfläche, Mantel</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=grundkoerper-prisma-zylinder">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="grundkoerper-pyramide-kegel-kugel"><details><summary><strong>Grundkörper Pyramide, Kegel und Kugel; Körper aus Technik und Lebensumwelt</strong> · Jahrgang 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> analysieren und klassifizieren geometrische Objekte der Ebene (insbesondere Winkel, Dreiecke, Vierecke) und des Raumes (insbesondere Prismen, Pyramiden, Zylinder, Kegel, Kugel)</blockquote>
+<p>Die Lernenden kennen Pyramide, Kegel und Kugel, beschreiben sie mit Grundfläche, Höhe und Mantellinie und erkennen Körper aus Technik und Lebensumwelt als Zusammensetzung von Grundkörpern. Typische Aufgaben: Körper in Vorder-, Seiten- und Draufsicht darstellen, Körper klassifizieren, technische Objekte in Grundkörper zerlegen.</p>
+<p class="leise">Schlüsselwörter: Pyramide, Kegel, Kugel, Spitzkörper, Körper der Umwelt, Ansichten</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=grundkoerper-pyramide-kegel-kugel">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="grundkoerper-quader-wuerfel"><details><summary><strong>Grundkörper Quader und Würfel sowie zusammengesetzte Körper</strong> · Jahrgang 5, 6 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> analysieren und klassifizieren geometrische Objekte der Ebene (insbesondere Winkel, Dreiecke, Vierecke) und des Raumes (insbesondere Prismen, Pyramiden, Zylinder, Kegel, Kugel)</blockquote>
+<p>Die Lernenden erkennen Quader und Würfel als Idealisierung von Gegenständen, beschreiben Ecken, Kanten und Flächen und setzen Körper aus Quadern und Würfeln zusammen. Typische Aufgaben: Körper der Umwelt zuordnen, Kantenmodelle bauen, zusammengesetzte Körper in Quader zerlegen.</p>
+<p class="leise">Schlüsselwörter: Quader, Würfel, Körper, Ecken, Kanten, Flächen, zusammengesetzte Körper</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=grundkoerper-quader-wuerfel">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="haus-der-vierecke"><details><summary><strong>Haus der Vierecke (Ordnen der Vierecke)</strong> · Jahrgang 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> analysieren und klassifizieren geometrische Objekte der Ebene (insbesondere Winkel, Dreiecke, Vierecke) und des Raumes (insbesondere Prismen, Pyramiden, Zylinder, Kegel, Kugel)</blockquote>
+<p>Die Lernenden ordnen die Vierecke nach Symmetrie- und Seiteneigenschaften in das Haus der Vierecke ein und begründen, warum etwa jedes Quadrat eine Raute ist. Typische Aufgaben: Vierecke hierarchisch anordnen, Definitionen und Sätze unterscheiden, Wenn-dann-Aussagen formulieren.</p>
+<p class="leise">Schlüsselwörter: Haus der Vierecke, Klassifikation, Ordnen, Symmetrieeigenschaften, Definition</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=haus-der-vierecke">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="kongruenz"><details><summary><strong>Kongruenz von Figuren und Kongruenzsätze für Dreiecke</strong> · Jahrgang 7, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> erkennen, beschreiben und begründen Eigenschaften und Beziehungen geometrischer Objekte (z. B. Symmetrie, Idee der Kongruenz, Ähnlichkeit, Lagebeziehungen) und nutzen diese im Rahmen des Problemlösens</blockquote>
+<p>Die Lernenden erkennen kongruente Figuren als deckungsgleich, begründen und wenden die Kongruenzsätze für Dreiecke beim Konstruieren und Beweisen an und nutzen Voraussetzung, Behauptung und Beweis. Typische Aufgaben: Kongruenz zweier Dreiecke begründen, Vermessungsaufgaben lösen, Sätze über Dreiecke und Vierecke beweisen.</p>
+<p class="leise">Schlüsselwörter: Kongruenz, deckungsgleich, Kongruenzsätze, SSS, SWS, WSW, Beweisen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=kongruenz">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="konstruktionen"><details><summary><strong>Konstruktion von Figuren und Mustern mit Zeichengeräten und dynamischer Geometriesoftware</strong> · Jahrgang 5, 6, 7, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> zeichnen und konstruieren geometrische Figuren unter Verwendung angemessener Medien wie Zirkel, Geodreieck oder digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden zeichnen und konstruieren Figuren mit Geodreieck, Zirkel und Geometriesoftware, führen Grundkonstruktionen wie Mittelsenkrechte und Winkelhalbierende aus, konstruieren Dreiecke aus gegebenen Stücken und beschreiben ihre Konstruktion. Typische Aufgaben: Muster durch Spiegeln und Drehen erzeugen, Dreieck nach SWS konstruieren, Umkreis und Inkreis konstruieren.</p>
+<p class="leise">Schlüsselwörter: Konstruktion, Zirkel, Geodreieck, Lineal, DGS, Mittelsenkrechte, Winkelhalbierende, Dreieckskonstruktion</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=konstruktionen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="koordinatensystem"><details><summary><strong>Kartesisches Koordinatensystem (erster Quadrant, dann alle vier Quadranten)</strong> · Jahrgang 5, 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> stellen ebene geometrische Figuren (z. B. Dreiecke, Vierecke) und elementare geometrische Abbildungen (z. B. Verschiebungen, Drehungen, Spiegelungen, zentrische Streckungen) im ebenen kartesischen Koordinatensystem dar</blockquote>
+<p>Die Lernenden orientieren sich im kartesischen Koordinatensystem, zunächst im ersten Quadranten, ab Klasse 7 mit negativen Koordinaten in allen vier Quadranten, und stellen Punkte, Figuren und Verschiebungen darin dar. Typische Aufgaben: Punkte eintragen und ablesen, Figuren nach Koordinaten zeichnen, Figuren im Koordinatensystem verschieben.</p>
+<p class="leise">Schlüsselwörter: Koordinatensystem, Koordinaten, Quadrant, x-Achse, y-Achse, Punkte eintragen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=koordinatensystem">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="netze-schraegbilder-modelle"><details><summary><strong>Modelle, Schrägbilder und Netze von Körpern</strong> · Jahrgang 5, 8, 9, 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> fertigen Netze, Schrägbilder und Modelle von ausgewählten Körpern (z. B. Prisma, Pyramide) an und erkennen Körper aus ihren entsprechenden Darstellungen</blockquote>
+<p>Die Lernenden fertigen Netze, Schrägbilder und Modelle von Quader und Würfel, später von Prisma, Zylinder, Pyramide, Kegel und Kugel an und erkennen Körper aus ihren Darstellungen. Typische Aufgaben: Würfelnetze prüfen, Schrägbild eines Prismas als Handskizze zeichnen, Netz eines Zylinders entwerfen.</p>
+<p class="leise">Schlüsselwörter: Netz, Schrägbild, Körpermodell, Kantenmodell, Raumvorstellung</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=netze-schraegbilder-modelle">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="parallel-senkrecht-abstand"><details><summary><strong>Fachbegriffe parallel, senkrecht, Abstand; Lagebeziehungen von Geraden</strong> · Jahrgang 5 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> benennen und beschreiben geometrische Objekte und Beziehungen in der Umwelt mit Hilfe mathematischer Modelle (Punkte, Winkel, Strecken, Geraden, Flächen, Körper) und ihre Zusammenhänge</blockquote>
+<p>Die Lernenden verwenden die Begriffe Punkt, Strecke, Gerade, Ebene, parallel und senkrecht, zeichnen Parallelen und Lote mit dem Geodreieck und messen Abstände zwischen Punkt und Gerade oder zwischen parallelen Geraden. Typische Aufgaben: Lagebeziehungen in der Umwelt benennen, Abstand eines Punktes von einer Geraden messen.</p>
+<p class="leise">Schlüsselwörter: parallel, senkrecht, Abstand, Gerade, Strecke, Lagebeziehung, Lot</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=parallel-senkrecht-abstand">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="satz-des-pythagoras"><details><summary><strong>Satz des Pythagoras und seine Umkehrung (Satzgruppe des Pythagoras)</strong> · Jahrgang 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> wenden Sätze der ebenen Geometrie (insbesondere den Satz des Pythagoras, den Satz des Thales, Ähnlichkeitsbeziehungen und trigonometrische Beziehungen) bei Konstruktionen, Berechnungen, Begründungen und Beweisen an</blockquote>
+<p>Die Lernenden kennen den Satz des Pythagoras mit Umkehrung, Höhen- und Kathetensatz, vollziehen einen vollständigen Beweis nach und berechnen Streckenlängen in ebenen und räumlichen Figuren. Typische Aufgaben: fehlende Dreiecksseite berechnen, Raumdiagonale im Quader, Höhe im gleichseitigen Dreieck, rechten Winkel prüfen.</p>
+<p class="leise">Schlüsselwörter: Pythagoras, Kathete, Hypotenuse, Höhensatz, Kathetensatz, Raumdiagonale, Beweis</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=satz-des-pythagoras">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="satz-des-thales"><details><summary><strong>Satz des Thales</strong> · Jahrgang 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> wenden Sätze der ebenen Geometrie (insbesondere den Satz des Pythagoras, den Satz des Thales, Ähnlichkeitsbeziehungen und trigonometrische Beziehungen) bei Konstruktionen, Berechnungen, Begründungen und Beweisen an</blockquote>
+<p>Die Lernenden kennen den Satz des Thales und seine Umkehrung und nutzen den Thaleskreis bei Konstruktionen, etwa für Tangenten an einen Kreis oder rechtwinklige Dreiecke. Typische Aufgaben: rechtwinkliges Dreieck über dem Durchmesser konstruieren, Tangente von einem Punkt an einen Kreis konstruieren.</p>
+<p class="leise">Schlüsselwörter: Thales, Thaleskreis, rechter Winkel, Halbkreis, Tangente</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=satz-des-thales">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="symmetrie"><details><summary><strong>Symmetrieeigenschaften von Figuren (Achsen-, Punkt- und Drehsymmetrie)</strong> · Jahrgang 5, 6, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> erkennen, beschreiben und begründen Eigenschaften und Beziehungen geometrischer Objekte (z. B. Symmetrie, Idee der Kongruenz, Ähnlichkeit, Lagebeziehungen) und nutzen diese im Rahmen des Problemlösens</blockquote>
+<p>Die Lernenden erkennen achsen-, punkt- und drehsymmetrische Figuren, zeichnen Symmetrieachsen ein, stellen symmetrische Figuren her und nutzen Symmetrie als Ordnungsprinzip für Figuren. Typische Aufgaben: Symmetrieachsen in Buchstaben und Verkehrsschildern finden, Figuren im Gitternetz spiegeln, Vierecke nach Symmetrie sortieren.</p>
+<p class="leise">Schlüsselwörter: Achsensymmetrie, Punktsymmetrie, Drehsymmetrie, Symmetrieachse, symmetrische Figuren</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=symmetrie">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="trigonometrie"><details><summary><strong>Trigonometrische Beziehungen (sin, cos, tan) bei rechtwinkligen und allgemeinen Dreiecken</strong> · Jahrgang 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> wenden Sätze der ebenen Geometrie (insbesondere den Satz des Pythagoras, den Satz des Thales, Ähnlichkeitsbeziehungen und trigonometrische Beziehungen) bei Konstruktionen, Berechnungen, Begründungen und Beweisen an</blockquote>
+<p>Die Lernenden definieren Sinus, Kosinus und Tangens als Längenverhältnisse im rechtwinkligen Dreieck und am Einheitskreis, berechnen Seiten und Winkel in rechtwinkligen und mit Sinus- und Kosinussatz in allgemeinen Dreiecken. Typische Aufgaben: Steigungswinkel einer Straße, Höhe eines Turms, Winkel zu gegebenem Sinuswert bestimmen.</p>
+<p class="leise">Schlüsselwörter: Sinus, Kosinus, Tangens, Einheitskreis, Sinussatz, Kosinussatz, Steigungswinkel</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=trigonometrie">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="vierecke-grundfiguren"><details><summary><strong>Parallelogramm, Trapez, Raute, Drachen und Kreis als Grundfiguren</strong> · Jahrgang 7, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> analysieren und klassifizieren geometrische Objekte der Ebene (insbesondere Winkel, Dreiecke, Vierecke) und des Raumes (insbesondere Prismen, Pyramiden, Zylinder, Kegel, Kugel)</blockquote>
+<p>Die Lernenden kennen die besonderen Vierecke und ihre Eigenschaften (parallele Seiten, gleich lange Seiten, Diagonalen, Symmetrie) sowie den Kreis mit Sehne, Sekante und Tangente. Typische Aufgaben: Vierecke anhand von Eigenschaften bestimmen, Höhen einzeichnen, Kreis und Gerade in Lage bringen.</p>
+<p class="leise">Schlüsselwörter: Parallelogramm, Trapez, Raute, Drachen, Viereck, Höhe</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=vierecke-grundfiguren">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+  </ul>
+</section>
+<section class="leitidee" id="funktionaler-zusammenhang">
+  <h2>Strukturen und funktionaler Zusammenhang</h2>
+  <ul class="baum liste">
+<li id="dreisatz"><details><summary><strong>Dreisatzmethoden</strong> · Jahrgang 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> lösen realitätsnahe Probleme im Zusammenhang mit linearen, proportionalen und antiproportionalen Zuordnungen, ggf. auch mit Hilfe des Dreisatzes</blockquote>
+<p>Die Lernenden lösen Sachaufgaben zu proportionalen und antiproportionalen Zuordnungen mit dem Dreisatz über den Schritt auf die Einheit. Typische Aufgaben: Preis für 7 kg aus dem Preis für 3 kg, Arbeitszeit bei mehr Arbeitern, Bewegungsaufgaben mit Geschwindigkeit.</p>
+<p class="leise">Schlüsselwörter: Dreisatz, Schlussrechnung, Einheitsschritt, doppelter Dreisatz, Sachaufgabe</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=dreisatz">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="exponentialfunktionen"><details><summary><strong>Exponentialfunktionen und Modellierung von Wachstums- und Zerfallsprozessen</strong> · Jahrgang 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> wenden insbesondere lineare und quadratische Funktionen sowie Exponentialfunktionen der Form f(x) = a · b^x bei der Beschreibung und Bearbeitung von Problemen an</blockquote>
+<p>Die Lernenden beschreiben Wachstums- und Zerfallsprozesse mit Exponentialfunktionen der Form a · b^x, deuten Wachstumsfaktor, Verdopplungs- und Halbierungszeit, vergleichen exponentielles mit linearem und quadratischem Wachstum und beurteilen Modelle anhand realer Daten. Typische Aufgaben: Bakterienwachstum, Verzinsung, radioaktiver Zerfall, Bevölkerungsprognose mit Tabellenkalkulation.</p>
+<p class="leise">Schlüsselwörter: Exponentialfunktion, exponentielles Wachstum, Zerfall, Wachstumsfaktor, Verdopplungszeit, Halbwertszeit, Modellierung</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=exponentialfunktionen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="funktionen-darstellung"><details><summary><strong>Darstellung von Funktionen (Funktionsgleichung, Tabelle, Graph) und Darstellungswechsel</strong> · Jahrgang 8, 9, 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen kennzeichnende Merkmale von Funktionen im Funktionsterm, Graph und der Wertetabelle und stellen Beziehungen zwischen den Darstellungen her</blockquote>
+<p>Die Lernenden wechseln sicher zwischen Funktionsgleichung, Wertetabelle und Graph, bestimmen kennzeichnende Merkmale in jeder Darstellung und kennen die Grundidee der Umkehrfunktion. Typische Aufgaben: aus dem Graphen die Gleichung bestimmen, Wertetabelle mit Tabellenkalkulation erstellen, Graph und Term einander zuordnen.</p>
+<p class="leise">Schlüsselwörter: Funktionsgleichung, Wertetabelle, Graph, Darstellungswechsel, Funktionsbegriff, Definitionsbereich, Umkehrfunktion</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=funktionen-darstellung">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="lineare-funktionen"><details><summary><strong>Lineare Funktionen und ihre Eigenschaften</strong> · Jahrgang 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen kennzeichnende Merkmale von Funktionen im Funktionsterm, Graph und der Wertetabelle und stellen Beziehungen zwischen den Darstellungen her</blockquote>
+<p>Die Lernenden beschreiben lineare Funktionen durch Funktionsgleichung, Tabelle und Graph, bestimmen Steigung, Achsenabschnitt und Nullstelle, führen Punktproben durch und deuten die Steigung im Sachzusammenhang. Typische Aufgaben: Gerade zu einer Gleichung zeichnen, Gleichung aus Graph ablesen, Handytarife vergleichen.</p>
+<p class="leise">Schlüsselwörter: lineare Funktion, Steigung, y-Achsenabschnitt, Steigungsdreieck, Nullstelle, Gerade, Punktprobe, lineares Wachstum</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=lineare-funktionen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="lineare-gleichungen"><details><summary><strong>Lösen von linearen Gleichungen und Vergleich der Lösungsverfahren</strong> · Jahrgang 5, 7, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> lösen lineare und quadratische Gleichungen sowie lineare Gleichungssysteme numerisch (systematisches Probieren), algebraisch (Umformen) und grafisch (mit Hilfe von Funktionsgraphen) und vergleichen die Effektivität verschiedener Lösungsverfahren</blockquote>
+<p>Die Lernenden lösen lineare Gleichungen durch systematisches Probieren, Äquivalenzumformungen und graphisch, geben Lösungsmengen an (auch die leere Menge), stellen Formeln um und vergleichen die Verfahren hinsichtlich ihrer Eignung. Typische Aufgaben: Gleichungen mit Klammern und Brüchen lösen, Textaufgaben in Gleichungen übersetzen, Lösungsweg begründen.</p>
+<p class="leise">Schlüsselwörter: lineare Gleichung, Äquivalenzumformung, Lösungsmenge, systematisches Probieren, Formel umstellen, Lösungsverfahren</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=lineare-gleichungen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="lineare-gleichungssysteme"><details><summary><strong>Lösen von linearen 2x2-Gleichungssystemen</strong> · Jahrgang 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> lösen lineare und quadratische Gleichungen sowie lineare Gleichungssysteme numerisch (systematisches Probieren), algebraisch (Umformen) und grafisch (mit Hilfe von Funktionsgraphen) und vergleichen die Effektivität verschiedener Lösungsverfahren</blockquote>
+<p>Die Lernenden lösen Systeme aus zwei linearen Gleichungen mit zwei Variablen graphisch sowie mit Einsetzungs-, Gleichsetzungs- und Additionsverfahren, kennen alle Lösungsfälle und wenden das Verfahren auf Sachaufgaben an. Typische Aufgaben: Tarifvergleiche, Mischungsaufgaben, Schnittpunkt zweier Geraden.</p>
+<p class="leise">Schlüsselwörter: Gleichungssystem, Einsetzungsverfahren, Gleichsetzungsverfahren, Additionsverfahren, graphisches Lösen, Lösungsfälle</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=lineare-gleichungssysteme">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="logarithmen"><details><summary><strong>Logarithmen und Logarithmusfunktionen</strong> · Jahrgang 10 · keine App</summary>
+<div>
+<p class="leise">Kein KMK-Standard: landesspezifische Verfeinerung.</p>
+<p>Die Lernenden verstehen den Logarithmus als Umkehrung des Potenzierens, wenden die Logarithmengesetze an, lösen einfache Exponentialgleichungen und kennen die Logarithmusfunktion als Umkehrfunktion der Exponentialfunktion sowie logarithmische Skalen. Landesspezifischer Inhalt des G9-Lehrplans Hessen (10.2); die KMK-Bildungsstandards für den MSA enthalten keinen Logarithmus. Typische Aufgaben: 2^x = 50 lösen, Logarithmen mit dem Taschenrechner umrechnen, pH-Wert oder Lautstärke deuten.</p>
+<p class="leise">Schlüsselwörter: Logarithmus, Logarithmengesetze, Logarithmusfunktion, Exponentialgleichung, logarithmische Skala</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=logarithmen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="nichtproportionale-zusammenhaenge"><details><summary><strong>Grundvorstellungen zu nicht-proportionalen funktionalen Zusammenhängen und ihre Darstellung</strong> · Jahrgang 8, 9, 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> beschreiben Veränderungen von Größen mittels Funktionen (auch nicht lineare Veränderungen), auch unter Verwendung digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden erkennen Zusammenhänge, die weder proportional noch linear sind, beschreiben Veränderungen von Größen qualitativ und quantitativ und stellen sie sprachlich, tabellarisch oder graphisch dar. Typische Aufgaben: Füllstand eines kegelförmigen Gefäßes, Bremsweg in Abhängigkeit von der Geschwindigkeit, lineares, quadratisches und exponentielles Wachstum vergleichen.</p>
+<p class="leise">Schlüsselwörter: nichtlinear, Wachstum, Veränderung, Funktionsbegriff, Modellieren, Vergleich von Funktionen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=nichtproportionale-zusammenhaenge">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="potenzfunktionen"><details><summary><strong>Einfache Potenzfunktionen und Wurzelfunktionen</strong> · Jahrgang 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen kennzeichnende Merkmale von Funktionen im Funktionsterm, Graph und der Wertetabelle und stellen Beziehungen zwischen den Darstellungen her</blockquote>
+<p>Die Lernenden kennen typische Potenzfunktionen (Exponenten 2, 3, 4, −1, −2), beschreiben Symmetrie und Verlauf ihrer Graphen, verschieben und strecken sie und verstehen Wurzelfunktionen als Umkehrung eingeschränkter Potenzfunktionen. Typische Aufgaben: Graphen von x³ und x^−1 skizzieren, Umkehrfunktion bestimmen, Gleichungen x^n = a lösen.</p>
+<p class="leise">Schlüsselwörter: Potenzfunktion, Wurzelfunktion, Parabel n-ter Ordnung, Hyperbel, Umkehrfunktion, Symmetrie des Graphen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=potenzfunktionen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="proportional-antiproportional"><details><summary><strong>Proportionale und antiproportionale Zuordnungen und ihre Eigenschaften</strong> · Jahrgang 7, 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> analysieren, interpretieren und vergleichen unterschiedliche funktionale Zusammenhänge (lineare, proportionale und antiproportionale sowie quadratische Funktionen)</blockquote>
+<p>Die Lernenden unterscheiden proportionale und antiproportionale Zuordnungen anhand von Vielfachen-, Quotienten- und Produktgleichheit, stellen sie sprachlich, tabellarisch und graphisch dar und erkennen die Ursprungsgerade als Graph proportionaler Zuordnungen. Typische Aufgaben: Zuordnungstyp aus einer Tabelle bestimmen, Proportionalitätsfaktor ablesen, Graphen vergleichen.</p>
+<p class="leise">Schlüsselwörter: proportional, antiproportional, Proportionalitätsfaktor, Quotientengleichheit, Produktgleichheit, Ursprungsgerade, Hyperbel</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=proportional-antiproportional">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="quadratische-funktionen"><details><summary><strong>Quadratische Funktionen und Parabeln</strong> · Jahrgang 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> wenden insbesondere lineare und quadratische Funktionen sowie Exponentialfunktionen der Form f(x) = a · b^x bei der Beschreibung und Bearbeitung von Problemen an</blockquote>
+<p>Die Lernenden beschreiben quadratische Funktionen über Normalparabel, Scheitelpunkt, Nullstellen und die Abbildungen Verschieben, Strecken, Stauchen und Spiegeln, und wenden sie bei Extremalproblemen an. Landesspezifische Konkretisierung des G9-Lehrplans (9.3); der KMK-Standard nennt quadratische Funktionen als Anwendungsklasse. Typische Aufgaben: Scheitelpunkt bestimmen, Parabel aus Gleichung zeichnen, maximale Rechteckfläche bei festem Umfang.</p>
+<p class="leise">Schlüsselwörter: quadratische Funktion, Parabel, Normalparabel, Scheitelpunkt, Scheitelpunktform, Nullstellen, Verschieben, Strecken, Extremalproblem</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=quadratische-funktionen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="quadratische-gleichungen"><details><summary><strong>Lösen von quadratischen Gleichungen</strong> · Jahrgang 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> lösen lineare und quadratische Gleichungen sowie lineare Gleichungssysteme numerisch (systematisches Probieren), algebraisch (Umformen) und grafisch (mit Hilfe von Funktionsgraphen) und vergleichen die Effektivität verschiedener Lösungsverfahren</blockquote>
+<p>Die Lernenden lösen quadratische Gleichungen graphisch, durch quadratische Ergänzung, Lösungsformel und Faktorisieren, führen Sonderformen wie biquadratische, einfache Bruch- und Wurzelgleichungen auf bekannte Fälle zurück und untersuchen die Anzahl der Lösungen. Typische Aufgaben: x² − 5x + 6 = 0 lösen, Sachprobleme zu Flächen und Wurfbewegungen, Diskriminante deuten.</p>
+<p class="leise">Schlüsselwörter: quadratische Gleichung, p-q-Formel, Lösungsformel, quadratische Ergänzung, Faktorisieren, Linearfaktoren, biquadratisch, Lösbarkeit</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=quadratische-gleichungen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="sinusfunktion"><details><summary><strong>Sinus- und Kosinusfunktion und ihre wesentlichen Eigenschaften</strong> · Jahrgang 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> verwenden die Sinusfunktion in der Form f(x) = a · sin(b · x) zur Beschreibung periodischer Vorgänge mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden definieren Sinus- und Kosinusfunktion über den Einheitskreis, beschreiben Symmetrie und Periodizität ihrer Graphen und nutzen sie zur Beschreibung periodischer Vorgänge. Typische Aufgaben: Graph der Sinusfunktion skizzieren, Tageslänge im Jahresverlauf modellieren, Amplitude und Periode ablesen.</p>
+<p class="leise">Schlüsselwörter: Sinusfunktion, Kosinusfunktion, Periodizität, Amplitude, Einheitskreis, Bogenmaß, periodische Vorgänge</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=sinusfunktion">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="ungleichungen"><details><summary><strong>Lösen von Ungleichungen</strong> · Jahrgang 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> untersuchen Fragen der Lösbarkeit und der Lösungsvielfalt von linearen und quadratischen Gleichungen sowie linearen Gleichungssystemen und formulieren diesbezüglich Aussagen</blockquote>
+<p>Die Lernenden lösen lineare Ungleichungen durch Äquivalenzumformungen, beachten die Umkehr des Relationszeichens bei negativen Faktoren und veranschaulichen Lösungsmengen auf der Zahlengeraden. Typische Aufgaben: 3x − 5 &lt; 7 lösen, Lösungsmenge markieren, Bedingungen aus Sachtexten als Ungleichung formulieren.</p>
+<p class="leise">Schlüsselwörter: Ungleichung, Lösungsmenge, Zahlengerade, Äquivalenzumformung, Intervall</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=ungleichungen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zuordnungen"><details><summary><strong>Zuordnungen von Größen und ihre Darstellung in Schaubildern, Tabellen und Sprache</strong> · Jahrgang 5, 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> erkennen und verwenden funktionale Zusammenhänge und stellen diese in verschiedenen Repräsentationen dar (sprachlich, tabellarisch, grafisch, algebraisch) und können zwischen diesen Darstellungsformen wechseln</blockquote>
+<p>Die Lernenden erkennen Zuordnungen zwischen Größen im Alltag, stellen sie in Tabellen, Schaubildern und sprachlich dar und analysieren sie qualitativ (je mehr, desto mehr; je mehr, desto weniger). Typische Aufgaben: Füllgraphen deuten, Wertetabelle aus einem Text erstellen, Graphen einer Sachsituation zuordnen.</p>
+<p class="leise">Schlüsselwörter: Zuordnung, Wertetabelle, Schaubild, Graph, je mehr desto, Darstellungswechsel</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=zuordnungen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+  </ul>
+</section>
+<section class="leitidee" id="daten-und-zufall">
+  <h2>Daten und Zufall</h2>
+  <ul class="baum liste">
+<li id="daten-darstellen"><details><summary><strong>Darstellung von Daten in Listen, Tabellen und Diagrammen (Säulen-, Kreis-, Streifen-, Liniendiagramm, Boxplot)</strong> · Jahrgang 5, 7, 8, 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> erstellen und interpretieren Diagramme (z. B. Säulen- oder Balkendiagramm, Histogramme, Kreisdiagramm, Liniendiagramm, Boxplot) und begründen die gewählte Darstellungsform</blockquote>
+<p>Die Lernenden organisieren Daten in Strichlisten und Häufigkeitstabellen, erstellen und lesen Säulen-, Balken-, Kreis-, Streifen- und Liniendiagramme sowie Boxplots, auch mit Tabellenkalkulation, und begründen die gewählte Darstellung. Der Boxplot steht im KC für 7/8, fehlt aber im G9-Lehrplan. Typische Aufgaben: Umfrageergebnis als Kreisdiagramm, manipulative Diagramme in Medien erkennen, Boxplot aus Quartilen zeichnen.</p>
+<p class="leise">Schlüsselwörter: Säulendiagramm, Balkendiagramm, Kreisdiagramm, Streifendiagramm, Liniendiagramm, Boxplot, Häufigkeitstabelle, Strichliste, Tabellenkalkulation</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=daten-darstellen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="haeufigkeiten"><details><summary><strong>Absolute und relative Häufigkeiten als Schätzwerte für Wahrscheinlichkeiten</strong> · Jahrgang 5, 6, 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen und deuten bei der Durchführung von Zufallsexperimenten die auftretenden relativen Häufigkeiten als Schätzwerte von Wahrscheinlichkeiten, die bei wachsendem Stichprobenumfang besser werden</blockquote>
+<p>Die Lernenden bestimmen absolute und relative Häufigkeiten aus Daten und Zufallsversuchen, deuten relative Häufigkeiten als Schätzwerte für Wahrscheinlichkeiten und erkennen, dass die Schätzung mit wachsendem Stichprobenumfang besser wird. Typische Aufgaben: Häufigkeitstabelle zu einer Würfelserie, relative Häufigkeit in Prozent, Reißzweckenwurf auswerten.</p>
+<p class="leise">Schlüsselwörter: absolute Häufigkeit, relative Häufigkeit, Häufigkeitsverteilung, Schätzwert, Stichprobenumfang, empirisches Gesetz der großen Zahlen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=haeufigkeiten">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="kenngroessen-lage-streumasse"><details><summary><strong>Kenngrößen von Daten: Häufigkeiten, Lagemaße (Median, arithmetisches Mittel, Modalwert) und Streumaße (Spannweite, Quartile, Standardabweichung)</strong> · Jahrgang 6, 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> ermitteln und interpretieren Kenngrößen (z. B. Minimum, Maximum, arithmetisches Mittel, Median, Spannweite, Quartile)</blockquote>
+<p>Die Lernenden bestimmen und interpretieren Kenngrößen von Datenreihen: absolute und relative Häufigkeiten, Modalwert, Median, arithmetisches Mittel, Spannweite, Quartile und Standardabweichung, auch mit Rechner oder Tabellenkalkulation. Typische Aufgaben: Notendurchschnitt und Median vergleichen, Ausreißer erkennen, Streuung zweier Messreihen beurteilen.</p>
+<p class="leise">Schlüsselwörter: Median, Zentralwert, arithmetisches Mittel, Modalwert, Spannweite, Quartile, Standardabweichung, Lagemaß, Streumaß</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=kenngroessen-lage-streumasse">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="simulationen"><details><summary><strong>Simulation von Zufallsversuchen mit Zufallszahlen und Tabellenkalkulation</strong> · Jahrgang 8 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> nutzen Simulationen, um stochastische Fragen zu entscheiden</blockquote>
+<p>Die Lernenden simulieren einfache Zufallsversuche mit Zufallszahlen, Tabellenkalkulation oder Stochastiktools, werten große Datenmengen aus und nutzen Simulationen, um stochastische Fragen zu entscheiden. Typische Aufgaben: Würfelwurf 1000-mal simulieren, relative Häufigkeiten gegen die Wahrscheinlichkeit auftragen, Wartezeitprobleme simulieren.</p>
+<p class="leise">Schlüsselwörter: Simulation, Zufallszahlen, Pseudozufallszahlen, Tabellenkalkulation, Zufallsgenerator, Gesetz der großen Zahlen</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=simulationen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="umfragen-erhebungen"><details><summary><strong>Umfragen und statistische Erhebungen (Planung, Durchführung, Auswertung)</strong> · Jahrgang 5, 9 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> planen statistische Erhebungen, auch unter den Aspekten Stichprobenauswahl und Erhebungsinstrument</blockquote>
+<p>Die Lernenden planen einfache Umfragen und Erhebungen, wählen Stichprobe und Erhebungsinstrument, führen sie durch, werten sie aus und beurteilen die Aussagekraft von Statistiken im realen Kontext. Typische Aufgaben: Klassenumfrage zum Schulweg planen, Merkmale nach Skalenniveau ordnen, Stichprobe und Gesamtheit unterscheiden.</p>
+<p class="leise">Schlüsselwörter: Umfrage, Erhebung, Stichprobe, Gesamtheit, Fragebogen, Datenerhebung, Skalenniveau</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=umfragen-erhebungen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="wahrscheinlichkeit"><details><summary><strong>Wahrscheinlichkeitsrechnung bei ein-, zwei- und mehrstufigen Zufallsexperimenten</strong> · Jahrgang 7, 10 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen Wahrscheinlichkeiten bei ein- oder mehrstufigen Zufallsexperimenten, auch mit Hilfe entsprechender Visualisierungen (z. B. Baumdiagramm, Vierfeldertafel), ohne und mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Überbegriff für die Teilkompetenzen der Wahrscheinlichkeitsrechnung: Grundbegriffe (Zufallsversuch, Ergebnis, Ereignis), Laplace-Wahrscheinlichkeit, Gegenereignis, Baumdiagramme, Pfadregeln und Ziehen ohne Zurücklegen. Die Lernenden bestimmen Wahrscheinlichkeiten bei ein-, zwei- und mehrstufigen Zufallsexperimenten mit geeigneten Visualisierungen und mathematisieren mehrstufige Versuche durch systematische Zählstrategien.</p>
+<p class="leise">Schlüsselwörter: Wahrscheinlichkeit, Zufallsexperiment, einstufig, zweistufig, mehrstufig, Ereignis, Ergebnismenge, Elementarereignis</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=wahrscheinlichkeit">In der interaktiven Karte</a></p>
+</div></details>
+<ul class="liste">
+<li id="zufall-baumdiagramm"><details><summary><strong>Baumdiagramme und Vierfeldertafeln zu mehrstufigen Zufallsexperimenten</strong> · Jahrgang 7, 10 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen Wahrscheinlichkeiten bei ein- oder mehrstufigen Zufallsexperimenten, auch mit Hilfe entsprechender Visualisierungen (z. B. Baumdiagramm, Vierfeldertafel), ohne und mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden zeichnen Baumdiagramme zu zwei- und mehrstufigen Zufallsexperimenten, tragen Zweigwahrscheinlichkeiten ein (die Zweige an einem Knoten ergeben zusammen 1) und nutzen Vierfeldertafeln, um Häufigkeiten und bedingte Wahrscheinlichkeiten zu strukturieren. Typische Aufgaben: Baum für zweimaliges Ziehen aus einer Urne, fehlende Zweigwahrscheinlichkeiten ergänzen, Vierfeldertafel aus Textangaben füllen.</p>
+<p class="leise">Schlüsselwörter: Baumdiagramm, Wahrscheinlichkeitsbaum, Vierfeldertafel, Stufe, Zweig, Pfad, Zweigwahrscheinlichkeit</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/zufall/">Zufall-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=zufall-baumdiagramm">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zufall-ereignis-uebersetzen"><details><summary><strong>Ereignisse in Pfade übersetzen (genau einmal, mindestens einmal, alle gleich) und Abzählstrategien</strong> · Jahrgang 7, 10 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen Wahrscheinlichkeiten bei ein- oder mehrstufigen Zufallsexperimenten, auch mit Hilfe entsprechender Visualisierungen (z. B. Baumdiagramm, Vierfeldertafel), ohne und mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden übersetzen sprachlich formulierte Ereignisse wie &quot;genau einmal&quot;, &quot;mindestens einmal&quot;, &quot;höchstens zweimal&quot; oder &quot;alle gleich&quot; in die passenden Pfade eines Baumdiagramms und nutzen systematische Abzählstrategien, um mehrstufige Zufallsversuche zu mathematisieren. Typische Aufgaben: Pfade zu &quot;genau eine Sechs bei drei Würfen&quot; markieren, passenden Term aus mehreren auswählen, Situation auf ein Urnenmodell abbilden.</p>
+<p class="leise">Schlüsselwörter: genau einmal, mindestens einmal, höchstens, alle gleich, Abzählstrategie, Zählprinzip, Modellierung</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/zufall/">Zufall-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=zufall-ereignis-uebersetzen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zufall-ergebnisform"><details><summary><strong>Wahrscheinlichkeiten als Bruch, Dezimalzahl, Prozent oder Rechenterm angeben</strong> · Jahrgang 7 · 1 App · ungeprüft</summary>
+<div>
+<p class="leise">Kein KMK-Standard: landesspezifische Verfeinerung.</p>
+<p>Die Lernenden geben Wahrscheinlichkeiten in der jeweils passenden Form an - als gekürzter Bruch, Dezimalzahl, Prozentangabe oder als stehen gelassener Rechenterm (Produkt, Summe, Potenz) - und wechseln zwischen den Formen. Landesspezifische Verfeinerung; sie verbindet Bruch- und Prozentrechnung mit der Stochastik, wie der G9-Lehrplan es für 7.4 vorsieht. Typische Aufgaben: 3/6 · 2/5 als Bruch und Prozent, 1 − (5/6)³ als Dezimalzahl.</p>
+<p class="leise">Schlüsselwörter: Bruch, Dezimalzahl, Prozent, Produkt, Summe, Potenz, Darstellungsform, Ergebnisform</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/zufall/">Zufall-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=zufall-ergebnisform">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zufall-gegenereignis"><details><summary><strong>Gegenereignis: P(nicht E) = 1 − P(E), besonders für „mindestens einmal“</strong> · Jahrgang 7, 10 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen Wahrscheinlichkeiten bei ein- oder mehrstufigen Zufallsexperimenten, auch mit Hilfe entsprechender Visualisierungen (z. B. Baumdiagramm, Vierfeldertafel), ohne und mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden bilden zu einem Ereignis das Gegenereignis, berechnen dessen Wahrscheinlichkeit als 1 − P(E) und nutzen es für Fragestellungen wie &quot;mindestens einmal&quot; bei mehrstufigen Versuchen. Typische Aufgaben: Wahrscheinlichkeit für keine Sechs bei drei Würfen, mindestens ein Treffer, Additionssatz für unvereinbare Ereignisse.</p>
+<p class="leise">Schlüsselwörter: Gegenereignis, Komplement, mindestens einmal, Additionssatz, Gegenwahrscheinlichkeit</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/zufall/">Zufall-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=zufall-gegenereignis">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zufall-laplace"><details><summary><strong>Laplace-Wahrscheinlichkeit: günstige durch mögliche Ergebnisse</strong> · Jahrgang 7 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen Wahrscheinlichkeiten bei ein- oder mehrstufigen Zufallsexperimenten, auch mit Hilfe entsprechender Visualisierungen (z. B. Baumdiagramm, Vierfeldertafel), ohne und mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden erkennen Laplace-Experimente mit gleichwahrscheinlichen Ergebnissen und berechnen die Wahrscheinlichkeit eines Ereignisses als Anzahl der günstigen durch Anzahl der möglichen Ergebnisse. Typische Aufgaben: Wahrscheinlichkeit für eine gerade Augenzahl, Ziehen einer roten Kugel aus einer Urne, Gewinnchance beim Glücksrad oder mit zwei Würfeln.</p>
+<p class="leise">Schlüsselwörter: Laplace, Laplace-Formel, günstige Ergebnisse, mögliche Ergebnisse, gleichwahrscheinlich, Würfel, Urne, Glücksrad</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/zufall/">Zufall-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=zufall-laplace">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zufall-ohne-zuruecklegen"><details><summary><strong>Ziehen ohne Zurücklegen: Zähler und Nenner ändern sich</strong> · Jahrgang 7 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen Wahrscheinlichkeiten bei ein- oder mehrstufigen Zufallsexperimenten, auch mit Hilfe entsprechender Visualisierungen (z. B. Baumdiagramm, Vierfeldertafel), ohne und mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden unterscheiden Ziehen mit und ohne Zurücklegen und passen beim Ziehen ohne Zurücklegen Nenner und Zähler der Zweigwahrscheinlichkeiten von Stufe zu Stufe an. Landesspezifische Verfeinerung der zweistufigen Zufallsexperimente aus dem KC. Typische Aufgaben: zwei Kugeln nacheinander ohne Zurücklegen ziehen, Lose aus einer Lostrommel, Wahrscheinlichkeit der zweiten Kugel bei bekannter erster.</p>
+<p class="leise">Schlüsselwörter: ohne Zurücklegen, mit Zurücklegen, Urnenmodell, zweistufig, abhängige Züge</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/zufall/">Zufall-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=zufall-ohne-zuruecklegen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zufall-pfadregel-1"><details><summary><strong>Erste Pfadregel (Multiplikationsregel): entlang eines Pfades multiplizieren</strong> · Jahrgang 7, 10 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen Wahrscheinlichkeiten bei ein- oder mehrstufigen Zufallsexperimenten, auch mit Hilfe entsprechender Visualisierungen (z. B. Baumdiagramm, Vierfeldertafel), ohne und mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden berechnen die Wahrscheinlichkeit eines Pfades im Baumdiagramm als Produkt der Zweigwahrscheinlichkeiten. Typische Aufgaben: erst rot, dann blau ziehen; dreimal Kopf bei drei Münzwürfen; Wahrscheinlichkeit einer bestimmten Reihenfolge.</p>
+<p class="leise">Schlüsselwörter: Pfadregel, Produktregel, Multiplikationsregel, Pfadwahrscheinlichkeit, Pfadmultiplikationsregel</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/zufall/">Zufall-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=zufall-pfadregel-1">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zufall-pfadregel-2"><details><summary><strong>Zweite Pfadregel (Additionsregel): Pfade eines Ereignisses addieren</strong> · Jahrgang 7, 10 · 1 App · ungeprüft</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> bestimmen Wahrscheinlichkeiten bei ein- oder mehrstufigen Zufallsexperimenten, auch mit Hilfe entsprechender Visualisierungen (z. B. Baumdiagramm, Vierfeldertafel), ohne und mit Hilfe digitaler Mathematikwerkzeuge</blockquote>
+<p>Die Lernenden bestimmen die Wahrscheinlichkeit eines Ereignisses, das aus mehreren Pfaden besteht, als Summe der einzelnen Pfadwahrscheinlichkeiten. Typische Aufgaben: genau einmal rot bei zwei Zügen, beide Kugeln gleichfarbig, Summe 7 bei zwei Würfeln über den Baum.</p>
+<p class="leise">Schlüsselwörter: Pfadregel, Summenregel, Additionsregel, Pfadadditionsregel, Ereignis aus mehreren Pfaden</p>
+<p>Apps: <a href="https://lernapps.github.io/mathe-karte/zufall/">Zufall-Trainer</a>
+· <a href="index.html?land=HE&amp;knoten=zufall-pfadregel-2">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+</ul>
+</li>
+<li id="wahrscheinlichkeitsbegriff"><details><summary><strong>Verschiedene Vorstellungen vom Wahrscheinlichkeitsbegriff (Chance, Häufigkeit, Laplace)</strong> · Jahrgang 6, 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> beschreiben Zufallserscheinungen und interpretieren Wahrscheinlichkeitsaussagen und ihre Darstellungen in Medien</blockquote>
+<p>Die Lernenden kennen Wahrscheinlichkeit als Chance bei einem Zufallsversuch, als Prognose relativer Häufigkeiten und als Verhältnis günstiger zu möglichen Ergebnissen und ordnen Wahrscheinlichkeiten auf einer Skala von 0 bis 1 ein. Typische Aufgaben: Gewinnchancen vergleichen, Wahrscheinlichkeit als Bruch, Dezimalzahl und Prozent angeben, faire Spiele erkennen.</p>
+<p class="leise">Schlüsselwörter: Wahrscheinlichkeitsbegriff, Gewinnchance, frequentistisch, Laplace, subjektive Wahrscheinlichkeit, Wahrscheinlichkeitsskala</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=wahrscheinlichkeitsbegriff">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+<li id="zufallserscheinungen"><details><summary><strong>Zufallserscheinungen in alltäglichen Situationen</strong> · Jahrgang 5, 7 · keine App</summary>
+<div>
+<blockquote><strong>KMK-Standard:</strong> beschreiben Zufallserscheinungen und interpretieren Wahrscheinlichkeitsaussagen und ihre Darstellungen in Medien</blockquote>
+<p>Die Lernenden erkennen Zufallserscheinungen im Alltag, beschreiben Zufallsversuche mit ihren möglichen Ergebnissen und deuten Wahrscheinlichkeitsaussagen in Medien wie Regenwahrscheinlichkeit oder Gewinnchancen. Typische Aufgaben: Ergebnismenge beim Würfeln angeben, sichere, mögliche und unmögliche Ereignisse unterscheiden, Wetterbericht deuten.</p>
+<p class="leise">Schlüsselwörter: Zufall, Zufallsversuch, Ergebnis, Glücksspiel, Zufallserscheinung, Wahrscheinlichkeitsaussagen in Medien</p>
+<p>Noch keine App übt diese Kompetenz. <a href="apps.html#eintragen">App eintragen</a>
+· <a href="index.html?land=HE&amp;knoten=zufallserscheinungen">In der interaktiven Karte</a></p>
+</div></details>
+</li>
+  </ul>
+</section>
+
+    </div>
+
+    <dialog class="detail" id="detail" aria-labelledby="detail-titel">
+      <button type="button" class="schliessen" id="detail-schliessen" aria-label="Schließen">✕</button>
+      <div id="detail-inhalt"></div>
+    </dialog>
+
+  </main>
+
+  <footer class="fuss">
+    <p>Mathe-Karte · Lern-Apps Version 0.12.0 · <a href="karte-statisch.html">Statische Liste</a> · <a href="https://github.com/lernapps/mathe-karte/tree/main/src/karte">Quellcode auf GitHub</a> · <a href="ueber.html#datenschutz">Datenschutz</a> · <a href="llms.txt">llms.txt</a> · <a href="../">Alle Lern-Apps</a></p>
+    <p class="melden">Fehler gefunden oder Idee? <a href="https://github.com/lernapps/mathe-karte/issues/new?title=R%C3%BCckmeldung%20zu%20%2Fmathe-karte%2Fkarte%2F%3A%20" title="Öffnet GitHub. Zum Melden brauchst du ein GitHub-Konto.">Auf GitHub melden</a> (GitHub-Konto nötig)</p>
+
+  </footer>
+  <script type="module" src="js/start.js?v=6ec40465"></script>
+</body>
+</html>

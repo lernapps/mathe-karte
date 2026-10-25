@@ -1,0 +1,54 @@
+# Lern-Apps – Übersicht für KI-Tutoren
+
+Basis-URL: https://lernapps.github.io/mathe-karte/
+
+Statische Lern-Apps für Schülerinnen und Schüler (Mathe, Physik, Chemie), eine App je Thema.
+Jede App hat eine Startseite mit Checkliste, je Kompetenz eine Seite (Erklärung, Regel,
+Beispiel, Bild, Video, Übung mit Sofort-Feedback) und einen Test. Details, URL-Parameter und
+Deep-Links stehen in der llms.txt der jeweiligen App. Ein Prompt für den Tutor liegt als
+tutor.md in jeder App. Links an Lernende tragen `von=tutor`: Dann zeigt die App den Knopf
+"Zurück zu Claude", der eine Ergebniszeile kopiert und den Tab schließt.
+Die Apps prüfen nur Ergebnisse. Den Rechenweg prüft der Tutor in zwei Phasen je Kompetenz.
+Beim Lernen erklärt er und bittet um kein Foto. Melden drei Ergebniszeilen derselben Kompetenz
+hintereinander „richtig im 1. Versuch“ oder markiert der Test sie mit ✓, bittet er um eine
+Aufgabe davon ganz von Hand, wie in der Klassenarbeit: als Foto nur vom Blatt, ohne Namen. Er
+prüft jeden Schritt; stimmt alles, ist die Kompetenz arbeitsreif.
+
+## Apps
+
+### Binomische Formeln (Mathematik, Klasse 8)
+
+Binomische Formeln üben, Klasse 8: Klammern multiplizieren, die drei Formeln, rückwärts faktorisieren und geschickt im Kopf rechnen. Mit Flächenbildern und Sofort-Feedback. Ohne Server, ohne Tracking.
+- Start: https://lernapps.github.io/mathe-karte/binom/
+- Für KI: https://lernapps.github.io/mathe-karte/binom/llms.txt
+- Tutor-Prompt: https://lernapps.github.io/mathe-karte/binom/tutor.md
+- Kompetenzen: 1 Zwei Klammern multiplizieren, 2 Erste binomische Formel, 3 Zweite binomische Formel, 4 Dritte binomische Formel, 5 Binome rückwärts, 6 Geschickt rechnen
+
+### Prozent-Trainer (Mathematik, Klasse 8)
+
+Interaktiver Trainer für die Prozentrechnung in Klasse 8: sieben Kompetenzen mit Erklärung, Beispiel, Bild und Übungsaufgaben. Ohne Server, ohne Tracking.
+- Start: https://lernapps.github.io/mathe-karte/prozent/
+- Für KI: https://lernapps.github.io/mathe-karte/prozent/llms.txt
+- Tutor-Prompt: https://lernapps.github.io/mathe-karte/prozent/tutor.md
+- Kompetenzen: 1 Grundwert, Prozentwert und Prozentsatz erkennen, 2 Prozentsatz berechnen, 3 Prozentwert berechnen, 4 Grundwert berechnen, 5 Prozentuale Zunahme und Abnahme, 6 Zwei Werte vergleichen, 7 Sachaufgaben übersetzen
+
+### Zufall-Trainer (Mathematik, Klasse 8)
+
+Wahrscheinlichkeitsrechnung üben, Klasse 8: Laplace-Formel, Baumdiagramm, beide Pfadregeln, Gegenereignis und Ziehen ohne Zurücklegen. Mit Bildern und Sofort-Feedback. Ohne Server, ohne Tracking.
+- Start: https://lernapps.github.io/mathe-karte/zufall/
+- Für KI: https://lernapps.github.io/mathe-karte/zufall/llms.txt
+- Tutor-Prompt: https://lernapps.github.io/mathe-karte/zufall/tutor.md
+- Kompetenzen: 1 Die Laplace-Formel anwenden: P(E) = günstige durch mögliche Ergebnisse, 2 Ein Baumdiagramm zu einem mehrstufigen Zufallsexperiment zeichnen, 3 Die erste Pfadregel anwenden (entlang des Pfades multiplizieren), 4 Die Gegenwahrscheinlichkeit 1 − p berechnen (auch für „mindestens einmal“), 5 Beim Ziehen ohne Zurücklegen die veränderten Wahrscheinlichkeiten bestimmen, 6 Die zweite Pfadregel anwenden (Pfade eines Ereignisses addieren), 7 Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben, 8 „Genau einmal“, „beide gleich“ und „mindestens einmal“ in Pfade übersetzen
+
+
+## Mathe-Karte
+
+Karte der Mathe-Kompetenzen der Sekundarstufe I nach KMK-Leitideen und Lehrplan (Jahrgang,
+Einheit) mit den Apps, die sie üben, und den Lücken.
+- Start: https://lernapps.github.io/mathe-karte/karte/
+- Für KI: https://lernapps.github.io/mathe-karte/karte/llms.txt (URL-Parameter, data.json)
+
+## Architektur
+
+Architektur-Dokumentation nach arc42 (Aufbau, Entscheidungen, Risiken, Qualitätsziele).
+- Start: https://lernapps.github.io/mathe-karte/docs/

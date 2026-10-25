@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Über die Karte – Mathe-Karte</title>
+  <meta name="description" content="Wozu die Mathe-Karte da ist, woher die Daten kommen und wie sie mit Daten umgeht.">
+  <link rel="canonical" href="https://lernapps.github.io/mathe-karte/karte/ueber.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1d4ed8">
+  <link rel="stylesheet" href="../kern/css/stil.css?v=6ec40465">
+  <link rel="stylesheet" href="css/karte.css?v=6ec40465">
+  <style>:root { --farbe-primaer: #1d4ed8; --farbe-primaer-dunkel: #1e3a8a; }</style>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="kopf">
+    <a class="marke" href="index.html">Mathe-Karte</a>
+    <nav class="themen" aria-label="Seiten der Karte">
+      <ul>
+        <li><a href="index.html">Karte</a></li>
+        <li><a href="karte-statisch.html">Liste</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="laender.html">Länder</a></li>
+        <li><a href="ueber.html" aria-current="page">Über</a></li>
+        <li><a href="../">Alle Lern-Apps</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+    <h1>Über die Mathe-Karte</h1>
+
+    <h2>Jede Lern-App ist eine Insel</h2>
+    <p>Wer eine kleine Mathe-App baut, übt damit ein paar Kompetenzen: Prozentsatz berechnen, Baumdiagramm
+    lesen, Gegenereignis bilden. Was fehlt, ist der Blick aufs Ganze. Niemand sieht, welche Kompetenzen
+    des Lehrplans schon eine App haben und welche nicht. Jede App ist eine Insel, und zwischen den Inseln
+    ist Nebel.</p>
+
+    <h2>Die Karte macht den Nebel sichtbar</h2>
+    <p>Die Mathe-Karte legt die Kompetenzen der Sekundarstufe I entlang der fünf KMK-Leitideen aus und
+    verortet sie je Land in Jahrgang und Lehrplaneinheit. Jede eingetragene App wird auf diese Knoten
+    abgebildet. Was übrig bleibt, sind die Lücken: Kompetenzen, die im Lehrplan stehen, die aber keine
+    App übt. Genau dort lohnt sich die nächste App.</p>
+
+    <h2>Die Karte verzeichnet Lücken</h2>
+    <p>Jede App auf der Karte trägt ein Aktiv-Level, wie aktiv sie Lernende fordert (Create, Solve,
+    Collaborate, Reflect, Receive), und eine DSGVO-Ampel. Die Karte fragt nicht „welche Werkzeuge gibt es“,
+    sondern „welche Kompetenz hat noch keins“. Alle Lern-Apps von lernapps.net, auch für andere Fächer,
+    findest du in der <a href="https://lernapps.net/apps/">App-Übersicht</a>.</p>
+
+    <h2>Zwei Arten von „nichts“</h2>
+    <p><strong>Noch nicht erfasst</strong> ist eine Aussage über ein Land: niemand hat den Lehrplan bisher
+    auf die Knoten der Karte abgebildet. Die Karte weiß nichts; sie sagt nicht „es gibt nichts“.
+    <strong>Keine App</strong> ist eine Aussage über eine Kompetenz: der Knoten ist erfasst und im Lehrplan
+    verortet, aber keine eingetragene App übt ihn. Das ist die Lücke, die die Karte zeigen soll.</p>
+
+    <h2 id="quellen">Datenquellen</h2>
+    <ul>
+      <li>KMK: <a href="https://www.kmk.org/fileadmin/veroeffentlichungen_beschluesse/2022/2022_06_23-Bista-ESA-MSA-Mathe.pdf">Bildungsstandards
+        im Fach Mathematik für den Ersten Schulabschluss und den Mittleren Schulabschluss</a> (Beschluss vom 23.06.2022): die fünf Leitideen und die KMK-Standards je Knoten.</li>
+      <li>Hessen: <a href="https://kultusministerium.hessen.de/unterricht/kerncurricula/sekundarstufe-i/mathematik">Kerncurriculum
+        Mathematik Sekundarstufe I, Gymnasium</a> (Stand 2021): die Kompetenzknoten.</li>
+      <li>Hessen: G9-Lehrplan Gymnasium (Übersicht der Einheiten 5.1 bis 10.5): Jahrgang und Einheit je Knoten; Details und Abweichungen
+        in <a href="https://github.com/lernapps/mathe-karte/blob/main/src/karte/daten/README.md">Datenmodell</a>.</li>
+      <li>Die übrigen 15 Länder: nur das Dokument und sein Link, siehe <a href="laender.html">Die Länder</a>.</li>
+    </ul>
+
+    <h2 id="datenschutz">Datenschutz: nichts verlässt deinen Browser</h2>
+    <p>Die Karte ist eine statische Website. Es gibt keinen Server, der etwas verarbeitet, kein Tracking,
+    keine Cookies, keine Analyse-Skripte, keine externen Schriften und keine externen Anfragen: der Browser
+    lädt nur die Seiten, ihre Skripte und <code>data.json</code> vom selben Ort. Die Karte benutzt keinen
+    <code>localStorage</code>; die gewählte Ansicht steht in der URL, damit du sie teilen kannst. Links zu
+    Apps, Lehrplänen und GitHub führen zu fremden Seiten, die eigene Regeln haben.</p>
+
+    <h2 id="lizenz">Lizenz</h2>
+    <p>Daten: CC BY 4.0 (Vorschlag). Code: MIT (Vorschlag). Bis zur Entscheidung gilt: Quellen nennen, Link setzen.</p>
+  
+
+  </main>
+
+  <footer class="fuss">
+    <p>Mathe-Karte · Lern-Apps Version 0.12.0 · <a href="karte-statisch.html">Statische Liste</a> · <a href="https://github.com/lernapps/mathe-karte/tree/main/src/karte">Quellcode auf GitHub</a> · <a href="ueber.html#datenschutz">Datenschutz</a> · <a href="llms.txt">llms.txt</a> · <a href="../">Alle Lern-Apps</a></p>
+    <p class="melden">Fehler gefunden oder Idee? <a href="https://github.com/lernapps/mathe-karte/issues/new?title=R%C3%BCckmeldung%20zu%20%2Fmathe-karte%2Fkarte%2Fueber.html%3A%20" title="Öffnet GitHub. Zum Melden brauchst du ein GitHub-Konto.">Auf GitHub melden</a> (GitHub-Konto nötig)</p>
+
+  </footer>
+</body>
+</html>

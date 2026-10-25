@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Die erste Pfadregel anwenden (entlang des Pfades multiplizieren) – Zufall-Trainer</title>
+  <meta name="description" content="Erste Pfadregel (Produktregel): entlang eines Pfades multiplizieren. Erklärung mit Baum, Beispiel, Video und Übungsaufgaben.">
+  <link rel="canonical" href="https://lernapps.github.io/mathe-karte/zufall/pfadregel-1.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1d4ed8">
+  <link rel="stylesheet" href="../kern/css/stil.css?v=6ec40465">
+  <link rel="stylesheet" href="css/zufall.css?v=6ec40465">
+  <style>:root { --farbe-primaer: #1d4ed8; --farbe-primaer-dunkel: #1e3a8a; }</style>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="kopf">
+    <a class="marke" href="index.html">Zufall-Trainer</a>
+    <nav class="themen" aria-label="Themen">
+      <ul>
+        <li><a href="laplace.html"><span class="nummer">1</span> Laplace</a></li>
+        <li><a href="baumdiagramm.html"><span class="nummer">2</span> Baumdiagramm</a></li>
+        <li><a href="pfadregel-1.html" aria-current="page"><span class="nummer">3</span> Pfadregel 1</a></li>
+        <li><a href="gegenereignis.html"><span class="nummer">4</span> Gegenereignis</a></li>
+        <li><a href="ohne-zuruecklegen.html"><span class="nummer">5</span> Ohne Zurücklegen</a></li>
+        <li><a href="pfadregel-2.html"><span class="nummer">6</span> Pfadregel 2</a></li>
+        <li><a href="ergebnisformen.html"><span class="nummer">7</span> Produkt, Summe, Potenz</a></li>
+        <li><a href="pfade-uebersetzen.html"><span class="nummer">8</span> In Pfade übersetzen</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+<h1>Die erste Pfadregel anwenden (entlang des Pfades multiplizieren)</h1>
+
+    <details id="erklaerung" class="erklaerung" open>
+      <summary>Erklärung: Warum, Regel, Beispiel, Bild, Video</summary>
+    <section id="warum">
+      <h2>Warum das wichtig ist</h2>
+<p>Der Baum zeigt dir alle Wege – aber wie wahrscheinlich ist ein bestimmter Weg? Die erste Pfadregel beantwortet genau das. Sie ist die Rechenregel hinter jeder mehrstufigen Aufgabe, und sie ist kurz: multiplizieren.</p>
+
+    </section>
+
+    <section id="regel">
+      <h2>Die Regel</h2>
+<p><strong>1. Pfadregel (Produktregel):</strong> Die Wahrscheinlichkeit eines Pfades ist das <strong>Produkt</strong> der Wahrscheinlichkeiten aller Zweige auf diesem Pfad.</p>
+<div class="formel"><code>P(Pfad) = P(1. Zweig) · P(2. Zweig) · …</code></div>
+<p>Merkhilfe: <strong>Entlang</strong> des Pfades wird <strong>mal</strong> gerechnet. „Erst rot <em>und dann</em> blau“ heißt multiplizieren.</p>
+
+    </section>
+
+    <section id="beispiel">
+      <h2>Beispiel</h2>
+<p>Urne mit 3 roten, 2 blauen und 1 gelben Kugel. Du ziehst zweimal <strong>mit Zurücklegen</strong>. Wie groß ist P(rot, dann blau)?</p>
+<ol>
+<li>1. Zweig: P(rot) = 3/6.</li>
+<li>2. Zweig: P(blau) = 2/6 (mit Zurücklegen ist die Urne wieder voll).</li>
+<li>P(rot, blau) = 3/6 · 2/6 = 6/36 = 1/6.</li>
+</ol>
+<p class="merke">Häufiger Fehler: 3/6 + 2/6 = 5/6. Das wäre größer als jede der beiden einzelnen Wahrscheinlichkeiten – unmöglich für „erst das eine <em>und</em> dann das andere“. Ein Pfad ist <em>nie wahrscheinlicher</em> als einer seiner Zweige.</p>
+
+    </section>
+
+
+    <section id="visualisierung">
+      <h2>Bild dazu</h2>
+      <p class="vis-beschriftung">Der Baum aus dem Beispiel, der Pfad rot-blau ist orange. Unter den Enden stehen die Pfadwahrscheinlichkeiten: rot-blau = 1/6.</p>
+      <svg xmlns="http://www.w3.org/2000/svg" class="vis" id="vis" viewBox="0 0 272 204" width="272" height="204" role="img" aria-label="Baumdiagramm, der Pfad rot-blau ist markiert"><title>Baumdiagramm, der Pfad rot-blau ist markiert</title><g transform="translate(0 0)" class="baum-hochkant"><circle cx="136" cy="8" r="6" fill="#455a64"></circle><g class="baum-ebene-linien" fill="none"><path d="M136 14 C 136 37, 44 37, 44 60" class="baum-zweig hervor" data-knoten="w-r" stroke="#ff8f00" stroke-width="4"></path><path d="M44 84 C 44 104, 18 104, 18 124" class="baum-zweig" data-knoten="w-r-r" stroke="#90a4ae" stroke-width="2"></path><path d="M44 84 C 44 104, 44 104, 44 124" class="baum-zweig hervor" data-knoten="w-r-b" stroke="#ff8f00" stroke-width="4"></path><path d="M44 84 C 44 104, 70 104, 70 124" class="baum-zweig" data-knoten="w-r-g" stroke="#90a4ae" stroke-width="2"></path><path d="M136 14 C 136 37, 136 37, 136 60" class="baum-zweig" data-knoten="w-b" stroke="#90a4ae" stroke-width="2"></path><path d="M136 84 C 136 104, 110 104, 110 124" class="baum-zweig" data-knoten="w-b-r" stroke="#90a4ae" stroke-width="2"></path><path d="M136 84 C 136 104, 136 104, 136 124" class="baum-zweig" data-knoten="w-b-b" stroke="#90a4ae" stroke-width="2"></path><path d="M136 84 C 136 104, 162 104, 162 124" class="baum-zweig" data-knoten="w-b-g" stroke="#90a4ae" stroke-width="2"></path><path d="M136 14 C 136 37, 228 37, 228 60" class="baum-zweig" data-knoten="w-g" stroke="#90a4ae" stroke-width="2"></path><path d="M228 84 C 228 104, 202 104, 202 124" class="baum-zweig" data-knoten="w-g-r" stroke="#90a4ae" stroke-width="2"></path><path d="M228 84 C 228 104, 228 104, 228 124" class="baum-zweig" data-knoten="w-g-b" stroke="#90a4ae" stroke-width="2"></path><path d="M228 84 C 228 104, 254 104, 254 124" class="baum-zweig" data-knoten="w-g-g" stroke="#90a4ae" stroke-width="2"></path></g><g class="baum-ebene-knoten"><g class="baum-knoten" data-knoten="w-r" transform="translate(44 72)"><circle r="12" fill="#c62828" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">R</text><title>rot</title></g><g class="baum-knoten" data-knoten="w-r-r" transform="translate(18 136)"><circle r="12" fill="#c62828" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">R</text><title>rot</title></g><g class="baum-knoten" data-knoten="w-r-b" transform="translate(44 136)"><circle r="12" fill="#1565c0" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">B</text><title>blau</title></g><g class="baum-knoten" data-knoten="w-r-g" transform="translate(70 136)"><circle r="12" fill="#f9a825" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#1a1a1a" font-weight="700" font-size="13">G</text><title>gelb</title></g><g class="baum-knoten" data-knoten="w-b" transform="translate(136 72)"><circle r="12" fill="#1565c0" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">B</text><title>blau</title></g><g class="baum-knoten" data-knoten="w-b-r" transform="translate(110 136)"><circle r="12" fill="#c62828" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">R</text><title>rot</title></g><g class="baum-knoten" data-knoten="w-b-b" transform="translate(136 136)"><circle r="12" fill="#1565c0" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">B</text><title>blau</title></g><g class="baum-knoten" data-knoten="w-b-g" transform="translate(162 136)"><circle r="12" fill="#f9a825" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#1a1a1a" font-weight="700" font-size="13">G</text><title>gelb</title></g><g class="baum-knoten" data-knoten="w-g" transform="translate(228 72)"><circle r="12" fill="#f9a825" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#1a1a1a" font-weight="700" font-size="13">G</text><title>gelb</title></g><g class="baum-knoten" data-knoten="w-g-r" transform="translate(202 136)"><circle r="12" fill="#c62828" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">R</text><title>rot</title></g><g class="baum-knoten" data-knoten="w-g-b" transform="translate(228 136)"><circle r="12" fill="#1565c0" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">B</text><title>blau</title></g><g class="baum-knoten" data-knoten="w-g-g" transform="translate(254 136)"><circle r="12" fill="#f9a825" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#1a1a1a" font-weight="700" font-size="13">G</text><title>gelb</title></g></g><g class="baum-ebene-labels" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"><text x="44" y="54" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">3/6<title>P(rot) = 1/2</title></text><text x="18" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">3/6<title>P(rot) = 1/2</title></text><text x="44" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">2/6<title>P(blau) = 1/3</title></text><text x="70" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">1/6<title>P(gelb) = 1/6</title></text><text x="136" y="54" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">2/6<title>P(blau) = 1/3</title></text><text x="110" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">3/6<title>P(rot) = 1/2</title></text><text x="136" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">2/6<title>P(blau) = 1/3</title></text><text x="162" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">1/6<title>P(gelb) = 1/6</title></text><text x="228" y="54" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">1/6<title>P(gelb) = 1/6</title></text><text x="202" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">3/6<title>P(rot) = 1/2</title></text><text x="228" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">2/6<title>P(blau) = 1/3</title></text><text x="254" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">1/6<title>P(gelb) = 1/6</title></text></g><g class="baum-blatt" data-blatt="w-r-r"><rect x="6" y="122" width="24" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="18" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/4</text></g><g class="baum-blatt" data-blatt="w-r-b"><rect x="32" y="122" width="24" height="60" rx="6" class="baum-treffer" fill="transparent"></rect><text x="44" y="178" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/6</text></g><g class="baum-blatt" data-blatt="w-r-g"><rect x="58" y="122" width="24" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="70" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/12</text></g><g class="baum-blatt" data-blatt="w-b-r"><rect x="98" y="122" width="24" height="60" rx="6" class="baum-treffer" fill="transparent"></rect><text x="110" y="178" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/6</text></g><g class="baum-blatt" data-blatt="w-b-b"><rect x="124" y="122" width="24" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="136" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/9</text></g><g class="baum-blatt" data-blatt="w-b-g"><rect x="150" y="122" width="24" height="60" rx="6" class="baum-treffer" fill="transparent"></rect><text x="162" y="178" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/18</text></g><g class="baum-blatt" data-blatt="w-g-r"><rect x="190" y="122" width="24" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="202" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/12</text></g><g class="baum-blatt" data-blatt="w-g-b"><rect x="216" y="122" width="24" height="60" rx="6" class="baum-treffer" fill="transparent"></rect><text x="228" y="178" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/18</text></g><g class="baum-blatt" data-blatt="w-g-g"><rect x="242" y="122" width="24" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="254" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/36</text></g><text x="2" y="200" class="baum-legende" font-size="13" fill="#1a1a1a">R = rot · B = blau · G = gelb</text></g></svg>
+    </section>
+
+
+    <section id="video" class="video-karte" data-youtube-id="fLPxMfgUxVk" data-titel="Produktregel | Wahrscheinlichkeitsrechnung - einfach erklärt | Lehrerschmidt" data-kanal="Lehrerschmidt">
+      <h2>Video dazu</h2>
+      <p><a href="https://www.youtube.com/watch?v=fLPxMfgUxVk" rel="noopener">Produktregel | Wahrscheinlichkeitsrechnung - einfach erklärt | Lehrerschmidt</a></p>
+      <p class="video-kanal">Lehrerschmidt · YouTube</p>
+      <p class="video-hinweis">Beim Start werden Daten (u. a. deine IP-Adresse) an YouTube/Google übertragen.</p>
+    </section>
+
+
+    <section id="serlo" class="serlo-link">
+      <p>Noch eine Erklärung: <a href="https://de.serlo.org/mathe/189811/pfadregeln" rel="noopener">Pfadregeln</a> bei serlo.org</p>
+    </section>
+
+    </details>
+
+    <section id="uebung">
+      <h2>Übung</h2>
+      <noscript><p>Für die Übungsaufgaben brauchst du JavaScript. Die Erklärung, das Beispiel und das Bild oben funktionieren auch ohne.</p></noscript>
+      <div class="trainer" id="trainer"></div>
+    </section>
+  <script type="module">
+    import { APP } from "./js/app.config.js?v=6ec40465";
+    import { starteSeite } from "../kern/js/seite.js?v=6ec40465";
+    import * as modul from "./js/aufgaben/pfadregel-1.js?v=6ec40465";
+    const kompetenz = { nr: 3, titel: "Die erste Pfadregel anwenden (entlang des Pfades multiplizieren)" };
+    import { zeichnePfadregel1 } from "./js/vis/pfadregel-1.js?v=6ec40465";
+    starteSeite({ app: APP, modul, zeichne: zeichnePfadregel1, bildHinweis: "", kompetenz });
+  </script>
+
+  </main>
+
+  <footer class="fuss">
+    <p>Zufall-Trainer · Lern-Apps Version 0.12.0 · <a href="https://github.com/lernapps/mathe-karte/tree/main/src/zufall">Quellcode auf GitHub</a> · <a href="index.html#datenschutz">Datenschutz</a> · <a href="../">Alle Apps</a></p>
+    <p class="melden">Fehler gefunden oder Idee? <a href="https://github.com/lernapps/mathe-karte/issues/new?title=R%C3%BCckmeldung%20zu%20%2Fmathe-karte%2Fzufall%2Fpfadregel-1.html%3A%20" title="Öffnet GitHub. Zum Melden brauchst du ein GitHub-Konto.">Auf GitHub melden</a> (GitHub-Konto nötig)</p>
+
+  </footer>
+</body>
+</html>

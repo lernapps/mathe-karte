@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="de">
+<head>
+    
+    <!-- sourceuri: arc42/chapters/10_quality_requirements.html -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="jbake" name="generator">
+    <meta content="INDEX, FOLLOW" name="ROBOTS">
+
+    <title>Qualitätsanforderungen</title>
+    <meta content="docToolchain" property="og:title">
+    <meta content="build your dev docs the easy way..." property="og:description">
+    <meta content="website" property="og:type">
+    <meta content="docToolchain" property="og:site_name">
+    <meta content="docToolchain" itemprop="name">
+    <meta content="build your dev docs the easy way..." itemprop="description">
+    <meta content="summary" name="twitter:card">
+    <meta content="docToolchain" name="twitter:title">
+    <meta content="build your dev docs the easy way..." name="twitter:description">
+
+    <link as="style"
+        href="../../css/main.min.881fe5f7b53609f55ebfb496c7097c3b30b2e8ceb20a54bc6a48350ded67224f.css"
+        rel="preload">
+    <link href="../../css/main.min.881fe5f7b53609f55ebfb496c7097c3b30b2e8ceb20a54bc6a48350ded67224f.css"
+        integrity=""
+        rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+    <link href="../../css/theme-v4.css" rel="stylesheet">
+
+    <!-- favicon generated with https://www.favicon-generator.org/ -->
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../../ms-icon-144x144.png">
+    
+    <meta name="theme-color" content="#1d4ed8">
+
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+    <style>
+    div.bg-light {
+        background-color: rgba(127, 180, 224, 0.3) !important;
+    }
+
+    /* for blog posts */
+    span.blogtag {
+        border-radius: 10px;
+        background-color: #30638E;
+        color: white;
+        padding: 5px 10px;
+    }
+
+    span.blogblogtag a {
+        color: white;
+        padding: 0
+    }
+
+    span.blogtag span {
+        margin-left: 10px;
+        border-radius: 10px;
+        background-color: white;
+        color: #30638E;
+    }
+
+    div.td-toc {
+        height: calc(100vh - 5rem) !important;
+    }
+
+    div#toctitle {
+        display: none
+    }
+
+    #td-section-nav {
+        max-height: calc(100vh - 4rem);
+        font-size: smaller;
+        line-height: 1.1;
+    }
+
+    .td-page-meta {
+        font-size: smaller;
+        line-height: 1.1;
+    }
+
+    #td-section-nav ul.td-sidebar-nav__section {
+        padding-left: 0;
+    }
+
+    span.navbar-logo {
+        padding-right: 1.5em;
+    }
+
+    .match {
+        font-size: smaller;
+    }
+
+    .admonitionblock td.icon .fa:before {
+        font-size: xxx-large;
+    }
+    </style>
+
+    <style>
+    div.openblock.primary div.content, div.openblock.secondary div.content {
+        border: 1px solid #7a2518;
+        padding: 5px;
+    }
+
+    div.openblock.primary div.content div.content, div.openblock.secondary div.content div.content {
+        border: 0 solid #7a2518;
+        padding: 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .switch {
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+        border-color: #7a2518;
+        display: inline-block;
+    }
+
+    .switch--item {
+        padding: 2px 10px;
+        background-color: #ffffff;
+        color: #7a2518;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .switch--item:not(:first-child) {
+        border-width: 0 0 0 1px;
+        border-style: solid;
+        border-color: #7a2518;
+    }
+
+    .switch--item.selected {
+        background-color: #7a2519;
+        color: #ffffff;
+    }
+    </style>
+
+    <!-- copy-n-paste.js -->
+    <style>
+        div.listingblock {
+            position: relative;
+        }
+        div.listingblock > span.icon {
+            position: absolute;
+            top: 2px;
+            right: 6px;
+            visibility: hidden;
+            z-index: 2;
+            cursor: pointer;
+        }
+        div.listingblock:hover > span.icon {
+            visibility: visible;
+        }
+        div.listingblock div.content pre {
+            margin: 0;
+        }
+    </style>
+    <style>
+        .td-sidebar-nav__section {
+            padding-left: 9px;
+        }
+        details {
+            margin-left: 10px;
+        }
+        summary {
+            cursor: pointer;
+            padding-left: 10px; /* Erhöhter linker Padding für den Pfeil */
+            list-style: none;
+            position: relative; /* Für absolute Positionierung des Pfeils */
+        }
+        summary::before {
+            content: '>';
+            position: absolute;
+            left: 10px; /* Position des Pfeils */
+            top: 50%;
+            transform: translateY(-50%) translateX(-120%);
+            transition: transform 0.3s;
+        }
+        details[open] > summary::before {
+            transform: translateY(-50%) translateX(-120%) rotate(90deg);
+        }
+    </style>
+
+    <!-- docToolchain v4 theme overlay — self-hosted fonts (no Google CDN) -->
+    <link href="../../css/fonts.css" rel="stylesheet">
+    <link href="../../css/doctoolchain-v4.css" rel="stylesheet">
+    <link href="../../css/lern-app.css" rel="stylesheet">
+
+    <!-- brand customization from docToolchainConfig.groovy (microsite.color* / microsite.font*) -->
+    <!-- dtc:theme-config:start -->
+    
+    
+    <style id="dtc-theme-config">
+    :root {
+        --g-600: #1d4ed8;
+        --teal: #1d4ed8;
+        --g-800: #1e3a8a;
+        --g-700: #1e40af;
+        --cyan: #1e40af;
+    }
+    </style>
+    
+    <!-- dtc:theme-config:end -->
+    <script>
+        // apply persisted colour scheme before first paint (no flash)
+        (function () {
+            try {
+                var t = localStorage.getItem('lernapps:mathe-karte:dtc-theme'); // lern-app-template (3)
+                if (!t) {
+                    t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body onload="prettyPrint()" class="td-section">
+<header>
+	
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+    <a class="navbar-brand" href="../../index.html">
+        <span class="navbar-logo"><img src="../../images/doctoolchain-logo-blue.png" alt="Lern-Apps · Architektur" width="32px" /></span><span
+            class="font-weight-bold">Lern-Apps · Architektur</span>
+    </a>
+    <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+        <ul class="navbar-nav mt-2 mt-lg-0">
+    <li class="nav-item mr-4 mb-2 mb-lg-0"><!--img src="../../images/status.png" alt="status" width="16" height="16" onerror="this.style.display='none'"--></li>
+
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link " href="../../uebersicht/index.html"><span>Übersicht</span></a>
+            </li>
+
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link " href="../../abgrenzung/index.html"><span>Was lernapps anders macht</span></a>
+            </li>
+
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link active" href="../../arc42/chapters/01_introduction_and_goals.html"><span>Architektur (arc42)</span></a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="navbar-nav d-none d-lg-block" >
+    
+        <form action="../../search.html">
+        <input aria-label="Search this site…" autocomplete="off" class="form-control td-search-input"
+               placeholder=" Search this site…" type="search" name="q">
+        </form>
+    
+    </div>
+    <button type="button" class="dtc-theme-toggle" aria-label="Toggle colour scheme" onclick="dtcToggleTheme()">🌙</button>
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+	<div class="td-main">
+		<div class="row flex-xl-nowrap">
+			<div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+				<div class="td-sidebar__inner" id="td-sidebar-menu" >
+					
+     
+        <form class="td-sidebar__search d-flex align-items-center d-lg-none" action="../../search.html">
+
+            <input aria-label="Search this site…" name="q" autocomplete="off" class="form-control td-search-input"
+                   placeholder=" Search this site…" type="search">
+
+
+            <button aria-controls="td-docs-nav" aria-expanded="false"
+                    aria-label="Toggle section navigation" class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" data-target="#td-section-nav"
+                    data-toggle="collapse" type="button">
+            </button>
+        </form>
+    
+
+
+        <nav aria-label="Submenu" class="collapse td-sidebar-nav" id="td-section-nav" >
+
+            <ul class="td-sidebar-nav__section">
+                <li class="td-sidebar-nav__section-title">
+                    <span class="align-left pl-0 pr-2 pt-2 active td-sidebar-link td-sidebar-link__section">Architektur (arc42)</span>
+                </li>
+                <li>
+                  <ul>
+                      <li class="collapse show" id="docs">
+                          
+                        <ul class="td-sidebar-nav__section ul-0">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/01_introduction_and_goals.html" title="Einführung und Ziele"><span class="arc42-num">01</span> Einführung und Ziele</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/02_architecture_constraints.html" title="Randbedingungen"><span class="arc42-num">02</span> Randbedingungen</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/03_context_and_scope.html" title="Kontextabgrenzung"><span class="arc42-num">03</span> Kontextabgrenzung</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/04_solution_strategy.html" title="Lösungsstrategie"><span class="arc42-num">04</span> Lösungsstrategie</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/05_building_block_view.html" title="Bausteinsicht"><span class="arc42-num">05</span> Bausteinsicht</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/06_runtime_view.html" title="Laufzeitsicht"><span class="arc42-num">06</span> Laufzeitsicht</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/07_deployment_view.html" title="Verteilungssicht"><span class="arc42-num">07</span> Verteilungssicht</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/08_concepts.html" title="Querschnittliche Konzepte"><span class="arc42-num">08</span> Querschnittliche Konzepte</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/09_architecture_decisions.html" title="Architekturentscheidungen"><span class="arc42-num">09</span> Architekturentscheidungen</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section active"
+                                   href="../../arc42/chapters/10_quality_requirements.html" title="Qualitätsanforderungen"><span class="arc42-num">10</span> Qualitätsanforderungen</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/11_technical_risks.html" title="Risiken und technische Schulden"><span class="arc42-num">11</span> Risiken und technische Schulden</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/12_glossary.html" title="Glossar"><span class="arc42-num">12</span> Glossar</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/13_bewertungen.html" title="Anhang: Bewertungen"><span class="arc42-num">13</span> Anhang: Bewertungen</a>
+                                
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                <li>
+        </nav>
+
+				</div>
+			</div>
+			<div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+				<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+					
+
+        <a href="https://github.com/lernapps/lernapps.github.io/edit/main/src/docs/arc42/chapters/10_quality_requirements.adoc"
+           target="_blank"><i class="fa fa-edit fa-fw"></i> Improve this doc</a>
+
+
+        <a href="https://github.com/lernapps/lernapps.github.io/issues/new?title=Docs%3A+Feedback+for+%27Qualit%C3%A4tsanforderungen%27&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:%20https://github.com/lernapps/lernapps.github.io/edit/main/src/docs/arc42/chapters/10_quality_requirements.adoc%0A%23branch:%20main" target="_blank"><i
+                class="fab fa-github fa-fw"></i> Create an issue</a>
+
+        
+
+        <hr />
+
+        <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#section-quality-scenarios">Qualitätsanforderungen: Jede Zahl stammt aus dem Code oder aus einer Messung</a>
+<ul class="sectlevel2">
+<li><a href="#section-quality-tree">Qualitätsbaum: Alle acht Merkmale nach ISO/IEC 25010</a></li>
+<li><a href="#section-quality-scenario-list">Qualitätsszenarien</a></li>
+<li><a href="#section-utility-tree">Utility Tree: Datenschutz, richtige Rückmeldung und die Aufgabennummer tragen die höchste Last</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+
+
+				</div>
+			</div>
+			<main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+				    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+        <ol class="breadcrumb spb-1">
+            <!--li aria-current="page" class="breadcrumb-item active">
+                <a href="https://example.docsy.dev/docs/">Documentation</a>
+            </li-->
+
+        </ol>
+    </nav>
+
+
+    <div class="td-content">
+        <p>
+            
+<div class="sect1">
+<h2 id="section-quality-scenarios">Qualitätsanforderungen: Jede Zahl stammt aus dem Code oder aus einer Messung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die Szenarien machen die Qualitätsziele aus
+<a href="01_introduction_and_goals.html#section-quality-goals">Kapitel 1.2</a> prüfbar. Jede Messgröße ist eine
+Konstante oder Regel aus dem Code, eine datierte Messung oder ein Zielwert des Product Owners; die
+Spalte „Antwortmaß“ nennt den Beleg. Die Zielwerte für Ladezeit, Barrierefreiheit und CI-Dauer hat der
+Product Owner am 23.09.2026 festgelegt (QS-26 bis QS-28). Die IDs der Vorlage bleiben; QS-9, QS-11,
+QS-13, QS-17 und QS-21 sind auf das Monorepo umgeschrieben, QS-22 bis QS-28 sind neu.</p>
+</div>
+<div class="sect2">
+<h3 id="section-quality-tree">Qualitätsbaum: Alle acht Merkmale nach ISO/IEC 25010</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/qualitaetsbaum.svg" alt="qualitaetsbaum" width="1876" height="922">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 28.5714%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Merkmal (ISO/IEC 25010)</th>
+<th class="tableblock halign-left valign-top">Bezug</th>
+<th class="tableblock halign-left valign-top">Szenarien</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sicherheit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">konkretisiert QZ-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-1, QS-2, QS-8</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kompatibilität (Interoperabilität)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">konkretisiert QZ-2; QS-16 abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-3, QS-4, QS-5, QS-16</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Funktionale Eignung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">konkretisiert QZ-3; QS-24 abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-6, QS-7, QS-19, QS-24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wartbarkeit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">konkretisiert QZ-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-9, QS-10, QS-11, QS-21, QS-25</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Benutzbarkeit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">konkretisiert QZ-5; QS-18 abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-12, QS-13, QS-27, QS-18</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Leistungseffizienz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-26 konkretisiert QZ-5, QS-28 konkretisiert QZ-4; QS-14, QS-22 abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-26, QS-28, QS-14, QS-22</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zuverlässigkeit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-15, QS-20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Übertragbarkeit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-17, QS-23</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="section-quality-scenario-list">Qualitätsszenarien</h3>
+<div class="paragraph">
+<p>Jedes Szenario hat sechs Teile: Quelle, Stimulus, Artefakt, Umgebung, Antwort, Antwortmaß.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 6.25%;">
+<col style="width: 6.25%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 18.75%;">
+<col style="width: 18.75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Ziel</th>
+<th class="tableblock halign-left valign-top">Quelle</th>
+<th class="tableblock halign-left valign-top">Stimulus</th>
+<th class="tableblock halign-left valign-top">Artefakt</th>
+<th class="tableblock halign-left valign-top">Umgebung</th>
+<th class="tableblock halign-left valign-top">Antwort</th>
+<th class="tableblock halign-left valign-top">Antwortmaß (Beleg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">öffnet eine Kompetenzseite mit Video</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layout, Kern (Video)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produktion, erster Besuch, Merker nicht gesetzt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Platzhalter mit lokalem Symbol, kein iframe, kein Vorschaubild</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>0 Requests an fremde Hosts</strong> vor dem Klick; danach nur <code>www.youtube-nocookie.com</code> (<code>src/kern/js/video.js:12-15</code>, <code>:62</code>; Browser-Check laut <code>CLAUDE.md</code> Project rules)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in oder KI-Agent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fügt <code>&lt;script src="https://cdn…"&gt;</code> oder <code>@import url(//…)</code> ein</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ausgabe <code>_site/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung, <code>npm run build</code> / CI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build bricht mit Datei und URL ab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit-Code ≠ 0</strong>, <strong>1 Fehlerzeile je Fundstelle</strong> (<code>lib/pruefungen.js:8-22</code>; <code>test/build/pruefungen.test.js</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tutor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schickt <code>…?seed=42</code> zweimal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Zufall), Apps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dieselbe Aufgabe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>gleiche Aufgabe für gleiche Nummer</strong>; ohne Nummer <strong>1–9999</strong> (<code>src/kern/js/zufall.js:14-16</code>, <code>:47</code>; <code>test/apps/vertrag.test.js:25</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tutor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schickt <code>test.html?nr=4711&amp;modus=schnell</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Test)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gleiche Aufgabenfolge bei jedem Aufruf; Ergebniszeile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1 Aufgabe</strong> je Kompetenz im Schnelltest, <strong>2</strong> im Test (<code>src/kern/js/testablauf.js:9</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">legt eine Kompetenz an, ohne sie im <code>llms.njk</code> zu nennen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apps, Build</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build meldet die fehlende Seite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1 Fehler je nicht genannter Seite</strong> (<code>lib/pruefungen.js:31-33</code>; <code>eleventy.config.js</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tippt für 10/3 „3,33“, „3,333“, „3,34“, „3,3“</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Zahlen)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Übung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">richtig, richtig, falsch, Hinweis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard <strong>geld 2, prozent 1, zahl 2</strong> Stellen (<code>src/kern/js/zahlantwort.js:17</code>; <code>test/kern/zahlantwort.test.js</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tippt <code>sqrt((2+3)*8)</code> für √40</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Zahlen)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Übung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">richtig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">relativer Spielraum <strong>1e-9</strong>; mehr als <strong>12</strong> Stellen gelten nicht als gerundet (<code>src/kern/js/zahlantwort.js:22-23</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tippt für „(x+3)² ausmultiplizieren“ <code>x^2+6x+9</code>, <code>(x+3)(x+3)</code>, <code>x^2+9</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Terme)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Übung, <code>form: "ausmultipliziert"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">richtig, Hinweis, falsch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>8</strong> Prüfstellen, mindestens <strong>5</strong> gültig, Toleranz <strong>1e-9</strong> (<code>src/kern/js/termantwort.js:26</code>; <code>test/kern/termantwort.test.js</code>); Hinweise zählen <strong>0</strong> Versuche (<code>src/kern/js/pruefung.js:73</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">präparierter Link oder Eingabe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>9^999</code> oder Code im Feld</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Zahlen)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Übung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">„ungültig“, kein Code ausgeführt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>kein eval</strong>; Exponent <strong>≤ 64</strong> (<code>src/kern/js/bruch.js:65</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">legt eine neue Kompetenz in einer bestehenden App an</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apps, Build, Layout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seite, Menü, Checkliste, Test, Übersicht, Karten-Eintrag entstehen; fehlt eine Datei, bricht der Build</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>3 Dateien</strong> (<code>&lt;id&gt;.md</code>, <code>js/aufgaben/&lt;id&gt;.js</code>, <code>test/&lt;id&gt;.test.js</code>) <strong>+ 1 Zeile</strong> in <code>KOMPETENZEN</code> (<code>lib/pruefungen.js:36-49</code>; Messung im Spike vom 23.09.2026, Code verworfen); Bild optional als 4. Datei</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in oder KI-Agent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eine Quelldatei wächst</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alle Textdateien</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung, Build</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build meldet die Datei</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>höchstens 500 Zeilen</strong> (<code>lib/pruefungen.js:5</code>, <code>:25-28</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hebt die Site-Version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>package.json</code>, Layout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Footer jeder Seite zeigt die neue Version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version an <strong>1 Stelle</strong> (<code>package.json</code>; gelesen in <code>src/_data/site.js:11</code>, <code>:16</code>; gezeigt in <code>src/_includes/basis.njk:45</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ändert ein Kern-Modul und deployt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build (Versionierung)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung, Build</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alle Referenzen zeigen auf den neuen Hash</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>0</strong> <code>?v=</code> in Quellen, <strong>1</strong> Hash für alle Referenzen, <strong>8</strong> Hex-Zeichen (<code>lib/versionierung.js:9-13</code>; <code>test/build/versionierung.test.js</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">korrigiert einen Fehler im Kern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Korrektur erreicht jede App im nächsten Deployment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1 Commit</strong> für alle Apps statt <strong>1 je App</strong> (ADR-012; heute 3, geplant rund 20 Apps je Schuljahr)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">öffnet eine App auf dem Handy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layout, <code>stil.css</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Viewport 360 px</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alles lesbar, kein waagerechtes Scrollen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>360 px</strong> Grundlayout, breiter ab <strong>40rem</strong> (<code>src/kern/css/stil.css:2</code>, <code>:223</code>; Commit <code>928f6e5</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende, Suchmaschine, LLM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lädt eine Kompetenzseite ohne JavaScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layout, Build (Bild)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JS aus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Warum, Regel, Beispiel, Bild und Video-Link lesbar; Hinweis für die Übung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>5 von 6</strong> Abschnitten statisch, nur <code>#uebung</code> braucht JS und hat <code>&lt;noscript&gt;</code> (<code>src/_includes/kompetenz.njk:8-49</code>; <code>lib/bild.js</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-26</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">öffnet eine Kompetenzseite auf dem Handy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layout, Kern, Apps, GitHub Pages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produktion, erster Besuch ohne Cache. <strong>Annahme:</strong> langsames 4G (Lighthouse-Profil „Slow 4G“: 1,6 Mbit/s, 150 ms RTT); vom Product Owner nicht festgelegt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seite ist lesbar und bedienbar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>&lt; 2 s</strong> bis die Seite geladen ist (Zielwert des Product Owners, 23.09.2026). Noch nicht gemessen; kein automatischer Test</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-27</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende, auch mit Screenreader oder nur mit Tastatur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nutzt eine Kompetenzseite, den Test und die Übersicht</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layout, Kern, <code>stil.css</code>, Fachfarben</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produktion, Handy und Desktop</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alle Inhalte und Bedienelemente wahrnehmbar, bedienbar und verständlich</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>0 Verstöße gegen WCAG 2.2, Stufe AA</strong> (Zielwert des Product Owners, 23.09.2026). Der Build prüft den Kontrast der Fachfarben (<strong>≥ 4,5:1</strong>, QS-17); axe-core prüft in CI Übersicht, Karte, Start- und Testseiten und seit 25.09.2026 jede Kompetenzseite (ohne und mit geladener Übung) auf <strong>0 schwere oder kritische</strong> Verstöße (<code>e2e/axe.spec.js</code>, #26, R-030; Stand 25.09.2026: 0 nach einer Korrektur in 0.11.4). Leichtere Befunde und alles, was axe nicht erkennt, bleiben Handarbeit (<a href="08_concepts.html#section-barrierefreiheit">8.6</a>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in, CI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">öffnet einen PR oder merged nach <code>main</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pruefen.yml</code>, <code>pages.yml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub Actions, Cache für docToolchain vorhanden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests, Build, Prüfungen und Deployment laufen durch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>&lt; 5 min</strong> je Workflow-Lauf (Zielwert des Product Owners, 23.09.2026). Gemessen am 23.09.2026: <code>pruefen.yml</code> 13–19 s, <code>pages.yml</code> 29–32 s (<code>gh run list</code>); am 24.09.2026 <code>browser.yml</code> (#26, parallel zu <code>pruefen.yml</code>) 57–73 s mit Browser-Cache, 92 s ohne</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tippt einen Term</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Eingabe)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Übung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vorschau nach der Tipp-Pause</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>150 ms</strong> (<code>src/kern/js/aufgabe-eingabe.js:17</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in, CI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>npm run build</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung, WSL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vollständige, geprüfte Site</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>0,41 s</strong> für 3 Apps, Karte, 45 Seiten (Eleventy-Ausgabe, 23.09.2026); Spike vom 23.09.2026: <strong>≈ 1,5 s</strong> für 20 Apps, Code verworfen. Zielwert für den ganzen CI-Lauf: QS-28.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Browser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>localStorage</code> wirft</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Speicher, Video)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keine Ausnahme, Meldung an das Kind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>0 unbehandelte Ausnahmen</strong>; Speichern liefert <code>false</code> (<code>src/kern/js/storage.js:17-21</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Browser mit Cache der Vorversion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">öffnet nach einem Deployment eine neue Seite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Layout, Kern, Apps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produktion, <code>max-age=600</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lädt Module nur in der neuen Version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>jede</strong> lokale JS/CSS-Referenz trägt <code>?v=&lt;Hash&gt;</code>, <strong>0</strong> Module doppelt (<code>lib/versionierung.js:16-28</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startet den Tutor mit sehr langem Prompt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (TalkItOver)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Produktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prompt in die Zwischenablage statt Link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grenze <strong>20 000 Zeichen</strong> (<code>src/kern/vendor/talkitover.js:39</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">trägt <code>APP.fach: "musik"</code> ein</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build (Fachfarben)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build bricht mit Liste der Fächer ab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>5</strong> Fächer in der Tabelle, weiße Schrift <strong>≥ 4,5:1</strong> (<code>lib/fachfarben.js:6-12</code>, <code>:29-32</code>; <code>test/build/fachfarben.test.js</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nutzer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">zieht die Site an eine neue Adresse um</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build (Adressen)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">alle Links, Canonicals, <code>llms.txt</code>, Quellcode-Links folgen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1 Zeile</strong> (<code>src/_data/site.js:9</code>; <code>lib/adressen.js:7-24</code>; <code>test/build/adressen.test.js</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autor:in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nennt einen unbekannten Knoten in <code>kartenKnoten</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build (Karte), Apps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entwicklung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build bricht mit Datei, Kompetenz und Knoten ab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1 Fehlerzeile je unbekanntem Knoten</strong> (<code>lib/karte/eintraege.js:46</code>, <code>lib/karte/laden.js:53-56</code>; <code>test/build/karte-eintraege.test.js</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abgeleitet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lernende</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">klickt „Link kopieren“</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kern (Aufgabenlink)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Übung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Knopf zeigt „Kopiert“, dann wieder den alten Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1500 ms</strong> (<code>src/kern/js/aufgabenlink.js:24</code>)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Die Zielwerte von QS-26 bis QS-28 stehen nicht im Code, sondern kommen vom Product Owner. Die
+Netz-Annahme in QS-26 ist eine Annahme der Doku; sie gilt, bis jemand ein anderes Profil festlegt.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="section-utility-tree">Utility Tree: Datenschutz, richtige Rückmeldung und die Aufgabennummer tragen die höchste Last</h3>
+<div class="paragraph">
+<p>Der Utility Tree ordnet die Szenarien für die ATAM-Bewertung vom 25.09.2026
+(<a href="13_bewertungen.html#bewertung-atam-2026-09-25">Anhang Bewertungen</a>). Er bleibt in diesem Kapitel,
+weil er das Qualitätsmodell ist und laufend gilt; jede datierte Bewertung misst sich an ihm. Jedes Blatt trägt zwei Noten: <strong>Wichtigkeit</strong>
+für den Erfolg der Apps und <strong>Schwierigkeit</strong>, das Szenario mit der Architektur zu erfüllen, je hoch (H),
+mittel (M) oder niedrig (L). Die Wichtigkeit folgt der Rangfolge der Qualitätsziele aus
+<a href="01_introduction_and_goals.html#section-quality-goals">Kapitel 1.2</a>; der Product Owner hat diese
+Ableitung am 25.09.2026 bestätigt. Die Schwierigkeit ist aus dem Code abgeleitet: L heißt, eine Prüfung im
+Build erzwingt das Szenario; M heißt, Tests decken es ab, aber jede Änderung kann es brechen; H heißt,
+kein Werkzeug prüft es vollständig. Die abgeleiteten Szenarien aus dem Qualitätsbaum oben fehlen hier; sie
+treiben keine Architekturentscheidung.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 37.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Qualitätsziel (Prio)</th>
+<th class="tableblock halign-left valign-top">Verfeinerung</th>
+<th class="tableblock halign-left valign-top">Szenario</th>
+<th class="tableblock halign-left valign-top">Wichtigkeit</th>
+<th class="tableblock halign-left valign-top">Schwierigkeit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-1 Datenschutz (1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kein fremder Host ohne Klick</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-1 Datenschutz (1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kein fremder Host ohne Klick</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-1 Datenschutz (1)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eingaben führen keinen Code aus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-3 Richtige Rückmeldung (2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zahlen nach einer Rundungsregel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-3 Richtige Rückmeldung (2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zahlen nach einer Rundungsregel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-3 Richtige Rückmeldung (2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Terme gleichwertig erkennen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-2 Tutor-Anschluss (3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aufgaben reproduzierbar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-2 Tutor-Anschluss (3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aufgaben reproduzierbar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-2 Tutor-Anschluss (3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vertrag vollständig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4 Neue Apps schnell (4)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wenig Handarbeit je Kompetenz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4 Neue Apps schnell (4)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eine Korrektur für alle Apps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4 Neue Apps schnell (4)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build-Hygiene</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4 Neue Apps schnell (4)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build-Hygiene</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4 Neue Apps schnell (4)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build-Hygiene</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-4 Neue Apps schnell (4)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Build-Hygiene</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-5 Zugänglich (5)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handy zuerst</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-5 Zugänglich (5)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handy zuerst</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-26</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-5 Zugänglich (5)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lesbar ohne JavaScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QZ-5 Zugänglich (5)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bedienbar für alle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QS-27</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Die Bewertung nimmt sich die Blätter mit (H, H) und (H, M) vor, dazu QS-27 (M, H) als schwierigstes
+Blatt: QS-19, QS-1, QS-8, QS-6, QS-7, QS-3 und QS-27. QS-2 (H, L) ist wichtig, aber durch den Build
+erzwungen; es erscheint als Non-Risk. QS-26 hat Schwierigkeit L, weil die Seiten klein und statisch sind;
+der Product Owner schätzt die Ladezeit am 25.09.2026 als „weit unter 2 Sekunden“ ein. Gemessen ist sie
+weiter nicht.</p>
+</div>
+</div>
+</div>
+</div>
+        </p>
+
+        <style>
+.feedback--answer {
+    display: inline-block;
+}
+
+.feedback--answer-no {
+    margin-left: 1em;
+}
+
+.feedback--response {
+    display: none;
+    margin-top: 1em;
+}
+
+.feedback--response__visible {
+    display: block;
+}
+</style>
+
+<div class="d-print-none">
+    <h2 class="feedback--title">Feedback</h2>
+    <p class="feedback--question">Was this page helpful?</p>
+    <button class="feedback--answer feedback--answer-yes">Yes</button>
+    <button class="feedback--answer feedback--answer-no">No</button>
+    <p class="feedback--response feedback--response-yes">
+        Glad to hear it! Please <a href="https://github.com/lernapps/lernapps.github.io/issues/new?title=Docs%3A+Feedback+for+%27Qualit%C3%A4tsanforderungen%27%20%F0%9F%91%8D&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:arc42/chapters/10_quality_requirements.adoc">tell us
+    how we can improve</a>.
+    </p>
+    <p class="feedback--response feedback--response-no">
+        Sorry to hear that. Please <a href="https://github.com/lernapps/lernapps.github.io/issues/new?title=Docs%3A+Feedback+for+%27Qualit%C3%A4tsanforderungen%27%20%F0%9F%91%8E&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:arc42/chapters/10_quality_requirements.adoc">tell
+    us how we can improve</a>.
+    </p>
+</div>
+<script>
+    const yesButton = document.querySelector('.feedback--answer-yes');
+    const noButton = document.querySelector('.feedback--answer-no');
+    const yesResponse = document.querySelector('.feedback--response-yes');
+    const noResponse = document.querySelector('.feedback--response-no');
+    const disableButtons = () => {
+        yesButton.disabled = true;
+        noButton.disabled = true;
+    };
+    const sendFeedback = (value) => {
+        if (typeof ga !== 'function') return;
+        const args = {
+            command: 'send',
+            hitType: 'event',
+            category: 'Helpful',
+            action: 'click',
+            label: window.location.pathname,
+            value: value
+        };
+        ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+    };
+    yesButton.addEventListener('click', () => {
+        yesResponse.classList.add('feedback--response__visible');
+        disableButtons();
+        sendFeedback(1);
+    });
+    noButton.addEventListener('click', () => {
+        noResponse.classList.add('feedback--response__visible');
+        disableButtons();
+        sendFeedback(0);
+    });
+</script>
+
+
+        <br>
+
+        <!--div class="text-muted mt-5 pt-3 border-top">Last modified July 3, 2019: <a
+                href="https://github.com/google/docsy-example/commit/d6aa89c8b24089d7e6741030864eff209465e896">Added
+            links to user guide repo (d6aa89c)</a>
+        </div-->
+    </div>
+
+
+			</main>
+
+		</div>
+	</div>
+
+
+	
+
+    <footer class="bg-dark py-5 row d-print-none">
+        <div class="container-fluid mx-sm-5">
+            <div class="row">
+                <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+
+
+                    <ul class="list-inline mb-0">
+                        
+                        
+                        
+                    </ul>
+
+
+                </div>
+                <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+
+
+                    <ul class="list-inline mb-0">
+
+                        
+                        <li aria-label="GitHub" class="list-inline-item mx-2 h3" data-original-title="GitHub" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a aria-label="GitHub" class="text-white" href="https://github.com/lernapps/lernapps.github.io" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        
+
+                        
+
+
+                    </ul>
+
+
+                </div>
+                <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+
+                        <small class="text-white">Gebaut mit <a href="https://doctoolchain.org">docToolchain</a> und <a href="https://asciidoctor.org">Asciidoctor</a> · Vorlage: <a href="https://arc42.org">arc42</a></small>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+
+    <script src="../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js"></script>
+    <script src="../../js/blocks.js" ></script>
+    <script src="../../js/prettify.js"></script>
+    <script src="../../js/copy-n-paste.js"></script>
+    <script src="../../js/submenucollapse.js"></script>
+
+    <!-- docToolchain v4 — colour-scheme toggle -->
+    <script>
+        function dtcToggleTheme() {
+            var root = document.documentElement;
+            var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('lernapps:mathe-karte:dtc-theme', next); } catch (e) {} // lern-app-template (1)
+            document.querySelectorAll('.dtc-theme-toggle').forEach(function (b) {
+                b.textContent = next === 'dark' ? '☀️' : '🌙';
+            });
+        }
+        // sync icon with the theme applied in <head>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.querySelectorAll('.dtc-theme-toggle').forEach(function (b) {
+                b.textContent = dark ? '☀️' : '🌙';
+            });
+        });
+    </script>
+
+
+</body>
+</html>

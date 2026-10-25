@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Start – Zufall-Trainer</title>
+  <meta name="description" content="Wahrscheinlichkeitsrechnung üben, Klasse 8: Laplace-Formel, Baumdiagramm, beide Pfadregeln, Gegenereignis und Ziehen ohne Zurücklegen. Mit Bildern und Sofort-Feedback. Ohne Server, ohne Tracking.">
+  <link rel="canonical" href="https://lernapps.github.io/mathe-karte/zufall/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1d4ed8">
+  <link rel="stylesheet" href="../kern/css/stil.css?v=6ec40465">
+  <link rel="stylesheet" href="css/zufall.css?v=6ec40465">
+  <style>:root { --farbe-primaer: #1d4ed8; --farbe-primaer-dunkel: #1e3a8a; }</style>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="kopf">
+    <a class="marke" href="index.html" aria-current="page">Zufall-Trainer</a>
+    <nav class="themen" aria-label="Themen">
+      <ul>
+        <li><a href="laplace.html"><span class="nummer">1</span> Laplace</a></li>
+        <li><a href="baumdiagramm.html"><span class="nummer">2</span> Baumdiagramm</a></li>
+        <li><a href="pfadregel-1.html"><span class="nummer">3</span> Pfadregel 1</a></li>
+        <li><a href="gegenereignis.html"><span class="nummer">4</span> Gegenereignis</a></li>
+        <li><a href="ohne-zuruecklegen.html"><span class="nummer">5</span> Ohne Zurücklegen</a></li>
+        <li><a href="pfadregel-2.html"><span class="nummer">6</span> Pfadregel 2</a></li>
+        <li><a href="ergebnisformen.html"><span class="nummer">7</span> Produkt, Summe, Potenz</a></li>
+        <li><a href="pfade-uebersetzen.html"><span class="nummer">8</span> In Pfade übersetzen</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+<h1>Zufall-Trainer</h1>
+    <p>Hier übst du die Wahrscheinlichkeitsrechnung aus Klasse 8 – vom Würfel bis zum Baumdiagramm mit zwei Pfadregeln, mit Erklärung, Beispiel, Bild und so vielen Aufgaben, wie du willst. Jede Aufgabe sagt dir sofort, ob dein Ergebnis stimmt, und zeigt dir auf Wunsch den Rechenweg.</p>
+    <p class="uebersicht">Weitere Lern-Apps: <a href="../">alle Apps im Überblick →</a></p>
+
+    <section id="checkliste">
+      <h2>Deine Checkliste</h2>
+      <p>Schätze dich bei jeder Kompetenz selbst ein – oder lass den Test entscheiden. Beides bleibt nur in diesem Browser gespeichert.</p>
+      <div class="aktionen">
+        <a class="knopf primaer" href="test.html?modus=voll">Test starten</a>
+        <a class="knopf" href="test.html?modus=schnell">Schnelltest (kurz)</a>
+      </div>
+      <table class="checkliste">
+        <thead>
+          <tr><th scope="col">Kompetenz</th><th scope="col">Sicher</th><th scope="col">Teils</th><th scope="col">Noch üben</th><th scope="col">Test</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. <a href="laplace.html">Die Laplace-Formel anwenden: P(E) = günstige durch mögliche Ergebnisse</a></td>
+            <td><input type="radio" name="k-laplace" value="S" data-kompetenz="laplace" aria-label="Sicher: Die Laplace-Formel anwenden: P(E) = günstige durch mögliche Ergebnisse"></td>
+            <td><input type="radio" name="k-laplace" value="T" data-kompetenz="laplace" aria-label="Teils: Die Laplace-Formel anwenden: P(E) = günstige durch mögliche Ergebnisse"></td>
+            <td><input type="radio" name="k-laplace" value="Ü" data-kompetenz="laplace" aria-label="Noch üben: Die Laplace-Formel anwenden: P(E) = günstige durch mögliche Ergebnisse"></td>
+            <td data-test="laplace">–</td>
+          </tr>
+          <tr>
+            <td>2. <a href="baumdiagramm.html">Ein Baumdiagramm zu einem mehrstufigen Zufallsexperiment zeichnen</a></td>
+            <td><input type="radio" name="k-baumdiagramm" value="S" data-kompetenz="baumdiagramm" aria-label="Sicher: Ein Baumdiagramm zu einem mehrstufigen Zufallsexperiment zeichnen"></td>
+            <td><input type="radio" name="k-baumdiagramm" value="T" data-kompetenz="baumdiagramm" aria-label="Teils: Ein Baumdiagramm zu einem mehrstufigen Zufallsexperiment zeichnen"></td>
+            <td><input type="radio" name="k-baumdiagramm" value="Ü" data-kompetenz="baumdiagramm" aria-label="Noch üben: Ein Baumdiagramm zu einem mehrstufigen Zufallsexperiment zeichnen"></td>
+            <td data-test="baumdiagramm">–</td>
+          </tr>
+          <tr>
+            <td>3. <a href="pfadregel-1.html">Die erste Pfadregel anwenden (entlang des Pfades multiplizieren)</a></td>
+            <td><input type="radio" name="k-pfadregel-1" value="S" data-kompetenz="pfadregel-1" aria-label="Sicher: Die erste Pfadregel anwenden (entlang des Pfades multiplizieren)"></td>
+            <td><input type="radio" name="k-pfadregel-1" value="T" data-kompetenz="pfadregel-1" aria-label="Teils: Die erste Pfadregel anwenden (entlang des Pfades multiplizieren)"></td>
+            <td><input type="radio" name="k-pfadregel-1" value="Ü" data-kompetenz="pfadregel-1" aria-label="Noch üben: Die erste Pfadregel anwenden (entlang des Pfades multiplizieren)"></td>
+            <td data-test="pfadregel-1">–</td>
+          </tr>
+          <tr>
+            <td>4. <a href="gegenereignis.html">Die Gegenwahrscheinlichkeit 1 − p berechnen (auch für „mindestens einmal“)</a></td>
+            <td><input type="radio" name="k-gegenereignis" value="S" data-kompetenz="gegenereignis" aria-label="Sicher: Die Gegenwahrscheinlichkeit 1 − p berechnen (auch für „mindestens einmal“)"></td>
+            <td><input type="radio" name="k-gegenereignis" value="T" data-kompetenz="gegenereignis" aria-label="Teils: Die Gegenwahrscheinlichkeit 1 − p berechnen (auch für „mindestens einmal“)"></td>
+            <td><input type="radio" name="k-gegenereignis" value="Ü" data-kompetenz="gegenereignis" aria-label="Noch üben: Die Gegenwahrscheinlichkeit 1 − p berechnen (auch für „mindestens einmal“)"></td>
+            <td data-test="gegenereignis">–</td>
+          </tr>
+          <tr>
+            <td>5. <a href="ohne-zuruecklegen.html">Beim Ziehen ohne Zurücklegen die veränderten Wahrscheinlichkeiten bestimmen</a></td>
+            <td><input type="radio" name="k-ohne-zuruecklegen" value="S" data-kompetenz="ohne-zuruecklegen" aria-label="Sicher: Beim Ziehen ohne Zurücklegen die veränderten Wahrscheinlichkeiten bestimmen"></td>
+            <td><input type="radio" name="k-ohne-zuruecklegen" value="T" data-kompetenz="ohne-zuruecklegen" aria-label="Teils: Beim Ziehen ohne Zurücklegen die veränderten Wahrscheinlichkeiten bestimmen"></td>
+            <td><input type="radio" name="k-ohne-zuruecklegen" value="Ü" data-kompetenz="ohne-zuruecklegen" aria-label="Noch üben: Beim Ziehen ohne Zurücklegen die veränderten Wahrscheinlichkeiten bestimmen"></td>
+            <td data-test="ohne-zuruecklegen">–</td>
+          </tr>
+          <tr>
+            <td>6. <a href="pfadregel-2.html">Die zweite Pfadregel anwenden (Pfade eines Ereignisses addieren)</a></td>
+            <td><input type="radio" name="k-pfadregel-2" value="S" data-kompetenz="pfadregel-2" aria-label="Sicher: Die zweite Pfadregel anwenden (Pfade eines Ereignisses addieren)"></td>
+            <td><input type="radio" name="k-pfadregel-2" value="T" data-kompetenz="pfadregel-2" aria-label="Teils: Die zweite Pfadregel anwenden (Pfade eines Ereignisses addieren)"></td>
+            <td><input type="radio" name="k-pfadregel-2" value="Ü" data-kompetenz="pfadregel-2" aria-label="Noch üben: Die zweite Pfadregel anwenden (Pfade eines Ereignisses addieren)"></td>
+            <td data-test="pfadregel-2">–</td>
+          </tr>
+          <tr>
+            <td>7. <a href="ergebnisformen.html">Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben</a></td>
+            <td><input type="radio" name="k-ergebnisformen" value="S" data-kompetenz="ergebnisformen" aria-label="Sicher: Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben"></td>
+            <td><input type="radio" name="k-ergebnisformen" value="T" data-kompetenz="ergebnisformen" aria-label="Teils: Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben"></td>
+            <td><input type="radio" name="k-ergebnisformen" value="Ü" data-kompetenz="ergebnisformen" aria-label="Noch üben: Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben"></td>
+            <td data-test="ergebnisformen">–</td>
+          </tr>
+          <tr>
+            <td>8. <a href="pfade-uebersetzen.html">„Genau einmal“, „beide gleich“ und „mindestens einmal“ in Pfade übersetzen</a></td>
+            <td><input type="radio" name="k-pfade-uebersetzen" value="S" data-kompetenz="pfade-uebersetzen" aria-label="Sicher: „Genau einmal“, „beide gleich“ und „mindestens einmal“ in Pfade übersetzen"></td>
+            <td><input type="radio" name="k-pfade-uebersetzen" value="T" data-kompetenz="pfade-uebersetzen" aria-label="Teils: „Genau einmal“, „beide gleich“ und „mindestens einmal“ in Pfade übersetzen"></td>
+            <td><input type="radio" name="k-pfade-uebersetzen" value="Ü" data-kompetenz="pfade-uebersetzen" aria-label="Noch üben: „Genau einmal“, „beide gleich“ und „mindestens einmal“ in Pfade übersetzen"></td>
+            <td data-test="pfade-uebersetzen">–</td>
+          </tr>
+        </tbody>
+      </table>
+      <noscript><p>Ohne JavaScript wird die Einschätzung nicht gespeichert – die Übungsseiten brauchen JavaScript für die Aufgaben, die Erklärungen nicht.</p></noscript>
+      <p class="legende" data-letzter-test></p>
+      <p class="legende" data-speicherhinweis></p>
+    </section>
+
+    <section id="tutor" class="tutor">
+      <h2>Mit Claude lernen</h2>
+      <p>Du kannst dir von Claude beim Üben helfen lassen. Claude fragt dich zuerst, was du schon kannst, erklärt Schritt für Schritt und schickt dich zu passenden Aufgaben in diesem Trainer.</p>
+      <talk-it-over url="https://lernapps.github.io/mathe-karte/zufall/tutor.md" prompt="Lade {url} und unterrichte mich danach. Frag mich zuerst, was ich schon kann." label="Mit Claude lernen" providers="claude,copy"></talk-it-over>
+      <p class="fallback">Ohne JavaScript: <a href="https://claude.ai/new?q=Lade%20https%3A%2F%2Flernapps.github.io%2Fmathe-karte%2Fzufall%2Ftutor.md%20und%20unterrichte%20mich%20danach.%20Frag%20mich%20zuerst%2C%20was%20ich%20schon%20kann." rel="noopener">Mit Claude lernen (öffnet claude.ai)</a>. Für die KI gibt es außerdem eine <a href="llms.txt">Beschreibung aller Seiten und Links (llms.txt)</a>.</p>
+    </section>
+
+    <section id="datenschutz">
+      <h2>Datenschutz</h2>
+      <p>Diese Seite läuft komplett in deinem Browser. Es gibt keinen Server, der etwas mitschreibt: kein Tracking, keine Cookies, keine Konten. Keine externen Requests, bis du ein Video startest; dann lädt youtube-nocookie.com (Daten gehen an Google). Die Videos auf den Übungsseiten sind deshalb als Platzhalter eingebaut – das Video kommt erst nach deinem Klick. Deine Selbsteinschätzung, dein letztes Testergebnis und der Merker „Videos immer direkt laden“ liegen nur im Speicher deines Browsers. Der Knopf „Mit Claude lernen“ öffnet claude.ai in einem neuen Fenster – erst dort gelten die Regeln von claude.ai.</p>
+    </section>
+  <script src="../kern/vendor/talkitover.js?v=6ec40465"></script>
+  <script type="module">
+    import { APP } from "./js/app.config.js?v=6ec40465";
+    import { starteStartseite } from "../kern/js/startseite.js?v=6ec40465";
+    starteStartseite({ app: APP });
+  </script>
+
+  </main>
+
+  <footer class="fuss">
+    <p>Zufall-Trainer · Lern-Apps Version 0.12.0 · <a href="https://github.com/lernapps/mathe-karte/tree/main/src/zufall">Quellcode auf GitHub</a> · <a href="index.html#datenschutz">Datenschutz</a> · <a href="../">Alle Apps</a></p>
+    <p class="melden">Fehler gefunden oder Idee? <a href="https://github.com/lernapps/mathe-karte/issues/new?title=R%C3%BCckmeldung%20zu%20%2Fmathe-karte%2Fzufall%2F%3A%20" title="Öffnet GitHub. Zum Melden brauchst du ein GitHub-Konto.">Auf GitHub melden</a> (GitHub-Konto nötig)</p>
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="de">
+<head>
+    
+    <!-- sourceuri: arc42/chapters/05_building_block_view.html -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="jbake" name="generator">
+    <meta content="INDEX, FOLLOW" name="ROBOTS">
+
+    <title>Bausteinsicht</title>
+    <meta content="docToolchain" property="og:title">
+    <meta content="build your dev docs the easy way..." property="og:description">
+    <meta content="website" property="og:type">
+    <meta content="docToolchain" property="og:site_name">
+    <meta content="docToolchain" itemprop="name">
+    <meta content="build your dev docs the easy way..." itemprop="description">
+    <meta content="summary" name="twitter:card">
+    <meta content="docToolchain" name="twitter:title">
+    <meta content="build your dev docs the easy way..." name="twitter:description">
+
+    <link as="style"
+        href="../../css/main.min.881fe5f7b53609f55ebfb496c7097c3b30b2e8ceb20a54bc6a48350ded67224f.css"
+        rel="preload">
+    <link href="../../css/main.min.881fe5f7b53609f55ebfb496c7097c3b30b2e8ceb20a54bc6a48350ded67224f.css"
+        integrity=""
+        rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+    <link href="../../css/theme-v4.css" rel="stylesheet">
+
+    <!-- favicon generated with https://www.favicon-generator.org/ -->
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="../../manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../../ms-icon-144x144.png">
+    
+    <meta name="theme-color" content="#1d4ed8">
+
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+    <style>
+    div.bg-light {
+        background-color: rgba(127, 180, 224, 0.3) !important;
+    }
+
+    /* for blog posts */
+    span.blogtag {
+        border-radius: 10px;
+        background-color: #30638E;
+        color: white;
+        padding: 5px 10px;
+    }
+
+    span.blogblogtag a {
+        color: white;
+        padding: 0
+    }
+
+    span.blogtag span {
+        margin-left: 10px;
+        border-radius: 10px;
+        background-color: white;
+        color: #30638E;
+    }
+
+    div.td-toc {
+        height: calc(100vh - 5rem) !important;
+    }
+
+    div#toctitle {
+        display: none
+    }
+
+    #td-section-nav {
+        max-height: calc(100vh - 4rem);
+        font-size: smaller;
+        line-height: 1.1;
+    }
+
+    .td-page-meta {
+        font-size: smaller;
+        line-height: 1.1;
+    }
+
+    #td-section-nav ul.td-sidebar-nav__section {
+        padding-left: 0;
+    }
+
+    span.navbar-logo {
+        padding-right: 1.5em;
+    }
+
+    .match {
+        font-size: smaller;
+    }
+
+    .admonitionblock td.icon .fa:before {
+        font-size: xxx-large;
+    }
+    </style>
+
+    <style>
+    div.openblock.primary div.content, div.openblock.secondary div.content {
+        border: 1px solid #7a2518;
+        padding: 5px;
+    }
+
+    div.openblock.primary div.content div.content, div.openblock.secondary div.content div.content {
+        border: 0 solid #7a2518;
+        padding: 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .switch {
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+        border-color: #7a2518;
+        display: inline-block;
+    }
+
+    .switch--item {
+        padding: 2px 10px;
+        background-color: #ffffff;
+        color: #7a2518;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .switch--item:not(:first-child) {
+        border-width: 0 0 0 1px;
+        border-style: solid;
+        border-color: #7a2518;
+    }
+
+    .switch--item.selected {
+        background-color: #7a2519;
+        color: #ffffff;
+    }
+    </style>
+
+    <!-- copy-n-paste.js -->
+    <style>
+        div.listingblock {
+            position: relative;
+        }
+        div.listingblock > span.icon {
+            position: absolute;
+            top: 2px;
+            right: 6px;
+            visibility: hidden;
+            z-index: 2;
+            cursor: pointer;
+        }
+        div.listingblock:hover > span.icon {
+            visibility: visible;
+        }
+        div.listingblock div.content pre {
+            margin: 0;
+        }
+    </style>
+    <style>
+        .td-sidebar-nav__section {
+            padding-left: 9px;
+        }
+        details {
+            margin-left: 10px;
+        }
+        summary {
+            cursor: pointer;
+            padding-left: 10px; /* Erhöhter linker Padding für den Pfeil */
+            list-style: none;
+            position: relative; /* Für absolute Positionierung des Pfeils */
+        }
+        summary::before {
+            content: '>';
+            position: absolute;
+            left: 10px; /* Position des Pfeils */
+            top: 50%;
+            transform: translateY(-50%) translateX(-120%);
+            transition: transform 0.3s;
+        }
+        details[open] > summary::before {
+            transform: translateY(-50%) translateX(-120%) rotate(90deg);
+        }
+    </style>
+
+    <!-- docToolchain v4 theme overlay — self-hosted fonts (no Google CDN) -->
+    <link href="../../css/fonts.css" rel="stylesheet">
+    <link href="../../css/doctoolchain-v4.css" rel="stylesheet">
+    <link href="../../css/lern-app.css" rel="stylesheet">
+
+    <!-- brand customization from docToolchainConfig.groovy (microsite.color* / microsite.font*) -->
+    <!-- dtc:theme-config:start -->
+    
+    
+    <style id="dtc-theme-config">
+    :root {
+        --g-600: #1d4ed8;
+        --teal: #1d4ed8;
+        --g-800: #1e3a8a;
+        --g-700: #1e40af;
+        --cyan: #1e40af;
+    }
+    </style>
+    
+    <!-- dtc:theme-config:end -->
+    <script>
+        // apply persisted colour scheme before first paint (no flash)
+        (function () {
+            try {
+                var t = localStorage.getItem('lernapps:mathe-karte:dtc-theme'); // lern-app-template (3)
+                if (!t) {
+                    t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body onload="prettyPrint()" class="td-section">
+<header>
+	
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+    <a class="navbar-brand" href="../../index.html">
+        <span class="navbar-logo"><img src="../../images/doctoolchain-logo-blue.png" alt="Lern-Apps · Architektur" width="32px" /></span><span
+            class="font-weight-bold">Lern-Apps · Architektur</span>
+    </a>
+    <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+        <ul class="navbar-nav mt-2 mt-lg-0">
+    <li class="nav-item mr-4 mb-2 mb-lg-0"><!--img src="../../images/status.png" alt="status" width="16" height="16" onerror="this.style.display='none'"--></li>
+
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link " href="../../uebersicht/index.html"><span>Übersicht</span></a>
+            </li>
+
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link " href="../../abgrenzung/index.html"><span>Was lernapps anders macht</span></a>
+            </li>
+
+            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                <a class="nav-link active" href="../../arc42/chapters/01_introduction_and_goals.html"><span>Architektur (arc42)</span></a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="navbar-nav d-none d-lg-block" >
+    
+        <form action="../../search.html">
+        <input aria-label="Search this site…" autocomplete="off" class="form-control td-search-input"
+               placeholder=" Search this site…" type="search" name="q">
+        </form>
+    
+    </div>
+    <button type="button" class="dtc-theme-toggle" aria-label="Toggle colour scheme" onclick="dtcToggleTheme()">🌙</button>
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+	<div class="td-main">
+		<div class="row flex-xl-nowrap">
+			<div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+				<div class="td-sidebar__inner" id="td-sidebar-menu" >
+					
+     
+        <form class="td-sidebar__search d-flex align-items-center d-lg-none" action="../../search.html">
+
+            <input aria-label="Search this site…" name="q" autocomplete="off" class="form-control td-search-input"
+                   placeholder=" Search this site…" type="search">
+
+
+            <button aria-controls="td-docs-nav" aria-expanded="false"
+                    aria-label="Toggle section navigation" class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" data-target="#td-section-nav"
+                    data-toggle="collapse" type="button">
+            </button>
+        </form>
+    
+
+
+        <nav aria-label="Submenu" class="collapse td-sidebar-nav" id="td-section-nav" >
+
+            <ul class="td-sidebar-nav__section">
+                <li class="td-sidebar-nav__section-title">
+                    <span class="align-left pl-0 pr-2 pt-2 active td-sidebar-link td-sidebar-link__section">Architektur (arc42)</span>
+                </li>
+                <li>
+                  <ul>
+                      <li class="collapse show" id="docs">
+                          
+                        <ul class="td-sidebar-nav__section ul-0">
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/01_introduction_and_goals.html" title="Einführung und Ziele"><span class="arc42-num">01</span> Einführung und Ziele</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/02_architecture_constraints.html" title="Randbedingungen"><span class="arc42-num">02</span> Randbedingungen</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/03_context_and_scope.html" title="Kontextabgrenzung"><span class="arc42-num">03</span> Kontextabgrenzung</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/04_solution_strategy.html" title="Lösungsstrategie"><span class="arc42-num">04</span> Lösungsstrategie</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section active"
+                                   href="../../arc42/chapters/05_building_block_view.html" title="Bausteinsicht"><span class="arc42-num">05</span> Bausteinsicht</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/06_runtime_view.html" title="Laufzeitsicht"><span class="arc42-num">06</span> Laufzeitsicht</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/07_deployment_view.html" title="Verteilungssicht"><span class="arc42-num">07</span> Verteilungssicht</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/08_concepts.html" title="Querschnittliche Konzepte"><span class="arc42-num">08</span> Querschnittliche Konzepte</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/09_architecture_decisions.html" title="Architekturentscheidungen"><span class="arc42-num">09</span> Architekturentscheidungen</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/10_quality_requirements.html" title="Qualitätsanforderungen"><span class="arc42-num">10</span> Qualitätsanforderungen</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/11_technical_risks.html" title="Risiken und technische Schulden"><span class="arc42-num">11</span> Risiken und technische Schulden</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/12_glossary.html" title="Glossar"><span class="arc42-num">12</span> Glossar</a>
+                                
+                            </li>
+                            <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child">
+                                <a class="align-left pl-0 pr-2 pt-2 td-sidebar-link td-sidebar-link__section "
+                                   href="../../arc42/chapters/13_bewertungen.html" title="Anhang: Bewertungen"><span class="arc42-num">13</span> Anhang: Bewertungen</a>
+                                
+                            </li>
+                        </ul>
+                      </li>
+                  </ul>
+                <li>
+        </nav>
+
+				</div>
+			</div>
+			<div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+				<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+					
+
+        <a href="https://github.com/lernapps/lernapps.github.io/edit/main/src/docs/arc42/chapters/05_building_block_view.adoc"
+           target="_blank"><i class="fa fa-edit fa-fw"></i> Improve this doc</a>
+
+
+        <a href="https://github.com/lernapps/lernapps.github.io/issues/new?title=Docs%3A+Feedback+for+%27Bausteinsicht%27&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:%20https://github.com/lernapps/lernapps.github.io/edit/main/src/docs/arc42/chapters/05_building_block_view.adoc%0A%23branch:%20main" target="_blank"><i
+                class="fab fa-github fa-fw"></i> Create an issue</a>
+
+        
+
+        <hr />
+
+        <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#section-building-block-view">Bausteinsicht: Fachliches je App-Ordner, Generisches einmal im Kern, Layout und Build</a>
+<ul class="sectlevel2">
+<li><a href="#section-whitebox-overall-system">Ebene 1: Whitebox Lern-Apps</a></li>
+<li><a href="#section-level-2-build">Ebene 2: Whitebox Build</a></li>
+<li><a href="#section-level-2">Ebene 2: Whitebox Kern</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+
+
+
+				</div>
+			</div>
+			<main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+				    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+        <ol class="breadcrumb spb-1">
+            <!--li aria-current="page" class="breadcrumb-item active">
+                <a href="https://example.docsy.dev/docs/">Documentation</a>
+            </li-->
+
+        </ol>
+    </nav>
+
+
+    <div class="td-content">
+        <p>
+            
+<div class="sect1">
+<h2 id="section-building-block-view">Bausteinsicht: Fachliches je App-Ordner, Generisches einmal im Kern, Layout und Build</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die Bausteine folgen einer Linie: Was je App anders ist, steht in <code>src/&lt;app&gt;/</code>. Was alle Apps teilen,
+steht einmal im Kern (<code>src/kern/</code>), im Layout (<code>src/_includes/</code>, <code>src/*.njk</code>) und im Build (<code>lib/</code>).
+Die Abhängigkeit zeigt vom Fachlichen zum Kern, nie umgekehrt: Der Kern importiert keine
+App-Konfiguration; die Seite reicht <code>APP</code>, <code>KOMPETENZEN</code> und Generatoren hinein
+(<a href="09_architecture_decisions.html#adr-013">ADR-013</a>). Der Build liest die App-Konfigurationen und
+erzeugt daraus alles, was eine App sonst von Hand pflegen müsste.</p>
+</div>
+<div class="sect2">
+<h3 id="section-whitebox-overall-system">Ebene 1: Whitebox Lern-Apps</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/bausteine-ebene-1.svg" alt="bausteine ebene 1" width="1135" height="2013">
+</div>
+</div>
+<div class="paragraph">
+<p>Die externen Nachbarn sind dieselben sieben Systeme und zwei Personen wie im
+<a href="03_context_and_scope.html#section-business-context">fachlichen Kontext</a>.</p>
+</div>
+<div class="paragraph">
+<p>Der Skill <code>lern-app</code> liegt im Monorepo unter <code>werkzeuge/skill/lern-app/</code> (PR #7). Er ist Werkzeug der
+Autor:in, kein Baustein der Site: Er wird weder gebaut noch ausgeliefert, sondern nach
+<code>~/.claude/skills/</code> verlinkt. Eine eigene Vorlage gibt es nicht mehr; eine neue App entsteht als Ordner
+<code>src/&lt;app&gt;/</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 25%;">
+<col style="width: 25.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Baustein</th>
+<th class="tableblock halign-left valign-top">Verantwortung</th>
+<th class="tableblock halign-left valign-top">Schnittstelle</th>
+<th class="tableblock halign-left valign-top">Quellort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bb-build"></a>Build</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lädt jede App aus ihrer Konfiguration und ergänzt Adressen, Fachfarbe und Kompetenznummern; zeichnet statische Bilder; bindet die Karte ein; prüft Regeln und bricht bei Verstößen ab; hängt <code>?v=&lt;Hash&gt;</code> an jede lokale Referenz. Siehe Ebene 2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>npm run build</code> → <code>_site/</code>; Eleventy-Daten <code>apps</code>, <code>site</code>, <code>fachfarben</code>; Shortcode <code>bild</code>; Funktionen <code>ladeApps</code>, <code>leiteAdressenAb</code>, <code>fachfarbe</code>, <code>zeichneBild</code>, <code>versionsHash</code>, <code>versioniere</code>, <code>pruefe*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eleventy.config.js</code>, <code>lib/*.js</code>, <code>src/_data/</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bb-layout"></a>Layout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erzeugt Kopf, Menü mit Nummern-Plaketten, Footer mit Site-Version, Fachfarbe, das Gerüst jeder Kompetenzseite (Warum, Regel, Beispiel, Bild, Video, optional serlo-Link, Übung) sowie Start-, Test- und Manifest-Seite jeder App per Pagination; dazu Übersicht und <code>llms.txt</code> der Wurzel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Front Matter der Kompetenzseiten; Anker <code>#warum</code>, <code>#regel</code>, <code>#beispiel</code>, <code>#visualisierung</code>, <code>#video</code>, <code>#serlo</code> (optional), <code>#uebung</code>; <code>data-*</code>-Attribute für den Kern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/_includes/basis.njk</code>, <code>kompetenz.njk</code>; <code>src/start.njk</code>, <code>src/test.njk</code>, <code>src/manifest.njk</code>, <code>src/index.njk</code>, <code>src/llms.njk</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bb-kern"></a>Kern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alles Generische im Browser: Aufgabennummer, Zahlen und Terme lesen und prüfen, Eingabefelder, Übungsrahmen, Test, Videos, Speicher, Mini-DOM für SVG. Einmal unter <code>/kern/</code> ausgeliefert. Kennt keine App. Siehe Ebene 2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>starteSeite({ app, modul, visualisiere })</code>, <code>starteStartseite({ app })</code>, <code>starteTestseite({ app, kompetenzen, generatoren })</code>, <code>erzeugeSpeicher(praefix)</code>, <code>initVideos(praefix)</code>, <code>svgEl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/</code>, <code>src/kern/css/stil.css</code>, <code>src/kern/vendor/talkitover.js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bb-apps"></a>Apps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Das Fachliche je Thema: Konfiguration, eine Markdown-Seite je Kompetenz, Generator mit Prüfer, Zeichenfunktion, Tests, Texte für den Tutor, Icons. Heute <code>binom</code>, <code>prozent</code>, <code>zufall</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>APP</code>, <code>KOMPETENZEN</code> (reine Daten); <code>erzeugeAufgabe(zufall, vorgaben)</code>, <code>pruefeAntwort(aufgabe, antworten)</code>, optional <code>URL_ZAHLEN</code>, <code>URL_TEXTE</code>, <code>testVorgaben</code>; <code>zeichne…(svg, aufgabe, ergebnis)</code>; <code>llms.txt</code>, <code>tutor.md</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/&lt;app&gt;/js/app.config.js</code>, <code>src/&lt;app&gt;/&lt;id&gt;.md</code>, <code>src/&lt;app&gt;/js/aufgaben/</code>, <code>src/&lt;app&gt;/js/vis/</code>, <code>src/&lt;app&gt;/llms.njk</code>, <code>src/&lt;app&gt;/tutor.njk</code>, <code>src/&lt;app&gt;/test/</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bb-karte"></a>Mathe-Karte</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mathe-Kompetenzen der Sekundarstufe I nach KMK-Leitideen und Lehrplänen (16 Länder, Gymnasium) als statische Seiten, <code>data.json</code> und interaktive Karte; App-Einträge kommen aus den App-Konfigurationen. Kein App-Ordner (keine <code>app.config.js</code>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL-Parameter <code>land</code>, <code>jahrgang</code>, <code>leitidee</code>, <code>luecken</code>, <code>knoten</code>; <code>karte/data.json</code>; <code>karte/llms.txt</code>; Build-Fehler bei unbekanntem Knoten</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/karte/</code> (Daten in <code>src/karte/daten/</code>), <code>lib/karte/</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bb-doku"></a>Architektur-Doku</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Diese arc42-Dokumentation mit ADRs; eigenes Theme-Overlay ohne CDN-Ressourcen.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scripts/dtc-v4.sh generateSite</code> → <code>build/microsite/output/</code>, ausgeliefert unter <code>/docs/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/docs/</code>, <code>src/site/</code>, <code>docToolchainConfig.groovy</code>, <code>dtcw</code>, <code>scripts/dtc-v4.sh</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bb-ci"></a>Tests und CI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unit-Tests für Kern, Build und Karte; Generator-Vertrag für jede Kompetenz jeder App; Test und Build bei jedem Push und PR; Deployment von Site und Doku.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>npm test</code> (297 Tests), <code>npm run build</code>; Workflows <code>pruefen.yml</code>, <code>pages.yml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>test/kern/</code>, <code>test/build/</code>, <code>test/apps/</code>, <code>src/&lt;app&gt;/test/</code>, <code>src/karte/test/</code>, <code>.github/workflows/</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="bb-speicher"></a>Browser-Speicher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Merkt Selbsteinschätzung, letzten Test und Video-Merker, nur im Browser des Kindes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Schlüssel <code>&lt;APP.speicher&gt;.selbsteinschaetzung</code>, <code>&lt;APP.speicher&gt;.test</code>, <code>&lt;APP.speicher&gt;.video-direkt</code>, <code>lernapps:mathe-karte:talkitover.provider</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>localStorage</code>; Zugriff nur über <code>src/kern/js/storage.js</code>, <code>src/kern/js/video.js</code>, <code>src/kern/vendor/talkitover.js</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="section-level-2-build">Ebene 2: Whitebox Build</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/bausteine-ebene-2-build.svg" alt="bausteine ebene 2 build" width="1290" height="680">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 44.4444%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Komponente</th>
+<th class="tableblock halign-left valign-top">Verantwortung</th>
+<th class="tableblock halign-left valign-top">Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eleventy-Konfiguration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verdrahtet alles: <code>src/kern</code> → <code>/kern/</code> (Passthrough), je App <code>js/</code>, Icons und CSS; ignoriert Tests, Karten-Daten, <code>src/docs</code> und <code>src/site</code>; ruft nach dem Schreiben Prüfungen und Versionierung auf.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eleventy.config.js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adressen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Die einzige Basis-URL und alles daraus Abgeleitete (<a href="09_architecture_decisions.html#adr-015">ADR-015</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/_data/site.js:9</code>, <code>lib/adressen.js:7-24</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">App-Lader</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jeder Ordner mit <code>js/app.config.js</code> ist eine App; prüft <code>id</code>, <code>pfad</code>, <code>titel</code>; nummeriert Kompetenzen.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lib/apps.js:12-39</code>, <code>lib/app-daten.js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fachfarben</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tabelle der fünf Fächer; unbekanntes Fach bricht den Build (<a href="09_architecture_decisions.html#adr-011">ADR-011</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lib/fachfarben.js:6-12</code>, <code>:29-32</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bild</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Führt Generator und Zeichenfunktion in Node aus und schreibt das SVG in die Seite (<a href="09_architecture_decisions.html#adr-016">ADR-016</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lib/bild.js:14-26</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Karten-Lader</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lädt Leitideen, Kompetenzen, Lehrpläne, Zuordnungen; baut Einträge aus Apps; prüft Knoten (<a href="09_architecture_decisions.html#adr-018">ADR-018</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lib/karte/laden.js:53-56</code>, <code>lib/karte/eintraege.js:15-63</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prüfungen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regeln als reine Funktionen; jeder Fund bricht den Build (<a href="09_architecture_decisions.html#adr-008">ADR-008</a>, <a href="09_architecture_decisions.html#adr-017">ADR-017</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lib/pruefungen.js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versionierung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ein Hash über alle ausgelieferten JS/CSS/JSON; <code>?v=</code> an Importen, <code>&lt;script src&gt;</code>, <code>&lt;link href&gt;</code> und Inline-Modulen (<a href="09_architecture_decisions.html#adr-014">ADR-014</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lib/versionierung.js:9-28</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="section-level-2">Ebene 2: Whitebox Kern</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../images/bausteine-ebene-2-kern.svg" alt="bausteine ebene 2 kern" width="1892" height="1076">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Komponente</th>
+<th class="tableblock halign-left valign-top">Verantwortung</th>
+<th class="tableblock halign-left valign-top">Schnittstelle (Auswahl)</th>
+<th class="tableblock halign-left valign-top">Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seitenstart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bereitet Videos vor, liest <code>seed</code>/<code>nr</code> und Vorgaben aus der URL, startet den Trainer. Auf der Startseite: Selbsteinschätzung laden und speichern, letzten Test zeigen.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>starteSeite({ app, modul, visualisiere })</code>, <code>starteStartseite({ app })</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/seite.js:15</code>, <code>src/kern/js/startseite.js:20</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Trainer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Übungsoberfläche: Aufgabe, Prüfen, Tipp, Lösung zeigen/verbergen, Neue Aufgabe, Zähler. Hinweise neutral, nicht als Versuch gezählt.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>starteTrainer(…)</code>; <code>loesungZustand</code>, <code>schalteLoesung</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/ui.js</code>, <code>src/kern/js/loesung-schalter.js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eingabe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feldtypen <code>zahl</code>, <code>bruch</code>/<code>term</code>, <code>variablenterm</code>, <code>auswahl</code>, <code>radio</code>, Tabellen; Live-Vorschau nach 150 ms.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>zeigeEingaben</code>, <code>lieseAntworten</code>, <code>markiereFelder</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/aufgabe-eingabe.js:17</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zahlen und Terme</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deutsche Zahlen, exakte Brüche, Term-Auswerter ohne <code>eval</code>, Rundungsregel; Terme mit Variablen (ADR-006, ADR-009).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pruefeZahlAntwort</code>, <code>passtZu</code>, <code>zahlenfeld</code>, <code>vorschau</code>; <code>pruefeTermAntwort</code>, <code>passtZuTerm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/zahlen.js</code>, <code>bruch.js</code>, <code>zahlantwort.js</code>, <code>variablenterm.js</code>, <code>termantwort.js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prüfergebnis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Einheitliches Ergebnis aller Prüfer; entscheidet, was zählt.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ergebnisFuer</code>, <code>ergebnisAusFeldern</code>, <code>istHinweis</code>, <code>wirdGezaehlt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/pruefung.js:73</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zufall</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deterministischer Zufall aus der Aufgabennummer; zufällige Nummer 1–9999.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>erzeugeZufall(seed)</code>, <code>leseSeed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/zufall.js:14-16</code>, <code>:47</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aufgabenlink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zeile „Aufgabe Nr. N · Link · Link kopieren“; Vorgaben validieren; kopieren mit Rückfall.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aufgabenzeile</code>, <code>leseVorgaben</code>, <code>kopiereText</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/aufgabenlink.js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test und Schnelltest aus der Testnummer; Bild im Test über den Aufgaben-Vertrag; Ergebniszeile.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>starteTestseite(…)</code>, <code>testAufgaben(nr, modus)</code>, <code>erzeugeTestaufgabe</code>, <code>bildFuer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/testseite.js:15</code>, <code>testablauf.js:9</code>, <code>testaufgaben.js:10-28</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rückweg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nur mit <code>von=tutor</code>: Knopf „Zurück zu Claude“; Ergebniszeile bauen, kopieren, Tab schließen, nach 300 ms prüfen; Rückfall auf Hinweis oder markiertes Feld (ADR-021).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>vomTutor</code>, <code>uebungsZeile</code>, <code>uebungsStatus</code>, <code>nachVersuch</code>, <code>zurueckZuClaude</code>, <code>zurueckKnopf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/zurueck.js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Video</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zwei-Klick-Karte mit neutralem Play-Symbol; iframe erst nach Klick; Merker je App.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>initVideos(praefix)</code>, <code>baueEmbedUrl</code>, <code>PLAY_SYMBOL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/video.js:12</code>, <code>:64</code>, <code>:127</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Speicher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Einziger Zugang zu Selbsteinschätzung und letztem Test, mit App-Präfix; <code>false</code> statt Ausnahme.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>erzeugeSpeicher(praefix)</code> → <code>lade…</code>, <code>speichere…</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/storage.js:36</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SVG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erzeugt SVG-Elemente; im Build ein Mini-DOM, im Browser <code>document</code>. Zeichenfunktionen nutzen nur <code>svgEl</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>svgEl</code>, <code>leeresSvg</code>, <code>alsSvgText</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/kern/js/svg.js:45-59</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+        </p>
+
+        <style>
+.feedback--answer {
+    display: inline-block;
+}
+
+.feedback--answer-no {
+    margin-left: 1em;
+}
+
+.feedback--response {
+    display: none;
+    margin-top: 1em;
+}
+
+.feedback--response__visible {
+    display: block;
+}
+</style>
+
+<div class="d-print-none">
+    <h2 class="feedback--title">Feedback</h2>
+    <p class="feedback--question">Was this page helpful?</p>
+    <button class="feedback--answer feedback--answer-yes">Yes</button>
+    <button class="feedback--answer feedback--answer-no">No</button>
+    <p class="feedback--response feedback--response-yes">
+        Glad to hear it! Please <a href="https://github.com/lernapps/lernapps.github.io/issues/new?title=Docs%3A+Feedback+for+%27Bausteinsicht%27%20%F0%9F%91%8D&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:arc42/chapters/05_building_block_view.adoc">tell us
+    how we can improve</a>.
+    </p>
+    <p class="feedback--response feedback--response-no">
+        Sorry to hear that. Please <a href="https://github.com/lernapps/lernapps.github.io/issues/new?title=Docs%3A+Feedback+for+%27Bausteinsicht%27%20%F0%9F%91%8E&body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23page:arc42/chapters/05_building_block_view.adoc">tell
+    us how we can improve</a>.
+    </p>
+</div>
+<script>
+    const yesButton = document.querySelector('.feedback--answer-yes');
+    const noButton = document.querySelector('.feedback--answer-no');
+    const yesResponse = document.querySelector('.feedback--response-yes');
+    const noResponse = document.querySelector('.feedback--response-no');
+    const disableButtons = () => {
+        yesButton.disabled = true;
+        noButton.disabled = true;
+    };
+    const sendFeedback = (value) => {
+        if (typeof ga !== 'function') return;
+        const args = {
+            command: 'send',
+            hitType: 'event',
+            category: 'Helpful',
+            action: 'click',
+            label: window.location.pathname,
+            value: value
+        };
+        ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+    };
+    yesButton.addEventListener('click', () => {
+        yesResponse.classList.add('feedback--response__visible');
+        disableButtons();
+        sendFeedback(1);
+    });
+    noButton.addEventListener('click', () => {
+        noResponse.classList.add('feedback--response__visible');
+        disableButtons();
+        sendFeedback(0);
+    });
+</script>
+
+
+        <br>
+
+        <!--div class="text-muted mt-5 pt-3 border-top">Last modified July 3, 2019: <a
+                href="https://github.com/google/docsy-example/commit/d6aa89c8b24089d7e6741030864eff209465e896">Added
+            links to user guide repo (d6aa89c)</a>
+        </div-->
+    </div>
+
+
+			</main>
+
+		</div>
+	</div>
+
+
+	
+
+    <footer class="bg-dark py-5 row d-print-none">
+        <div class="container-fluid mx-sm-5">
+            <div class="row">
+                <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+
+
+                    <ul class="list-inline mb-0">
+                        
+                        
+                        
+                    </ul>
+
+
+                </div>
+                <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+
+
+                    <ul class="list-inline mb-0">
+
+                        
+                        <li aria-label="GitHub" class="list-inline-item mx-2 h3" data-original-title="GitHub" data-placement="top"
+                            data-toggle="tooltip" title="">
+                            <a aria-label="GitHub" class="text-white" href="https://github.com/lernapps/lernapps.github.io" rel="noopener noreferrer"
+                               target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                        
+
+                        
+
+
+                    </ul>
+
+
+                </div>
+                <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+
+                        <small class="text-white">Gebaut mit <a href="https://doctoolchain.org">docToolchain</a> und <a href="https://asciidoctor.org">Asciidoctor</a> · Vorlage: <a href="https://arc42.org">arc42</a></small>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+
+    <script src="../../js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js"></script>
+    <script src="../../js/blocks.js" ></script>
+    <script src="../../js/prettify.js"></script>
+    <script src="../../js/copy-n-paste.js"></script>
+    <script src="../../js/submenucollapse.js"></script>
+
+    <!-- docToolchain v4 — colour-scheme toggle -->
+    <script>
+        function dtcToggleTheme() {
+            var root = document.documentElement;
+            var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('lernapps:mathe-karte:dtc-theme', next); } catch (e) {} // lern-app-template (1)
+            document.querySelectorAll('.dtc-theme-toggle').forEach(function (b) {
+                b.textContent = next === 'dark' ? '☀️' : '🌙';
+            });
+        }
+        // sync icon with the theme applied in <head>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.querySelectorAll('.dtc-theme-toggle').forEach(function (b) {
+                b.textContent = dark ? '☀️' : '🌙';
+            });
+        });
+    </script>
+
+
+</body>
+</html>

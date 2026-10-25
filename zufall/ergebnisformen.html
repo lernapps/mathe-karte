@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben – Zufall-Trainer</title>
+  <meta name="description" content="Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben: den passenden Term zu einem Ereignis im Baumdiagramm erkennen. Übungsaufgaben mit typischen Fehlern.">
+  <link rel="canonical" href="https://lernapps.github.io/mathe-karte/zufall/ergebnisformen.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1d4ed8">
+  <link rel="stylesheet" href="../kern/css/stil.css?v=6ec40465">
+  <link rel="stylesheet" href="css/zufall.css?v=6ec40465">
+  <style>:root { --farbe-primaer: #1d4ed8; --farbe-primaer-dunkel: #1e3a8a; }</style>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="kopf">
+    <a class="marke" href="index.html">Zufall-Trainer</a>
+    <nav class="themen" aria-label="Themen">
+      <ul>
+        <li><a href="laplace.html"><span class="nummer">1</span> Laplace</a></li>
+        <li><a href="baumdiagramm.html"><span class="nummer">2</span> Baumdiagramm</a></li>
+        <li><a href="pfadregel-1.html"><span class="nummer">3</span> Pfadregel 1</a></li>
+        <li><a href="gegenereignis.html"><span class="nummer">4</span> Gegenereignis</a></li>
+        <li><a href="ohne-zuruecklegen.html"><span class="nummer">5</span> Ohne Zurücklegen</a></li>
+        <li><a href="pfadregel-2.html"><span class="nummer">6</span> Pfadregel 2</a></li>
+        <li><a href="ergebnisformen.html" aria-current="page"><span class="nummer">7</span> Produkt, Summe, Potenz</a></li>
+        <li><a href="pfade-uebersetzen.html"><span class="nummer">8</span> In Pfade übersetzen</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+<h1>Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben</h1>
+
+    <details id="erklaerung" class="erklaerung" open>
+      <summary>Erklärung: Warum, Regel, Beispiel, Bild, Video</summary>
+    <section id="warum">
+      <h2>Warum das wichtig ist</h2>
+<p>Wer jede Wahrscheinlichkeit bis zum gekürzten Bruch ausrechnet, verliert Zeit und macht Rechenfehler. Oft reicht der Term: 3/6 · 2/5. Frag deine Lehrerin oder deinen Lehrer, ob du in der Klassenarbeit ausrechnen musst. Wichtig ist, dass der Term stimmt – und genau das übst du hier: Du erkennst, welcher Term zu einem Ereignis passt und welcher einen typischen Fehler enthält.</p>
+
+    </section>
+
+    <section id="regel">
+      <h2>Die Regel</h2>
+<p>Ein Term für P(E) hat immer denselben Aufbau:</p>
+<ul>
+<li>Jeder passende Pfad wird ein <strong>Produkt</strong> seiner Zweige (1. Pfadregel).</li>
+<li>Die Produkte aller passenden Pfade werden <strong>addiert</strong> (2. Pfadregel).</li>
+<li>Kommt derselbe Faktor mehrmals vor, darfst du eine <strong>Potenz</strong> schreiben: 5/6 · 5/6 · 5/6 = (5/6)³.</li>
+</ul>
+<p class="merke">Typische falsche Terme: nur ein Pfad statt aller, entlang des Pfades addiert statt multipliziert, die Pfade des Gegenereignisses oder mit statt ohne Zurücklegen gerechnet.</p>
+
+    </section>
+
+    <section id="beispiel">
+      <h2>Beispiel</h2>
+<p>Urne mit 3 roten und 2 blauen Kugeln, zweimal ziehen <strong>ohne Zurücklegen</strong>. Ereignis: genau einmal rot.</p>
+<table>
+<tbody>
+<tr><th scope="row">Richtig</th><td><code>3/5 · 2/4 + 2/5 · 3/4</code> = 12/20 = 3/5</td></tr>
+<tr><th scope="row">Nur ein Pfad</th><td><code>3/5 · 2/4</code> – blau-rot fehlt</td></tr>
+<tr><th scope="row">Mit Zurücklegen</th><td><code>3/5 · 2/5 + 2/5 · 3/5</code> – der Nenner muss kleiner werden</td></tr>
+</tbody>
+</table>
+
+    </section>
+
+
+    <section id="visualisierung">
+      <h2>Bild dazu</h2>
+      <p class="vis-beschriftung">Der Baum aus dem Beispiel: 3 rote und 2 blaue Kugeln, zweimal ohne Zurücklegen. Orange sind die zwei Pfade von „genau einmal rot“.</p>
+      <svg xmlns="http://www.w3.org/2000/svg" class="vis" id="vis" viewBox="0 0 278 189" width="278" height="189" role="img" aria-label="Baumdiagramm; orange: die Pfade von „genau einmal rot“"><title>Baumdiagramm; orange: die Pfade von „genau einmal rot“</title><g transform="translate(0 0)" class="baum-hochkant"><circle cx="139" cy="8" r="6" fill="#455a64"></circle><g class="baum-ebene-linien" fill="none"><path d="M139 14 C 139 37, 67 37, 67 60" class="baum-zweig hervor" data-knoten="w-r" stroke="#ff8f00" stroke-width="4"></path><path d="M67 84 C 67 104, 34.5 104, 34.5 124" class="baum-zweig" data-knoten="w-r-r" stroke="#90a4ae" stroke-width="2"></path><path d="M67 84 C 67 104, 99.5 104, 99.5 124" class="baum-zweig hervor" data-knoten="w-r-b" stroke="#ff8f00" stroke-width="4"></path><path d="M139 14 C 139 37, 211 37, 211 60" class="baum-zweig hervor" data-knoten="w-b" stroke="#ff8f00" stroke-width="4"></path><path d="M211 84 C 211 104, 178.5 104, 178.5 124" class="baum-zweig hervor" data-knoten="w-b-r" stroke="#ff8f00" stroke-width="4"></path><path d="M211 84 C 211 104, 243.5 104, 243.5 124" class="baum-zweig" data-knoten="w-b-b" stroke="#90a4ae" stroke-width="2"></path></g><g class="baum-ebene-knoten"><g class="baum-knoten" data-knoten="w-r" transform="translate(67 72)"><circle r="12" fill="#c62828" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">R</text><title>rot</title></g><g class="baum-knoten" data-knoten="w-r-r" transform="translate(34.5 136)"><circle r="12" fill="#c62828" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">R</text><title>rot</title></g><g class="baum-knoten" data-knoten="w-r-b" transform="translate(99.5 136)"><circle r="12" fill="#1565c0" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">B</text><title>blau</title></g><g class="baum-knoten" data-knoten="w-b" transform="translate(211 72)"><circle r="12" fill="#1565c0" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">B</text><title>blau</title></g><g class="baum-knoten" data-knoten="w-b-r" transform="translate(178.5 136)"><circle r="12" fill="#c62828" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">R</text><title>rot</title></g><g class="baum-knoten" data-knoten="w-b-b" transform="translate(243.5 136)"><circle r="12" fill="#1565c0" stroke="#455a64"></circle><text x="0" y="4" text-anchor="middle" fill="#fff" font-weight="700" font-size="13">B</text><title>blau</title></g></g><g class="baum-ebene-labels" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"><text x="67" y="54" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">3/5<title>P(rot) = 3/5</title></text><text x="34.5" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">2/4<title>P(rot) = 1/2</title></text><text x="99.5" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">2/4<title>P(blau) = 1/2</title></text><text x="211" y="54" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">2/5<title>P(blau) = 2/5</title></text><text x="178.5" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">3/4<title>P(rot) = 3/4</title></text><text x="243.5" y="118" text-anchor="middle" font-size="13" class="baum-label" fill="#1a1a1a">1/4<title>P(blau) = 1/4</title></text></g><g class="baum-blatt" data-blatt="w-r-r"><rect x="3" y="122" width="63" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="34.5" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">3/10</text></g><g class="baum-blatt" data-blatt="w-r-b"><rect x="68" y="122" width="63" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="99.5" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">3/10</text></g><g class="baum-blatt" data-blatt="w-b-r"><rect x="147" y="122" width="63" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="178.5" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">3/10</text></g><g class="baum-blatt" data-blatt="w-b-b"><rect x="212" y="122" width="63" height="45" rx="6" class="baum-treffer" fill="transparent"></rect><text x="243.5" y="163" text-anchor="middle" class="pfad-w" font-size="13" fill="#1a1a1a">1/10</text></g><text x="2" y="185" class="baum-legende" font-size="13" fill="#1a1a1a">R = rot · B = blau</text></g></svg>
+    </section>
+
+
+    <section id="video" class="video-karte" data-youtube-id="Pi1M1F2l024" data-titel="Summenregel | Wahrscheinlichkeitsrechnung | Mathematik | Lehrerschmidt" data-kanal="Lehrerschmidt">
+      <h2>Video dazu</h2>
+      <p><a href="https://www.youtube.com/watch?v=Pi1M1F2l024" rel="noopener">Summenregel | Wahrscheinlichkeitsrechnung | Mathematik | Lehrerschmidt</a></p>
+      <p class="video-kanal">Lehrerschmidt · YouTube</p>
+      <p class="video-hinweis">Beim Start werden Daten (u. a. deine IP-Adresse) an YouTube/Google übertragen.</p>
+    </section>
+
+
+    </details>
+
+    <section id="uebung">
+      <h2>Übung</h2>
+      <noscript><p>Für die Übungsaufgaben brauchst du JavaScript. Die Erklärung, das Beispiel und das Bild oben funktionieren auch ohne.</p></noscript>
+      <div class="trainer" id="trainer"></div>
+    </section>
+  <script type="module">
+    import { APP } from "./js/app.config.js?v=6ec40465";
+    import { starteSeite } from "../kern/js/seite.js?v=6ec40465";
+    import * as modul from "./js/aufgaben/ergebnisformen.js?v=6ec40465";
+    const kompetenz = { nr: 7, titel: "Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben" };
+    import { zeichneErgebnisformen } from "./js/vis/pfadregel-2.js?v=6ec40465";
+    starteSeite({ app: APP, modul, zeichne: zeichneErgebnisformen, bildHinweis: "Welcher Term passt dazu?", kompetenz });
+  </script>
+
+  </main>
+
+  <footer class="fuss">
+    <p>Zufall-Trainer · Lern-Apps Version 0.12.0 · <a href="https://github.com/lernapps/mathe-karte/tree/main/src/zufall">Quellcode auf GitHub</a> · <a href="index.html#datenschutz">Datenschutz</a> · <a href="../">Alle Apps</a></p>
+    <p class="melden">Fehler gefunden oder Idee? <a href="https://github.com/lernapps/mathe-karte/issues/new?title=R%C3%BCckmeldung%20zu%20%2Fmathe-karte%2Fzufall%2Fergebnisformen.html%3A%20" title="Öffnet GitHub. Zum Melden brauchst du ein GitHub-Konto.">Auf GitHub melden</a> (GitHub-Konto nötig)</p>
+
+  </footer>
+</body>
+</html>
