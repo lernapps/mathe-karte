@@ -1,0 +1,307 @@
+# Prozentwert berechnen – Tutor-Datei
+
+> Den Prozentwert berechnen mit W = G · p : 100. Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben.
+
+App: Mathe-Karte. Seite: [Prozentwert berechnen](./)
+
+Diese Datei ist für einen KI-Tutor. Sie enthält die Lösungen: Nutze sie, um anzuleiten und Fehler zu erkennen, nicht um vorzusagen. Die Regeln stehen in llms.txt. Kannst du eine Datei der App nicht abrufen, bitte die lernende Person, den Text der Seite oder diese Datei einzufügen oder anzuhängen.
+
+## Abschnitte
+
+- [Warum?](./#warum)
+- [Regel](./#regel)
+- [Beispiel](./#beispiel)
+- [Bild](./#bild)
+- [Video dazu](./#video)
+- [Übung](./#uebung)
+
+## Übungen
+
+### prozentwert-aufgabe (interaktive Übung ProzentProzentwert)
+
+- Link: [./#prozentwert-aufgabe](./#prozentwert-aufgabe), im Abschnitt „Übung“
+- Was zu tun ist: Eine Textaufgabe: Grundwert und Prozentsatz sind gegeben, der Prozentwert ist gesucht. Das Bild zur Aufgabe ist ein Hunderterfeld, in dem der Prozentsatz blau ist.
+- Antwortformat: Eine Zahl in der Einheit des Grundwerts (Euro, Schüler, Personen, mAh, Treffer). Komma oder Punkt, ein Bruch oder ein Term wie 250*12/100 gehen auch.
+- Was als richtig zählt: Richtig ist der Prozentwert W = G · p / 100: exakt, oder kaufmännisch gerundet auf die Stellen, die neben dem Feld stehen (Euro auf Cent).
+- Typische Fehler und die Meldung der App:
+  - Du hast vergessen, durch 100 zu teilen: 12 % sind 12/100 = 0,12.
+  - Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?prozentwert-aufgabe=1#prozentwert-aufgabe): Ein Fahrrad kostet 1245 €. Im Angebot gibt es 6 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau. 6 % von 1245 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 74,70 € Rechenweg: - W = G · p / 100 - W = 1245 · 6 / 100 - W = 74,70 € Ergebnis: 74,70 €.
+  - [Aufgabe Nr. 2](./?prozentwert-aufgabe=2#prozentwert-aufgabe): Ein Handy-Akku fasst 2200 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 85 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 85 von 100 Kästchen sind blau. 85 % von 2200 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 1870 mAh Rechenweg: - W = G · p / 100 - W = 2200 · 85 / 100 - W = 1870 mAh Ergebnis: 1870 mAh.
+  - [Aufgabe Nr. 3](./?prozentwert-aufgabe=3#prozentwert-aufgabe): Beim Basketball wirft Lina 30 Würfe auf den Korb. 10 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 10 von 100 Kästchen sind blau. 10 % von 30 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 3 Treffer Rechenweg: - W = G · p / 100 - W = 30 · 10 / 100 - W = 3 Treffer Ergebnis: 3 Treffer.
+  - [Aufgabe Nr. 4](./?prozentwert-aufgabe=4#prozentwert-aufgabe): Beim Basketball wirft Lina 20 Würfe auf den Korb. 90 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 90 von 100 Kästchen sind blau. 90 % von 20 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 18 Treffer Rechenweg: - W = G · p / 100 - W = 20 · 90 / 100 - W = 18 Treffer Ergebnis: 18 Treffer.
+  - [Aufgabe Nr. 5](./?prozentwert-aufgabe=5#prozentwert-aufgabe): Bei einer Umfrage wurden 940 Personen befragt. 75 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % von 940 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 705 Personen Rechenweg: - W = G · p / 100 - W = 940 · 75 / 100 - W = 705 Personen Ergebnis: 705 Personen.
+  - [Aufgabe Nr. 6](./?prozentwert-aufgabe=6#prozentwert-aufgabe): Bei einer Umfrage wurden 200 Personen befragt. 65 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 65 von 100 Kästchen sind blau. 65 % von 200 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 130 Personen Rechenweg: - W = G · p / 100 - W = 200 · 65 / 100 - W = 130 Personen Ergebnis: 130 Personen.
+  - [Aufgabe Nr. 7](./?prozentwert-aufgabe=7#prozentwert-aufgabe): Beim Basketball wirft Lina 25 Würfe auf den Korb. 60 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 60 von 100 Kästchen sind blau. 60 % von 25 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 15 Treffer Rechenweg: - W = G · p / 100 - W = 25 · 60 / 100 - W = 15 Treffer Ergebnis: 15 Treffer.
+  - [Aufgabe Nr. 8](./?prozentwert-aufgabe=8#prozentwert-aufgabe): Ein Fahrrad kostet 1360 €. Im Angebot gibt es 40 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % von 1360 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 544 € Rechenweg: - W = G · p / 100 - W = 1360 · 40 / 100 - W = 544 € Ergebnis: 544 €.
+  - [Aufgabe Nr. 9](./?prozentwert-aufgabe=9#prozentwert-aufgabe): Ein Fahrrad kostet 570 €. Im Angebot gibt es 45 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 45 von 100 Kästchen sind blau. 45 % von 570 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 256,50 € Rechenweg: - W = G · p / 100 - W = 570 · 45 / 100 - W = 256,50 € Ergebnis: 256,50 €.
+  - [Aufgabe Nr. 10](./?prozentwert-aufgabe=10#prozentwert-aufgabe): Ein Fahrrad kostet 380 €. Im Angebot gibt es 18 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 18 von 100 Kästchen sind blau. 18 % von 380 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 68,40 € Rechenweg: - W = G · p / 100 - W = 380 · 18 / 100 - W = 68,40 € Ergebnis: 68,40 €.
+  - [Aufgabe Nr. 11](./?prozentwert-aufgabe=11#prozentwert-aufgabe): Bei einer Umfrage wurden 210 Personen befragt. 10 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 10 von 100 Kästchen sind blau. 10 % von 210 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 21 Personen Rechenweg: - W = G · p / 100 - W = 210 · 10 / 100 - W = 21 Personen Ergebnis: 21 Personen.
+  - [Aufgabe Nr. 12](./?prozentwert-aufgabe=12#prozentwert-aufgabe): In einer Klasse sind 24 Schüler. 25 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 25 von 100 Kästchen sind blau. 25 % von 24 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 6 Schüler Rechenweg: - W = G · p / 100 - W = 24 · 25 / 100 - W = 6 Schüler Ergebnis: 6 Schüler.
+  - [Aufgabe Nr. 13](./?prozentwert-aufgabe=13#prozentwert-aufgabe): Ein Fahrrad kostet 255 €. Im Angebot gibt es 40 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % von 255 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 102 € Rechenweg: - W = G · p / 100 - W = 255 · 40 / 100 - W = 102 € Ergebnis: 102 €.
+  - [Aufgabe Nr. 14](./?prozentwert-aufgabe=14#prozentwert-aufgabe): Bei einer Umfrage wurden 900 Personen befragt. 95 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 95 von 100 Kästchen sind blau. 95 % von 900 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 855 Personen Rechenweg: - W = G · p / 100 - W = 900 · 95 / 100 - W = 855 Personen Ergebnis: 855 Personen.
+  - [Aufgabe Nr. 15](./?prozentwert-aufgabe=15#prozentwert-aufgabe): Ein Handy-Akku fasst 3300 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 85 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 85 von 100 Kästchen sind blau. 85 % von 3300 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 2805 mAh Rechenweg: - W = G · p / 100 - W = 3300 · 85 / 100 - W = 2805 mAh Ergebnis: 2805 mAh.
+  - [Aufgabe Nr. 16](./?prozentwert-aufgabe=16#prozentwert-aufgabe): Ein Fahrrad kostet 320 €. Im Angebot gibt es 10 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 10 von 100 Kästchen sind blau. 10 % von 320 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 32 € Rechenweg: - W = G · p / 100 - W = 320 · 10 / 100 - W = 32 € Ergebnis: 32 €.
+  - [Aufgabe Nr. 17](./?prozentwert-aufgabe=17#prozentwert-aufgabe): Ein Handy-Akku fasst 3800 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 90 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 90 von 100 Kästchen sind blau. 90 % von 3800 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 3420 mAh Rechenweg: - W = G · p / 100 - W = 3800 · 90 / 100 - W = 3420 mAh Ergebnis: 3420 mAh.
+  - [Aufgabe Nr. 18](./?prozentwert-aufgabe=18#prozentwert-aufgabe): Beim Basketball wirft Lina 60 Würfe auf den Korb. 70 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 70 von 100 Kästchen sind blau. 70 % von 60 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 42 Treffer Rechenweg: - W = G · p / 100 - W = 60 · 70 / 100 - W = 42 Treffer Ergebnis: 42 Treffer.
+  - [Aufgabe Nr. 19](./?prozentwert-aufgabe=19#prozentwert-aufgabe): Ein Fahrrad kostet 1445 €. Im Angebot gibt es 8 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 8 von 100 Kästchen sind blau. 8 % von 1445 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 115,60 € Rechenweg: - W = G · p / 100 - W = 1445 · 8 / 100 - W = 115,60 € Ergebnis: 115,60 €.
+  - [Aufgabe Nr. 20](./?prozentwert-aufgabe=20#prozentwert-aufgabe): Bei einer Umfrage wurden 700 Personen befragt. 50 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 50 von 100 Kästchen sind blau. 50 % von 700 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 350 Personen Rechenweg: - W = G · p / 100 - W = 700 · 50 / 100 - W = 350 Personen Ergebnis: 350 Personen.
+  - [Aufgabe Nr. 21](./?prozentwert-aufgabe=21#prozentwert-aufgabe): Ein Fahrrad kostet 635 €. Im Angebot gibt es 20 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 20 von 100 Kästchen sind blau. 20 % von 635 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 127 € Rechenweg: - W = G · p / 100 - W = 635 · 20 / 100 - W = 127 € Ergebnis: 127 €.
+  - [Aufgabe Nr. 22](./?prozentwert-aufgabe=22#prozentwert-aufgabe): Beim Basketball wirft Lina 10 Würfe auf den Korb. 40 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % von 10 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 4 Treffer Rechenweg: - W = G · p / 100 - W = 10 · 40 / 100 - W = 4 Treffer Ergebnis: 4 Treffer.
+  - [Aufgabe Nr. 23](./?prozentwert-aufgabe=23#prozentwert-aufgabe): Beim Basketball wirft Lina 20 Würfe auf den Korb. 60 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 60 von 100 Kästchen sind blau. 60 % von 20 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 12 Treffer Rechenweg: - W = G · p / 100 - W = 20 · 60 / 100 - W = 12 Treffer Ergebnis: 12 Treffer.
+  - [Aufgabe Nr. 24](./?prozentwert-aufgabe=24#prozentwert-aufgabe): Ein Fahrrad kostet 1105 €. Im Angebot gibt es 10 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 10 von 100 Kästchen sind blau. 10 % von 1105 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 110,50 € Rechenweg: - W = G · p / 100 - W = 1105 · 10 / 100 - W = 110,50 € Ergebnis: 110,50 €.
+  - [Aufgabe Nr. 25](./?prozentwert-aufgabe=25#prozentwert-aufgabe): Ein Fahrrad kostet 180 €. Im Angebot gibt es 12,5 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 12,5 von 100 Kästchen sind blau. 12,5 % von 180 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 22,50 € Rechenweg: - W = G · p / 100 - W = 180 · 12,5 / 100 - W = 22,50 € Ergebnis: 22,50 €.
+  - [Aufgabe Nr. 26](./?prozentwert-aufgabe=26#prozentwert-aufgabe): Ein Fahrrad kostet 735 €. Im Angebot gibt es 10 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 10 von 100 Kästchen sind blau. 10 % von 735 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 73,50 € Rechenweg: - W = G · p / 100 - W = 735 · 10 / 100 - W = 73,50 € Ergebnis: 73,50 €.
+  - [Aufgabe Nr. 27](./?prozentwert-aufgabe=27#prozentwert-aufgabe): In einer Klasse sind 20 Schüler. 15 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 15 von 100 Kästchen sind blau. 15 % von 20 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 3 Schüler Rechenweg: - W = G · p / 100 - W = 20 · 15 / 100 - W = 3 Schüler Ergebnis: 3 Schüler.
+  - [Aufgabe Nr. 28](./?prozentwert-aufgabe=28#prozentwert-aufgabe): Bei einer Umfrage wurden 560 Personen befragt. 12,5 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 12,5 von 100 Kästchen sind blau. 12,5 % von 560 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 70 Personen Rechenweg: - W = G · p / 100 - W = 560 · 12,5 / 100 - W = 70 Personen Ergebnis: 70 Personen.
+  - [Aufgabe Nr. 29](./?prozentwert-aufgabe=29#prozentwert-aufgabe): Ein Handy-Akku fasst 3100 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 75 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % von 3100 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 2325 mAh Rechenweg: - W = G · p / 100 - W = 3100 · 75 / 100 - W = 2325 mAh Ergebnis: 2325 mAh.
+  - [Aufgabe Nr. 30](./?prozentwert-aufgabe=30#prozentwert-aufgabe): Beim Basketball wirft Lina 25 Würfe auf den Korb. 24 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 24 von 100 Kästchen sind blau. 24 % von 25 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 6 Treffer Rechenweg: - W = G · p / 100 - W = 25 · 24 / 100 - W = 6 Treffer Ergebnis: 6 Treffer.
+  - [Aufgabe Nr. 31](./?prozentwert-aufgabe=31#prozentwert-aufgabe): Bei einer Umfrage wurden 970 Personen befragt. 10 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 10 von 100 Kästchen sind blau. 10 % von 970 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 97 Personen Rechenweg: - W = G · p / 100 - W = 970 · 10 / 100 - W = 97 Personen Ergebnis: 97 Personen.
+  - [Aufgabe Nr. 32](./?prozentwert-aufgabe=32#prozentwert-aufgabe): Ein Handy-Akku fasst 4000 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 30 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 30 von 100 Kästchen sind blau. 30 % von 4000 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 1200 mAh Rechenweg: - W = G · p / 100 - W = 4000 · 30 / 100 - W = 1200 mAh Ergebnis: 1200 mAh.
+  - [Aufgabe Nr. 33](./?prozentwert-aufgabe=33#prozentwert-aufgabe): Bei einer Umfrage wurden 150 Personen befragt. 2 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 2 von 100 Kästchen sind blau. 2 % von 150 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 3 Personen Rechenweg: - W = G · p / 100 - W = 150 · 2 / 100 - W = 3 Personen Ergebnis: 3 Personen.
+  - [Aufgabe Nr. 34](./?prozentwert-aufgabe=34#prozentwert-aufgabe): Beim Basketball wirft Lina 55 Würfe auf den Korb. 60 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 60 von 100 Kästchen sind blau. 60 % von 55 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 33 Treffer Rechenweg: - W = G · p / 100 - W = 55 · 60 / 100 - W = 33 Treffer Ergebnis: 33 Treffer.
+  - [Aufgabe Nr. 35](./?prozentwert-aufgabe=35#prozentwert-aufgabe): In einer Klasse sind 25 Schüler. 40 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % von 25 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 10 Schüler Rechenweg: - W = G · p / 100 - W = 25 · 40 / 100 - W = 10 Schüler Ergebnis: 10 Schüler.
+  - [Aufgabe Nr. 36](./?prozentwert-aufgabe=36#prozentwert-aufgabe): Bei einer Umfrage wurden 960 Personen befragt. 12,5 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 12,5 von 100 Kästchen sind blau. 12,5 % von 960 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 120 Personen Rechenweg: - W = G · p / 100 - W = 960 · 12,5 / 100 - W = 120 Personen Ergebnis: 120 Personen.
+  - [Aufgabe Nr. 37](./?prozentwert-aufgabe=37#prozentwert-aufgabe): Bei einer Umfrage wurden 720 Personen befragt. 60 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 60 von 100 Kästchen sind blau. 60 % von 720 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 432 Personen Rechenweg: - W = G · p / 100 - W = 720 · 60 / 100 - W = 432 Personen Ergebnis: 432 Personen.
+  - [Aufgabe Nr. 38](./?prozentwert-aufgabe=38#prozentwert-aufgabe): In einer Klasse sind 20 Schüler. 95 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 95 von 100 Kästchen sind blau. 95 % von 20 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 19 Schüler Rechenweg: - W = G · p / 100 - W = 20 · 95 / 100 - W = 19 Schüler Ergebnis: 19 Schüler.
+  - [Aufgabe Nr. 39](./?prozentwert-aufgabe=39#prozentwert-aufgabe): Bei einer Umfrage wurden 150 Personen befragt. 12 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 12 von 100 Kästchen sind blau. 12 % von 150 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 18 Personen Rechenweg: - W = G · p / 100 - W = 150 · 12 / 100 - W = 18 Personen Ergebnis: 18 Personen.
+  - [Aufgabe Nr. 40](./?prozentwert-aufgabe=40#prozentwert-aufgabe): In einer Klasse sind 20 Schüler. 5 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 5 von 100 Kästchen sind blau. 5 % von 20 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 1 Schüler Rechenweg: - W = G · p / 100 - W = 20 · 5 / 100 - W = 1 Schüler Ergebnis: 1 Schüler.
+  - [Aufgabe Nr. 41](./?prozentwert-aufgabe=41#prozentwert-aufgabe): Ein Fahrrad kostet 400 €. Im Angebot gibt es 15 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 15 von 100 Kästchen sind blau. 15 % von 400 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 60 € Rechenweg: - W = G · p / 100 - W = 400 · 15 / 100 - W = 60 € Ergebnis: 60 €.
+  - [Aufgabe Nr. 42](./?prozentwert-aufgabe=42#prozentwert-aufgabe): Bei einer Umfrage wurden 250 Personen befragt. 2 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 2 von 100 Kästchen sind blau. 2 % von 250 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 5 Personen Rechenweg: - W = G · p / 100 - W = 250 · 2 / 100 - W = 5 Personen Ergebnis: 5 Personen.
+  - [Aufgabe Nr. 43](./?prozentwert-aufgabe=43#prozentwert-aufgabe): Ein Fahrrad kostet 535 €. Im Angebot gibt es 24 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 24 von 100 Kästchen sind blau. 24 % von 535 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 128,40 € Rechenweg: - W = G · p / 100 - W = 535 · 24 / 100 - W = 128,40 € Ergebnis: 128,40 €.
+  - [Aufgabe Nr. 44](./?prozentwert-aufgabe=44#prozentwert-aufgabe): Ein Fahrrad kostet 1390 €. Im Angebot gibt es 45 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 45 von 100 Kästchen sind blau. 45 % von 1390 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 625,50 € Rechenweg: - W = G · p / 100 - W = 1390 · 45 / 100 - W = 625,50 € Ergebnis: 625,50 €.
+  - [Aufgabe Nr. 45](./?prozentwert-aufgabe=45#prozentwert-aufgabe): Bei einer Umfrage wurden 460 Personen befragt. 75 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % von 460 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 345 Personen Rechenweg: - W = G · p / 100 - W = 460 · 75 / 100 - W = 345 Personen Ergebnis: 345 Personen.
+  - [Aufgabe Nr. 46](./?prozentwert-aufgabe=46#prozentwert-aufgabe): Ein Handy-Akku fasst 2900 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 85 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 85 von 100 Kästchen sind blau. 85 % von 2900 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 2465 mAh Rechenweg: - W = G · p / 100 - W = 2900 · 85 / 100 - W = 2465 mAh Ergebnis: 2465 mAh.
+  - [Aufgabe Nr. 47](./?prozentwert-aufgabe=47#prozentwert-aufgabe): In einer Klasse sind 20 Schüler. 20 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 20 von 100 Kästchen sind blau. 20 % von 20 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 4 Schüler Rechenweg: - W = G · p / 100 - W = 20 · 20 / 100 - W = 4 Schüler Ergebnis: 4 Schüler.
+  - [Aufgabe Nr. 48](./?prozentwert-aufgabe=48#prozentwert-aufgabe): Bei einer Umfrage wurden 400 Personen befragt. 8 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 8 von 100 Kästchen sind blau. 8 % von 400 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 32 Personen Rechenweg: - W = G · p / 100 - W = 400 · 8 / 100 - W = 32 Personen Ergebnis: 32 Personen.
+  - [Aufgabe Nr. 49](./?prozentwert-aufgabe=49#prozentwert-aufgabe): Ein Fahrrad kostet 1360 €. Im Angebot gibt es 15 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 15 von 100 Kästchen sind blau. 15 % von 1360 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 204 € Rechenweg: - W = G · p / 100 - W = 1360 · 15 / 100 - W = 204 € Ergebnis: 204 €.
+  - [Aufgabe Nr. 50](./?prozentwert-aufgabe=50#prozentwert-aufgabe): Bei einer Umfrage wurden 1000 Personen befragt. 12,5 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 12,5 von 100 Kästchen sind blau. 12,5 % von 1000 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 125 Personen Rechenweg: - W = G · p / 100 - W = 1000 · 12,5 / 100 - W = 125 Personen Ergebnis: 125 Personen.
+  - [Aufgabe Nr. 51](./?prozentwert-aufgabe=51#prozentwert-aufgabe): Ein Handy-Akku fasst 2100 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 5 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 5 von 100 Kästchen sind blau. 5 % von 2100 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 105 mAh Rechenweg: - W = G · p / 100 - W = 2100 · 5 / 100 - W = 105 mAh Ergebnis: 105 mAh.
+  - [Aufgabe Nr. 52](./?prozentwert-aufgabe=52#prozentwert-aufgabe): In einer Klasse sind 20 Schüler. 75 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % von 20 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 15 Schüler Rechenweg: - W = G · p / 100 - W = 20 · 75 / 100 - W = 15 Schüler Ergebnis: 15 Schüler.
+  - [Aufgabe Nr. 53](./?prozentwert-aufgabe=53#prozentwert-aufgabe): Ein Handy-Akku fasst 5000 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 40 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % von 5000 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 2000 mAh Rechenweg: - W = G · p / 100 - W = 5000 · 40 / 100 - W = 2000 mAh Ergebnis: 2000 mAh.
+  - [Aufgabe Nr. 54](./?prozentwert-aufgabe=54#prozentwert-aufgabe): Beim Basketball wirft Lina 16 Würfe auf den Korb. 50 % davon treffen. Wie viele Treffer sind das? Bild zur Aufgabe: Hunderterfeld: 50 von 100 Kästchen sind blau. 50 % von 16 Würfen; 100 Kästchen = Grundwert. - Prozentwert W (in Treffer) → Lösung: - Prozentwert W: 8 Treffer Rechenweg: - W = G · p / 100 - W = 16 · 50 / 100 - W = 8 Treffer Ergebnis: 8 Treffer.
+  - [Aufgabe Nr. 55](./?prozentwert-aufgabe=55#prozentwert-aufgabe): Ein Fahrrad kostet 1160 €. Im Angebot gibt es 50 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 50 von 100 Kästchen sind blau. 50 % von 1160 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 580 € Rechenweg: - W = G · p / 100 - W = 1160 · 50 / 100 - W = 580 € Ergebnis: 580 €.
+  - [Aufgabe Nr. 56](./?prozentwert-aufgabe=56#prozentwert-aufgabe): Ein Fahrrad kostet 600 €. Im Angebot gibt es 12,5 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 12,5 von 100 Kästchen sind blau. 12,5 % von 600 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 75 € Rechenweg: - W = G · p / 100 - W = 600 · 12,5 / 100 - W = 75 € Ergebnis: 75 €.
+  - [Aufgabe Nr. 57](./?prozentwert-aufgabe=57#prozentwert-aufgabe): Ein Handy-Akku fasst 2300 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 2 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 2 von 100 Kästchen sind blau. 2 % von 2300 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 46 mAh Rechenweg: - W = G · p / 100 - W = 2300 · 2 / 100 - W = 46 mAh Ergebnis: 46 mAh.
+  - [Aufgabe Nr. 58](./?prozentwert-aufgabe=58#prozentwert-aufgabe): In einer Klasse sind 20 Schüler. 65 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 65 von 100 Kästchen sind blau. 65 % von 20 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 13 Schüler Rechenweg: - W = G · p / 100 - W = 20 · 65 / 100 - W = 13 Schüler Ergebnis: 13 Schüler.
+  - [Aufgabe Nr. 59](./?prozentwert-aufgabe=59#prozentwert-aufgabe): Bei einer Umfrage wurden 130 Personen befragt. 80 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 80 von 100 Kästchen sind blau. 80 % von 130 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 104 Personen Rechenweg: - W = G · p / 100 - W = 130 · 80 / 100 - W = 104 Personen Ergebnis: 104 Personen.
+  - [Aufgabe Nr. 60](./?prozentwert-aufgabe=60#prozentwert-aufgabe): In einer Klasse sind 30 Schüler. 70 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 70 von 100 Kästchen sind blau. 70 % von 30 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 21 Schüler Rechenweg: - W = G · p / 100 - W = 30 · 70 / 100 - W = 21 Schüler Ergebnis: 21 Schüler.
+  - [Aufgabe Nr. 61](./?prozentwert-aufgabe=61#prozentwert-aufgabe): Ein Handy-Akku fasst 4800 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 60 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 60 von 100 Kästchen sind blau. 60 % von 4800 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 2880 mAh Rechenweg: - W = G · p / 100 - W = 4800 · 60 / 100 - W = 2880 mAh Ergebnis: 2880 mAh.
+  - [Aufgabe Nr. 62](./?prozentwert-aufgabe=62#prozentwert-aufgabe): In einer Klasse sind 20 Schüler. 70 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 70 von 100 Kästchen sind blau. 70 % von 20 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 14 Schüler Rechenweg: - W = G · p / 100 - W = 20 · 70 / 100 - W = 14 Schüler Ergebnis: 14 Schüler.
+  - [Aufgabe Nr. 63](./?prozentwert-aufgabe=63#prozentwert-aufgabe): Ein Fahrrad kostet 190 €. Im Angebot gibt es 18 % Rabatt. Wie viel Euro sparst du? Bild zur Aufgabe: Hunderterfeld: 18 von 100 Kästchen sind blau. 18 % von 190 €; 100 Kästchen = Grundwert. - Prozentwert W (in €) → Lösung: - Prozentwert W: 34,20 € Rechenweg: - W = G · p / 100 - W = 190 · 18 / 100 - W = 34,20 € Ergebnis: 34,20 €.
+  - [Aufgabe Nr. 64](./?prozentwert-aufgabe=64#prozentwert-aufgabe): Ein Handy-Akku fasst 4900 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 45 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 45 von 100 Kästchen sind blau. 45 % von 4900 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 2205 mAh Rechenweg: - W = G · p / 100 - W = 4900 · 45 / 100 - W = 2205 mAh Ergebnis: 2205 mAh.
+  - [Aufgabe Nr. 65](./?prozentwert-aufgabe=65#prozentwert-aufgabe): In einer Klasse sind 20 Schüler. 60 % von ihnen fahren mit dem Rad zur Schule. Wie viele Schüler sind das? Bild zur Aufgabe: Hunderterfeld: 60 von 100 Kästchen sind blau. 60 % von 20 Schülern; 100 Kästchen = Grundwert. - Prozentwert W (in Schüler) → Lösung: - Prozentwert W: 12 Schüler Rechenweg: - W = G · p / 100 - W = 20 · 60 / 100 - W = 12 Schüler Ergebnis: 12 Schüler.
+  - [Aufgabe Nr. 66](./?prozentwert-aufgabe=66#prozentwert-aufgabe): Bei einer Umfrage wurden 760 Personen befragt. 95 % davon lesen täglich Nachrichten. Wie viele Personen sind das? Bild zur Aufgabe: Hunderterfeld: 95 von 100 Kästchen sind blau. 95 % von 760 Personen; 100 Kästchen = Grundwert. - Prozentwert W (in Personen) → Lösung: - Prozentwert W: 722 Personen Rechenweg: - W = G · p / 100 - W = 760 · 95 / 100 - W = 722 Personen Ergebnis: 722 Personen.
+  - [Aufgabe Nr. 67](./?prozentwert-aufgabe=67#prozentwert-aufgabe): Ein Handy-Akku fasst 4200 mAh (Milliamperestunden: so viel Ladung speichert der Akku). Er ist noch zu 25 % geladen. Wie viel mAh sind noch drin? Bild zur Aufgabe: Hunderterfeld: 25 von 100 Kästchen sind blau. 25 % von 4200 mAh; 100 Kästchen = Grundwert. - Prozentwert W (in mAh) → Lösung: - Prozentwert W: 1050 mAh Rechenweg: - W = G · p / 100 - W = 4200 · 25 / 100 - W = 1050 mAh Ergebnis: 1050 mAh.
+
+### prozentwert-rechnen (generated, number)
+
+- Link: [./#prozentwert-rechnen](./#prozentwert-rechnen), im Abschnitt „Übung“
+- Antwortformat: eine Zahl eintippen (€)
+- Tipp, den die App zeigt (Vorlage: {{…}} sind die Werte der Aufgabe): Rechne erst 1 % aus: {{G}} € geteilt durch 100. Dann mal {{p}}.
+- Lösungsweg (Vorlage: {{…}} sind die Werte der Aufgabe):
+  - $W = \frac{G \cdot p}{100}$
+  - $W = \frac{{{G}} \cdot {{p}}}{100} = {{answer}}$, also {{answer}} €.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?prozentwert-rechnen=1#prozentwert-rechnen): Berechne 2 % von 1400 €. → Lösung: 28 €
+    - ✗ 2800: Du hast vergessen, durch 100 zu teilen: 2 % sind 2 Hundertstel.
+    - ✗ 1372: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 2](./?prozentwert-rechnen=2#prozentwert-rechnen): Berechne 25 % von 310 €. → Lösung: 77,5 €
+    - ✗ 7750: Du hast vergessen, durch 100 zu teilen: 25 % sind 25 Hundertstel.
+    - ✗ 232,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 3](./?prozentwert-rechnen=3#prozentwert-rechnen): Berechne 65 % von 1740 €. → Lösung: 1.131 €
+    - ✗ 113100: Du hast vergessen, durch 100 zu teilen: 65 % sind 65 Hundertstel.
+    - ✗ 609: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 4](./?prozentwert-rechnen=4#prozentwert-rechnen): Berechne 60 % von 410 €. → Lösung: 246 €
+    - ✗ 24600: Du hast vergessen, durch 100 zu teilen: 60 % sind 60 Hundertstel.
+    - ✗ 164: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 5](./?prozentwert-rechnen=5#prozentwert-rechnen): Berechne 24 % von 810 €. → Lösung: 194,4 €
+    - ✗ 19440: Du hast vergessen, durch 100 zu teilen: 24 % sind 24 Hundertstel.
+    - ✗ 615,6: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 6](./?prozentwert-rechnen=6#prozentwert-rechnen): Berechne 80 % von 1560 €. → Lösung: 1.248 €
+    - ✗ 124800: Du hast vergessen, durch 100 zu teilen: 80 % sind 80 Hundertstel.
+    - ✗ 312: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 7](./?prozentwert-rechnen=7#prozentwert-rechnen): Berechne 15 % von 670 €. → Lösung: 100,5 €
+    - ✗ 10050: Du hast vergessen, durch 100 zu teilen: 15 % sind 15 Hundertstel.
+    - ✗ 569,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 8](./?prozentwert-rechnen=8#prozentwert-rechnen): Berechne 30 % von 210 €. → Lösung: 63 €
+    - ✗ 6300: Du hast vergessen, durch 100 zu teilen: 30 % sind 30 Hundertstel.
+    - ✗ 147: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 9](./?prozentwert-rechnen=9#prozentwert-rechnen): Berechne 30 % von 1460 €. → Lösung: 438 €
+    - ✗ 43800: Du hast vergessen, durch 100 zu teilen: 30 % sind 30 Hundertstel.
+    - ✗ 1022: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 10](./?prozentwert-rechnen=10#prozentwert-rechnen): Berechne 65 % von 1720 €. → Lösung: 1.118 €
+    - ✗ 111800: Du hast vergessen, durch 100 zu teilen: 65 % sind 65 Hundertstel.
+    - ✗ 602: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 11](./?prozentwert-rechnen=11#prozentwert-rechnen): Berechne 18 % von 280 €. → Lösung: 50,4 €
+    - ✗ 5040: Du hast vergessen, durch 100 zu teilen: 18 % sind 18 Hundertstel.
+    - ✗ 229,6: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 12](./?prozentwert-rechnen=12#prozentwert-rechnen): Berechne 10 % von 460 €. → Lösung: 46 €
+    - ✗ 4600: Du hast vergessen, durch 100 zu teilen: 10 % sind 10 Hundertstel.
+    - ✗ 414: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 13](./?prozentwert-rechnen=13#prozentwert-rechnen): Berechne 90 % von 1860 €. → Lösung: 1.674 €
+    - ✗ 167400: Du hast vergessen, durch 100 zu teilen: 90 % sind 90 Hundertstel.
+    - ✗ 186: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 14](./?prozentwert-rechnen=14#prozentwert-rechnen): Berechne 20 % von 1260 €. → Lösung: 252 €
+    - ✗ 25200: Du hast vergessen, durch 100 zu teilen: 20 % sind 20 Hundertstel.
+    - ✗ 1008: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 15](./?prozentwert-rechnen=15#prozentwert-rechnen): Berechne 90 % von 1060 €. → Lösung: 954 €
+    - ✗ 95400: Du hast vergessen, durch 100 zu teilen: 90 % sind 90 Hundertstel.
+    - ✗ 106: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 16](./?prozentwert-rechnen=16#prozentwert-rechnen): Berechne 12 % von 1270 €. → Lösung: 152,4 €
+    - ✗ 15240: Du hast vergessen, durch 100 zu teilen: 12 % sind 12 Hundertstel.
+    - ✗ 1117,6: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 17](./?prozentwert-rechnen=17#prozentwert-rechnen): Berechne 75 % von 1620 €. → Lösung: 1.215 €
+    - ✗ 121500: Du hast vergessen, durch 100 zu teilen: 75 % sind 75 Hundertstel.
+    - ✗ 405: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 18](./?prozentwert-rechnen=18#prozentwert-rechnen): Berechne 45 % von 1950 €. → Lösung: 877,5 €
+    - ✗ 87750: Du hast vergessen, durch 100 zu teilen: 45 % sind 45 Hundertstel.
+    - ✗ 1072,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 19](./?prozentwert-rechnen=19#prozentwert-rechnen): Berechne 18 % von 1210 €. → Lösung: 217,8 €
+    - ✗ 21780: Du hast vergessen, durch 100 zu teilen: 18 % sind 18 Hundertstel.
+    - ✗ 992,2: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 20](./?prozentwert-rechnen=20#prozentwert-rechnen): Berechne 3 % von 620 €. → Lösung: 18,6 €
+    - ✗ 1860: Du hast vergessen, durch 100 zu teilen: 3 % sind 3 Hundertstel.
+    - ✗ 601,4: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 21](./?prozentwert-rechnen=21#prozentwert-rechnen): Berechne 5 % von 590 €. → Lösung: 29,5 €
+    - ✗ 2950: Du hast vergessen, durch 100 zu teilen: 5 % sind 5 Hundertstel.
+    - ✗ 560,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 22](./?prozentwert-rechnen=22#prozentwert-rechnen): Berechne 25 % von 1170 €. → Lösung: 292,5 €
+    - ✗ 29250: Du hast vergessen, durch 100 zu teilen: 25 % sind 25 Hundertstel.
+    - ✗ 877,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 23](./?prozentwert-rechnen=23#prozentwert-rechnen): Berechne 45 % von 980 €. → Lösung: 441 €
+    - ✗ 44100: Du hast vergessen, durch 100 zu teilen: 45 % sind 45 Hundertstel.
+    - ✗ 539: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 24](./?prozentwert-rechnen=24#prozentwert-rechnen): Berechne 15 % von 1720 €. → Lösung: 258 €
+    - ✗ 25800: Du hast vergessen, durch 100 zu teilen: 15 % sind 15 Hundertstel.
+    - ✗ 1462: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 25](./?prozentwert-rechnen=25#prozentwert-rechnen): Berechne 10 % von 610 €. → Lösung: 61 €
+    - ✗ 6100: Du hast vergessen, durch 100 zu teilen: 10 % sind 10 Hundertstel.
+    - ✗ 549: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 26](./?prozentwert-rechnen=26#prozentwert-rechnen): Berechne 10 % von 440 €. → Lösung: 44 €
+    - ✗ 4400: Du hast vergessen, durch 100 zu teilen: 10 % sind 10 Hundertstel.
+    - ✗ 396: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 27](./?prozentwert-rechnen=27#prozentwert-rechnen): Berechne 8 % von 470 €. → Lösung: 37,6 €
+    - ✗ 3760: Du hast vergessen, durch 100 zu teilen: 8 % sind 8 Hundertstel.
+    - ✗ 432,4: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 28](./?prozentwert-rechnen=28#prozentwert-rechnen): Berechne 45 % von 510 €. → Lösung: 229,5 €
+    - ✗ 22950: Du hast vergessen, durch 100 zu teilen: 45 % sind 45 Hundertstel.
+    - ✗ 280,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 29](./?prozentwert-rechnen=29#prozentwert-rechnen): Berechne 3 % von 260 €. → Lösung: 7,8 €
+    - ✗ 780: Du hast vergessen, durch 100 zu teilen: 3 % sind 3 Hundertstel.
+    - ✗ 252,2: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 30](./?prozentwert-rechnen=30#prozentwert-rechnen): Berechne 24 % von 380 €. → Lösung: 91,2 €
+    - ✗ 9120: Du hast vergessen, durch 100 zu teilen: 24 % sind 24 Hundertstel.
+    - ✗ 288,8: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 31](./?prozentwert-rechnen=31#prozentwert-rechnen): Berechne 6 % von 1880 €. → Lösung: 112,8 €
+    - ✗ 11280: Du hast vergessen, durch 100 zu teilen: 6 % sind 6 Hundertstel.
+    - ✗ 1767,2: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 32](./?prozentwert-rechnen=32#prozentwert-rechnen): Berechne 10 % von 360 €. → Lösung: 36 €
+    - ✗ 3600: Du hast vergessen, durch 100 zu teilen: 10 % sind 10 Hundertstel.
+    - ✗ 324: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 33](./?prozentwert-rechnen=33#prozentwert-rechnen): Berechne 85 % von 750 €. → Lösung: 637,5 €
+    - ✗ 63750: Du hast vergessen, durch 100 zu teilen: 85 % sind 85 Hundertstel.
+    - ✗ 112,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 34](./?prozentwert-rechnen=34#prozentwert-rechnen): Berechne 75 % von 550 €. → Lösung: 412,5 €
+    - ✗ 41250: Du hast vergessen, durch 100 zu teilen: 75 % sind 75 Hundertstel.
+    - ✗ 137,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 35](./?prozentwert-rechnen=35#prozentwert-rechnen): Berechne 6 % von 1410 €. → Lösung: 84,6 €
+    - ✗ 8460: Du hast vergessen, durch 100 zu teilen: 6 % sind 6 Hundertstel.
+    - ✗ 1325,4: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 36](./?prozentwert-rechnen=36#prozentwert-rechnen): Berechne 3 % von 1310 €. → Lösung: 39,3 €
+    - ✗ 3930: Du hast vergessen, durch 100 zu teilen: 3 % sind 3 Hundertstel.
+    - ✗ 1270,7: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 37](./?prozentwert-rechnen=37#prozentwert-rechnen): Berechne 40 % von 1110 €. → Lösung: 444 €
+    - ✗ 44400: Du hast vergessen, durch 100 zu teilen: 40 % sind 40 Hundertstel.
+    - ✗ 666: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 38](./?prozentwert-rechnen=38#prozentwert-rechnen): Berechne 15 % von 1740 €. → Lösung: 261 €
+    - ✗ 26100: Du hast vergessen, durch 100 zu teilen: 15 % sind 15 Hundertstel.
+    - ✗ 1479: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 39](./?prozentwert-rechnen=39#prozentwert-rechnen): Berechne 75 % von 410 €. → Lösung: 307,5 €
+    - ✗ 30750: Du hast vergessen, durch 100 zu teilen: 75 % sind 75 Hundertstel.
+    - ✗ 102,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 40](./?prozentwert-rechnen=40#prozentwert-rechnen): Berechne 85 % von 530 €. → Lösung: 450,5 €
+    - ✗ 45050: Du hast vergessen, durch 100 zu teilen: 85 % sind 85 Hundertstel.
+    - ✗ 79,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 41](./?prozentwert-rechnen=41#prozentwert-rechnen): Berechne 5 % von 1950 €. → Lösung: 97,5 €
+    - ✗ 9750: Du hast vergessen, durch 100 zu teilen: 5 % sind 5 Hundertstel.
+    - ✗ 1852,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 42](./?prozentwert-rechnen=42#prozentwert-rechnen): Berechne 35 % von 220 €. → Lösung: 77 €
+    - ✗ 7700: Du hast vergessen, durch 100 zu teilen: 35 % sind 35 Hundertstel.
+    - ✗ 143: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 43](./?prozentwert-rechnen=43#prozentwert-rechnen): Berechne 40 % von 1640 €. → Lösung: 656 €
+    - ✗ 65600: Du hast vergessen, durch 100 zu teilen: 40 % sind 40 Hundertstel.
+    - ✗ 984: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 44](./?prozentwert-rechnen=44#prozentwert-rechnen): Berechne 10 % von 770 €. → Lösung: 77 €
+    - ✗ 7700: Du hast vergessen, durch 100 zu teilen: 10 % sind 10 Hundertstel.
+    - ✗ 693: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 45](./?prozentwert-rechnen=45#prozentwert-rechnen): Berechne 6 % von 50 €. → Lösung: 3 €
+    - ✗ 300: Du hast vergessen, durch 100 zu teilen: 6 % sind 6 Hundertstel.
+    - ✗ 47: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 46](./?prozentwert-rechnen=46#prozentwert-rechnen): Berechne 3 % von 610 €. → Lösung: 18,3 €
+    - ✗ 1830: Du hast vergessen, durch 100 zu teilen: 3 % sind 3 Hundertstel.
+    - ✗ 591,7: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 47](./?prozentwert-rechnen=47#prozentwert-rechnen): Berechne 40 % von 1200 €. → Lösung: 480 €
+    - ✗ 48000: Du hast vergessen, durch 100 zu teilen: 40 % sind 40 Hundertstel.
+    - ✗ 720: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 48](./?prozentwert-rechnen=48#prozentwert-rechnen): Berechne 75 % von 370 €. → Lösung: 277,5 €
+    - ✗ 27750: Du hast vergessen, durch 100 zu teilen: 75 % sind 75 Hundertstel.
+    - ✗ 92,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 49](./?prozentwert-rechnen=49#prozentwert-rechnen): Berechne 15 % von 290 €. → Lösung: 43,5 €
+    - ✗ 4350: Du hast vergessen, durch 100 zu teilen: 15 % sind 15 Hundertstel.
+    - ✗ 246,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 50](./?prozentwert-rechnen=50#prozentwert-rechnen): Berechne 45 % von 600 €. → Lösung: 270 €
+    - ✗ 27000: Du hast vergessen, durch 100 zu teilen: 45 % sind 45 Hundertstel.
+    - ✗ 330: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 51](./?prozentwert-rechnen=51#prozentwert-rechnen): Berechne 80 % von 710 €. → Lösung: 568 €
+    - ✗ 56800: Du hast vergessen, durch 100 zu teilen: 80 % sind 80 Hundertstel.
+    - ✗ 142: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 52](./?prozentwert-rechnen=52#prozentwert-rechnen): Berechne 40 % von 30 €. → Lösung: 12 €
+    - ✗ 1200: Du hast vergessen, durch 100 zu teilen: 40 % sind 40 Hundertstel.
+    - ✗ 18: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 53](./?prozentwert-rechnen=53#prozentwert-rechnen): Berechne 35 % von 720 €. → Lösung: 252 €
+    - ✗ 25200: Du hast vergessen, durch 100 zu teilen: 35 % sind 35 Hundertstel.
+    - ✗ 468: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 54](./?prozentwert-rechnen=54#prozentwert-rechnen): Berechne 18 % von 1260 €. → Lösung: 226,8 €
+    - ✗ 22680: Du hast vergessen, durch 100 zu teilen: 18 % sind 18 Hundertstel.
+    - ✗ 1033,2: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 55](./?prozentwert-rechnen=55#prozentwert-rechnen): Berechne 15 % von 1860 €. → Lösung: 279 €
+    - ✗ 27900: Du hast vergessen, durch 100 zu teilen: 15 % sind 15 Hundertstel.
+    - ✗ 1581: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 56](./?prozentwert-rechnen=56#prozentwert-rechnen): Berechne 80 % von 1590 €. → Lösung: 1.272 €
+    - ✗ 127200: Du hast vergessen, durch 100 zu teilen: 80 % sind 80 Hundertstel.
+    - ✗ 318: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 57](./?prozentwert-rechnen=57#prozentwert-rechnen): Berechne 75 % von 1070 €. → Lösung: 802,5 €
+    - ✗ 80250: Du hast vergessen, durch 100 zu teilen: 75 % sind 75 Hundertstel.
+    - ✗ 267,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 58](./?prozentwert-rechnen=58#prozentwert-rechnen): Berechne 24 % von 1060 €. → Lösung: 254,4 €
+    - ✗ 25440: Du hast vergessen, durch 100 zu teilen: 24 % sind 24 Hundertstel.
+    - ✗ 805,6: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 59](./?prozentwert-rechnen=59#prozentwert-rechnen): Berechne 12,5 % von 890 €. → Lösung: 111,25 €
+    - ✗ 11125: Du hast vergessen, durch 100 zu teilen: 12,5 % sind 12,5 Hundertstel.
+    - ✗ 778,75: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 60](./?prozentwert-rechnen=60#prozentwert-rechnen): Berechne 85 % von 360 €. → Lösung: 306 €
+    - ✗ 30600: Du hast vergessen, durch 100 zu teilen: 85 % sind 85 Hundertstel.
+    - ✗ 54: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 61](./?prozentwert-rechnen=61#prozentwert-rechnen): Berechne 70 % von 610 €. → Lösung: 427 €
+    - ✗ 42700: Du hast vergessen, durch 100 zu teilen: 70 % sind 70 Hundertstel.
+    - ✗ 183: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 62](./?prozentwert-rechnen=62#prozentwert-rechnen): Berechne 12 % von 550 €. → Lösung: 66 €
+    - ✗ 6600: Du hast vergessen, durch 100 zu teilen: 12 % sind 12 Hundertstel.
+    - ✗ 484: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 63](./?prozentwert-rechnen=63#prozentwert-rechnen): Berechne 75 % von 510 €. → Lösung: 382,5 €
+    - ✗ 38250: Du hast vergessen, durch 100 zu teilen: 75 % sind 75 Hundertstel.
+    - ✗ 127,5: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 64](./?prozentwert-rechnen=64#prozentwert-rechnen): Berechne 80 % von 1980 €. → Lösung: 1.584 €
+    - ✗ 158400: Du hast vergessen, durch 100 zu teilen: 80 % sind 80 Hundertstel.
+    - ✗ 396: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 65](./?prozentwert-rechnen=65#prozentwert-rechnen): Berechne 30 % von 420 €. → Lösung: 126 €
+    - ✗ 12600: Du hast vergessen, durch 100 zu teilen: 30 % sind 30 Hundertstel.
+    - ✗ 294: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 66](./?prozentwert-rechnen=66#prozentwert-rechnen): Berechne 20 % von 40 €. → Lösung: 8 €
+    - ✗ 800: Du hast vergessen, durch 100 zu teilen: 20 % sind 20 Hundertstel.
+    - ✗ 32: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.
+  - [Aufgabe Nr. 67](./?prozentwert-rechnen=67#prozentwert-rechnen): Berechne 80 % von 1680 €. → Lösung: 1.344 €
+    - ✗ 134400: Du hast vergessen, durch 100 zu teilen: 80 % sind 80 Hundertstel.
+    - ✗ 336: Du hast den Rest ausgerechnet, nicht den Anteil. Gefragt ist der Prozentwert selbst.

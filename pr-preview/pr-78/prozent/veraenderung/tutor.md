@@ -1,0 +1,519 @@
+# Prozentuale Zunahme und Abnahme – Tutor-Datei
+
+> Den neuen Wert nach einer Erhöhung oder Senkung um p % berechnen, und rückwärts den alten Wert: Faktor-Methode, Beispiele, Balkenbild und Übungen.
+
+App: Mathe-Karte. Seite: [Prozentuale Zunahme und Abnahme](./)
+
+Diese Datei ist für einen KI-Tutor. Sie enthält die Lösungen: Nutze sie, um anzuleiten und Fehler zu erkennen, nicht um vorzusagen. Die Regeln stehen in llms.txt. Kannst du eine Datei der App nicht abrufen, bitte die lernende Person, den Text der Seite oder diese Datei einzufügen oder anzuhängen.
+
+## Abschnitte
+
+- [Warum?](./#warum)
+- [Regel](./#regel)
+- [Beispiel](./#beispiel)
+- [Bild](./#bild)
+- [Video dazu](./#video)
+- [Übung](./#uebung)
+
+## Übungen
+
+### veraenderung-aufgabe (interaktive Übung ProzentVeraenderung)
+
+- Link: [./#veraenderung-aufgabe](./#veraenderung-aufgabe), im Abschnitt „Übung“
+- Was zu tun ist: Eine Textaufgabe zu einer Erhöhung oder Senkung um p %: entweder der neue Wert gesucht (alter Wert gegeben) oder der alte Wert gesucht (neuer Wert gegeben). Das Bild zur Aufgabe zeigt alten und neuen Wert als Balken, der gesuchte mit „?“.
+- Antwortformat: Eine Zahl in der Einheit des Textes (Euro oder Mitglieder); Komma oder Punkt, ein Bruch oder ein Term gehen auch.
+- Was als richtig zählt: Neuer Wert = alter Wert · (1 ± p/100), alter Wert = neuer Wert : (1 ± p/100); exakt oder kaufmännisch gerundet (Euro auf Cent).
+- Typische Fehler und die Meldung der App:
+  - Du hast in die falsche Richtung gerechnet. Lies noch einmal: steigt oder sinkt der Wert?
+  - Das ist nur die Veränderung (der Prozentwert). Gefragt ist der neue Wert: alter Wert plus/minus Veränderung.
+  - Die Prozente beziehen sich auf den alten Wert, nicht auf den neuen. Der neue Wert ist nicht 100 %.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?veraenderung-aufgabe=1#veraenderung-aufgabe): Ein Fahrrad kostet brutto 714 €. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Nettopreis? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): ?; Neuer Preis (119 %): 714 €. - Alter Wert (in €) → Lösung: - Alter Wert: 600 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 714 : 1,19 = 600 € Ergebnis: 600 €.
+  - [Aufgabe Nr. 2](./?veraenderung-aufgabe=2#veraenderung-aufgabe): Ein Fahrrad kostet netto 1500 €. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es brutto? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): 1500 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 1785 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 1500 · 1,19 = 1785 € Ergebnis: 1785 €.
+  - [Aufgabe Nr. 3](./?veraenderung-aufgabe=3#veraenderung-aufgabe): Eine Hose kostet 60 €. Im Ausverkauf gibt es 35 % Rabatt. Wie viel kostet sie jetzt? Bild zur Aufgabe: Balkenbild „− 35 %“: Alter Preis (100 %): 60 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 39 € Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 35/100 = 0,65 - 60 · 0,65 = 39 € Ergebnis: 39 €.
+  - [Aufgabe Nr. 4](./?veraenderung-aufgabe=4#veraenderung-aufgabe): Die Mitgliederzahl eines Sportvereins ist um 40 % gesunken. Jetzt hat er 234 Mitglieder. Wie viele Mitglieder hatte er vorher? Bild zur Aufgabe: Balkenbild „− 40 %“: Alter Wert (100 %): ?; Neuer Wert (60 %): 234 Mitglieder. - Alter Wert (in Mitglieder) → Lösung: - Alter Wert: 390 Mitglieder Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 40/100 = 0,6 - 234 : 0,6 = 390 Mitglieder Ergebnis: 390 Mitglieder.
+  - [Aufgabe Nr. 5](./?veraenderung-aufgabe=5#veraenderung-aufgabe): Ein Sportverein hat 50 Mitglieder. Im nächsten Jahr sinkt die Zahl um 24 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 24 %“: Alter Wert (100 %): 50 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 38 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 24/100 = 0,76 - 50 · 0,76 = 38 Mitglieder Ergebnis: 38 Mitglieder.
+  - [Aufgabe Nr. 6](./?veraenderung-aufgabe=6#veraenderung-aufgabe): Ein Sportverein hat 850 Mitglieder. Im nächsten Jahr sinkt die Zahl um 8 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 8 %“: Alter Wert (100 %): 850 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 782 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 8/100 = 0,92 - 850 · 0,92 = 782 Mitglieder Ergebnis: 782 Mitglieder.
+  - [Aufgabe Nr. 7](./?veraenderung-aufgabe=7#veraenderung-aufgabe): Nach einer Gehaltserhöhung um 40 % verdient Frau Berg 4760 € im Monat. Wie viel hat sie vorher verdient? Bild zur Aufgabe: Balkenbild „+ 40 %“: Alter Wert (100 %): ?; Neuer Wert (140 %): 4760 €. - Alter Wert (in €) → Lösung: - Alter Wert: 3400 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 40/100 = 1,4 - 4760 : 1,4 = 3400 € Ergebnis: 3400 €.
+  - [Aufgabe Nr. 8](./?veraenderung-aufgabe=8#veraenderung-aufgabe): Frau Berg verdient 2200 € im Monat. Sie bekommt 45 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 45 %“: Alter Wert (100 %): 2200 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 3190 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 45/100 = 1,45 - 2200 · 1,45 = 3190 € Ergebnis: 3190 €.
+  - [Aufgabe Nr. 9](./?veraenderung-aufgabe=9#veraenderung-aufgabe): Der Preis eines Konzerttickets steigt um 30 %. Danach kostet es 149,50 €. Wie viel hat es vorher gekostet? Bild zur Aufgabe: Balkenbild „+ 30 %“: Alter Preis (100 %): ?; Neuer Preis (130 %): 149,50 €. - Alter Wert (in €) → Lösung: - Alter Wert: 115 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 30/100 = 1,3 - 149,50 : 1,3 = 115 € Ergebnis: 115 €.
+  - [Aufgabe Nr. 10](./?veraenderung-aufgabe=10#veraenderung-aufgabe): Frau Berg verdient 3900 € im Monat. Sie bekommt 18 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 18 %“: Alter Wert (100 %): 3900 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 4602 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 18/100 = 1,18 - 3900 · 1,18 = 4602 € Ergebnis: 4602 €.
+  - [Aufgabe Nr. 11](./?veraenderung-aufgabe=11#veraenderung-aufgabe): Ein Fahrrad kostet brutto 1309 €. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Nettopreis? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): ?; Neuer Preis (119 %): 1309 €. - Alter Wert (in €) → Lösung: - Alter Wert: 1100 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 1309 : 1,19 = 1100 € Ergebnis: 1100 €.
+  - [Aufgabe Nr. 12](./?veraenderung-aufgabe=12#veraenderung-aufgabe): Ein Fahrrad kostet netto 500 €. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es brutto? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): 500 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 595 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 500 · 1,19 = 595 € Ergebnis: 595 €.
+  - [Aufgabe Nr. 13](./?veraenderung-aufgabe=13#veraenderung-aufgabe): Eine Hose kostet 35 €. Im Ausverkauf gibt es 10 % Rabatt. Wie viel kostet sie jetzt? Bild zur Aufgabe: Balkenbild „− 10 %“: Alter Preis (100 %): 35 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 31,50 € Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 10/100 = 0,9 - 35 · 0,9 = 31,50 € Ergebnis: 31,50 €.
+  - [Aufgabe Nr. 14](./?veraenderung-aufgabe=14#veraenderung-aufgabe): Nach 6 % Rabatt kostet eine Hose 56,40 €. Wie viel hat sie vorher gekostet? Bild zur Aufgabe: Balkenbild „− 6 %“: Alter Preis (100 %): ?; Neuer Preis (94 %): 56,40 €. - Alter Wert (in €) → Lösung: - Alter Wert: 60 € Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 6/100 = 0,94 - 56,40 : 0,94 = 60 € Ergebnis: 60 €.
+  - [Aufgabe Nr. 15](./?veraenderung-aufgabe=15#veraenderung-aufgabe): Ein Fahrrad kostet brutto 1428 €. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Nettopreis? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): ?; Neuer Preis (119 %): 1428 €. - Alter Wert (in €) → Lösung: - Alter Wert: 1200 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 1428 : 1,19 = 1200 € Ergebnis: 1200 €.
+  - [Aufgabe Nr. 16](./?veraenderung-aufgabe=16#veraenderung-aufgabe): Frau Berg verdient 2800 € im Monat. Sie bekommt 45 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 45 %“: Alter Wert (100 %): 2800 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 4060 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 45/100 = 1,45 - 2800 · 1,45 = 4060 € Ergebnis: 4060 €.
+  - [Aufgabe Nr. 17](./?veraenderung-aufgabe=17#veraenderung-aufgabe): Ein Konzertticket kostet 465 €. Der Preis steigt um 10 %. Wie viel kostet es danach? Bild zur Aufgabe: Balkenbild „+ 10 %“: Alter Preis (100 %): 465 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 511,50 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 10/100 = 1,1 - 465 · 1,1 = 511,50 € Ergebnis: 511,50 €.
+  - [Aufgabe Nr. 18](./?veraenderung-aufgabe=18#veraenderung-aufgabe): Die Mitgliederzahl eines Sportvereins ist um 6 % gesunken. Jetzt hat er 282 Mitglieder. Wie viele Mitglieder hatte er vorher? Bild zur Aufgabe: Balkenbild „− 6 %“: Alter Wert (100 %): ?; Neuer Wert (94 %): 282 Mitglieder. - Alter Wert (in Mitglieder) → Lösung: - Alter Wert: 300 Mitglieder Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 6/100 = 0,94 - 282 : 0,94 = 300 Mitglieder Ergebnis: 300 Mitglieder.
+  - [Aufgabe Nr. 19](./?veraenderung-aufgabe=19#veraenderung-aufgabe): Der Preis eines Konzerttickets steigt um 5 %. Danach kostet es 199,50 €. Wie viel hat es vorher gekostet? Bild zur Aufgabe: Balkenbild „+ 5 %“: Alter Preis (100 %): ?; Neuer Preis (105 %): 199,50 €. - Alter Wert (in €) → Lösung: - Alter Wert: 190 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 5/100 = 1,05 - 199,50 : 1,05 = 190 € Ergebnis: 190 €.
+  - [Aufgabe Nr. 20](./?veraenderung-aufgabe=20#veraenderung-aufgabe): Der Preis eines Konzerttickets steigt um 50 %. Danach kostet es 652,50 €. Wie viel hat es vorher gekostet? Bild zur Aufgabe: Balkenbild „+ 50 %“: Alter Preis (100 %): ?; Neuer Preis (150 %): 652,50 €. - Alter Wert (in €) → Lösung: - Alter Wert: 435 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 50/100 = 1,5 - 652,50 : 1,5 = 435 € Ergebnis: 435 €.
+  - [Aufgabe Nr. 21](./?veraenderung-aufgabe=21#veraenderung-aufgabe): Nach einer Gehaltserhöhung um 35 % verdient Frau Berg 3375 € im Monat. Wie viel hat sie vorher verdient? Bild zur Aufgabe: Balkenbild „+ 35 %“: Alter Wert (100 %): ?; Neuer Wert (135 %): 3375 €. - Alter Wert (in €) → Lösung: - Alter Wert: 2500 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 35/100 = 1,35 - 3375 : 1,35 = 2500 € Ergebnis: 2500 €.
+  - [Aufgabe Nr. 22](./?veraenderung-aufgabe=22#veraenderung-aufgabe): Ein Konzertticket kostet 410 €. Der Preis steigt um 15 %. Wie viel kostet es danach? Bild zur Aufgabe: Balkenbild „+ 15 %“: Alter Preis (100 %): 410 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 471,50 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 15/100 = 1,15 - 410 · 1,15 = 471,50 € Ergebnis: 471,50 €.
+  - [Aufgabe Nr. 23](./?veraenderung-aufgabe=23#veraenderung-aufgabe): Ein Konzertticket kostet 200 €. Der Preis steigt um 24 %. Wie viel kostet es danach? Bild zur Aufgabe: Balkenbild „+ 24 %“: Alter Preis (100 %): 200 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 248 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 24/100 = 1,24 - 200 · 1,24 = 248 € Ergebnis: 248 €.
+  - [Aufgabe Nr. 24](./?veraenderung-aufgabe=24#veraenderung-aufgabe): Die Mitgliederzahl eines Sportvereins ist um 2 % gesunken. Jetzt hat er 686 Mitglieder. Wie viele Mitglieder hatte er vorher? Bild zur Aufgabe: Balkenbild „− 2 %“: Alter Wert (100 %): ?; Neuer Wert (98 %): 686 Mitglieder. - Alter Wert (in Mitglieder) → Lösung: - Alter Wert: 700 Mitglieder Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 2/100 = 0,98 - 686 : 0,98 = 700 Mitglieder Ergebnis: 700 Mitglieder.
+  - [Aufgabe Nr. 25](./?veraenderung-aufgabe=25#veraenderung-aufgabe): Eine Hose kostet 80 €. Im Ausverkauf gibt es 35 % Rabatt. Wie viel kostet sie jetzt? Bild zur Aufgabe: Balkenbild „− 35 %“: Alter Preis (100 %): 80 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 52 € Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 35/100 = 0,65 - 80 · 0,65 = 52 € Ergebnis: 52 €.
+  - [Aufgabe Nr. 26](./?veraenderung-aufgabe=26#veraenderung-aufgabe): Ein Fahrrad kostet netto 1100 €. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es brutto? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): 1100 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 1309 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 1100 · 1,19 = 1309 € Ergebnis: 1309 €.
+  - [Aufgabe Nr. 27](./?veraenderung-aufgabe=27#veraenderung-aufgabe): Ein Sportverein hat 560 Mitglieder. Im nächsten Jahr sinkt die Zahl um 20 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 20 %“: Alter Wert (100 %): 560 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 448 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 20/100 = 0,8 - 560 · 0,8 = 448 Mitglieder Ergebnis: 448 Mitglieder.
+  - [Aufgabe Nr. 28](./?veraenderung-aufgabe=28#veraenderung-aufgabe): Frau Berg verdient 4500 € im Monat. Sie bekommt 25 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 25 %“: Alter Wert (100 %): 4500 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 5625 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 25/100 = 1,25 - 4500 · 1,25 = 5625 € Ergebnis: 5625 €.
+  - [Aufgabe Nr. 29](./?veraenderung-aufgabe=29#veraenderung-aufgabe): Ein Konzertticket kostet 190 €. Der Preis steigt um 15 %. Wie viel kostet es danach? Bild zur Aufgabe: Balkenbild „+ 15 %“: Alter Preis (100 %): 190 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 218,50 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 15/100 = 1,15 - 190 · 1,15 = 218,50 € Ergebnis: 218,50 €.
+  - [Aufgabe Nr. 30](./?veraenderung-aufgabe=30#veraenderung-aufgabe): Frau Berg verdient 2000 € im Monat. Sie bekommt 50 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 50 %“: Alter Wert (100 %): 2000 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 3000 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 50/100 = 1,5 - 2000 · 1,5 = 3000 € Ergebnis: 3000 €.
+  - [Aufgabe Nr. 31](./?veraenderung-aufgabe=31#veraenderung-aufgabe): Ein Sportverein hat 700 Mitglieder. Im nächsten Jahr sinkt die Zahl um 3 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 3 %“: Alter Wert (100 %): 700 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 679 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 3/100 = 0,97 - 700 · 0,97 = 679 Mitglieder Ergebnis: 679 Mitglieder.
+  - [Aufgabe Nr. 32](./?veraenderung-aufgabe=32#veraenderung-aufgabe): Frau Berg verdient 2600 € im Monat. Sie bekommt 8 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 8 %“: Alter Wert (100 %): 2600 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 2808 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 8/100 = 1,08 - 2600 · 1,08 = 2808 € Ergebnis: 2808 €.
+  - [Aufgabe Nr. 33](./?veraenderung-aufgabe=33#veraenderung-aufgabe): Frau Berg verdient 2100 € im Monat. Sie bekommt 30 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 30 %“: Alter Wert (100 %): 2100 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 2730 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 30/100 = 1,3 - 2100 · 1,3 = 2730 € Ergebnis: 2730 €.
+  - [Aufgabe Nr. 34](./?veraenderung-aufgabe=34#veraenderung-aufgabe): Nach 35 % Rabatt kostet eine Hose 26 €. Wie viel hat sie vorher gekostet? Bild zur Aufgabe: Balkenbild „− 35 %“: Alter Preis (100 %): ?; Neuer Preis (65 %): 26 €. - Alter Wert (in €) → Lösung: - Alter Wert: 40 € Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 35/100 = 0,65 - 26 : 0,65 = 40 € Ergebnis: 40 €.
+  - [Aufgabe Nr. 35](./?veraenderung-aufgabe=35#veraenderung-aufgabe): Ein Sportverein hat 120 Mitglieder. Im nächsten Jahr sinkt die Zahl um 10 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 10 %“: Alter Wert (100 %): 120 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 108 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 10/100 = 0,9 - 120 · 0,9 = 108 Mitglieder Ergebnis: 108 Mitglieder.
+  - [Aufgabe Nr. 36](./?veraenderung-aufgabe=36#veraenderung-aufgabe): Frau Berg verdient 2400 € im Monat. Sie bekommt 45 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 45 %“: Alter Wert (100 %): 2400 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 3480 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 45/100 = 1,45 - 2400 · 1,45 = 3480 € Ergebnis: 3480 €.
+  - [Aufgabe Nr. 37](./?veraenderung-aufgabe=37#veraenderung-aufgabe): Die Mitgliederzahl eines Sportvereins ist um 45 % gesunken. Jetzt hat er 121 Mitglieder. Wie viele Mitglieder hatte er vorher? Bild zur Aufgabe: Balkenbild „− 45 %“: Alter Wert (100 %): ?; Neuer Wert (55 %): 121 Mitglieder. - Alter Wert (in Mitglieder) → Lösung: - Alter Wert: 220 Mitglieder Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 45/100 = 0,55 - 121 : 0,55 = 220 Mitglieder Ergebnis: 220 Mitglieder.
+  - [Aufgabe Nr. 38](./?veraenderung-aufgabe=38#veraenderung-aufgabe): Eine Hose kostet 40 €. Im Ausverkauf gibt es 12,5 % Rabatt. Wie viel kostet sie jetzt? Bild zur Aufgabe: Balkenbild „− 12,5 %“: Alter Preis (100 %): 40 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 35 € Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 12,5/100 = 0,875 - 40 · 0,875 = 35 € Ergebnis: 35 €.
+  - [Aufgabe Nr. 39](./?veraenderung-aufgabe=39#veraenderung-aufgabe): Ein Sportverein hat 580 Mitglieder. Im nächsten Jahr sinkt die Zahl um 5 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 5 %“: Alter Wert (100 %): 580 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 551 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 5/100 = 0,95 - 580 · 0,95 = 551 Mitglieder Ergebnis: 551 Mitglieder.
+  - [Aufgabe Nr. 40](./?veraenderung-aufgabe=40#veraenderung-aufgabe): Ein Fahrrad kostet brutto 1666 €. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Nettopreis? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): ?; Neuer Preis (119 %): 1666 €. - Alter Wert (in €) → Lösung: - Alter Wert: 1400 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 1666 : 1,19 = 1400 € Ergebnis: 1400 €.
+  - [Aufgabe Nr. 41](./?veraenderung-aufgabe=41#veraenderung-aufgabe): Frau Berg verdient 2600 € im Monat. Sie bekommt 20 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 20 %“: Alter Wert (100 %): 2600 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 3120 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 20/100 = 1,2 - 2600 · 1,2 = 3120 € Ergebnis: 3120 €.
+  - [Aufgabe Nr. 42](./?veraenderung-aufgabe=42#veraenderung-aufgabe): Frau Berg verdient 4300 € im Monat. Sie bekommt 35 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 35 %“: Alter Wert (100 %): 4300 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 5805 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 35/100 = 1,35 - 4300 · 1,35 = 5805 € Ergebnis: 5805 €.
+  - [Aufgabe Nr. 43](./?veraenderung-aufgabe=43#veraenderung-aufgabe): Ein Konzertticket kostet 425 €. Der Preis steigt um 24 %. Wie viel kostet es danach? Bild zur Aufgabe: Balkenbild „+ 24 %“: Alter Preis (100 %): 425 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 527 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 24/100 = 1,24 - 425 · 1,24 = 527 € Ergebnis: 527 €.
+  - [Aufgabe Nr. 44](./?veraenderung-aufgabe=44#veraenderung-aufgabe): Der Preis eines Konzerttickets steigt um 3 %. Danach kostet es 72,10 €. Wie viel hat es vorher gekostet? Bild zur Aufgabe: Balkenbild „+ 3 %“: Alter Preis (100 %): ?; Neuer Preis (103 %): 72,10 €. - Alter Wert (in €) → Lösung: - Alter Wert: 70 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 3/100 = 1,03 - 72,10 : 1,03 = 70 € Ergebnis: 70 €.
+  - [Aufgabe Nr. 45](./?veraenderung-aufgabe=45#veraenderung-aufgabe): Ein Konzertticket kostet 320 €. Der Preis steigt um 35 %. Wie viel kostet es danach? Bild zur Aufgabe: Balkenbild „+ 35 %“: Alter Preis (100 %): 320 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 432 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 35/100 = 1,35 - 320 · 1,35 = 432 € Ergebnis: 432 €.
+  - [Aufgabe Nr. 46](./?veraenderung-aufgabe=46#veraenderung-aufgabe): Ein Fahrrad kostet netto 1300 €. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es brutto? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): 1300 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 1547 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 1300 · 1,19 = 1547 € Ergebnis: 1547 €.
+  - [Aufgabe Nr. 47](./?veraenderung-aufgabe=47#veraenderung-aufgabe): Der Preis eines Konzerttickets steigt um 35 %. Danach kostet es 270 €. Wie viel hat es vorher gekostet? Bild zur Aufgabe: Balkenbild „+ 35 %“: Alter Preis (100 %): ?; Neuer Preis (135 %): 270 €. - Alter Wert (in €) → Lösung: - Alter Wert: 200 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 35/100 = 1,35 - 270 : 1,35 = 200 € Ergebnis: 200 €.
+  - [Aufgabe Nr. 48](./?veraenderung-aufgabe=48#veraenderung-aufgabe): Ein Sportverein hat 470 Mitglieder. Im nächsten Jahr sinkt die Zahl um 50 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 50 %“: Alter Wert (100 %): 470 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 235 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 50/100 = 0,5 - 470 · 0,5 = 235 Mitglieder Ergebnis: 235 Mitglieder.
+  - [Aufgabe Nr. 49](./?veraenderung-aufgabe=49#veraenderung-aufgabe): Nach 20 % Rabatt kostet eine Hose 68 €. Wie viel hat sie vorher gekostet? Bild zur Aufgabe: Balkenbild „− 20 %“: Alter Preis (100 %): ?; Neuer Preis (80 %): 68 €. - Alter Wert (in €) → Lösung: - Alter Wert: 85 € Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 20/100 = 0,8 - 68 : 0,8 = 85 € Ergebnis: 85 €.
+  - [Aufgabe Nr. 50](./?veraenderung-aufgabe=50#veraenderung-aufgabe): Nach einer Gehaltserhöhung um 15 % verdient Frau Berg 2760 € im Monat. Wie viel hat sie vorher verdient? Bild zur Aufgabe: Balkenbild „+ 15 %“: Alter Wert (100 %): ?; Neuer Wert (115 %): 2760 €. - Alter Wert (in €) → Lösung: - Alter Wert: 2400 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 15/100 = 1,15 - 2760 : 1,15 = 2400 € Ergebnis: 2400 €.
+  - [Aufgabe Nr. 51](./?veraenderung-aufgabe=51#veraenderung-aufgabe): Nach einer Gehaltserhöhung um 4 % verdient Frau Berg 3640 € im Monat. Wie viel hat sie vorher verdient? Bild zur Aufgabe: Balkenbild „+ 4 %“: Alter Wert (100 %): ?; Neuer Wert (104 %): 3640 €. - Alter Wert (in €) → Lösung: - Alter Wert: 3500 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 4/100 = 1,04 - 3640 : 1,04 = 3500 € Ergebnis: 3500 €.
+  - [Aufgabe Nr. 52](./?veraenderung-aufgabe=52#veraenderung-aufgabe): Ein Fahrrad kostet netto 800 €. Dazu kommen 19 % Mehrwertsteuer. Wie viel kostet es brutto? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): 800 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 952 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 800 · 1,19 = 952 € Ergebnis: 952 €.
+  - [Aufgabe Nr. 53](./?veraenderung-aufgabe=53#veraenderung-aufgabe): Ein Sportverein hat 450 Mitglieder. Im nächsten Jahr sinkt die Zahl um 4 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 4 %“: Alter Wert (100 %): 450 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 432 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 4/100 = 0,96 - 450 · 0,96 = 432 Mitglieder Ergebnis: 432 Mitglieder.
+  - [Aufgabe Nr. 54](./?veraenderung-aufgabe=54#veraenderung-aufgabe): Nach einer Gehaltserhöhung um 12 % verdient Frau Berg 4928 € im Monat. Wie viel hat sie vorher verdient? Bild zur Aufgabe: Balkenbild „+ 12 %“: Alter Wert (100 %): ?; Neuer Wert (112 %): 4928 €. - Alter Wert (in €) → Lösung: - Alter Wert: 4400 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 12/100 = 1,12 - 4928 : 1,12 = 4400 € Ergebnis: 4400 €.
+  - [Aufgabe Nr. 55](./?veraenderung-aufgabe=55#veraenderung-aufgabe): Frau Berg verdient 3000 € im Monat. Sie bekommt 40 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 40 %“: Alter Wert (100 %): 3000 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 4200 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 40/100 = 1,4 - 3000 · 1,4 = 4200 € Ergebnis: 4200 €.
+  - [Aufgabe Nr. 56](./?veraenderung-aufgabe=56#veraenderung-aufgabe): Nach 10 % Rabatt kostet eine Hose 99 €. Wie viel hat sie vorher gekostet? Bild zur Aufgabe: Balkenbild „− 10 %“: Alter Preis (100 %): ?; Neuer Preis (90 %): 99 €. - Alter Wert (in €) → Lösung: - Alter Wert: 110 € Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 10/100 = 0,9 - 99 : 0,9 = 110 € Ergebnis: 110 €.
+  - [Aufgabe Nr. 57](./?veraenderung-aufgabe=57#veraenderung-aufgabe): Nach einer Gehaltserhöhung um 4 % verdient Frau Berg 3224 € im Monat. Wie viel hat sie vorher verdient? Bild zur Aufgabe: Balkenbild „+ 4 %“: Alter Wert (100 %): ?; Neuer Wert (104 %): 3224 €. - Alter Wert (in €) → Lösung: - Alter Wert: 3100 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 4/100 = 1,04 - 3224 : 1,04 = 3100 € Ergebnis: 3100 €.
+  - [Aufgabe Nr. 58](./?veraenderung-aufgabe=58#veraenderung-aufgabe): Die Mitgliederzahl eines Sportvereins ist um 12 % gesunken. Jetzt hat er 352 Mitglieder. Wie viele Mitglieder hatte er vorher? Bild zur Aufgabe: Balkenbild „− 12 %“: Alter Wert (100 %): ?; Neuer Wert (88 %): 352 Mitglieder. - Alter Wert (in Mitglieder) → Lösung: - Alter Wert: 400 Mitglieder Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 12/100 = 0,88 - 352 : 0,88 = 400 Mitglieder Ergebnis: 400 Mitglieder.
+  - [Aufgabe Nr. 59](./?veraenderung-aufgabe=59#veraenderung-aufgabe): Nach 20 % Rabatt kostet eine Hose 48 €. Wie viel hat sie vorher gekostet? Bild zur Aufgabe: Balkenbild „− 20 %“: Alter Preis (100 %): ?; Neuer Preis (80 %): 48 €. - Alter Wert (in €) → Lösung: - Alter Wert: 60 € Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 20/100 = 0,8 - 48 : 0,8 = 60 € Ergebnis: 60 €.
+  - [Aufgabe Nr. 60](./?veraenderung-aufgabe=60#veraenderung-aufgabe): Frau Berg verdient 2000 € im Monat. Sie bekommt 25 % mehr. Wie viel verdient sie danach? Bild zur Aufgabe: Balkenbild „+ 25 %“: Alter Wert (100 %): 2000 €; Neuer Wert: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 2500 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 25/100 = 1,25 - 2000 · 1,25 = 2500 € Ergebnis: 2500 €.
+  - [Aufgabe Nr. 61](./?veraenderung-aufgabe=61#veraenderung-aufgabe): Eine Hose kostet 105 €. Im Ausverkauf gibt es 6 % Rabatt. Wie viel kostet sie jetzt? Bild zur Aufgabe: Balkenbild „− 6 %“: Alter Preis (100 %): 105 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 98,70 € Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 6/100 = 0,94 - 105 · 0,94 = 98,70 € Ergebnis: 98,70 €.
+  - [Aufgabe Nr. 62](./?veraenderung-aufgabe=62#veraenderung-aufgabe): Ein Fahrrad kostet brutto 1190 €. Darin sind 19 % Mehrwertsteuer enthalten. Wie hoch ist der Nettopreis? Bild zur Aufgabe: Balkenbild „+ 19 %“: Alter Preis (100 %): ?; Neuer Preis (119 %): 1190 €. - Alter Wert (in €) → Lösung: - Alter Wert: 1000 € Rechenweg: - Alter Wert = neuer Wert : (1 + p/100) - Faktor: 1 + 19/100 = 1,19 - 1190 : 1,19 = 1000 € Ergebnis: 1000 €.
+  - [Aufgabe Nr. 63](./?veraenderung-aufgabe=63#veraenderung-aufgabe): Eine Hose kostet 50 €. Im Ausverkauf gibt es 6 % Rabatt. Wie viel kostet sie jetzt? Bild zur Aufgabe: Balkenbild „− 6 %“: Alter Preis (100 %): 50 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 47 € Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 6/100 = 0,94 - 50 · 0,94 = 47 € Ergebnis: 47 €.
+  - [Aufgabe Nr. 64](./?veraenderung-aufgabe=64#veraenderung-aufgabe): Ein Sportverein hat 60 Mitglieder. Im nächsten Jahr sinkt die Zahl um 10 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 10 %“: Alter Wert (100 %): 60 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 54 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 10/100 = 0,9 - 60 · 0,9 = 54 Mitglieder Ergebnis: 54 Mitglieder.
+  - [Aufgabe Nr. 65](./?veraenderung-aufgabe=65#veraenderung-aufgabe): Ein Konzertticket kostet 455 €. Der Preis steigt um 30 %. Wie viel kostet es danach? Bild zur Aufgabe: Balkenbild „+ 30 %“: Alter Preis (100 %): 455 €; Neuer Preis: ?. - Neuer Wert (in €) → Lösung: - Neuer Wert: 591,50 € Rechenweg: - Neuer Wert = alter Wert · (1 + p/100) - Faktor: 1 + 30/100 = 1,3 - 455 · 1,3 = 591,50 € Ergebnis: 591,50 €.
+  - [Aufgabe Nr. 66](./?veraenderung-aufgabe=66#veraenderung-aufgabe): Nach 20 % Rabatt kostet eine Hose 96 €. Wie viel hat sie vorher gekostet? Bild zur Aufgabe: Balkenbild „− 20 %“: Alter Preis (100 %): ?; Neuer Preis (80 %): 96 €. - Alter Wert (in €) → Lösung: - Alter Wert: 120 € Rechenweg: - Alter Wert = neuer Wert : (1 − p/100) - Faktor: 1 − 20/100 = 0,8 - 96 : 0,8 = 120 € Ergebnis: 120 €.
+  - [Aufgabe Nr. 67](./?veraenderung-aufgabe=67#veraenderung-aufgabe): Ein Sportverein hat 100 Mitglieder. Im nächsten Jahr sinkt die Zahl um 35 %. Wie viele Mitglieder hat er dann? Bild zur Aufgabe: Balkenbild „− 35 %“: Alter Wert (100 %): 100 Mitglieder; Neuer Wert: ?. - Neuer Wert (in Mitglieder) → Lösung: - Neuer Wert: 65 Mitglieder Rechenweg: - Neuer Wert = alter Wert · (1 − p/100) - Faktor: 1 − 35/100 = 0,65 - 100 · 0,65 = 65 Mitglieder Ergebnis: 65 Mitglieder.
+
+### veraenderung-senkung (generated, number)
+
+- Link: [./#veraenderung-senkung](./#veraenderung-senkung), im Abschnitt „Übung“
+- Antwortformat: eine Zahl eintippen (€)
+- Tipp, den die App zeigt (Vorlage: {{…}} sind die Werte der Aufgabe): Nach der Senkung sind es 100 % − {{p}} % des alten Preises. Rechne mit dem Faktor 1 − {{p}}/100.
+- Lösungsweg (Vorlage: {{…}} sind die Werte der Aufgabe):
+  - $\text{neuer Wert} = \text{alter Wert} \cdot (1 - \frac{p}{100})$
+  - $\text{neuer Wert} = {{alt}} \cdot (1 - \frac{{{p}}}{100}) = {{answer}}$, also {{answer}} €.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?veraenderung-senkung=1#veraenderung-senkung): Ein Preis von 25 € wird um 10 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 22,5 €
+    - ✗ 27,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 2,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 2](./?veraenderung-senkung=2#veraenderung-senkung): Ein Preis von 45 € wird um 5 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 42,75 €
+    - ✗ 47,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 2,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 3](./?veraenderung-senkung=3#veraenderung-senkung): Ein Preis von 185 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 129,5 €
+    - ✗ 240,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 55,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 4](./?veraenderung-senkung=4#veraenderung-senkung): Ein Preis von 360 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 252 €
+    - ✗ 468: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 108: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 5](./?veraenderung-senkung=5#veraenderung-senkung): Ein Preis von 395 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 335,75 €
+    - ✗ 454,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 59,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 6](./?veraenderung-senkung=6#veraenderung-senkung): Ein Preis von 110 € wird um 25 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 82,5 €
+    - ✗ 137,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 27,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 7](./?veraenderung-senkung=7#veraenderung-senkung): Ein Preis von 380 € wird um 20 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 304 €
+    - ✗ 456: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 76: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 8](./?veraenderung-senkung=8#veraenderung-senkung): Ein Preis von 220 € wird um 10 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 198 €
+    - ✗ 242: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 22: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 9](./?veraenderung-senkung=9#veraenderung-senkung): Ein Preis von 150 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 127,5 €
+    - ✗ 172,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 22,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 10](./?veraenderung-senkung=10#veraenderung-senkung): Ein Preis von 250 € wird um 20 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 200 €
+    - ✗ 300: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 50: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 11](./?veraenderung-senkung=11#veraenderung-senkung): Ein Preis von 70 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 59,5 €
+    - ✗ 80,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 10,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 12](./?veraenderung-senkung=12#veraenderung-senkung): Ein Preis von 80 € wird um 5 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 76 €
+    - ✗ 84: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 4: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 13](./?veraenderung-senkung=13#veraenderung-senkung): Ein Preis von 245 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 215,6 €
+    - ✗ 274,4: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 29,4: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 14](./?veraenderung-senkung=14#veraenderung-senkung): Ein Preis von 45 € wird um 20 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 36 €
+    - ✗ 54: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 9: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 15](./?veraenderung-senkung=15#veraenderung-senkung): Ein Preis von 175 € wird um 40 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 105 €
+    - ✗ 245: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 70: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 16](./?veraenderung-senkung=16#veraenderung-senkung): Ein Preis von 210 € wird um 5 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 199,5 €
+    - ✗ 220,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 10,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 17](./?veraenderung-senkung=17#veraenderung-senkung): Ein Preis von 365 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 321,2 €
+    - ✗ 408,8: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 43,8: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 18](./?veraenderung-senkung=18#veraenderung-senkung): Ein Preis von 105 € wird um 25 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 78,75 €
+    - ✗ 131,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 26,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 19](./?veraenderung-senkung=19#veraenderung-senkung): Ein Preis von 115 € wird um 25 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 86,25 €
+    - ✗ 143,75: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 28,75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 20](./?veraenderung-senkung=20#veraenderung-senkung): Ein Preis von 215 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 189,2 €
+    - ✗ 240,8: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 25,8: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 21](./?veraenderung-senkung=21#veraenderung-senkung): Ein Preis von 295 € wird um 20 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 236 €
+    - ✗ 354: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 59: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 22](./?veraenderung-senkung=22#veraenderung-senkung): Ein Preis von 65 € wird um 40 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 39 €
+    - ✗ 91: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 26: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 23](./?veraenderung-senkung=23#veraenderung-senkung): Ein Preis von 85 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 72,25 €
+    - ✗ 97,75: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 12,75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 24](./?veraenderung-senkung=24#veraenderung-senkung): Ein Preis von 205 € wird um 10 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 184,5 €
+    - ✗ 225,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 20,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 25](./?veraenderung-senkung=25#veraenderung-senkung): Ein Preis von 60 € wird um 10 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 54 €
+    - ✗ 66: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 6: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 26](./?veraenderung-senkung=26#veraenderung-senkung): Ein Preis von 165 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 115,5 €
+    - ✗ 214,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 49,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 27](./?veraenderung-senkung=27#veraenderung-senkung): Ein Preis von 55 € wird um 25 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 41,25 €
+    - ✗ 68,75: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 13,75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 28](./?veraenderung-senkung=28#veraenderung-senkung): Ein Preis von 145 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 127,6 €
+    - ✗ 162,4: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 17,4: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 29](./?veraenderung-senkung=29#veraenderung-senkung): Ein Preis von 315 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 277,2 €
+    - ✗ 352,8: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 37,8: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 30](./?veraenderung-senkung=30#veraenderung-senkung): Ein Preis von 375 € wird um 5 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 356,25 €
+    - ✗ 393,75: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 18,75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 31](./?veraenderung-senkung=31#veraenderung-senkung): Ein Preis von 385 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 338,8 €
+    - ✗ 431,2: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 46,2: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 32](./?veraenderung-senkung=32#veraenderung-senkung): Ein Preis von 30 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 25,5 €
+    - ✗ 34,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 4,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 33](./?veraenderung-senkung=33#veraenderung-senkung): Ein Preis von 180 € wird um 40 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 108 €
+    - ✗ 252: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 72: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 34](./?veraenderung-senkung=34#veraenderung-senkung): Ein Preis von 90 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 79,2 €
+    - ✗ 100,8: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 10,8: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 35](./?veraenderung-senkung=35#veraenderung-senkung): Ein Preis von 120 € wird um 25 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 90 €
+    - ✗ 150: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 30: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 36](./?veraenderung-senkung=36#veraenderung-senkung): Ein Preis von 170 € wird um 40 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 102 €
+    - ✗ 238: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 68: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 37](./?veraenderung-senkung=37#veraenderung-senkung): Ein Preis von 305 € wird um 5 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 289,75 €
+    - ✗ 320,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 15,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 38](./?veraenderung-senkung=38#veraenderung-senkung): Ein Preis von 135 € wird um 20 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 108 €
+    - ✗ 162: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 27: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 39](./?veraenderung-senkung=39#veraenderung-senkung): Ein Preis von 100 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 88 €
+    - ✗ 112: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 12: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 40](./?veraenderung-senkung=40#veraenderung-senkung): Ein Preis von 225 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 157,5 €
+    - ✗ 292,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 67,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 41](./?veraenderung-senkung=41#veraenderung-senkung): Ein Preis von 235 € wird um 25 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 176,25 €
+    - ✗ 293,75: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 58,75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 42](./?veraenderung-senkung=42#veraenderung-senkung): Ein Preis von 190 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 161,5 €
+    - ✗ 218,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 28,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 43](./?veraenderung-senkung=43#veraenderung-senkung): Ein Preis von 335 € wird um 25 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 251,25 €
+    - ✗ 418,75: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 83,75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 44](./?veraenderung-senkung=44#veraenderung-senkung): Ein Preis von 395 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 276,5 €
+    - ✗ 513,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 118,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 45](./?veraenderung-senkung=45#veraenderung-senkung): Ein Preis von 95 € wird um 10 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 85,5 €
+    - ✗ 104,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 9,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 46](./?veraenderung-senkung=46#veraenderung-senkung): Ein Preis von 320 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 272 €
+    - ✗ 368: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 48: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 47](./?veraenderung-senkung=47#veraenderung-senkung): Ein Preis von 230 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 161 €
+    - ✗ 299: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 69: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 48](./?veraenderung-senkung=48#veraenderung-senkung): Ein Preis von 250 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 175 €
+    - ✗ 325: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 49](./?veraenderung-senkung=49#veraenderung-senkung): Ein Preis von 315 € wird um 20 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 252 €
+    - ✗ 378: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 63: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 50](./?veraenderung-senkung=50#veraenderung-senkung): Ein Preis von 375 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 318,75 €
+    - ✗ 431,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 56,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 51](./?veraenderung-senkung=51#veraenderung-senkung): Ein Preis von 140 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 123,2 €
+    - ✗ 156,8: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 16,8: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 52](./?veraenderung-senkung=52#veraenderung-senkung): Ein Preis von 290 € wird um 40 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 174 €
+    - ✗ 406: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 116: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 53](./?veraenderung-senkung=53#veraenderung-senkung): Ein Preis von 25 € wird um 20 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 20 €
+    - ✗ 30: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 54](./?veraenderung-senkung=54#veraenderung-senkung): Ein Preis von 260 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 182 €
+    - ✗ 338: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 78: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 55](./?veraenderung-senkung=55#veraenderung-senkung): Ein Preis von 185 € wird um 10 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 166,5 €
+    - ✗ 203,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 18,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 56](./?veraenderung-senkung=56#veraenderung-senkung): Ein Preis von 305 € wird um 25 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 228,75 €
+    - ✗ 381,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 76,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 57](./?veraenderung-senkung=57#veraenderung-senkung): Ein Preis von 145 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 123,25 €
+    - ✗ 166,75: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 21,75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 58](./?veraenderung-senkung=58#veraenderung-senkung): Ein Preis von 265 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 233,2 €
+    - ✗ 296,8: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 31,8: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 59](./?veraenderung-senkung=59#veraenderung-senkung): Ein Preis von 165 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 140,25 €
+    - ✗ 189,75: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 24,75: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 60](./?veraenderung-senkung=60#veraenderung-senkung): Ein Preis von 145 € wird um 5 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 137,75 €
+    - ✗ 152,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 7,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 61](./?veraenderung-senkung=61#veraenderung-senkung): Ein Preis von 85 € wird um 30 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 59,5 €
+    - ✗ 110,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 25,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 62](./?veraenderung-senkung=62#veraenderung-senkung): Ein Preis von 370 € wird um 20 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 296 €
+    - ✗ 444: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 74: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 63](./?veraenderung-senkung=63#veraenderung-senkung): Ein Preis von 190 € wird um 10 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 171 €
+    - ✗ 209: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 19: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 64](./?veraenderung-senkung=64#veraenderung-senkung): Ein Preis von 95 € wird um 15 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 80,75 €
+    - ✗ 109,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 14,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 65](./?veraenderung-senkung=65#veraenderung-senkung): Ein Preis von 125 € wird um 5 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 118,75 €
+    - ✗ 131,25: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 6,25: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 66](./?veraenderung-senkung=66#veraenderung-senkung): Ein Preis von 105 € wird um 12 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 92,4 €
+    - ✗ 117,6: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 12,6: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+  - [Aufgabe Nr. 67](./?veraenderung-senkung=67#veraenderung-senkung): Ein Preis von 145 € wird um 10 % gesenkt. Wie hoch ist der neue Preis? → Lösung: 130,5 €
+    - ✗ 159,5: Du hast in die falsche Richtung gerechnet. Der Preis sinkt, also ist der Faktor kleiner als 1.
+    - ✗ 14,5: Das ist nur die Senkung (der Prozentwert). Gefragt ist der neue Preis: alter Preis minus Senkung.
+
+### veraenderung-rueckwaerts (generated, number)
+
+- Link: [./#veraenderung-rueckwaerts](./#veraenderung-rueckwaerts), im Abschnitt „Übung“
+- Antwortformat: eine Zahl eintippen (€)
+- Tipp, den die App zeigt (Vorlage: {{…}} sind die Werte der Aufgabe): {{neu}} € sind 100 % + {{p}} % des alten Preises. Teile durch den Faktor 1 + {{p}}/100.
+- Lösungsweg (Vorlage: {{…}} sind die Werte der Aufgabe):
+  - $\text{alter Wert} = \text{neuer Wert} : (1 + \frac{p}{100})$
+  - $\text{alter Wert} = {{neu}} : (1 + \frac{{{p}}}{100}) = {{answer}}$, also {{answer}} €.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?veraenderung-rueckwaerts=1#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 579 €. Wie hoch war er vorher? → Lösung: 482,5 €
+    - ✗ 463,2: Die 20 % beziehen sich auf den alten Preis, nicht auf 579 €. Der neue Preis ist nicht 100 %.
+    - ✗ 694,8: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 2](./?veraenderung-rueckwaerts=2#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 83 €. Wie hoch war er vorher? → Lösung: 66,4 €
+    - ✗ 62,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 83 €. Der neue Preis ist nicht 100 %.
+    - ✗ 103,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 3](./?veraenderung-rueckwaerts=3#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 252 €. Wie hoch war er vorher? → Lösung: 168 €
+    - ✗ 126: Die 50 % beziehen sich auf den alten Preis, nicht auf 252 €. Der neue Preis ist nicht 100 %.
+    - ✗ 378: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 4](./?veraenderung-rueckwaerts=4#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 301 €. Wie hoch war er vorher? → Lösung: 240,8 €
+    - ✗ 225,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 301 €. Der neue Preis ist nicht 100 %.
+    - ✗ 376,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 5](./?veraenderung-rueckwaerts=5#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 138 €. Wie hoch war er vorher? → Lösung: 92 €
+    - ✗ 69: Die 50 % beziehen sich auf den alten Preis, nicht auf 138 €. Der neue Preis ist nicht 100 %.
+    - ✗ 207: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 6](./?veraenderung-rueckwaerts=6#veraenderung-rueckwaerts): Nach einer Erhöhung um 10 % beträgt ein Preis 121 €. Wie hoch war er vorher? → Lösung: 110 €
+    - ✗ 108,9: Die 10 % beziehen sich auf den alten Preis, nicht auf 121 €. Der neue Preis ist nicht 100 %.
+    - ✗ 133,1: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 7](./?veraenderung-rueckwaerts=7#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 102 €. Wie hoch war er vorher? → Lösung: 85 €
+    - ✗ 81,6: Die 20 % beziehen sich auf den alten Preis, nicht auf 102 €. Der neue Preis ist nicht 100 %.
+    - ✗ 122,4: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 8](./?veraenderung-rueckwaerts=8#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 240 €. Wie hoch war er vorher? → Lösung: 160 €
+    - ✗ 120: Die 50 % beziehen sich auf den alten Preis, nicht auf 240 €. Der neue Preis ist nicht 100 %.
+    - ✗ 360: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 9](./?veraenderung-rueckwaerts=9#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 165 €. Wie hoch war er vorher? → Lösung: 132 €
+    - ✗ 123,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 165 €. Der neue Preis ist nicht 100 %.
+    - ✗ 206,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 10](./?veraenderung-rueckwaerts=10#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 90 €. Wie hoch war er vorher? → Lösung: 60 €
+    - ✗ 45: Die 50 % beziehen sich auf den alten Preis, nicht auf 90 €. Der neue Preis ist nicht 100 %.
+    - ✗ 135: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 11](./?veraenderung-rueckwaerts=11#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 510 €. Wie hoch war er vorher? → Lösung: 408 €
+    - ✗ 382,5: Die 25 % beziehen sich auf den alten Preis, nicht auf 510 €. Der neue Preis ist nicht 100 %.
+    - ✗ 637,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 12](./?veraenderung-rueckwaerts=12#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 297 €. Wie hoch war er vorher? → Lösung: 198 €
+    - ✗ 148,5: Die 50 % beziehen sich auf den alten Preis, nicht auf 297 €. Der neue Preis ist nicht 100 %.
+    - ✗ 445,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 13](./?veraenderung-rueckwaerts=13#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 319 €. Wie hoch war er vorher? → Lösung: 255,2 €
+    - ✗ 239,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 319 €. Der neue Preis ist nicht 100 %.
+    - ✗ 398,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 14](./?veraenderung-rueckwaerts=14#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 138 €. Wie hoch war er vorher? → Lösung: 115 €
+    - ✗ 110,4: Die 20 % beziehen sich auf den alten Preis, nicht auf 138 €. Der neue Preis ist nicht 100 %.
+    - ✗ 165,6: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 15](./?veraenderung-rueckwaerts=15#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 595 €. Wie hoch war er vorher? → Lösung: 476 €
+    - ✗ 446,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 595 €. Der neue Preis ist nicht 100 %.
+    - ✗ 743,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 16](./?veraenderung-rueckwaerts=16#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 276 €. Wie hoch war er vorher? → Lösung: 230 €
+    - ✗ 220,8: Die 20 % beziehen sich auf den alten Preis, nicht auf 276 €. Der neue Preis ist nicht 100 %.
+    - ✗ 331,2: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 17](./?veraenderung-rueckwaerts=17#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 471 €. Wie hoch war er vorher? → Lösung: 314 €
+    - ✗ 235,5: Die 50 % beziehen sich auf den alten Preis, nicht auf 471 €. Der neue Preis ist nicht 100 %.
+    - ✗ 706,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 18](./?veraenderung-rueckwaerts=18#veraenderung-rueckwaerts): Nach einer Erhöhung um 10 % beträgt ein Preis 484 €. Wie hoch war er vorher? → Lösung: 440 €
+    - ✗ 435,6: Die 10 % beziehen sich auf den alten Preis, nicht auf 484 €. Der neue Preis ist nicht 100 %.
+    - ✗ 532,4: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 19](./?veraenderung-rueckwaerts=19#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 410 €. Wie hoch war er vorher? → Lösung: 328 €
+    - ✗ 307,5: Die 25 % beziehen sich auf den alten Preis, nicht auf 410 €. Der neue Preis ist nicht 100 %.
+    - ✗ 512,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 20](./?veraenderung-rueckwaerts=20#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 350 €. Wie hoch war er vorher? → Lösung: 280 €
+    - ✗ 262,5: Die 25 % beziehen sich auf den alten Preis, nicht auf 350 €. Der neue Preis ist nicht 100 %.
+    - ✗ 437,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 21](./?veraenderung-rueckwaerts=21#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 168 €. Wie hoch war er vorher? → Lösung: 140 €
+    - ✗ 134,4: Die 20 % beziehen sich auf den alten Preis, nicht auf 168 €. Der neue Preis ist nicht 100 %.
+    - ✗ 201,6: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 22](./?veraenderung-rueckwaerts=22#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 137 €. Wie hoch war er vorher? → Lösung: 109,6 €
+    - ✗ 102,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 137 €. Der neue Preis ist nicht 100 %.
+    - ✗ 171,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 23](./?veraenderung-rueckwaerts=23#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 457 €. Wie hoch war er vorher? → Lösung: 365,6 €
+    - ✗ 342,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 457 €. Der neue Preis ist nicht 100 %.
+    - ✗ 571,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 24](./?veraenderung-rueckwaerts=24#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 507 €. Wie hoch war er vorher? → Lösung: 422,5 €
+    - ✗ 405,6: Die 20 % beziehen sich auf den alten Preis, nicht auf 507 €. Der neue Preis ist nicht 100 %.
+    - ✗ 608,4: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 25](./?veraenderung-rueckwaerts=25#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 375 €. Wie hoch war er vorher? → Lösung: 312,5 €
+    - ✗ 300: Die 20 % beziehen sich auf den alten Preis, nicht auf 375 €. Der neue Preis ist nicht 100 %.
+    - ✗ 450: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 26](./?veraenderung-rueckwaerts=26#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 23 €. Wie hoch war er vorher? → Lösung: 18,4 €
+    - ✗ 17,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 23 €. Der neue Preis ist nicht 100 %.
+    - ✗ 28,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 27](./?veraenderung-rueckwaerts=27#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 102 €. Wie hoch war er vorher? → Lösung: 81,6 €
+    - ✗ 76,5: Die 25 % beziehen sich auf den alten Preis, nicht auf 102 €. Der neue Preis ist nicht 100 %.
+    - ✗ 127,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 28](./?veraenderung-rueckwaerts=28#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 59 €. Wie hoch war er vorher? → Lösung: 47,2 €
+    - ✗ 44,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 59 €. Der neue Preis ist nicht 100 %.
+    - ✗ 73,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 29](./?veraenderung-rueckwaerts=29#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 183 €. Wie hoch war er vorher? → Lösung: 152,5 €
+    - ✗ 146,4: Die 20 % beziehen sich auf den alten Preis, nicht auf 183 €. Der neue Preis ist nicht 100 %.
+    - ✗ 219,6: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 30](./?veraenderung-rueckwaerts=30#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 430 €. Wie hoch war er vorher? → Lösung: 344 €
+    - ✗ 322,5: Die 25 % beziehen sich auf den alten Preis, nicht auf 430 €. Der neue Preis ist nicht 100 %.
+    - ✗ 537,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 31](./?veraenderung-rueckwaerts=31#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 147 €. Wie hoch war er vorher? → Lösung: 117,6 €
+    - ✗ 110,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 147 €. Der neue Preis ist nicht 100 %.
+    - ✗ 183,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 32](./?veraenderung-rueckwaerts=32#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 58 €. Wie hoch war er vorher? → Lösung: 46,4 €
+    - ✗ 43,5: Die 25 % beziehen sich auf den alten Preis, nicht auf 58 €. Der neue Preis ist nicht 100 %.
+    - ✗ 72,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 33](./?veraenderung-rueckwaerts=33#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 424 €. Wie hoch war er vorher? → Lösung: 339,2 €
+    - ✗ 318: Die 25 % beziehen sich auf den alten Preis, nicht auf 424 €. Der neue Preis ist nicht 100 %.
+    - ✗ 530: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 34](./?veraenderung-rueckwaerts=34#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 572 €. Wie hoch war er vorher? → Lösung: 457,6 €
+    - ✗ 429: Die 25 % beziehen sich auf den alten Preis, nicht auf 572 €. Der neue Preis ist nicht 100 %.
+    - ✗ 715: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 35](./?veraenderung-rueckwaerts=35#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 352 €. Wie hoch war er vorher? → Lösung: 281,6 €
+    - ✗ 264: Die 25 % beziehen sich auf den alten Preis, nicht auf 352 €. Der neue Preis ist nicht 100 %.
+    - ✗ 440: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 36](./?veraenderung-rueckwaerts=36#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 269 €. Wie hoch war er vorher? → Lösung: 215,2 €
+    - ✗ 201,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 269 €. Der neue Preis ist nicht 100 %.
+    - ✗ 336,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 37](./?veraenderung-rueckwaerts=37#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 306 €. Wie hoch war er vorher? → Lösung: 204 €
+    - ✗ 153: Die 50 % beziehen sich auf den alten Preis, nicht auf 306 €. Der neue Preis ist nicht 100 %.
+    - ✗ 459: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 38](./?veraenderung-rueckwaerts=38#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 408 €. Wie hoch war er vorher? → Lösung: 326,4 €
+    - ✗ 306: Die 25 % beziehen sich auf den alten Preis, nicht auf 408 €. Der neue Preis ist nicht 100 %.
+    - ✗ 510: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 39](./?veraenderung-rueckwaerts=39#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 222 €. Wie hoch war er vorher? → Lösung: 185 €
+    - ✗ 177,6: Die 20 % beziehen sich auf den alten Preis, nicht auf 222 €. Der neue Preis ist nicht 100 %.
+    - ✗ 266,4: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 40](./?veraenderung-rueckwaerts=40#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 147 €. Wie hoch war er vorher? → Lösung: 98 €
+    - ✗ 73,5: Die 50 % beziehen sich auf den alten Preis, nicht auf 147 €. Der neue Preis ist nicht 100 %.
+    - ✗ 220,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 41](./?veraenderung-rueckwaerts=41#veraenderung-rueckwaerts): Nach einer Erhöhung um 10 % beträgt ein Preis 308 €. Wie hoch war er vorher? → Lösung: 280 €
+    - ✗ 277,2: Die 10 % beziehen sich auf den alten Preis, nicht auf 308 €. Der neue Preis ist nicht 100 %.
+    - ✗ 338,8: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 42](./?veraenderung-rueckwaerts=42#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 160 €. Wie hoch war er vorher? → Lösung: 128 €
+    - ✗ 120: Die 25 % beziehen sich auf den alten Preis, nicht auf 160 €. Der neue Preis ist nicht 100 %.
+    - ✗ 200: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 43](./?veraenderung-rueckwaerts=43#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 477 €. Wie hoch war er vorher? → Lösung: 381,6 €
+    - ✗ 357,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 477 €. Der neue Preis ist nicht 100 %.
+    - ✗ 596,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 44](./?veraenderung-rueckwaerts=44#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 444 €. Wie hoch war er vorher? → Lösung: 355,2 €
+    - ✗ 333: Die 25 % beziehen sich auf den alten Preis, nicht auf 444 €. Der neue Preis ist nicht 100 %.
+    - ✗ 555: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 45](./?veraenderung-rueckwaerts=45#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 600 €. Wie hoch war er vorher? → Lösung: 500 €
+    - ✗ 480: Die 20 % beziehen sich auf den alten Preis, nicht auf 600 €. Der neue Preis ist nicht 100 %.
+    - ✗ 720: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 46](./?veraenderung-rueckwaerts=46#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 318 €. Wie hoch war er vorher? → Lösung: 212 €
+    - ✗ 159: Die 50 % beziehen sich auf den alten Preis, nicht auf 318 €. Der neue Preis ist nicht 100 %.
+    - ✗ 477: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 47](./?veraenderung-rueckwaerts=47#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 237 €. Wie hoch war er vorher? → Lösung: 158 €
+    - ✗ 118,5: Die 50 % beziehen sich auf den alten Preis, nicht auf 237 €. Der neue Preis ist nicht 100 %.
+    - ✗ 355,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 48](./?veraenderung-rueckwaerts=48#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 174 €. Wie hoch war er vorher? → Lösung: 116 €
+    - ✗ 87: Die 50 % beziehen sich auf den alten Preis, nicht auf 174 €. Der neue Preis ist nicht 100 %.
+    - ✗ 261: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 49](./?veraenderung-rueckwaerts=49#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 167 €. Wie hoch war er vorher? → Lösung: 133,6 €
+    - ✗ 125,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 167 €. Der neue Preis ist nicht 100 %.
+    - ✗ 208,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 50](./?veraenderung-rueckwaerts=50#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 257 €. Wie hoch war er vorher? → Lösung: 205,6 €
+    - ✗ 192,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 257 €. Der neue Preis ist nicht 100 %.
+    - ✗ 321,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 51](./?veraenderung-rueckwaerts=51#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 345 €. Wie hoch war er vorher? → Lösung: 287,5 €
+    - ✗ 276: Die 20 % beziehen sich auf den alten Preis, nicht auf 345 €. Der neue Preis ist nicht 100 %.
+    - ✗ 414: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 52](./?veraenderung-rueckwaerts=52#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 383 €. Wie hoch war er vorher? → Lösung: 306,4 €
+    - ✗ 287,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 383 €. Der neue Preis ist nicht 100 %.
+    - ✗ 478,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 53](./?veraenderung-rueckwaerts=53#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 444 €. Wie hoch war er vorher? → Lösung: 296 €
+    - ✗ 222: Die 50 % beziehen sich auf den alten Preis, nicht auf 444 €. Der neue Preis ist nicht 100 %.
+    - ✗ 666: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 54](./?veraenderung-rueckwaerts=54#veraenderung-rueckwaerts): Nach einer Erhöhung um 50 % beträgt ein Preis 384 €. Wie hoch war er vorher? → Lösung: 256 €
+    - ✗ 192: Die 50 % beziehen sich auf den alten Preis, nicht auf 384 €. Der neue Preis ist nicht 100 %.
+    - ✗ 576: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 55](./?veraenderung-rueckwaerts=55#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 285 €. Wie hoch war er vorher? → Lösung: 237,5 €
+    - ✗ 228: Die 20 % beziehen sich auf den alten Preis, nicht auf 285 €. Der neue Preis ist nicht 100 %.
+    - ✗ 342: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 56](./?veraenderung-rueckwaerts=56#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 569 €. Wie hoch war er vorher? → Lösung: 455,2 €
+    - ✗ 426,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 569 €. Der neue Preis ist nicht 100 %.
+    - ✗ 711,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 57](./?veraenderung-rueckwaerts=57#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 402 €. Wie hoch war er vorher? → Lösung: 335 €
+    - ✗ 321,6: Die 20 % beziehen sich auf den alten Preis, nicht auf 402 €. Der neue Preis ist nicht 100 %.
+    - ✗ 482,4: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 58](./?veraenderung-rueckwaerts=58#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 61 €. Wie hoch war er vorher? → Lösung: 48,8 €
+    - ✗ 45,75: Die 25 % beziehen sich auf den alten Preis, nicht auf 61 €. Der neue Preis ist nicht 100 %.
+    - ✗ 76,25: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 59](./?veraenderung-rueckwaerts=59#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 279 €. Wie hoch war er vorher? → Lösung: 223,2 €
+    - ✗ 209,25: Die 25 % beziehen sich auf den alten Preis, nicht auf 279 €. Der neue Preis ist nicht 100 %.
+    - ✗ 348,75: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 60](./?veraenderung-rueckwaerts=60#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 76 €. Wie hoch war er vorher? → Lösung: 60,8 €
+    - ✗ 57: Die 25 % beziehen sich auf den alten Preis, nicht auf 76 €. Der neue Preis ist nicht 100 %.
+    - ✗ 95: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 61](./?veraenderung-rueckwaerts=61#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 435 €. Wie hoch war er vorher? → Lösung: 362,5 €
+    - ✗ 348: Die 20 % beziehen sich auf den alten Preis, nicht auf 435 €. Der neue Preis ist nicht 100 %.
+    - ✗ 522: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 62](./?veraenderung-rueckwaerts=62#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 66 €. Wie hoch war er vorher? → Lösung: 52,8 €
+    - ✗ 49,5: Die 25 % beziehen sich auf den alten Preis, nicht auf 66 €. Der neue Preis ist nicht 100 %.
+    - ✗ 82,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 63](./?veraenderung-rueckwaerts=63#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 330 €. Wie hoch war er vorher? → Lösung: 275 €
+    - ✗ 264: Die 20 % beziehen sich auf den alten Preis, nicht auf 330 €. Der neue Preis ist nicht 100 %.
+    - ✗ 396: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 64](./?veraenderung-rueckwaerts=64#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 50 €. Wie hoch war er vorher? → Lösung: 40 €
+    - ✗ 37,5: Die 25 % beziehen sich auf den alten Preis, nicht auf 50 €. Der neue Preis ist nicht 100 %.
+    - ✗ 62,5: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 65](./?veraenderung-rueckwaerts=65#veraenderung-rueckwaerts): Nach einer Erhöhung um 25 % beträgt ein Preis 92 €. Wie hoch war er vorher? → Lösung: 73,6 €
+    - ✗ 69: Die 25 % beziehen sich auf den alten Preis, nicht auf 92 €. Der neue Preis ist nicht 100 %.
+    - ✗ 115: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 66](./?veraenderung-rueckwaerts=66#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 411 €. Wie hoch war er vorher? → Lösung: 342,5 €
+    - ✗ 328,8: Die 20 % beziehen sich auf den alten Preis, nicht auf 411 €. Der neue Preis ist nicht 100 %.
+    - ✗ 493,2: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
+  - [Aufgabe Nr. 67](./?veraenderung-rueckwaerts=67#veraenderung-rueckwaerts): Nach einer Erhöhung um 20 % beträgt ein Preis 423 €. Wie hoch war er vorher? → Lösung: 352,5 €
+    - ✗ 338,4: Die 20 % beziehen sich auf den alten Preis, nicht auf 423 €. Der neue Preis ist nicht 100 %.
+    - ✗ 507,6: Du hast noch einmal erhöht. Rückwärts teilst du durch den Faktor, statt mit ihm zu multiplizieren.
