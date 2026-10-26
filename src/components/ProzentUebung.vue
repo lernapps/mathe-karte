@@ -1,29 +1,34 @@
 <script setup lang="ts">
-// Die Übung einer Prozent-Aufgabe: Text, Bild zur Aufgabe, Felder, „Prüfen“; nach einer falschen Antwort Tipp und
-// „Lösung zeigen“ (Rechenweg und das gelöste Bild). Sie meldet jede geprüfte Antwort mit geprueft; die Übung der Seite
-// (ProzentProzentwert.vue und die anderen) gibt sie als answered mit dem Grund weiter. Kein Block.
-import { computed, reactive, ref, useId } from "vue";
+// Die Eingabe einer Prozent-Aufgabe: Text, Bild zur Aufgabe, Felder. Sie meldet jede Änderung der Felder mit eingabe
+// (undefined, solange alle leer sind); die Übung der Seite (ProzentProzentwert.vue und die anderen) gibt sie als
+// answer weiter, und der explainer zeichnet „Prüfen“ darunter. Nach einer geprüften falschen Antwort (checked) zeigt
+// sie den Tipp und „Lösung zeigen“ (Rechenweg und das gelöste Bild), nach einer richtigen das gelöste Bild. Kein Block.
+import { computed, reactive, ref, useId, watch } from "vue";
 import ProzentBild from "./ProzentBild.vue";
-import { type Antworten, type Aufgabe, check } from "./ProzentAufgabe.ts";
+import { type Antworten, type Aufgabe, check, hatEingabe } from "./ProzentAufgabe.ts";
 
 // aufgabe ist eine Aufgabe aus ProzentAufgabe.ts; als unknown deklariert, weil der Build nur Prop-Typen liest, die ein
 // Block aus YAML geben kann. Die Übungen geben immer generate(seed).
-const props = defineProps<{ aufgabe: unknown }>();
-const emit = defineEmits<{ geprueft: [antworten: Antworten, richtig: boolean] }>();
+const props = defineProps<{ aufgabe: unknown; checked: boolean }>();
+const emit = defineEmits<{ eingabe: [antworten: Antworten | undefined] }>();
 const aufgabe = computed(() => props.aufgabe as Aufgabe);
 const name = useId();
 
 const antworten = reactive<Antworten>(Object.fromEntries(aufgabe.value.felder.map((feld) => [feld.id, ""])));
-const geprueft = ref(false);
-const richtig = ref(false);
 const loesungOffen = ref(false);
+// einmal geprüft, bleibt „Lösung zeigen“, auch wenn das Kind die Antwort danach ändert
+const geprueft = ref(false);
+watch(
+  () => props.checked,
+  (jetzt) => {
+    if (jetzt) geprueft.value = true;
+  },
+);
+// geprüft und richtig: die Übung prüft selbst, um das gelöste Bild zu zeigen; die Rückmeldung gibt der explainer
+const richtig = computed(() => props.checked && check(aufgabe.value, antworten));
 const geloest = computed(() => richtig.value || loesungOffen.value);
 
-function pruefe(): void {
-  richtig.value = check(aufgabe.value, antworten);
-  geprueft.value = true;
-  emit("geprueft", { ...antworten }, richtig.value);
-}
+watch(antworten, () => emit("eingabe", hatEingabe(antworten) ? { ...antworten } : undefined));
 </script>
 
 <template>
@@ -33,7 +38,7 @@ function pruefe(): void {
       <ProzentBild :bild="geloest ? aufgabe.bildGeloest : aufgabe.bild" />
       <figcaption>Bild zur Aufgabe</figcaption>
     </figure>
-    <form @submit.prevent="pruefe">
+    <div class="prozent-felder">
       <template v-for="feld in aufgabe.felder" :key="feld.id">
         <p v-if="feld.typ === 'zahl'" class="question-number prozent-feld">
           <label>
@@ -62,19 +67,11 @@ function pruefe(): void {
           </label>
         </fieldset>
       </template>
-      <p class="question-actions">
-        <button type="submit">Prüfen</button>
-        <button
-          v-if="geprueft && !richtig && !loesungOffen"
-          type="button"
-          class="question-solve"
-          @click="loesungOffen = true"
-        >
-          Lösung zeigen
-        </button>
+      <p v-if="geprueft && !geloest" class="question-actions">
+        <button type="button" class="question-solve" @click="loesungOffen = true">Lösung zeigen</button>
       </p>
-    </form>
-    <p v-if="geprueft && !geloest" class="prozent-tipp"><strong>Tipp:</strong> {{ aufgabe.tipp }}</p>
+    </div>
+    <p v-if="checked && !geloest" class="prozent-tipp"><strong>Tipp:</strong> {{ aufgabe.tipp }}</p>
     <div v-if="geloest" class="prozent-loesung">
       <p v-if="loesungOffen && !richtig">{{ aufgabe.richtig }}</p>
       <p>Rechenweg:</p>

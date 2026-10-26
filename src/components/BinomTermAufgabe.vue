@@ -1,37 +1,33 @@
 <script setup lang="ts">
 // Übung mit Termeingabe für das Kapitel "Binomische Formeln": zeigt die Aufgabe der Aufgabennummer (seed) mit ihrem
-// Flächenbild, liest den getippten Term mit Vorschau, prüft ihn (BinomTermAufgabe.ts) und meldet das Ergebnis mit
-// dem Grund eines Fehlers (answered). Nach der richtigen Antwort oder auf Wunsch zeigt sie den Rechenweg.
-import { computed, ref, useId } from "vue";
+// Flächenbild und liest den getippten Term mit Vorschau. Sie ist die Eingabe der Aufgabe: Sie gibt den Term mit answer
+// weiter (undefined, solange das Feld leer ist); „Prüfen“ und die Rückmeldung kommen vom explainer
+// (BinomTermAufgabe.ts). Nach einer geprüften richtigen Antwort (checked) oder auf Wunsch zeigt sie den Rechenweg.
+import { computed, ref, useId, watch } from "vue";
 import BinomSvg from "./BinomSvg.vue";
 import { termBild } from "./BinomBilder.ts";
-import { check, eingabeHinweis, feldLabel, generate, grund, schrittText, vorschau } from "./BinomTermAufgabe.ts";
+import { antwortAus, check, eingabeHinweis, feldLabel, generate, schrittText, vorschau } from "./BinomTermAufgabe.ts";
 
 const props = defineProps<{
   seed: number;
   art: "klammern" | "erste" | "zweite" | "dritte" | "rueckwaerts";
-  pruefen: string;
   loesungZeigen: string;
   tipp: string;
   rechenweg: string;
+  checked: boolean;
 }>();
-const emit = defineEmits<{ answered: [{ correct: boolean; reason: string }] }>();
+const emit = defineEmits<{ answer: [string | undefined] }>();
 
 const aufgabe = computed(() => generate(props.seed, { art: props.art }));
 const antwort = ref("");
-const richtig = ref(false);
-const falsch = ref(false);
+const richtig = computed(() => props.checked && check(aufgabe.value, antwort.value));
+const falsch = computed(() => props.checked && !richtig.value);
 const loesungOffen = ref(false);
 const geloest = computed(() => richtig.value || loesungOffen.value);
 const bild = computed(() => termBild(aufgabe.value, geloest.value));
 const id = useId();
 
-function pruefe(): void {
-  const korrekt = check(aufgabe.value, antwort.value);
-  richtig.value = korrekt;
-  falsch.value = !korrekt;
-  emit("answered", { correct: korrekt, reason: grund(aufgabe.value, antwort.value) });
-}
+watch(antwort, (getippt) => emit("answer", antwortAus(getippt)));
 </script>
 
 <template>
@@ -40,7 +36,7 @@ function pruefe(): void {
       {{ aufgabe.frage }} <strong class="binom-term">{{ aufgabe.term }}</strong>
     </p>
     <BinomSvg :zeichnung="bild" />
-    <form class="binom-form" @submit.prevent="pruefe">
+    <div class="binom-form">
       <label :for="`${id}-antwort`">{{ feldLabel(aufgabe) }}</label>
       <input
         :id="`${id}-antwort`"
@@ -54,13 +50,12 @@ function pruefe(): void {
       />
       <span :id="`${id}-hinweis`" class="binom-hinweis">{{ eingabeHinweis(aufgabe) }}</span>
       <span class="binom-hinweis" aria-live="polite">{{ vorschau(aufgabe, antwort) }}</span>
-      <span class="binom-knoepfe">
-        <button type="submit">{{ pruefen }}</button>
-        <button v-if="falsch && !geloest" type="button" class="binom-zweit" @click="loesungOffen = true">
+      <span v-if="falsch && !geloest" class="binom-knoepfe">
+        <button type="button" class="binom-zweit" @click="loesungOffen = true">
           {{ loesungZeigen }}
         </button>
       </span>
-    </form>
+    </div>
     <details v-if="!geloest" class="binom-tipp">
       <summary>{{ tipp }}</summary>
       <p>{{ aufgabe.tipp }}</p>

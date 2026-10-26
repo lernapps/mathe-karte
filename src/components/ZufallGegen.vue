@@ -1,24 +1,26 @@
 <script setup lang="ts">
 // Übung zum Gegenereignis. Bild je nach Art: direkt ein Streifen aus P(E) und P(nicht E); einfach die Ergebnismenge zum
-// Markieren von E (gelöst: „nicht E“ orange); mindestens der Baum mit dem einen Pfad des Gegenereignisses.
+// Markieren von E (gelöst: „nicht E“ orange); mindestens der Baum mit dem einen Pfad des Gegenereignisses. Die Übung
+// ist die Eingabe der Aufgabe: Sie gibt die Wahrscheinlichkeit mit answer weiter; „Prüfen“ und die Rückmeldung kommen
+// vom explainer (ZufallGegen.ts).
 import { computed, ref } from "vue";
 import ZufallAntwort from "./ZufallAntwort.vue";
 import ZufallBaum from "./ZufallBaum.vue";
 import ZufallMenge from "./ZufallMenge.vue";
 import { text, zahl } from "./ZufallBruch.ts";
-import { check, generate, grund, weg } from "./ZufallGegen.ts";
+import { check, generate, weg } from "./ZufallGegen.ts";
 
-const props = defineProps<{ seed: number }>();
-const emit = defineEmits<{ answered: [ergebnis: { correct: boolean; reason: string }] }>();
+const props = defineProps<{ seed: number; checked: boolean }>();
+const emit = defineEmits<{ answer: [antwort: string | undefined] }>();
 const aufgabe = computed(() => generate(props.seed));
-const geloest = ref(false);
+const antwort = ref<string | undefined>(undefined);
+const geloest = computed(() => props.checked && antwort.value !== undefined && check(aufgabe.value, antwort.value));
 const BREITE = 300;
 const teil = computed(() => Math.max(28, Math.min(BREITE - 28, BREITE * zahl(aufgabe.value.p))));
 
-function pruefen(werte: Record<string, string>) {
-  const antwort = werte["antwort"] ?? "";
-  geloest.value = check(aufgabe.value, antwort);
-  emit("answered", { correct: geloest.value, reason: grund(aufgabe.value, antwort) });
+function eingabe(werte: Record<string, string> | undefined) {
+  antwort.value = werte?.["antwort"];
+  emit("answer", antwort.value);
 }
 </script>
 
@@ -72,7 +74,8 @@ function pruefen(werte: Record<string, string>) {
       :felder="[{ id: 'antwort', label: aufgabe.label }]"
       :weg="weg(aufgabe)"
       :geloest="geloest"
-      @pruefen="pruefen"
+      :versucht="checked"
+      @eingabe="eingabe"
     />
   </div>
 </template>

@@ -8,6 +8,7 @@ import {
   ereignisName,
   pfadTerm,
   urnenSpec,
+  versuchAus,
   versuchText,
   waehleVersuch,
   zufallAus,
@@ -71,6 +72,32 @@ export function grund(task: PfadAufgabe, answer: string): string {
   return TIPP;
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (task: PfadAufgabe, answer: string, _props?: unknown, _lang?: string): string =>
+  grund(task, answer);
+
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: die Summe der Zweige. */
+export const mistakes = (task: PfadAufgabe, _props?: unknown): (string | undefined)[] =>
+  [text(task.summe)].map((a) => (check(task, a) ? undefined : a));
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Versuch}, {Pfad}, {Ereignis} und {Zweige}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  "{Versuch} Wie groß ist P({Pfad})? Also: {Ereignis}. Im Baum ist dieser Pfad orange; an seinen Zweigen steht: {Zweige}.";
+
+/** Was eine Aufgabe festlegt: der Versuch, der Pfad, das Ereignis in Worten und die Wahrscheinlichkeiten seiner Zweige. */
+export function params(task: PfadAufgabe, _props?: unknown, _lang?: string): Record<string, string> {
+  const versuch = versuchAus(task.experiment, task.urne);
+  return {
+    Versuch: versuchText(versuch, task.zuege, task.mit),
+    Pfad: task.namen.join(", "),
+    Ereignis: ereignisName(versuch, task.zuege, task.pfad) ?? "",
+    Zweige: task.zweige.join(", "),
+  };
+}
+
+/** Eine Antwort als Text, wie das Kind sie getippt hat. */
+export const show = (answer: string, _task?: PfadAufgabe, _props?: unknown, _lang?: string): string => answer.trim();
+
 /** Der Rechenweg. */
 export const weg = (task: PfadAufgabe): string[] => [
   `Pfad: Start → ${task.namen.join(" → ")}`,
@@ -88,7 +115,7 @@ export function describe(task: PfadAufgabe, _props?: unknown, _lang?: string): {
 export const about = {
   task: "Die Wahrscheinlichkeit eines Pfades im Baumdiagramm berechnen (1. Pfadregel).",
   answer:
-    "Eine Wahrscheinlichkeit: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen, Prozent oder ein Term wie 3/6·2/5.",
+    "Eine Wahrscheinlichkeit ins Feld getippt, dann „Prüfen“ unter der Aufgabe: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen, Prozent oder ein Term wie 3/6·2/5. Nach einer falschen Antwort gibt es „Lösung zeigen“ mit dem Rechenweg.",
   correct: "Das Produkt der Zweigwahrscheinlichkeiten entlang des Pfades, exakt oder richtig gerundet.",
   mistakes: ["Entlang des Pfades addiert statt multipliziert."],
 };

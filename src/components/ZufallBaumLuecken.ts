@@ -10,6 +10,7 @@ import {
   nameVon,
   stufenWort,
   urnenSpec,
+  versuchAus,
   versuchText,
   waehleVersuch,
   zufallAus,
@@ -116,6 +117,41 @@ export function grund(task: LueckenAufgabe, answer: LueckenAntwort): string {
   return teile.join(" ");
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (task: LueckenAufgabe, answer: LueckenAntwort, _props?: unknown, _lang?: string): string =>
+  grund(task, answer);
+
+/**
+ * Die Antwort jedes typischen Fehlers aus about.mistakes (nur ohne Zurücklegen aus einer Urne): jede Lücke ab der
+ * zweiten Stufe mit dem Nenner der ersten; mit dem Zähler vor dem Ziehen. Die übrigen Lücken richtig.
+ */
+export function mistakes(task: LueckenAufgabe, _props?: unknown): (LueckenAntwort | undefined)[] {
+  if (task.art !== "urne" || task.mit) return [undefined, undefined];
+  // die Kugeln vor dieser Stufe: ihre ids sind die Zeichen der id vor dem letzten
+  const vorher = (l: Luecke) => l.id.slice(0, -1).split("");
+  const nenner = (l: Luecke) => bruch(l.anzahl, l.gesamt + vorher(l).length);
+  const zaehler = (l: Luecke) => bruch(l.anzahl + vorher(l).filter((id) => id === l.id.at(-1)).length, l.gesamt);
+  const mit = (falsch: (l: Luecke) => Bruch): LueckenAntwort | undefined => {
+    const antwort = Object.fromEntries(task.luecken.map((l) => [l.buchstabe, text(falsch(l))]));
+    return check(task, antwort) ? undefined : antwort;
+  };
+  return [mit(nenner), mit(zaehler)];
+}
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Versuch} und {Lücken}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  "{Versuch} Im Baumdiagramm fehlen Zweigwahrscheinlichkeiten. Trag sie ein. Das Bild zeigt den Baum; an den fehlenden Zweigen steht „?“ und ihr Buchstabe. Die Felder: {Lücken}.";
+
+/** Was eine Aufgabe festlegt: der Versuch und die Lücken mit ihren Zweigen. */
+export const params = (task: LueckenAufgabe, _props?: unknown, _lang?: string): Record<string, string> => ({
+  Versuch: versuchText(versuchAus(task.experiment, task.urne), task.zuege, task.mit),
+  Lücken: task.luecken.map((l) => `${l.buchstabe}) ${l.beschreibung}`).join("; "),
+});
+
+/** Eine Antwort als Text: jeder Buchstabe mit seinem Wert. */
+export const show = (answer: LueckenAntwort, task: LueckenAufgabe, _props?: unknown, _lang?: string): string =>
+  task.luecken.map((l) => `${l.buchstabe}) ${(answer[l.buchstabe] ?? "").trim() || "leer"}`).join("; ");
+
 export const weg = (task: LueckenAufgabe): string[] =>
   task.luecken.map((l) => {
     const roh = `${l.anzahl}/${l.gesamt}`;
@@ -133,7 +169,8 @@ export function describe(task: LueckenAufgabe, _props?: unknown, _lang?: string)
 
 export const about = {
   task: "In einem Baumdiagramm zu einem mehrstufigen Zufallsversuch (Urne mit oder ohne Zurücklegen, Münze, Würfel „6 / keine 6“) die fehlenden Zweigwahrscheinlichkeiten a, b, c, d eintragen.",
-  answer: "Je Buchstabe eine Wahrscheinlichkeit: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen oder Prozent.",
+  answer:
+    "Je Buchstabe eine Wahrscheinlichkeit in einem Feld, dann „Prüfen“ unter der Aufgabe: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen oder Prozent. Nach einer falschen Antwort gibt es „Lösung zeigen“ mit dem Rechenweg.",
   correct:
     "Jeder Zweig: Anzahl der passenden Kugeln (Ergebnisse) durch alle, die auf dieser Stufe noch da sind; alle Felder richtig.",
   mistakes: [

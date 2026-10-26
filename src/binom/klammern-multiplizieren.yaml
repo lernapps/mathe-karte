@@ -100,7 +100,6 @@ blocks:
         component: BinomTermAufgabe
         props:
           art: klammern
-          pruefen: Prüfen
           loesungZeigen: Lösung zeigen
           tipp: Tipp
           rechenweg: "Lösung:"

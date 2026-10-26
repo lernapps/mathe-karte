@@ -1,7 +1,23 @@
 // Use Case: Prozentrechnung üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel prozent).
 // Tests der Übung „Grundwert berechnen“.
 import { expect, test } from "vite-plus/test";
-import { MELDUNGEN, check, describe, generate, grund, solution, wrong } from "./ProzentGrundwert.ts";
+import { fuelle } from "./ProzentAufgabe.ts";
+import {
+  MELDUNGEN,
+  about,
+  check,
+  describe,
+  fassungen,
+  generate,
+  grund,
+  mistakes,
+  params,
+  reason,
+  show,
+  solution,
+  template,
+  wrong,
+} from "./ProzentGrundwert.ts";
 
 test("Aufgabe 1: 17 Treffer sind 85 % der Würfe", () => {
   const a = generate(1);
@@ -23,4 +39,27 @@ test("jede Aufgabe: Lösung richtig, typischer Fehler falsch, Grundwert größer
     expect(Number((solution(a)["grundwert"] ?? "").replace(",", "."))).toBeGreaterThan(a.prozentwert);
   }
   expect(describe(generate(1)).task).toContain("100 % = ?");
+});
+
+test("reason ist grund: die Meldung zur Antwort", () => {
+  const a = generate(1);
+  expect(reason(a, { grundwert: "14,45" }, undefined, "de")).toBe(MELDUNGEN.prozentwertStattGrundwert);
+  expect(reason(a, { grundwert: "" }, undefined, "de")).toBe("Bitte gib eine Zahl ein, zum Beispiel 12,5.");
+});
+
+test("für den Tutor: der Text aus Fassung und Werten, typische Fehler, Antworten als Text", () => {
+  const a = generate(1);
+  expect(params(a)).toEqual({ Fassung: "sport", W: "17", p: "85" });
+  expect(mistakes(a)).toEqual([{ grundwert: "14,45" }, { grundwert: "0,2" }]);
+  expect(show(solution(a), a)).toBe("20 Würfe");
+  expect(show({ grundwert: "20 Würfe" }, a)).toBe("20 Würfe");
+  expect(template().replace(/\s/g, " ")).toContain("sport: „Mia hat {W} Treffer erzielt. Das sind {p} % ihrer Würfe.");
+  for (let seed = 1; seed <= 67; seed++) {
+    const aufgabe = generate(seed);
+    const werte = params(aufgabe);
+    expect(fuelle(fassungen()[werte["Fassung"] ?? ""] ?? "", werte)).toBe(aufgabe.text);
+    const fehler = mistakes(aufgabe);
+    expect(fehler).toHaveLength(about.mistakes.length);
+    for (const antwort of fehler) if (antwort !== undefined) expect(check(aufgabe, antwort)).toBe(false);
+  }
 });

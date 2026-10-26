@@ -2,6 +2,7 @@
 // Die Übung "Geschickt rechnen" (BinomKopfrechnen.ts): Aufgaben aller drei Formeln, Prüfung von Formel und Ergebnis,
 // typische Fehler mit Meldung, das Bild vor und nach dem Prüfen und die Beschreibung für den Tutor.
 import { describe, expect, test } from "vite-plus/test";
+import * as tabelle from "./BinomKopfrechnen.ts";
 import {
   about,
   check,
@@ -75,4 +76,30 @@ describe("Bild", () => {
     expect(texte("geprueft").join(" ")).toContain("50 · 1");
     expect(texte("geloest")).toContain("49² = 2401");
   });
+});
+
+test("die Antwort erst, wenn etwas gewählt oder getippt ist", () => {
+  expect(tabelle.antwortAus("", " ")).toBeUndefined();
+  expect(tabelle.antwortAus("2", "")).toEqual({ formel: "2", ergebnis: "" });
+});
+
+test("für den Tutor: die Rechnung, typische Fehler mit fester Zahl, Antworten als Text", () => {
+  const { about, check, generate, mistakes, params, reason, show, solution, template } = tabelle;
+  const props = { frage: "Rechne geschickt im Kopf:", frageFormel: "Welche Formel hilft?" };
+  expect(template(props)).toContain("Rechne geschickt im Kopf: {Rechnung}. Welche Formel hilft?");
+  const a = generate(1, props);
+  expect(params(a)).toEqual({ Rechnung: "51²" });
+  expect(show(solution(a))).toBe("1. Formel, 2601");
+  expect(mistakes(a)).toEqual([{ formel: "1", ergebnis: "2501" }, undefined, undefined, undefined]);
+  expect(show({ formel: "", ergebnis: "" })).toBe("keine Formel, kein Ergebnis");
+  for (let seed = 1; seed <= 67; seed++) {
+    const aufgabe = generate(seed, props);
+    const fehler = mistakes(aufgabe);
+    expect(fehler).toHaveLength(about.mistakes.length);
+    for (const antwort of fehler) {
+      if (antwort === undefined) continue;
+      expect(check(aufgabe, antwort)).toBe(false);
+      expect(reason(aufgabe, antwort)).toContain("nicht ganz richtig angewendet");
+    }
+  }
 });

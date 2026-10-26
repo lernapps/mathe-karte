@@ -47,6 +47,34 @@ export function grund(task: LaplaceAufgabe, answer: string): string {
   return tipp(task);
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (task: LaplaceAufgabe, answer: string, _props?: unknown, _lang?: string): string =>
+  grund(task, answer);
+
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: 1 durch die Zahl der Farben, günstig durch ungünstig. */
+export function mistakes(task: LaplaceAufgabe, _props?: unknown): (string | undefined)[] {
+  const farben = task.menge.farben;
+  const ungünstig = task.moeglich - task.guenstig;
+  return [
+    farben > 1 ? `1/${farben}` : undefined,
+    ungünstig > 0 ? text(bruch(task.guenstig, ungünstig)) : undefined,
+  ].map((a) => (a === undefined || check(task, a) ? undefined : a));
+}
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Aufgabe} und {möglich}; {günstig} sieht es nicht, es zählt sie. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  "{Aufgabe} Das Bild zeigt alle {möglich} möglichen Ergebnisse; das Kind kann die günstigen anklicken (das zählt nicht).";
+
+/** Was eine Aufgabe festlegt: ihr Text, die Zahl der möglichen und der günstigen Ergebnisse. */
+export const params = (task: LaplaceAufgabe, _props?: unknown, _lang?: string): Record<string, string | number> => ({
+  Aufgabe: task.text,
+  möglich: task.moeglich,
+  günstig: task.guenstig,
+});
+
+/** Eine Antwort als Text, wie das Kind sie getippt hat. */
+export const show = (answer: string, _task?: LaplaceAufgabe, _props?: unknown, _lang?: string): string => answer.trim();
+
 export function weg(task: LaplaceAufgabe): string[] {
   const roh = `${task.guenstig}/${task.moeglich}`;
   const kurz = text(task.p);
@@ -66,7 +94,8 @@ export function describe(task: LaplaceAufgabe, _props?: unknown, _lang?: string)
 
 export const about = {
   task: "Mit der Laplace-Formel die Wahrscheinlichkeit eines Ereignisses bei einem Würfel, einer Urne, einem Glücksrad, Skatkarten, Losen oder zwei Würfeln berechnen.",
-  answer: "Eine Wahrscheinlichkeit: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen oder Prozent.",
+  answer:
+    "Eine Wahrscheinlichkeit ins Feld P(E) getippt, dann „Prüfen“ unter der Aufgabe: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen oder Prozent. Nach einer falschen Antwort gibt es „Lösung zeigen“ mit dem Rechenweg.",
   correct: "Anzahl der günstigen durch Anzahl aller möglichen Ergebnisse, exakt oder richtig gerundet.",
   mistakes: [
     "Bei der Urne Farben statt Kugeln gezählt (1 durch Anzahl der Farben).",

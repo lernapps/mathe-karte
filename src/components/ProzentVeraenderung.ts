@@ -10,10 +10,16 @@ import {
   bildWert,
   check,
   eingabeFuer,
+  eingabeVon,
   grundFuer,
+  nurFalsche,
+  platzhalter,
   solution,
+  tabellenWert,
+  vorlage,
   waehleGrundwert,
   zahlenfeld,
+  zeige,
 } from "./ProzentAufgabe.ts";
 import {
   type Bruch,
@@ -125,6 +131,8 @@ const KONTEXTE: readonly Kontext[] = [
 const SAETZE = PROZENTSAETZE.filter((p) => p <= 50);
 
 export interface VeraenderungAufgabe extends Aufgabe {
+  /** Die id des Kontexts: „ticket“, „rabatt“ … */
+  kontext: string;
   typ: Typ;
   richtung: Richtung;
   alt: number;
@@ -177,6 +185,7 @@ export function generate(seed: number): VeraenderungAufgabe {
   };
   const pText = mitEinheit(p, "%");
   return {
+    kontext: k.id,
     typ,
     richtung: k.richtung,
     alt,
@@ -242,6 +251,54 @@ export function grund(aufgabe: VeraenderungAufgabe, antwort: unknown): string {
   );
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (aufgabe: VeraenderungAufgabe, antwort: unknown, _props?: unknown, _lang?: string): string =>
+  grund(aufgabe, antwort);
+
+/**
+ * Die Antwort jedes typischen Fehlers aus about.mistakes: neuer Wert gesucht: in die falsche Richtung, nur die
+ * Veränderung; alter Wert gesucht: die Prozente vom neuen Wert.
+ */
+export function mistakes(aufgabe: VeraenderungAufgabe, _props?: unknown): (Antworten | undefined)[] {
+  const anteil = durch(mal(alsBruch(aufgabe.alt), alsBruch(aufgabe.prozentsatz)), bruch(100));
+  const falsch = (wert: Bruch) => eingabeVon(aufgabe, aufgabe.typ, wert);
+  return nurFalsche(
+    aufgabe,
+    aufgabe.typ === "neu"
+      ? [falsch(gegenRichtung(aufgabe, aufgabe.alt)), falsch(anteil), undefined]
+      : [undefined, undefined, falsch(gegenRichtung(aufgabe, aufgabe.neu))],
+  );
+}
+
+/** Die Fassungen des Textes, je Kontext und Gesuchtem („ticket-neu“), mit {Wert} (dem gegebenen Wert) und {p}. */
+export const fassungen = (): Record<string, string> =>
+  Object.fromEntries(
+    KONTEXTE.flatMap((k) =>
+      (["neu", "alt"] as const).map((typ) => [
+        `${k.id}-${typ}`,
+        k[typ](platzhalter("Wert", k.einheit), platzhalter("p", "%")),
+      ]),
+    ),
+  );
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Fassung}, {Wert} und {p}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  vorlage(fassungen(), "Gesucht ist bei „…-neu“ der neue Wert, bei „…-alt“ der alte Wert.");
+
+/** Was eine Aufgabe festlegt: die Fassung des Textes, der gegebene Wert und der Prozentsatz. */
+export function params(aufgabe: VeraenderungAufgabe, _props?: unknown, _lang?: string): Record<string, string> {
+  const einheit = KONTEXTE.find((k) => k.id === aufgabe.kontext)?.einheit ?? "";
+  return {
+    Fassung: `${aufgabe.kontext}-${aufgabe.typ}`,
+    Wert: tabellenWert(aufgabe.typ === "neu" ? aufgabe.alt : aufgabe.neu, einheit),
+    p: tabellenWert(aufgabe.prozentsatz, "%"),
+  };
+}
+
+/** Eine Antwort als Text, wie das Kind sie beschreibt. */
+export const show = (antwort: unknown, aufgabe: VeraenderungAufgabe, _props?: unknown, _lang?: string): string =>
+  zeige(aufgabe, antwort);
+
 /** Die typische falsche Antwort: in die falsche Richtung gerechnet, rückwärts mit den Prozenten vom neuen Wert. */
 export function wrong(aufgabe: VeraenderungAufgabe): Antworten {
   const basis = aufgabe.typ === "neu" ? aufgabe.alt : aufgabe.neu;
@@ -255,7 +312,7 @@ export function describe(aufgabe: VeraenderungAufgabe): { task: string; solution
 export const about = {
   task: "Eine Textaufgabe zu einer Erhöhung oder Senkung um p %: entweder der neue Wert gesucht (alter Wert gegeben) oder der alte Wert gesucht (neuer Wert gegeben). Das Bild zur Aufgabe zeigt alten und neuen Wert als Balken, der gesuchte mit „?“.",
   answer:
-    "Eine Zahl in der Einheit des Textes (Euro oder Mitglieder); Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
+    "Eine Zahl in der Einheit des Textes (Euro oder Mitglieder), ins Feld getippt, dann „Prüfen“ unter der Aufgabe; Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
   correct:
     "Neuer Wert = alter Wert · (1 ± p/100), alter Wert = neuer Wert : (1 ± p/100); exakt oder kaufmännisch gerundet (Euro auf Cent).",
   mistakes: [MELDUNGEN.richtungVerwechselt, MELDUNGEN.nurProzentwert, MELDUNGEN.grundwertNeuerWert],

@@ -1,28 +1,32 @@
 <script setup lang="ts">
-// Felder, „Prüfen“ und nach einem Versuch „Lösung zeigen“ mit dem Rechenweg; die Übung prüft (Ereignis pruefen).
-import { reactive, ref, useId } from "vue";
+// Die Felder einer Zufall-Übung und nach einer geprüften falschen Antwort „Lösung zeigen“ mit dem Rechenweg. Sie
+// meldet jede Änderung mit eingabe: die Werte, sobald jedes Feld etwas hat, sonst undefined. „Prüfen“ kommt vom
+// explainer; Enter in einem Feld prüft auch. Kein Block.
+import { reactive, ref, useId, watch } from "vue";
 import { type Feld, HINWEIS, leereWerte, vollstaendig } from "./ZufallAntwort.ts";
 
 const props = defineProps<{
   felder: Feld[];
   weg: string[];
   geloest: boolean;
-  /** Eine Übung ohne Felder (nur Auswahl) setzt bereit selbst. */
-  bereit?: boolean;
+  /** Ob der explainer die Antwort geprüft hat (checked der Übung). */
+  versucht: boolean;
 }>();
-const emit = defineEmits<{ pruefen: [werte: Record<string, string>] }>();
+const emit = defineEmits<{ eingabe: [werte: Record<string, string> | undefined] }>();
 
 const id = useId();
 const werte = reactive<Record<string, string>>(leereWerte(props.felder));
-const versucht = ref(false);
 const zeigeWeg = ref(false);
+// einmal geprüft, bleibt „Lösung zeigen“, auch wenn das Kind die Antwort danach ändert
+const geprueft = ref(false);
+watch(
+  () => props.versucht,
+  (jetzt) => {
+    if (jetzt) geprueft.value = true;
+  },
+);
 
-function pruefen() {
-  if (props.felder.length > 0 && !vollstaendig(werte, props.felder)) return;
-  if (props.felder.length === 0 && props.bereit === false) return;
-  versucht.value = true;
-  emit("pruefen", { ...werte });
-}
+watch(werte, () => emit("eingabe", vollstaendig(werte, props.felder) ? { ...werte } : undefined));
 </script>
 
 <template>
@@ -37,13 +41,11 @@ function pruefen() {
         inputmode="text"
         autocomplete="off"
         spellcheck="false"
-        @keydown.enter.prevent="pruefen"
       />
     </p>
     <p v-if="felder.length > 0" class="question-hint">{{ HINWEIS }}</p>
-    <div class="question-actions">
-      <button type="button" @click="pruefen">Prüfen</button>
-      <button v-if="versucht && !geloest" type="button" class="question-solve" @click="zeigeWeg = !zeigeWeg">
+    <div v-if="geprueft && !geloest" class="question-actions">
+      <button type="button" class="question-solve" @click="zeigeWeg = !zeigeWeg">
         {{ zeigeWeg ? "Lösung verbergen" : "Lösung zeigen" }}
       </button>
     </div>

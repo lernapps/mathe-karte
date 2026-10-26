@@ -16,6 +16,7 @@ import {
   urne,
   URNEN,
   urnenSpec,
+  versuchAus,
   versuchText,
   waehleVersuch,
   zufallAus,
@@ -120,6 +121,34 @@ export function grund(task: PfadeAufgabe, answer: PfadeAntwort): string {
   return TIPP;
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (task: PfadeAufgabe, answer: PfadeAntwort, _props?: unknown, _lang?: string): string =>
+  grund(task, answer);
+
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: nur der erste Pfad; falsch gewählte Pfade haben viele. */
+export function mistakes(task: PfadeAufgabe, _props?: unknown): (PfadeAntwort | undefined)[] {
+  const erster = task.werte[0];
+  const nurEiner = task.pfade.length > 1 && erster !== undefined ? { antwort: text(erster) } : undefined;
+  return [nurEiner, undefined].map((a) => (a === undefined || check(task, a) ? undefined : a));
+}
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Versuch} und {Ereignis}; die passenden Pfade ({Pfade}) sieht es nicht. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  "{Versuch} Ereignis E: „{Ereignis}“. Klick im Baum die Pfade an, die zu E gehören, und berechne dann P(E). Das Bild zeigt den Baum; das Kind kann die Enden der Pfade anklicken (das zählt nicht, hilft aber der Rückmeldung) und tippt P(E).";
+
+/** Was eine Aufgabe festlegt: der Versuch, das Ereignis und die Pfade, die zu E gehören. */
+export const params = (task: PfadeAufgabe, _props?: unknown, _lang?: string): Record<string, string> => ({
+  Versuch: versuchText(versuchAus(task.experiment, task.urne), task.zuege, task.mit),
+  Ereignis: task.name,
+  Pfade: task.namen.join("; "),
+});
+
+/** Eine Antwort als Text: P(E) und wie viele Pfade angeklickt sind. */
+export function show(answer: PfadeAntwort, _task?: PfadeAufgabe, _props?: unknown, _lang?: string): string {
+  const n = answer.auswahl?.length ?? 0;
+  return n === 0 ? answer.antwort.trim() : `${answer.antwort.trim()} (${n} ${n === 1 ? "Pfad" : "Pfade"} angeklickt)`;
+}
+
 export function weg(task: PfadeAufgabe): string[] {
   const namen = task.namen.join(", ");
   return [
@@ -139,7 +168,7 @@ export function describe(task: PfadeAufgabe, _props?: unknown, _lang?: string): 
 export const about = {
   task: "Ein Ereignis in Worten (genau einmal, mindestens einmal, kein Mal, alle gleich, alle verschieden) in Pfade des Baumdiagramms übersetzen, die Pfade anklicken und P(E) mit der 2. Pfadregel berechnen.",
   answer:
-    "Eine Wahrscheinlichkeit: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen, Prozent oder ein Term wie 3/6*2/5+2/6*3/5. Die angeklickten Pfade werden nicht bewertet, nur zur Rückmeldung genutzt.",
+    "Eine Wahrscheinlichkeit ins Feld P(E) getippt, dann „Prüfen“ unter der Aufgabe: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen, Prozent oder ein Term wie 3/6*2/5+2/6*3/5. Die angeklickten Pfade werden nicht bewertet, nur zur Rückmeldung genutzt. Nach einer falschen Antwort gibt es „Lösung zeigen“ mit dem Rechenweg.",
   correct: "Die Summe der Pfadwahrscheinlichkeiten aller Pfade, die zum Ereignis gehören, exakt oder richtig gerundet.",
   mistakes: [
     "Nur einen Pfad genommen statt alle passenden zu addieren.",

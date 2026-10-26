@@ -29,6 +29,8 @@ export const ARTEN: readonly Art[] = ["klammern", "erste", "zweite", "dritte", "
 export interface Fehler {
   kandidaten: string[];
   meldung: string;
+  /** Welcher typische Fehler aus about von BinomTermAufgabe.ts das ist (Index in about.mistakes); keiner, wenn leer. */
+  nr?: number;
 }
 
 /** Feste Werte statt Zufall, für das Bild zum Beispiel. */
@@ -120,11 +122,13 @@ function klammern(z: Zufall, v: Vorgaben): TermAufgabe {
     tipp: "Jedes Glied der ersten Klammer mal jedes Glied der zweiten Klammer – das sind vier Produkte. Achte auf die Vorzeichen, dann fasse die Glieder mit x zusammen.",
     fehler: [
       {
+        nr: 5,
         kandidaten: [alsEingabe([a, d]), alsEingabe([a, mal(d, -1)])],
         meldung:
           "Du hast nur Erstes mal Erstes und Letztes mal Letztes gerechnet. Es fehlen die gemischten Glieder: jedes Glied der einen Klammer mal jedes Glied der anderen – vier Produkte.",
       },
       {
+        nr: 5,
         kandidaten: vorzeichenFehler,
         meldung:
           "Fast: Die Zahlen stimmen, aber ein Vorzeichen nicht. Plus mal Minus gibt Minus, Minus mal Minus gibt Plus.",
@@ -177,6 +181,7 @@ function nichtQuadriert(u: Glied, v: Glied, mitte: Polynom, vorzeichenB: number)
   if (uFalsch && vFalsch) varianten.push([uFalsch, vFalsch]);
   const teile = [u, v].filter((a) => Math.abs(a.k) > 1).map((a) => `${quadratAnzeige(a)} = ${g(quadrat(a))}`);
   return {
+    nr: 4,
     kandidaten: varianten.map(([a, b]) => alsEingabe([a, ...mitte, b])),
     meldung: `Quadriere jedes Glied ganz – die Zahl davor auch: ${teile.join(", ")}.`,
   };
@@ -217,10 +222,12 @@ function erste(z: Zufall, vorgaben: Vorgaben): TermAufgabe {
     tipp: `Erstes Glied a = ${g(u)}, zweites Glied b = ${g(v)}. Rechne a², dann 2 · a · b, dann b².`,
     fehler: [
       {
+        nr: 0,
         kandidaten: [alsEingabe([uu, vv])],
         meldung: `Da fehlt das Mittelglied 2ab. ${term} heißt ${klammer([u, v])} · ${klammer([u, v])} – das sind vier Produkte, nicht zwei.`,
       },
       {
+        nr: 1,
         kandidaten: [alsEingabe([uu, ab, vv])],
         meldung: "Das Mittelglied kommt zweimal vor: a · b und b · a. Deshalb heißt es 2ab.",
       },
@@ -257,18 +264,22 @@ function zweite(z: Zufall, vorgaben: Vorgaben): TermAufgabe {
     tipp: `Erstes Glied a = ${g(u)}, zweites Glied b = ${g(v)}. Rechne a², dann − 2 · a · b, dann + b². Das b² ist immer plus.`,
     fehler: [
       {
+        nr: 0,
         kandidaten: [alsEingabe([uu, mal(vv, -1)]), alsEingabe([uu, vv])],
         meldung: `Da fehlt das Mittelglied − 2ab. ${term} heißt ${klammer([u, minusV])} mal sich selbst – das sind vier Produkte, nicht zwei.`,
       },
       {
+        nr: 2,
         kandidaten: [alsEingabe([uu, mal(ab, -2), mal(vv, -1)])],
         meldung: "Das letzte Glied ist (−b)² = (−b) · (−b). Minus mal Minus gibt Plus – also + b².",
       },
       {
+        nr: 1,
         kandidaten: [alsEingabe([uu, mal(ab, -1), vv])],
         meldung: "Das Mittelglied kommt zweimal vor: a · (−b) und (−b) · a. Deshalb heißt es − 2ab.",
       },
       {
+        nr: 2,
         kandidaten: [alsEingabe([uu, mal(ab, 2), vv])],
         meldung: "Das ist die erste Formel. Bei (a − b)² ist das Mittelglied negativ: − 2ab.",
       },
@@ -322,10 +333,12 @@ function dritte(z: Zufall, vorgaben: Vorgaben): TermAufgabe {
     tipp: `Einmal plus, einmal minus mit denselben Gliedern: a = ${g(u)}, b = ${g(v)}. Die Mittelglieder heben sich auf – es bleibt a² − b².`,
     fehler: [
       {
+        nr: 3,
         kandidaten: mittelglied,
         meldung: `Hier gibt es kein Mittelglied: + ${g(ab)} und − ${g(ab)} heben sich auf. Es bleibt a² − b².`,
       },
       {
+        nr: 3,
         kandidaten: [alsEingabe([uu, vv]), alsEingabe([mal(uu, -1), vv])],
         meldung: "Achte auf das Minus: Das letzte Produkt ist (+b) · (−b) = − b². Also a² − b², nicht a² + b².",
       },
@@ -393,20 +406,23 @@ function faktorisieren(b: Binom, formel: number): Omit<TermAufgabe, "art" | "p" 
       formel === 3
         ? [
             {
+              nr: 6,
               kandidaten: [q2([u, v]), q2([u, mv])],
               meldung: "Kein Mittelglied, dazwischen ein Minus: Das ist die 3. Formel, (a + b)(a − b).",
             },
           ]
         : [
             {
+              nr: 6,
               kandidaten: [q2([u, formel === 1 ? mv : v])],
               meldung: "Schau auf das Vorzeichen des Mittelglieds: + → (a + b)², − → (a − b)².",
             },
             {
+              nr: 6,
               kandidaten: doppelt.flatMap((d) => [q2([u, d]), q2([u, mal(d, -1)])]),
               meldung: "Das Mittelglied ist 2 · a · b – doppelt so groß wie a · b. Bei 6x ist b = 3, nicht 6.",
             },
-            { kandidaten: [`${ein([u, v])}${ein([u, mv])}`], meldung: MELDUNG_GLEICHE_FORMEL },
+            { nr: 6, kandidaten: [`${ein([u, v])}${ein([u, mv])}`], meldung: MELDUNG_GLEICHE_FORMEL },
           ],
   };
 }
@@ -460,9 +476,16 @@ function lueckeAufgabe(
         : "Das Mittelglied ist 2 · a · b. Teile es durch 2 · a, dann hast du b. In die Lücke gehört b².",
     fehler:
       luecke === "mitte"
-        ? [{ kandidaten: [String(m * n)], meldung: "Das Mittelglied ist 2 · a · b, nicht a · b. Vergiss die 2 nicht." }]
+        ? [
+            {
+              nr: 1,
+              kandidaten: [String(m * n)],
+              meldung: "Das Mittelglied ist 2 · a · b, nicht a · b. Vergiss die 2 nicht.",
+            },
+          ]
         : [
             {
+              nr: 6,
               kandidaten: [String(mitte.k * mitte.k)],
               meldung: "Das Mittelglied ist 2 · a · b – doppelt so groß wie a · b. Bei 6x ist b = 3, nicht 6.",
             },

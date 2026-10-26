@@ -1,20 +1,21 @@
 <script setup lang="ts">
 // Übung zur Laplace-Formel: die Ergebnismenge zum Markieren (die Markierung hilft beim Zählen und wird nicht geprüft);
-// gelöst zeigt das Bild die günstigen Ergebnisse orange.
+// geprüft und richtig zeigt das Bild die günstigen Ergebnisse orange. Die Übung ist die Eingabe der Aufgabe: Sie gibt
+// P(E) mit answer weiter; „Prüfen“ und die Rückmeldung kommen vom explainer (ZufallLaplace.ts).
 import { computed, ref } from "vue";
 import ZufallAntwort from "./ZufallAntwort.vue";
 import ZufallMenge from "./ZufallMenge.vue";
-import { check, generate, grund, weg } from "./ZufallLaplace.ts";
+import { check, generate, weg } from "./ZufallLaplace.ts";
 
-const props = defineProps<{ seed: number }>();
-const emit = defineEmits<{ answered: [ergebnis: { correct: boolean; reason: string }] }>();
+const props = defineProps<{ seed: number; checked: boolean }>();
+const emit = defineEmits<{ answer: [antwort: string | undefined] }>();
 const aufgabe = computed(() => generate(props.seed));
-const geloest = ref(false);
+const antwort = ref<string | undefined>(undefined);
+const geloest = computed(() => props.checked && antwort.value !== undefined && check(aufgabe.value, antwort.value));
 
-function pruefen(werte: Record<string, string>) {
-  const antwort = werte["antwort"] ?? "";
-  geloest.value = check(aufgabe.value, antwort);
-  emit("answered", { correct: geloest.value, reason: grund(aufgabe.value, antwort) });
+function eingabe(werte: Record<string, string> | undefined) {
+  antwort.value = werte?.["antwort"];
+  emit("answer", antwort.value);
 }
 </script>
 
@@ -37,7 +38,8 @@ function pruefen(werte: Record<string, string>) {
       :felder="[{ id: 'antwort', label: 'P(E) =' }]"
       :weg="weg(aufgabe)"
       :geloest="geloest"
-      @pruefen="pruefen"
+      :versucht="checked"
+      @eingabe="eingabe"
     />
   </div>
 </template>

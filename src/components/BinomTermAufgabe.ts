@@ -82,6 +82,43 @@ export function grund(aufgabe: TermAufgabe, antwort: string): string {
   return fehler?.meldung ?? FALSCH[aufgabe.art];
 }
 
+/** Die Antwort aus dem Feld; undefined, solange es leer ist. */
+export const antwortAus = (getippt: string): string | undefined => (getippt.trim() === "" ? undefined : getippt);
+
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (aufgabe: TermAufgabe, antwort: string, _props?: unknown, _lang?: string): string =>
+  grund(aufgabe, antwort);
+
+/**
+ * Die Antwort jedes typischen Fehlers aus about.mistakes, den es bei dieser Aufgabe gibt: der erste Fehlterm seiner
+ * Art, der falsch ist (BinomFormeln.ts ordnet jeden Fehler einer Art zu); undefined für die anderen.
+ */
+export function mistakes(aufgabe: TermAufgabe, _props?: unknown): (string | undefined)[] {
+  return about.mistakes.map((_text, nr) =>
+    aufgabe.fehler
+      .filter((f) => f.nr === nr)
+      .flatMap((f) => f.kandidaten)
+      .find((k) => !passt(aufgabe, aufgabe.loesung, k) && !check(aufgabe, k)),
+  );
+}
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Auftrag} und {Term}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  "{Auftrag} {Term} Das Kind tippt das Ergebnis als Term (^2 für hoch 2), bei einer Lücke (□) nur die Zahl.";
+
+/** Was eine Aufgabe festlegt: der Auftrag und der Term. */
+export const params = (aufgabe: TermAufgabe, _props?: unknown, _lang?: string): Record<string, string> => ({
+  Auftrag: aufgabe.frage,
+  Term: aufgabe.term,
+});
+
+/** Eine Antwort als Text: der Term, wie die Übung ihn gelesen hat (x² + 6x + 9), sonst wie getippt. */
+export function show(antwort: string, aufgabe: TermAufgabe, _props?: unknown, _lang?: string): string {
+  if (aufgabe.zahl) return antwort.trim();
+  const gelesen = leseTerm(antwort);
+  return gelesen.fehler === undefined ? gelesen.text : antwort.trim();
+}
+
 export function solution(aufgabe: TermAufgabe): string {
   return aufgabe.loesung;
 }
@@ -104,7 +141,7 @@ export function describe(aufgabe: TermAufgabe, _props: TermProps, _lang: string)
 export const about = {
   task: "Du formst einen Term mit Klammern um: zwei Klammern ausmultiplizieren, ein Binom mit der ersten, zweiten oder dritten binomischen Formel ausmultiplizieren, oder rückwärts eine Summe als binomische Formel schreiben oder die Zahl in einer Lücke ergänzen.",
   answer:
-    "Ein Term, getippt mit ^2 für hoch 2 (z. B. x^2+6x+9 oder (x+3)^2, Malzeichen dürfen fehlen), bei einer Lücke eine ganze Zahl.",
+    "Ein Term, getippt mit ^2 für hoch 2 (z. B. x^2+6x+9 oder (x+3)^2, Malzeichen dürfen fehlen), bei einer Lücke eine ganze Zahl; dann „Prüfen“ unter der Aufgabe. Unter dem Feld steht, wie die Übung den Term gelesen hat; nach einer falschen Antwort gibt es „Lösung zeigen“.",
   correct:
     "Jeder Term, der dem richtigen gleichwertig ist und in der verlangten Form dasteht: ausmultipliziert und zusammengefasst, beim Rückwärts-Rechnen als Binom-Produkt wie (x + 3)² oder (x + 4)(x − 4). Die Reihenfolge der Glieder ist egal.",
   mistakes: [

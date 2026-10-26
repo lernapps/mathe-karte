@@ -14,6 +14,7 @@ import {
   pfadName,
   pfadTerm,
   urnenSpec,
+  versuchAus,
   versuchText,
   waehleVersuch,
   zufallAus,
@@ -134,6 +135,35 @@ export function grund(task: TermAufgabe, answer: number): string {
 
 export const BUCHSTABEN = ["A", "B", "C"];
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (task: TermAufgabe, answer: number, _props?: unknown, _lang?: string): string =>
+  grund(task, answer);
+
+/** Woran die Option eines typischen Fehlers aus about.mistakes zu erkennen ist, in derselben Reihenfolge. */
+const FEHLERARTEN = ["Nur ein Pfad", "Entlang eines Pfades", "Das sind die Pfade des Gegenereignisses", "Hier wurde"];
+
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: die Nummer seiner Option, wenn sie zur Wahl steht. */
+export const mistakes = (task: TermAufgabe, _props?: unknown): (number | undefined)[] =>
+  FEHLERARTEN.map((art) => {
+    const i = task.optionen.findIndex((o) => !o.richtig && o.fehler.startsWith(art));
+    return i < 0 ? undefined : i;
+  });
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Versuch}, {Ereignis} und den drei Termen {A}, {B}, {C}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  "{Versuch} Ereignis E: „{Ereignis}“. Welcher Term berechnet P(E)? Das Bild zeigt den Baum der Aufgabe mit allen Zweigen. Zur Wahl: A) {A} B) {B} C) {C}";
+
+/** Was eine Aufgabe festlegt: der Versuch, das Ereignis und die drei Terme. */
+export const params = (task: TermAufgabe, _props?: unknown, _lang?: string): Record<string, string> => ({
+  Versuch: versuchText(versuchAus(task.experiment, task.urne), task.zuege, task.mit),
+  Ereignis: task.name,
+  ...Object.fromEntries(task.optionen.map((o, i) => [BUCHSTABEN[i] ?? String(i), o.text])),
+});
+
+/** Eine Antwort als Text: der gewählte Term mit seinem Buchstaben. */
+export const show = (answer: number, task: TermAufgabe, _props?: unknown, _lang?: string): string =>
+  `${BUCHSTABEN[answer] ?? "?"}) ${task.optionen[answer]?.text ?? ""}`;
+
 export const weg = (task: TermAufgabe): string[] => [
   `Passende Pfade: ${task.namen.join(", ")}`,
   `P(E) = ${task.optionen.find((o) => o.richtig)?.text ?? ""} = ${text(task.loesung)}`,
@@ -150,7 +180,8 @@ export function describe(task: TermAufgabe, _props?: unknown, _lang?: string): {
 
 export const about = {
   task: "Aus drei Termen den wählen, der P(E) für ein Ereignis im Baumdiagramm (zwei Züge) berechnet: Produkte entlang der Pfade, Summe über die Pfade.",
-  answer: "Einer von drei Termen (A, B oder C).",
+  answer:
+    "Einer von drei Termen (A, B oder C) gewählt, dann „Prüfen“ unter der Aufgabe. Nach einer falschen Antwort gibt es „Lösung zeigen“ mit dem Rechenweg.",
   correct:
     "Der Term, der für jeden passenden Pfad das Produkt seiner Zweige bildet und die Produkte aller passenden Pfade addiert.",
   mistakes: [

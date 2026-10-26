@@ -130,6 +130,46 @@ export function grund(aufgabe: KopfAufgabe, antwort: KopfAntwort): string {
   return "Das stimmt noch nicht. Zerlege die Zahl in eine glatte Zahl (Zehner oder Hunderter) und einen kleinen Rest.";
 }
 
+/** Die Antwort aus Wahl und Feld; undefined, solange weder eine Formel gewählt noch etwas getippt ist. */
+export const antwortAus = (formel: string, ergebnis: string): KopfAntwort | undefined =>
+  formel === "" && ergebnis.trim() === "" ? undefined : { formel, ergebnis };
+
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (aufgabe: KopfAufgabe, antwort: KopfAntwort, _props?: unknown, _lang?: string): string =>
+  grund(aufgabe, antwort);
+
+/**
+ * Die Antwort jedes typischen Fehlers aus about.mistakes, mit der richtigen Formel: das Mittelglied vergessen (1. und
+ * 2. Formel), b² addiert (3. Formel). Ein falsches Vorzeichen oder ein halbes Mittelglied und eine falsche Formel
+ * haben mehrere Antworten.
+ */
+export function mistakes(aufgabe: KopfAufgabe, _props?: unknown): (KopfAntwort | undefined)[] {
+  const { basis: B, abstand: A } = aufgabe;
+  const formel = String(aufgabe.formel);
+  return [
+    aufgabe.formel === 3 ? undefined : wrong(aufgabe),
+    undefined,
+    aufgabe.formel === 3 ? { formel, ergebnis: String(B * B + A * A) } : undefined,
+    undefined,
+  ];
+}
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Rechnung}. */
+export const template = (props: { frage?: string; frageFormel?: string }, _lang?: string): string =>
+  `${props.frage ?? "Rechne geschickt im Kopf:"} {Rechnung}. ${props.frageFormel ?? "Welche Formel hilft?"} Zur Wahl: ${FORMELN.map((f) => f.text).join(", ")}. Dazu das Ergebnis als ganze Zahl.`;
+
+/** Was eine Aufgabe festlegt: die Rechnung. */
+export const params = (aufgabe: KopfAufgabe, _props?: unknown, _lang?: string): Record<string, string> => ({
+  Rechnung: aufgabe.rechnung,
+});
+
+/** Eine Antwort als Text: die gewählte Formel und das Ergebnis. */
+export function show(antwort: KopfAntwort, _aufgabe?: KopfAufgabe, _props?: unknown, _lang?: string): string {
+  const formel = FORMELN.find((f) => f.wert === antwort.formel)?.text.split(":")[0] ?? "keine Formel";
+  const ergebnis = antwort.ergebnis.trim() === "" ? "kein Ergebnis" : antwort.ergebnis.trim();
+  return `${formel}, ${ergebnis}`;
+}
+
 export function solution(aufgabe: KopfAufgabe): KopfAntwort {
   return { formel: String(aufgabe.formel), ergebnis: String(aufgabe.ergebnis) };
 }
@@ -154,7 +194,8 @@ export function describe(aufgabe: KopfAufgabe, _props: unknown, _lang: string): 
 
 export const about = {
   task: "Du rechnest ein Quadrat wie 49² oder ein Produkt wie 21 · 19 im Kopf mit einer binomischen Formel: Du wählst die Formel, die hilft, und gibst das Ergebnis ein.",
-  answer: "Die Wahl einer der drei Formeln und das Ergebnis als ganze Zahl ohne Tausenderpunkt.",
+  answer:
+    "Die Wahl einer der drei Formeln und das Ergebnis als ganze Zahl ohne Tausenderpunkt, ins Feld getippt; dann „Prüfen“ unter der Aufgabe. Nach dem Prüfen zeigt das Flächenbild die Zerlegung, nach einer falschen Antwort gibt es „Lösung zeigen“.",
   correct:
     "Richtig ist die Formel, die zur Zerlegung um die glatte Zahl passt (knapp darüber: 1. Formel, knapp darunter: 2. Formel, zwei Zahlen gleich weit links und rechts: 3. Formel), zusammen mit dem genauen Ergebnis.",
   mistakes: [

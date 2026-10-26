@@ -1,21 +1,24 @@
 <script setup lang="ts">
-// Übung zum Baumdiagramm: fehlende Zweige a, b, c, d eintragen; gelöst zeigt der Baum alle Werte und die Pfade.
+// Übung zum Baumdiagramm: fehlende Zweige a, b, c, d eintragen; geprüft und richtig zeigt der Baum alle Werte und die
+// Pfade. Die Übung ist die Eingabe der Aufgabe: Sie gibt die Werte mit answer weiter, sobald jedes Feld etwas hat;
+// „Prüfen“ und die Rückmeldung kommen vom explainer (ZufallBaumLuecken.ts).
 import { computed, ref } from "vue";
 import ZufallAntwort from "./ZufallAntwort.vue";
 import ZufallBaum from "./ZufallBaum.vue";
-import { check, generate, grund, weg } from "./ZufallBaumLuecken.ts";
+import { check, generate, weg } from "./ZufallBaumLuecken.ts";
 
-const props = defineProps<{ seed: number }>();
-const emit = defineEmits<{ answered: [ergebnis: { correct: boolean; reason: string }] }>();
+const props = defineProps<{ seed: number; checked: boolean }>();
+const emit = defineEmits<{ answer: [antwort: Record<string, string> | undefined] }>();
 const aufgabe = computed(() => generate(props.seed));
 const felder = computed(() =>
   aufgabe.value.luecken.map((l) => ({ id: l.buchstabe, label: `${l.buchstabe}) ${l.beschreibung} =` })),
 );
-const geloest = ref(false);
+const antwort = ref<Record<string, string> | undefined>(undefined);
+const geloest = computed(() => props.checked && antwort.value !== undefined && check(aufgabe.value, antwort.value));
 
-function pruefen(werte: Record<string, string>) {
-  geloest.value = check(aufgabe.value, werte);
-  emit("answered", { correct: geloest.value, reason: grund(aufgabe.value, werte) });
+function eingabe(werte: Record<string, string> | undefined) {
+  antwort.value = werte;
+  emit("answer", werte);
 }
 </script>
 
@@ -32,6 +35,6 @@ function pruefen(werte: Record<string, string>) {
       :geloest="geloest"
       :zeige-pfad="geloest"
     />
-    <ZufallAntwort :felder="felder" :weg="weg(aufgabe)" :geloest="geloest" @pruefen="pruefen" />
+    <ZufallAntwort :felder="felder" :weg="weg(aufgabe)" :geloest="geloest" :versucht="checked" @eingabe="eingabe" />
   </div>
 </template>

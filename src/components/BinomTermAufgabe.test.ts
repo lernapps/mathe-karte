@@ -2,6 +2,7 @@
 // Die Übung mit Termeingabe (BinomTermAufgabe.ts): je Art die Aufgaben, andere richtige Schreibweisen, die typischen
 // Fehler mit ihrer Meldung, Randfälle und die Beschreibung für Tutor und Seite ohne JavaScript.
 import { describe, expect, test } from "vite-plus/test";
+import * as tabelle from "./BinomTermAufgabe.ts";
 import { erzeugeTermAufgabe, type Art, type TermAufgabe } from "./BinomFormeln.ts";
 import { termBild } from "./BinomBilder.ts";
 import { erzeugeZufall } from "./BinomTerm.ts";
@@ -149,4 +150,38 @@ describe("Vorschau der Eingabe", () => {
     expect(vorschau(a, "(x+3")).toMatch(/Klammer/);
     expect(vorschau(a, "")).toBe("");
   });
+});
+
+test("die Antwort erst, wenn etwas getippt ist", () => {
+  expect(tabelle.antwortAus("  ")).toBeUndefined();
+  expect(tabelle.antwortAus("x^2")).toBe("x^2");
+});
+
+describe("für den Tutor", () => {
+  const { about, check, generate, mistakes, params, reason, show, solution, template } = tabelle;
+  test("Auftrag und Term; der getippte Term, wie die Übung ihn liest", () => {
+    const a = generate(1, { art: "erste" });
+    expect(template()).toContain("{Auftrag} {Term}");
+    expect(params(a)).toEqual({ Auftrag: "Multipliziere mit der ersten binomischen Formel aus:", Term: "(x + 6)²" });
+    expect(show("x^2+12x+36", a)).toBe("x² + 12x + 36");
+    expect(mistakes(a)).toEqual(["x^2+36", "x^2+6x+36", undefined, undefined, "x^2+12x+6", undefined, undefined]);
+  });
+  for (const art of ["klammern", "erste", "zweite", "dritte", "rueckwaerts"] as const) {
+    test(`${art}: jeder typische Fehler ist falsch und hat seine Meldung`, () => {
+      const props = { art };
+      for (let seed = 1; seed <= 67; seed++) {
+        const aufgabe = generate(seed, props);
+        expect(show(solution(aufgabe), aufgabe)).not.toBe("");
+        const fehler = mistakes(aufgabe);
+        expect(fehler).toHaveLength(about.mistakes.length);
+        expect(fehler.some((antwort) => antwort !== undefined)).toBe(true);
+        for (const antwort of fehler) {
+          if (antwort === undefined) continue;
+          expect(check(aufgabe, antwort)).toBe(false);
+          const meldung = reason(aufgabe, antwort);
+          expect(aufgabe.fehler.some((f) => f.meldung === meldung)).toBe(true);
+        }
+      }
+    });
+  }
 });

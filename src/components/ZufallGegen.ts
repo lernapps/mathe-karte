@@ -177,6 +177,31 @@ export function grund(task: GegenAufgabe, answer: string): string {
   return tipp(task);
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (task: GegenAufgabe, answer: string, _props?: unknown, _lang?: string): string =>
+  grund(task, answer);
+
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: P(E); bei „mindestens einmal“ P(kein Mal). */
+export function mistakes(task: GegenAufgabe, _props?: unknown): (string | undefined)[] {
+  const p = text(task.p);
+  return [task.art === "mindestens" ? undefined : p, task.art === "mindestens" ? p : undefined].map((a) =>
+    a === undefined || check(task, a) ? undefined : a,
+  );
+}
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Aufgabe}, {Bild} und {Feld}. */
+export const template = (_props?: unknown, _lang?: string): string => "{Aufgabe} {Bild} Das Kind tippt {Feld} …";
+
+/** Was eine Aufgabe festlegt: ihr Text, was das Bild zeigt, und das Feld. */
+export const params = (task: GegenAufgabe, _props?: unknown, _lang?: string): Record<string, string> => ({
+  Aufgabe: task.text,
+  Bild: bildText(task),
+  Feld: task.label,
+});
+
+/** Eine Antwort als Text, wie das Kind sie getippt hat. */
+export const show = (answer: string, _task?: GegenAufgabe, _props?: unknown, _lang?: string): string => answer.trim();
+
 export function weg(task: GegenAufgabe): string[] {
   const p = text(task.p);
   const l = text(task.loesung);
@@ -217,7 +242,7 @@ export function describe(task: GegenAufgabe, _props?: unknown, _lang?: string): 
 export const about = {
   task: "Eine Gegenwahrscheinlichkeit berechnen: P(nicht E) aus P(E), das Gegenereignis eines Laplace-Ereignisses, oder „mindestens einmal“ über „kein einziges Mal“.",
   answer:
-    "Eine Wahrscheinlichkeit: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen, Prozent oder ein Term wie 1-(5/6)^3.",
+    "Eine Wahrscheinlichkeit ins Feld getippt, dann „Prüfen“ unter der Aufgabe: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen, Prozent oder ein Term wie 1-(5/6)^3. Nach einer falschen Antwort gibt es „Lösung zeigen“ mit dem Rechenweg.",
   correct: "1 − P(E), exakt oder richtig gerundet; bei „mindestens einmal“ 1 − P(kein einziges Mal).",
   mistakes: [
     "P(E) statt 1 − P(E) angegeben.",

@@ -95,7 +95,6 @@ blocks:
         component: BinomTermAufgabe
         props:
           art: rueckwaerts
-          pruefen: Prüfen
           loesungZeigen: Lösung zeigen
           tipp: Tipp
           rechenweg: "Lösung:"

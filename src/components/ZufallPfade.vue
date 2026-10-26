@@ -1,25 +1,31 @@
 <script setup lang="ts">
-// Übung zur 2. Pfadregel: Pfade im Baum anklicken (Enden sind Knöpfe), P(E) eintragen. Gelöst: die Pfade von E orange,
-// mit Pfadwahrscheinlichkeiten.
+// Übung zur 2. Pfadregel: Pfade im Baum anklicken (Enden sind Knöpfe), P(E) eintragen. Geprüft und richtig: die Pfade
+// von E orange, mit Pfadwahrscheinlichkeiten. Die Übung ist die Eingabe der Aufgabe: Sie gibt P(E) und die
+// angeklickten Pfade mit answer weiter, sobald P(E) etwas hat; „Prüfen“ und die Rückmeldung kommen vom explainer
+// (ZufallPfade.ts).
 import { computed, ref } from "vue";
 import ZufallAntwort from "./ZufallAntwort.vue";
 import ZufallBaum from "./ZufallBaum.vue";
-import { check, generate, grund, weg } from "./ZufallPfade.ts";
+import { type PfadeAntwort, check, generate, weg } from "./ZufallPfade.ts";
 
-const props = defineProps<{ seed: number; art?: "pfadregel" | "uebersetzen" }>();
-const emit = defineEmits<{ answered: [ergebnis: { correct: boolean; reason: string }] }>();
+const props = defineProps<{ seed: number; art?: "pfadregel" | "uebersetzen"; checked: boolean }>();
+const emit = defineEmits<{ answer: [antwort: PfadeAntwort | undefined] }>();
 const aufgabe = computed(() => generate(props.seed, props.art === undefined ? {} : { art: props.art }));
 const auswahl = ref<string[]>([]);
-const geloest = ref(false);
+const wert = ref<string | undefined>(undefined);
+const antwort = computed(() =>
+  wert.value === undefined ? undefined : { antwort: wert.value, auswahl: [...auswahl.value] },
+);
+const geloest = computed(() => props.checked && antwort.value !== undefined && check(aufgabe.value, antwort.value));
 
 function umschalten(pfad: string) {
   auswahl.value = auswahl.value.includes(pfad) ? auswahl.value.filter((p) => p !== pfad) : [...auswahl.value, pfad];
+  if (wert.value !== undefined) emit("answer", antwort.value);
 }
 
-function pruefen(werte: Record<string, string>) {
-  const antwort = { antwort: werte["antwort"] ?? "", auswahl: auswahl.value };
-  geloest.value = check(aufgabe.value, antwort);
-  emit("answered", { correct: geloest.value, reason: grund(aufgabe.value, antwort) });
+function eingabe(werte: Record<string, string> | undefined) {
+  wert.value = werte?.["antwort"];
+  emit("answer", antwort.value);
 }
 </script>
 
@@ -47,7 +53,8 @@ function pruefen(werte: Record<string, string>) {
       :felder="[{ id: 'antwort', label: 'P(E) =' }]"
       :weg="weg(aufgabe)"
       :geloest="geloest"
-      @pruefen="pruefen"
+      :versucht="checked"
+      @eingabe="eingabe"
     />
   </div>
 </template>

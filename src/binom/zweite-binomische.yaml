@@ -89,7 +89,6 @@ blocks:
         component: BinomTermAufgabe
         props:
           art: zweite
-          pruefen: Prüfen
           loesungZeigen: Lösung zeigen
           tipp: Tipp
           rechenweg: "Lösung:"

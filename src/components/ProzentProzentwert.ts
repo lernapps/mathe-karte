@@ -4,17 +4,24 @@ import {
   type Antworten,
   type Aufgabe,
   type KontextId,
+  KONTEXTE,
   RABATTE,
   beschreibe,
   bildWert,
   check,
   eingabeFuer,
   erzeugeTripel,
+  eingabeVon,
   grundFuer,
   imDativ,
+  nurFalsche,
+  platzhalter,
   solution,
+  tabellenWert,
+  vorlage,
   waehleKontext,
   zahlenfeld,
+  zeige,
 } from "./ProzentAufgabe.ts";
 import {
   alsBruch,
@@ -47,6 +54,7 @@ const TEXTE: Readonly<Record<KontextId, (g: string, p: string) => string>> = {
 };
 
 export interface ProzentwertAufgabe extends Aufgabe {
+  kontext: KontextId;
   grundwert: number;
   prozentsatz: number;
 }
@@ -62,6 +70,7 @@ export function generate(seed: number): ProzentwertAufgabe {
   const ergebnis = mitEinheit(prozentwert, wEinheit);
   const titel = `${formatZahl(prozentsatz)} % von ${bildWert(grundwert, imDativ(einheit))}`;
   return {
+    kontext: kontext.id,
     grundwert,
     prozentsatz,
     text: TEXTE[kontext.id](mitEinheit(grundwert, einheit), mitEinheit(prozentsatz, "%")),
@@ -104,6 +113,42 @@ export function grund(aufgabe: ProzentwertAufgabe, antwort: unknown): string {
   );
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (aufgabe: ProzentwertAufgabe, antwort: unknown, _props?: unknown, _lang?: string): string =>
+  grund(aufgabe, antwort);
+
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: nicht durch 100 geteilt, der Rest statt des Anteils. */
+export function mistakes(aufgabe: ProzentwertAufgabe, _props?: unknown): (Antworten | undefined)[] {
+  const [feld] = aufgabe.felder;
+  if (feld?.typ !== "zahl") return [undefined, undefined];
+  return nurFalsche(aufgabe, [
+    eingabeVon(aufgabe, "prozentwert", mal(feld.exakt, bruch(100))),
+    eingabeVon(aufgabe, "prozentwert", minus(alsBruch(aufgabe.grundwert), feld.exakt)),
+  ]);
+}
+
+/** Die Fassungen des Textes, je Kontext, mit {G} und {p}. */
+export const fassungen = (): Record<string, string> =>
+  Object.fromEntries(KONTEXTE.map((k) => [k.id, TEXTE[k.id](platzhalter("G", k.einheit), platzhalter("p", "%"))]));
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Fassung}, {G} und {p}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  vorlage(fassungen(), "Gesucht ist der Prozentwert W.");
+
+/** Was eine Aufgabe festlegt: die Fassung des Textes, Grundwert und Prozentsatz. */
+export function params(aufgabe: ProzentwertAufgabe, _props?: unknown, _lang?: string): Record<string, string> {
+  const einheit = KONTEXTE.find((k) => k.id === aufgabe.kontext)?.einheit ?? "";
+  return {
+    Fassung: aufgabe.kontext,
+    G: tabellenWert(aufgabe.grundwert, einheit),
+    p: tabellenWert(aufgabe.prozentsatz, "%"),
+  };
+}
+
+/** Eine Antwort als Text, wie das Kind sie beschreibt. */
+export const show = (antwort: unknown, aufgabe: ProzentwertAufgabe, _props?: unknown, _lang?: string): string =>
+  zeige(aufgabe, antwort);
+
 /** Die typische falsche Antwort: nicht durch 100 geteilt. */
 export function wrong(aufgabe: ProzentwertAufgabe): Antworten {
   const [feld] = aufgabe.felder;
@@ -117,7 +162,7 @@ export function describe(aufgabe: ProzentwertAufgabe): { task: string; solution:
 export const about = {
   task: "Eine Textaufgabe: Grundwert und Prozentsatz sind gegeben, der Prozentwert ist gesucht. Das Bild zur Aufgabe ist ein Hunderterfeld, in dem der Prozentsatz blau ist.",
   answer:
-    "Eine Zahl in der Einheit des Grundwerts (Euro, Schüler, Personen, mAh, Treffer). Komma oder Punkt, ein Bruch oder ein Term wie 250*12/100 gehen auch.",
+    "Eine Zahl in der Einheit des Grundwerts (Euro, Schüler, Personen, mAh, Treffer), ins Feld getippt, dann „Prüfen“ unter der Aufgabe. Komma oder Punkt, ein Bruch oder ein Term wie 250*12/100 gehen auch.",
   correct:
     "Richtig ist der Prozentwert W = G · p / 100: exakt, oder kaufmännisch gerundet auf die Stellen, die neben dem Feld stehen (Euro auf Cent).",
   mistakes: [MELDUNGEN.prozentStattDezimal, MELDUNGEN.restStattAnteil],

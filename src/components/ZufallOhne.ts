@@ -97,6 +97,36 @@ export function grund(task: OhneAufgabe, answer: OhneAntwort): string {
   return teile.join(" ");
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (task: OhneAufgabe, answer: OhneAntwort, _props?: unknown, _lang?: string): string =>
+  grund(task, answer);
+
+/**
+ * Die Antwort jedes typischen Fehlers aus about.mistakes: ohne Zurücklegen der Wert mit Zurücklegen; ohne Zurücklegen
+ * den Zähler nicht verkleinert (nur, wenn die erste Kugel dieselbe Farbe hat).
+ */
+export function mistakes(task: OhneAufgabe, _props?: unknown): (OhneAntwort | undefined)[] {
+  const mit = text(task.mit);
+  const zweigOhneZaehler = bruch(task.anzZ, task.gesamt - 1);
+  const zaehler = task.art === "zweig" ? zweigOhneZaehler : mal(bruch(task.anzE, task.gesamt), zweigOhneZaehler);
+  return [{ mit, ohne: mit }, task.erster === task.zweiter ? { mit, ohne: text(zaehler) } : undefined].map((a) =>
+    a === undefined || check(task, a) ? undefined : a,
+  );
+}
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Aufgabe}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  "{Aufgabe} Das Bild zeigt die Urne vor und nach dem ersten Zug und die Bäume mit und ohne Zurücklegen. Das Kind tippt (1) den Wert mit und (2) den Wert ohne Zurücklegen.";
+
+/** Was eine Aufgabe festlegt: ihr Text. */
+export const params = (task: OhneAufgabe, _props?: unknown, _lang?: string): Record<string, string> => ({
+  Aufgabe: task.text,
+});
+
+/** Eine Antwort als Text: beide Werte. */
+export const show = (answer: OhneAntwort, _task?: OhneAufgabe, _props?: unknown, _lang?: string): string =>
+  `(1) mit: ${(answer["mit"] ?? "").trim() || "leer"}; (2) ohne: ${(answer["ohne"] ?? "").trim() || "leer"}`;
+
 export function weg(task: OhneAufgabe): string[] {
   const roh = (z: number, n: number) => {
     const kurz = text(bruch(z, n));
@@ -124,7 +154,7 @@ export function describe(task: OhneAufgabe, _props?: unknown, _lang?: string): {
 export const about = {
   task: "Dieselbe Urne mit und ohne Zurücklegen vergleichen: die Wahrscheinlichkeit für die zweite Kugel nach einer bekannten ersten, oder für einen Pfad aus zwei Zügen.",
   answer:
-    "Zwei Wahrscheinlichkeiten, (1) mit und (2) ohne Zurücklegen: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen, Prozent oder Term.",
+    "Zwei Wahrscheinlichkeiten in zwei Feldern, (1) mit und (2) ohne Zurücklegen, dann „Prüfen“ unter der Aufgabe: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen, Prozent oder Term. Nach einer falschen Antwort gibt es „Lösung zeigen“ mit dem Rechenweg.",
   correct:
     "Mit Zurücklegen wie beim ersten Zug; ohne Zurücklegen eine Kugel weniger im Nenner, und im Zähler eine weniger, wenn dieselbe Farbe schon gezogen wurde. Beide Werte richtig.",
   mistakes: [

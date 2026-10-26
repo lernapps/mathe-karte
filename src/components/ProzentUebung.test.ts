@@ -2,7 +2,20 @@
 // Tests dessen, was die Übung (ProzentUebung.vue) prüft und zeigt: Prüfung aller Felder, der Grund einer falschen
 // Antwort in seiner Reihenfolge (leer, fast richtig, Diagnose) und die Beschreibung für die Seite ohne JavaScript.
 import { expect, test } from "vite-plus/test";
-import { type Aufgabe, beschreibe, check, grundFuer, solution, zahlenfeld } from "./ProzentAufgabe.ts";
+import {
+  type Aufgabe,
+  beschreibe,
+  check,
+  fuelle,
+  grundFuer,
+  hatEingabe,
+  nurFalsche,
+  platzhalter,
+  solution,
+  vorlage,
+  zahlenfeld,
+  zeige,
+} from "./ProzentAufgabe.ts";
 import { bruch } from "./ProzentKern.ts";
 
 const aufgabe: Aufgabe = {
@@ -51,4 +64,33 @@ test("Beschreibung: Aufgabe mit Bild und Feldern, Lösung mit Rechenweg", () => 
   expect(loesung).toContain("- Welche Gleichung passt: W = 80 · 12,5 / 100");
   expect(loesung).toContain("- Ergebnis (W): 10 €");
   expect(loesung).toContain("Rechenweg:");
+});
+
+test("die Eingabe zählt erst, wenn ein Feld etwas hat", () => {
+  expect(hatEingabe({ gleichung: "", ergebnis: " " })).toBe(false);
+  expect(hatEingabe({ gleichung: "a", ergebnis: "" })).toBe(true);
+});
+
+test("eine Antwort als Text: jedes Feld mit Beschriftung, Zahl mit Einheit, Auswahl mit ihrem Text", () => {
+  expect(zeige(aufgabe, { gleichung: "a", ergebnis: "10" })).toBe(
+    "Welche Gleichung passt: W = 80 · 12,5 / 100; Ergebnis (W): 10 €",
+  );
+  expect(zeige(aufgabe, { gleichung: "", ergebnis: "10 €" })).toBe("Welche Gleichung passt: leer; Ergebnis (W): 10 €");
+});
+
+test("typische Fehler: eine Antwort, die zufällig richtig ist, zählt nicht", () => {
+  expect(
+    nurFalsche(aufgabe, [{ gleichung: "a", ergebnis: "10" }, { gleichung: "b", ergebnis: "10" }, undefined]),
+  ).toEqual([undefined, { gleichung: "b", ergebnis: "10" }, undefined]);
+});
+
+test("die Vorlage für den Tutor: Platzhalter wie mitEinheit, jede Fassung, ausgefüllt der Text", () => {
+  expect(platzhalter("G", "€").replace(/\s/g, " ")).toBe("{G} €");
+  expect(platzhalter("p", "%").replace(/\s/g, " ")).toBe("{p} %");
+  expect(platzhalter("n")).toBe("{n}");
+  const text = vorlage({ preis: "Ein Rad kostet {G}." }, "Gesucht ist W.");
+  expect(text).toBe(
+    "Der Text der Aufgabe ist je nach {Fassung} einer von diesen: preis: „Ein Rad kostet {G}.“ Gesucht ist W.",
+  );
+  expect(fuelle("Ein Rad kostet {G} €, {x} bleibt.", { G: "250" })).toBe("Ein Rad kostet 250 €, {x} bleibt.");
 });

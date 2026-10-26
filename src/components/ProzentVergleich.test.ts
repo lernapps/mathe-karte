@@ -1,6 +1,8 @@
 // Use Case: Prozentrechnung üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel prozent).
 // Tests der Übung „Zwei Werte vergleichen“.
 import { expect, test } from "vite-plus/test";
+import { fuelle } from "./ProzentAufgabe.ts";
+import * as tabelle from "./ProzentVergleich.ts";
 import { MELDUNGEN, check, describe, generate, grund, solution, wrong } from "./ProzentVergleich.ts";
 
 test("Aufgabe 1: Ben 168 cm, Mia 192 cm, um wie viel Prozent ist Ben kleiner?", () => {
@@ -25,4 +27,27 @@ test("jede Aufgabe: Werte im Bereich, Lösung richtig, Bezug verwechselt falsch"
     expect(grund(a, wrong(a))).toBe(MELDUNGEN.bezugVerwechselt);
   }
   expect(describe(generate(1)).task).toContain("? % weniger");
+});
+
+test("für den Tutor: der Text aus Fassung und Werten, typische Fehler mit ihrer Meldung, Antworten als Text", () => {
+  const { MELDUNGEN, about, check, fassungen, generate, mistakes, params, reason, show, solution, template } = tabelle;
+  const meldungen: string[] = Object.values(MELDUNGEN);
+  expect(template()).toContain("{Fassung}");
+  for (let seed = 1; seed <= 67; seed++) {
+    const aufgabe = generate(seed);
+    const werte = params(aufgabe);
+    expect(fuelle(fassungen()[werte["Fassung"] ?? ""] ?? "", werte)).toBe(aufgabe.text);
+    expect(show(solution(aufgabe), aufgabe)).not.toBe("");
+    const fehler = mistakes(aufgabe);
+    expect(fehler).toHaveLength(about.mistakes.length);
+    fehler.forEach((antwort, i) => {
+      if (antwort === undefined) return;
+      expect(check(aufgabe, antwort)).toBe(false);
+      const meldung = reason(aufgabe, antwort, undefined, "de");
+      const text = about.mistakes[i] ?? "";
+      if (text !== MELDUNGEN.falsch) expect(meldung, `Nr. ${seed}, Fehler ${i}`).not.toBe(MELDUNGEN.falsch);
+      // die Meldung eines typischen Fehlers; liegen zwei auf derselben Zahl, die des ersten
+      expect(meldungen.some((m) => meldung.includes(m.split(/[:.]/)[0] ?? m))).toBe(true);
+    });
+  }
 });

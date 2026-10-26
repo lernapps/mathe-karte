@@ -94,7 +94,6 @@ blocks:
         props:
           frage: "Rechne geschickt im Kopf:"
           frageFormel: Welche Formel hilft?
-          pruefen: Prüfen
           loesungZeigen: Lösung zeigen
           tipp: Tipp
           rechenweg: "Lösung:"

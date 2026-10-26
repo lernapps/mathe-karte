@@ -9,6 +9,7 @@ import {
   formatWert,
   formatZahl,
   loesungsText,
+  mitEinheit,
   MELDUNG_KEINE_ZAHL,
   pruefeZahl,
   runde,
@@ -159,6 +160,70 @@ export function beschreibe(aufgabe: Aufgabe): { task: string; solution: string }
 }
 
 export { MELDUNG_KEINE_ZAHL };
+
+// Die Eingabe der Übung (ProzentUebung.vue) und die Tabelle der Aufgaben für den Tutor
+
+/** Ob das Kind schon etwas eingegeben oder gewählt hat; sonst gibt die Übung keine Antwort weiter. */
+export const hatEingabe = (antworten: Readonly<Antworten>): boolean =>
+  Object.values(antworten).some((wert) => wert.trim() !== "");
+
+/** Eine Auswahl kurz, wie das Kind sie nennt: „Grundwert G“ statt „Grundwert G (das Ganze, 100 %)“. */
+const kurz = (text: string): string => text.replace(/\s*\(.*\)$/, "");
+
+/**
+ * Eine Antwort als kurzer Text, wie das Kind sie beschreibt: jede Zahl mit der Einheit ihres Felds, jede Auswahl mit
+ * ihrem Text; bei mehreren Feldern jedes mit seiner Beschriftung, ein leeres als „leer“.
+ */
+export function zeige(aufgabe: Aufgabe, antwort: unknown): string {
+  const antworten = alsAntworten(antwort);
+  const teile = aufgabe.felder.map((feld) => {
+    const eingabe = (antworten[feld.id] ?? "").trim();
+    let wert = "leer";
+    if (feld.typ === "zahl") {
+      if (eingabe !== "")
+        wert = feld.einheit === "" || eingabe.endsWith(feld.einheit) ? eingabe : `${eingabe} ${feld.einheit}`;
+    } else if (eingabe !== "") {
+      wert = kurz(feld.optionen.find((option) => option.wert === eingabe)?.text ?? eingabe);
+    }
+    if (aufgabe.felder.length === 1) return wert;
+    // „1 % sind 26 mAh“, „490 € ist Grundwert G“, sonst „Ergebnis (W): 10 €“
+    const label = feld.label.replace(/\s*[?:…]$/, "");
+    return /\s(sind|ist)$/.test(label) ? `${label} ${wert}` : `${label}: ${wert}`;
+  });
+  return teile.join("; ");
+}
+
+/** Die Antworten typischer Fehler; eine, die zufällig richtig ist, gilt nicht (undefined). */
+export const nurFalsche = (
+  aufgabe: Aufgabe,
+  antworten: readonly (Antworten | undefined)[],
+): (Antworten | undefined)[] => antworten.map((a) => (a === undefined || check(aufgabe, a) ? undefined : a));
+
+/** Die Eingabe für den Wert `wert` eines Zahlenfelds, so wie das Kind sie tippt (gerundet wie die Lösung). */
+export function eingabeVon(aufgabe: Aufgabe, id: string, wert: Bruch): Antworten {
+  const feld = aufgabe.felder.find((f) => f.id === id);
+  return { [id]: feld?.typ === "zahl" ? loesungsText(wert, feld.art, feld.stellen) : "" };
+}
+
+/** Der Platzhalter {name} einer Zahl mit ihrer Einheit, so wie mitEinheit sie schreibt: „{G} €“. */
+export const platzhalter = (name: string, einheit = ""): string =>
+  mitEinheit(0, einheit).replace(formatWert(0, einheit), `{${name}}`);
+
+/** Eine Zahl als Wert der Tabelle, so wie der Text der Aufgabe sie schreibt (ohne Einheit). */
+export const tabellenWert = (x: number, einheit = ""): string => formatWert(x, einheit);
+
+/**
+ * Die Aufgabe für den Tutor, einmal: welche Fassung des Textes gilt ({Fassung}), jede Fassung mit ihren
+ * Platzhaltern, dann was das Kind tut.
+ */
+export function vorlage(fassungen: Readonly<Record<string, string>>, auftrag: string): string {
+  const liste = Object.entries(fassungen).map(([name, text]) => `${name}: „${text}“`);
+  return `Der Text der Aufgabe ist je nach {Fassung} einer von diesen: ${liste.join(" ")} ${auftrag}`;
+}
+
+/** Ein Text mit {name} für jeden Wert aus `werte`, ausgefüllt. */
+export const fuelle = (text: string, werte: Readonly<Record<string, string | number>>): string =>
+  text.replace(/\{([^{}\s]+)\}/g, (platz, name: string) => String(werte[name] ?? platz));
 
 // Schöne Zahlen und Kontexte
 

@@ -1,5 +1,6 @@
 // Use Case: Wahrscheinlichkeit üben – Aufgabe, Bild, Prüfung und Rückmeldung (QZ-3, Kapitel zufall).
 import { describe, expect, test } from "vite-plus/test";
+import * as tabelle from "./ZufallPfad.ts";
 import { ADDIERT, check, describe as beschreibe, generate, grund, solution, TIPP, wrong } from "./ZufallPfad.ts";
 import { lies, mal, produkt, text } from "./ZufallBruch.ts";
 
@@ -36,4 +37,25 @@ describe("1. Pfadregel", () => {
     expect(d.task).toContain("Wie groß ist P(");
     expect(d.solution).toContain("1. Pfadregel");
   });
+});
+
+test("für den Tutor: Vorlage und Werte geben den Text, typische Fehler sind falsch und haben eine Meldung", () => {
+  const { about, check, generate, mistakes, params, reason, show, solution, template } = tabelle;
+  const props = undefined;
+  const fuelle = (text: string, werte: Record<string, string | number>) =>
+    text.replace(/\{([^{}\s]+)\}/g, (platz, name: string) => String(werte[name] ?? platz));
+  for (let seed = 1; seed <= 67; seed++) {
+    const aufgabe = generate(seed, props);
+    const werte = params(aufgabe, props, "de");
+    for (const wert of Object.values(werte)) expect(String(wert).trim()).not.toBe("");
+    expect(fuelle(template(props, "de"), werte).startsWith(aufgabe.text)).toBe(true);
+    expect(show(solution(aufgabe) as never, aufgabe, props, "de").trim()).not.toBe("");
+    const fehler = mistakes(aufgabe, props);
+    expect(fehler).toHaveLength(about.mistakes.length);
+    for (const antwort of fehler) {
+      if (antwort === undefined) continue;
+      expect(check(aufgabe, antwort as never)).toBe(false);
+      expect(reason(aufgabe, antwort as never, props, "de")).not.toBe("");
+    }
+  }
 });

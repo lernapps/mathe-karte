@@ -9,10 +9,16 @@ import {
   bildWert,
   check,
   eingabeFuer,
+  eingabeVon,
   grundFuer,
+  nurFalsche,
+  platzhalter,
   solution,
+  tabellenWert,
+  vorlage,
   waehleGrundwert,
   zahlenfeld,
+  zeige,
 } from "./ProzentAufgabe.ts";
 import {
   alsBruch,
@@ -34,6 +40,7 @@ export { check, solution };
 
 type Frage = "groesser" | "kleiner";
 interface Kontext {
+  id: string;
   einheit: string;
   min: number;
   max: number;
@@ -50,6 +57,7 @@ interface Kontext {
 const KONTEXTE: readonly Kontext[] = [
   // bei Preisen sagt man „teurer“ und „billiger“
   {
+    id: "laden",
     einheit: "€",
     min: 20,
     max: 500,
@@ -63,6 +71,7 @@ const KONTEXTE: readonly Kontext[] = [
     frage: (v, bezug, wort) => `Um wie viel Prozent ist der Rucksack in ${v} ${wort} als in ${bezug}?`,
   },
   {
+    id: "spiel",
     einheit: "Punkte",
     min: 20,
     max: 200,
@@ -74,6 +83,7 @@ const KONTEXTE: readonly Kontext[] = [
     dingB: "das Ergebnis im zweiten Spiel",
   },
   {
+    id: "groesse",
     einheit: "cm",
     min: 120,
     max: 200,
@@ -85,6 +95,7 @@ const KONTEXTE: readonly Kontext[] = [
     dingB: "Mia",
   },
   {
+    id: "schule",
     einheit: "Schüler",
     min: 200,
     max: 1000,
@@ -98,7 +109,25 @@ const KONTEXTE: readonly Kontext[] = [
 ];
 const SAETZE = PROZENTSAETZE.filter((p) => p <= 60);
 
+const wortVon = (k: Kontext, frage: Frage): string =>
+  k.woerter?.[frage] ?? (frage === "groesser" ? "größer" : "kleiner");
+
+/** Der Text: die Werte `a` und `b` (mit Einheit) und die Frage; `vergleichA`: der erste Wert wird verglichen. */
+function textVon(k: Kontext, frage: Frage, vergleichA: boolean, a: string, b: string): string {
+  const [dingV, dingBezug] = vergleichA ? [k.dingA, k.dingB] : [k.dingB, k.dingA];
+  const wort = wortVon(k, frage);
+  const satz = k.frage ? k.frage(dingV, dingBezug, wort) : `Um wie viel Prozent ist ${dingV} ${wort} als ${dingBezug}?`;
+  return `${k.nameA} ${a}, ${k.nameB} ${b}. ${satz}`;
+}
+
+const fassungVon = (k: Kontext, frage: Frage, vergleichA: boolean): string =>
+  `${k.id}-${frage}-${vergleichA ? "A" : "B"}`;
+
 export interface VergleichAufgabe extends Aufgabe {
+  /** Die Fassung des Textes: Kontext, Frage und ob der erste Wert der Vergleichswert ist („laden-groesser-A“). */
+  fassung: string;
+  /** Die beiden Werte im Text, in ihrer Reihenfolge, ohne Einheit. */
+  zahlen: [string, string];
   bezug: number;
   vergleich: number;
 }
@@ -131,11 +160,9 @@ export function generate(seed: number): VergleichAufgabe {
   const exakt = mal(durch(unterschied, alsBruch(bezug)), bruch(100));
   const prozentsatz = runde(zahl(exakt), 2);
   const andererSatz = runde(((gross - klein) / vergleich) * 100, 1);
-  const [dingV, dingBezug] = vergleich === a ? [k.dingA, k.dingB] : [k.dingB, k.dingA];
-  const wort = k.woerter?.[frage] ?? (frage === "groesser" ? "größer" : "kleiner");
-  const text = `${k.nameA} ${mitEinheit(a, einheit)}, ${k.nameB} ${mitEinheit(b, einheit)}. ${
-    k.frage ? k.frage(dingV, dingBezug, wort) : `Um wie viel Prozent ist ${dingV} ${wort} als ${dingBezug}?`
-  }`;
+  const dingBezug = vergleich === a ? k.dingB : k.dingA;
+  const wort = wortVon(k, frage);
+  const text = textVon(k, frage, vergleich === a, mitEinheit(a, einheit), mitEinheit(b, einheit));
   const zeichen = gleichheitszeichen(zahl(exakt), prozentsatz);
   const etwa = gleichheitszeichen(((gross - klein) / vergleich) * 100, andererSatz) === "=" ? "" : "etwa ";
   const d = formatWert(gross - klein, einheit);
@@ -153,6 +180,8 @@ export function generate(seed: number): VergleichAufgabe {
     ],
   });
   return {
+    fassung: fassungVon(k, frage, vergleich === a),
+    zahlen: [tabellenWert(a, einheit), tabellenWert(b, einheit)],
     bezug,
     vergleich,
     text,
@@ -203,6 +232,50 @@ export function grund(aufgabe: VergleichAufgabe, antwort: unknown): string {
   );
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (aufgabe: VergleichAufgabe, antwort: unknown, _props?: unknown, _lang?: string): string =>
+  grund(aufgabe, antwort);
+
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: Bezug verwechselt, nur der Unterschied, das Verhältnis. */
+export function mistakes(aufgabe: VergleichAufgabe, _props?: unknown): (Antworten | undefined)[] {
+  const u = unterschiedVon(aufgabe);
+  const [bezug, vergleich] = [alsBruch(aufgabe.bezug), alsBruch(aufgabe.vergleich)];
+  return nurFalsche(
+    aufgabe,
+    [mal(durch(u, vergleich), bruch(100)), u, mal(durch(vergleich, bezug), bruch(100))].map((wert) =>
+      eingabeVon(aufgabe, "prozentsatz", wert),
+    ),
+  );
+}
+
+/** Die Fassungen des Textes, je Kontext, Frage und Vergleichswert, mit {A} und {B}. */
+export const fassungen = (): Record<string, string> =>
+  Object.fromEntries(
+    KONTEXTE.flatMap((k) =>
+      (["groesser", "kleiner"] as const).flatMap((frage) =>
+        [true, false].map((vergleichA) => [
+          fassungVon(k, frage, vergleichA),
+          textVon(k, frage, vergleichA, platzhalter("A", k.einheit), platzhalter("B", k.einheit)),
+        ]),
+      ),
+    ),
+  );
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Fassung}, {A} und {B}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  vorlage(fassungen(), "Gesucht ist der Prozentsatz, die Bezugsgröße (100 %) steht nach „als“.");
+
+/** Was eine Aufgabe festlegt: die Fassung des Textes und die beiden Werte. */
+export const params = (aufgabe: VergleichAufgabe, _props?: unknown, _lang?: string): Record<string, string> => ({
+  Fassung: aufgabe.fassung,
+  A: aufgabe.zahlen[0],
+  B: aufgabe.zahlen[1],
+});
+
+/** Eine Antwort als Text, wie das Kind sie beschreibt. */
+export const show = (antwort: unknown, aufgabe: VergleichAufgabe, _props?: unknown, _lang?: string): string =>
+  zeige(aufgabe, antwort);
+
 /** Die typische falsche Antwort: durch den anderen Wert geteilt. */
 export function wrong(aufgabe: VergleichAufgabe): Antworten {
   return { prozentsatz: eingabeFuer((zahl(unterschiedVon(aufgabe)) / aufgabe.vergleich) * 100) };
@@ -214,7 +287,8 @@ export function describe(aufgabe: VergleichAufgabe): { task: string; solution: s
 
 export const about = {
   task: "Zwei Werte (Preise, Punkte, Größen, Schülerzahlen) und die Frage, um wie viel Prozent der eine größer oder kleiner ist als der andere. Das Bild zur Aufgabe zeigt Bezugsgröße und Vergleichswert als Balken.",
-  answer: "Der Prozentsatz als Zahl in Prozent; Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
+  answer:
+    "Der Prozentsatz als Zahl in Prozent, ins Feld getippt, dann „Prüfen“ unter der Aufgabe; Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
   correct:
     "p = Unterschied / Bezugsgröße · 100, die Bezugsgröße ist der Wert nach „als“; exakt oder kaufmännisch gerundet auf mindestens eine Nachkommastelle.",
   mistakes: [MELDUNGEN.bezugVerwechselt, MELDUNGEN.differenzStattProzent, MELDUNGEN.verhaeltnisStattUnterschied],

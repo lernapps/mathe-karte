@@ -4,16 +4,23 @@ import {
   type Antworten,
   type Aufgabe,
   type KontextId,
+  KONTEXTE,
   RABATTE,
   beschreibe,
   bildWert,
   check,
   eingabeFuer,
   erzeugeTripel,
+  eingabeVon,
   grundFuer,
+  nurFalsche,
+  platzhalter,
   solution,
+  tabellenWert,
+  vorlage,
   waehleKontext,
   zahlenfeld,
+  zeige,
 } from "./ProzentAufgabe.ts";
 import {
   alsBruch,
@@ -46,6 +53,7 @@ const TEXTE: Readonly<Record<KontextId, (w: string, p: string) => string>> = {
 const W_EINHEIT: Partial<Record<KontextId, string>> = { klasse: "Schüler", sport: "Treffer" };
 
 export interface GrundwertAufgabe extends Aufgabe {
+  kontext: KontextId;
   prozentsatz: number;
   prozentwert: number;
 }
@@ -60,6 +68,7 @@ export function generate(seed: number): GrundwertAufgabe {
   const titel = `${formatZahl(prozentsatz)} % = ${bildWert(prozentwert, wEinheit)}`;
   const ergebnis = mitEinheit(grundwert, einheit);
   return {
+    kontext: kontext.id,
     prozentsatz,
     prozentwert,
     text: TEXTE[kontext.id](mitEinheit(prozentwert, wEinheit), mitEinheit(prozentsatz, "%")),
@@ -101,6 +110,45 @@ export function grund(aufgabe: GrundwertAufgabe, antwort: unknown): string {
   );
 }
 
+/** Die Meldung der App zu einer falschen Antwort (Vertrag der Übung): grund. */
+export const reason = (aufgabe: GrundwertAufgabe, antwort: unknown, _props?: unknown, _lang?: string): string =>
+  grund(aufgabe, antwort);
+
+/** Die Antwort jedes typischen Fehlers aus about.mistakes: p % vom Prozentwert, erst 1 %. */
+export function mistakes(aufgabe: GrundwertAufgabe, _props?: unknown): (Antworten | undefined)[] {
+  const [feld] = aufgabe.felder;
+  if (feld?.typ !== "zahl") return [undefined, undefined];
+  const vomTeil = durch(mal(alsBruch(aufgabe.prozentwert), alsBruch(aufgabe.prozentsatz)), bruch(100));
+  return nurFalsche(aufgabe, [
+    eingabeVon(aufgabe, "grundwert", vomTeil),
+    eingabeVon(aufgabe, "grundwert", durch(feld.exakt, bruch(100))),
+  ]);
+}
+
+/** Die Fassungen des Textes, je Kontext, mit {W} und {p}. */
+export const fassungen = (): Record<string, string> =>
+  Object.fromEntries(
+    KONTEXTE.map((k) => [k.id, TEXTE[k.id](platzhalter("W", W_EINHEIT[k.id] ?? k.einheit), platzhalter("p", "%"))]),
+  );
+
+/** Die Aufgabe, wie das Kind sie liest, mit {Fassung}, {W} und {p}. */
+export const template = (_props?: unknown, _lang?: string): string =>
+  vorlage(fassungen(), "Gesucht ist der Grundwert G (das Ganze).");
+
+/** Was eine Aufgabe festlegt: die Fassung des Textes, der Prozentwert und der Prozentsatz. */
+export function params(aufgabe: GrundwertAufgabe, _props?: unknown, _lang?: string): Record<string, string> {
+  const einheit = KONTEXTE.find((k) => k.id === aufgabe.kontext)?.einheit ?? "";
+  return {
+    Fassung: aufgabe.kontext,
+    W: tabellenWert(aufgabe.prozentwert, W_EINHEIT[aufgabe.kontext] ?? einheit),
+    p: tabellenWert(aufgabe.prozentsatz, "%"),
+  };
+}
+
+/** Eine Antwort als Text, wie das Kind sie beschreibt. */
+export const show = (antwort: unknown, aufgabe: GrundwertAufgabe, _props?: unknown, _lang?: string): string =>
+  zeige(aufgabe, antwort);
+
 /** Die typische falsche Antwort: erst 1 %, nicht mal 100 genommen. */
 export function wrong(aufgabe: GrundwertAufgabe): Antworten {
   const [feld] = aufgabe.felder;
@@ -114,7 +162,7 @@ export function describe(aufgabe: GrundwertAufgabe): { task: string; solution: s
 export const about = {
   task: "Eine Textaufgabe: Prozentwert und Prozentsatz sind gegeben, der Grundwert (das Ganze) ist gesucht. Das Bild zur Aufgabe ist ein Hunderterfeld mit dem bekannten Teil in Blau.",
   answer:
-    "Eine Zahl in der Einheit des Ganzen (Euro, Schüler, Personen, mAh, Würfe); Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
+    "Eine Zahl in der Einheit des Ganzen (Euro, Schüler, Personen, mAh, Würfe), ins Feld getippt, dann „Prüfen“ unter der Aufgabe; Komma oder Punkt, ein Bruch oder ein Term gehen auch.",
   correct: "Richtig ist G = W · 100 / p: exakt, oder kaufmännisch gerundet auf die Stellen, die neben dem Feld stehen.",
   mistakes: [MELDUNGEN.prozentwertStattGrundwert, MELDUNGEN.nurEinProzent],
 };

@@ -1,39 +1,43 @@
 <script setup lang="ts">
-// Übung "Geschickt rechnen": zeigt eine Kopfrechenaufgabe der Aufgabennummer (seed), fragt nach der Formel, die
-// hilft, und nach dem Ergebnis, prüft beides (BinomKopfrechnen.ts) und meldet es mit dem Grund eines Fehlers
-// (answered). Das Flächenbild zeigt erst nach dem Prüfen die Zerlegung, nach der richtigen Antwort mit den Werten.
-import { computed, ref, useId } from "vue";
+// Übung "Geschickt rechnen": zeigt eine Kopfrechenaufgabe der Aufgabennummer (seed) und fragt nach der Formel, die
+// hilft, und nach dem Ergebnis. Sie ist die Eingabe der Aufgabe: Sie gibt beides mit answer weiter (undefined, solange
+// nichts gewählt und getippt ist); „Prüfen“ und die Rückmeldung kommen vom explainer (BinomKopfrechnen.ts). Das
+// Flächenbild zeigt erst nach dem ersten Prüfen (checked) die Zerlegung, nach der richtigen Antwort mit den Werten.
+import { computed, ref, useId, watch } from "vue";
 import BinomSvg from "./BinomSvg.vue";
-import { FORMELN, check, generate, grund, kopfBild, schrittText } from "./BinomKopfrechnen.ts";
+import { FORMELN, antwortAus, check, generate, kopfBild, schrittText } from "./BinomKopfrechnen.ts";
 
 const props = defineProps<{
   seed: number;
   frage: string;
   frageFormel: string;
-  pruefen: string;
   loesungZeigen: string;
   tipp: string;
   rechenweg: string;
+  checked: boolean;
 }>();
-const emit = defineEmits<{ answered: [{ correct: boolean; reason: string }] }>();
+const emit = defineEmits<{ answer: [{ formel: string; ergebnis: string } | undefined] }>();
 
 const aufgabe = computed(() => generate(props.seed, {}));
 const formel = ref("");
 const ergebnis = ref("");
+// einmal geprüft, bleibt die Zerlegung im Bild
 const geprueft = ref(false);
-const richtig = ref(false);
+watch(
+  () => props.checked,
+  (jetzt) => {
+    if (jetzt) geprueft.value = true;
+  },
+);
 const loesungOffen = ref(false);
+const richtig = computed(
+  () => props.checked && check(aufgabe.value, { formel: formel.value, ergebnis: ergebnis.value }),
+);
 const geloest = computed(() => richtig.value || loesungOffen.value);
 const bild = computed(() => kopfBild(aufgabe.value, geloest.value ? "geloest" : geprueft.value ? "geprueft" : "neu"));
 const id = useId();
 
-function pruefe(): void {
-  const antwort = { formel: formel.value, ergebnis: ergebnis.value };
-  const korrekt = check(aufgabe.value, antwort);
-  geprueft.value = true;
-  richtig.value = korrekt;
-  emit("answered", { correct: korrekt, reason: grund(aufgabe.value, antwort) });
-}
+watch([formel, ergebnis], () => emit("answer", antwortAus(formel.value, ergebnis.value)));
 </script>
 
 <template>
@@ -42,7 +46,7 @@ function pruefe(): void {
       {{ frage }} <strong class="binom-term">{{ aufgabe.rechnung }}</strong>
     </p>
     <BinomSvg :zeichnung="bild" />
-    <form class="binom-form" @submit.prevent="pruefe">
+    <div class="binom-form">
       <fieldset class="binom-wahl">
         <legend>{{ frageFormel }}</legend>
         <label v-for="f in FORMELN" :key="f.wert">
@@ -59,13 +63,12 @@ function pruefe(): void {
         inputmode="numeric"
         autocomplete="off"
       />
-      <span class="binom-knoepfe">
-        <button type="submit">{{ pruefen }}</button>
-        <button v-if="geprueft && !geloest" type="button" class="binom-zweit" @click="loesungOffen = true">
+      <span v-if="geprueft && !geloest" class="binom-knoepfe">
+        <button type="button" class="binom-zweit" @click="loesungOffen = true">
           {{ loesungZeigen }}
         </button>
       </span>
-    </form>
+    </div>
     <details v-if="!geloest" class="binom-tipp">
       <summary>{{ tipp }}</summary>
       <p>{{ aufgabe.tipp }}</p>
