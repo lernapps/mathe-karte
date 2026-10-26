@@ -11,7 +11,7 @@
     "prepare": "lernapps hooks"
   },
   "devDependencies": {
-    "@lernapps/app-templates": "github:lernapps/app-templates#648acfbc8a3b5f2820fa1d5a88ec045cf350f3e2",
+    "@lernapps/app-templates": "github:lernapps/app-templates#dac2a24b79d584237012928624891d4a6d079198",
     "@lernapps/tooling": "github:lernapps/tooling#0deff1055664cbe93de50b4f1e31d28003b49c66",
     "fast-check": "4.10.2",
     "typescript": "6.0.3",
