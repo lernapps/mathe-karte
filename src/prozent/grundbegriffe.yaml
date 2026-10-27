@@ -1,0 +1,143 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Grundwert, Prozentwert und Prozentsatz erkennen
+description: >-
+  Grundwert, Prozentwert und Prozentsatz in Textaufgaben erkennen: Erklärung, Beispiel, Hunderterfeld und
+  Zuordnungsübungen.
+blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Die meisten Fehler in der Prozentrechnung passieren, bevor du überhaupt rechnest: Die Zahlen landen an der
+          falschen Stelle. Wenn du in jeder Textaufgabe sofort siehst, was das Ganze, der Teil und der Prozentsatz ist,
+          hast du die Aufgabe schon halb gelöst – und weißt, welche Formel dran ist.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: definition
+        term: Grundwert
+        explanation: >-
+          Der Grundwert $G$ ist das Ganze, auf das sich die Prozente beziehen: 100 %. Du erkennst ihn an „von …“, am
+          vollen Preis, an der ganzen Klasse, an allen Befragten.
+      - type: definition
+        term: Prozentwert
+        explanation: >-
+          Der Prozentwert $W$ ist der Teil vom Ganzen. Er hat dieselbe Einheit wie der Grundwert (€, Schüler,
+          Personen) und ist meist kleiner als der Grundwert.
+      - type: definition
+        term: Prozentsatz
+        explanation: Der Prozentsatz $p\,\%$ ist der Anteil in Hundertsteln. Er ist die Zahl mit dem %-Zeichen.
+      - type: table
+        caption: Die drei Größen und woran du sie erkennst
+        header: [Größe, Bedeutung, Woran du sie erkennst]
+        rows:
+          - ["**Grundwert** $G$", "das Ganze, 100 %", "„von …“, der volle Preis, die ganze Klasse, alle Befragten"]
+          - [
+              "**Prozentwert** $W$",
+              "der Teil vom Ganzen",
+              "dieselbe Einheit wie $G$ (€, Schüler, Personen), meist kleiner als $G$",
+            ]
+          - ["**Prozentsatz** $p\\,\\%$", "der Anteil in Hundertsteln", "die Zahl mit dem %-Zeichen"]
+      - type: text
+        text: "Die drei Größen hängen über drei Formeln zusammen, je nachdem, welche gesucht ist:"
+      - type: formula
+        formula: 'W = \frac{G \cdot p}{100}'
+      - type: formula
+        formula: 'p = \frac{W}{G} \cdot 100'
+      - type: formula
+        formula: 'G = \frac{W \cdot 100}{p}'
+      - type: note
+        title: Merkhilfe
+        blocks:
+          - type: text
+            text: >-
+              Der Grundwert ist das Ganze, auf das sich die Prozente beziehen. Frag dich: „$p\,\%$ wovon?“ – die
+              Antwort ist der Grundwert.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Rabatt auf ein Fahrrad
+        blocks:
+          - type: text
+            text: "„Ein Fahrrad kostet 250 €. Im Angebot gibt es 12 % Rabatt. Wie viel Euro sparst du?“"
+          - type: table
+            caption: Welche Zahl welche Größe ist
+            rowHeaders: true
+            rows:
+              - ["250 €", "Grundwert $G$ – der volle Preis, das Ganze. 12 % *von 250 €*."]
+              - ["12 %", "Prozentsatz $p$ – die Zahl mit dem %-Zeichen."]
+              - ["Gesucht: der Rabatt in Euro", "Prozentwert $W$ – ein Teil des Preises, in Euro."]
+          - type: text
+            text: 'Jetzt ist klar, welche Formel passt: $W = \frac{250 \cdot 12}{100} = 30$, du sparst also 30 €.'
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        draw: { kind: hundred-grid, filled: 12 }
+        alt: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau.
+        caption: >-
+          Das ganze Feld (100 Kästchen) ist der Grundwert 250 €. Jedes Kästchen ist 1 %. Die 12 blauen Kästchen stehen
+          für den Prozentwert 30 €; der Prozentsatz ist 12 %.
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: video
+        youtube: tsAZSNrwJLE
+        title: "Dreisatz - Grundwert - Prozentwert - Prozentsatz | Lehrerschmidt | Klasse 7"
+        channel: Lehrerschmidt
+      - type: text
+        text: >-
+          Noch eine Erklärung in anderen Worten: [Einführung in Grundwert, Prozentwert und
+          Prozentsatz](https://de.serlo.org/mathe/36750/einfuehrung-in-grundwert-prozentwert-und-prozentsatz) bei
+          serlo.org.
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: vue-component
+        id: grundbegriffe-aufgabe
+        component: ProzentGrundbegriffe
+        examples:
+          accepted:
+            - { answer: { zahl1: "G", zahl2: "W", gesucht: "p" }, seed: 1 }
+            - { answer: { zahl1: "G", zahl2: "p", gesucht: "W" }, seed: 2 }
+          rejected:
+            - { answer: { zahl1: "W", zahl2: "G", gesucht: "p" }, seed: 1 }
+            - { answer: { zahl1: "G", zahl2: "W", gesucht: "" }, seed: 1 }
+            - { answer: { zahl1: "p", zahl2: "G", gesucht: "W" }, seed: 2 }
+      - type: single-choice
+        id: grundbegriffe-wovon
+        text: "„In der Klasse 8b sind 25 Schüler. 40 % von ihnen spielen im Verein Fußball.“ Welche Zahl ist der Grundwert?"
+        options:
+          - text: 25 Schüler
+            correct: true
+            info: Die ganze Klasse ist das Ganze, also 100 %. Die 40 % beziehen sich auf sie.
+          - text: 40 %
+            correct: false
+            info: Die Zahl mit dem %-Zeichen ist immer der Prozentsatz, nie der Grundwert.
+          - text: 10 Schüler
+            correct: false
+            info: >-
+              10 Schüler sind 40 % von 25 Schülern, also der Prozentwert: ein Teil der Klasse. Die Zahl steht nicht im
+              Text, du müsstest sie erst ausrechnen.
+        explanation: Frag dich „40 % wovon?“ – von den 25 Schülern der Klasse. Also sind 25 Schüler der Grundwert.
+        links:
+          - title: Einführung in Grundwert, Prozentwert und Prozentsatz (serlo.org)
+            url: "https://de.serlo.org/mathe/36750/einfuehrung-in-grundwert-prozentwert-und-prozentsatz"
+      - type: true-false
+        id: grundbegriffe-einheit
+        text: Der Prozentwert hat dieselbe Einheit wie der Grundwert.
+        answer: true
+        explanation: >-
+          Der Prozentwert ist ein Teil des Grundwerts: Sind es beim Grundwert Euro, sind es auch beim Prozentwert Euro.
+          Nur der Prozentsatz hat das %-Zeichen.
+        links:
+          - title: Einführung in Grundwert, Prozentwert und Prozentsatz (serlo.org)
+            url: "https://de.serlo.org/mathe/36750/einfuehrung-in-grundwert-prozentwert-und-prozentsatz"

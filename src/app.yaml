@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Mathe-Karte
+intro: |
+  Prozentrechnung, binomische Formeln und Wahrscheinlichkeit für die Klassen 7 und 8. Jede Seite erklärt eine Sache
+  mit Regel, Beispiel und Bild und hat Übungsaufgaben, die sofort sagen, ob das Ergebnis stimmt.
+languages: [de]
+chapters: [prozent, binom, zufall]
+sources:
+  - title: Kerncurriculum Mathematik Sekundarstufe I, Hessisches Kultusministerium
+    url: https://kultusministerium.hessen.de/unterricht/kerncurricula/sekundarstufe-i/mathematik
+  - title: Prozentrechnung mittels Formeln (serlo.org)
+    url: https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln
+  - title: Binomische Formeln (serlo.org)
+    url: https://de.serlo.org/mathe/1499/binomische-formeln
+  - title: Pfadregeln (serlo.org)
+    url: https://de.serlo.org/mathe/189811/pfadregeln
+  - title: Erklärvideos von Lehrerschmidt (YouTube), auf jeder Seite unter „Video dazu“ verlinkt
+    url: https://www.youtube.com/@Lehrerschmidt
+tutor:
+  rules: |
+    - Gerechnet wird auf Papier und in der App, nicht im Chat. Das Ergebnis tippt das Kind in die App; im Chat
+      stellst du Überschlags- und Warum-Fragen.
+    - Erklär am Bild der Seite (Abschnitt „Bild“), nicht abstrakt: Frag zuerst „Was siehst du?“.
+    - Macht das Kind einen typischen Fehler, benenne die Idee hinter dem Fehler, nicht nur „falsch“. Zum Beispiel:
+      „Du hast $x^2 + 16$ geschrieben. Wie viele Teilflächen hat das Quadrat mit der Seite $x + 4$?“
+    - Eine Seite ist erst geschafft, wenn drei Aufgaben richtig waren und das Kind eine davon erklären kann. Dann
+      bittest du um eine Aufgabe ganz von Hand, als Foto nur vom Blatt, ohne Namen. Prüf jeden Schritt; ist einer
+      falsch, nenn den ersten und stell eine Leitfrage dazu, statt ihn zu verbessern.
+    - Terme tippt das Kind mit dem Zeichen ^ für Hochzahlen, zum Beispiel x^2+6x+9 für $x^2 + 6x + 9$. Brüche wie 3/8
+      sind erlaubt.
+    - Empfiehl das Video unter „Video dazu“, wenn das Kind die Erklärung zweimal nicht wiedergeben kann; sonst
+      zuerst Aufgaben. Hat die Seite einen Link zu serlo.org, ist er die zweite Erklärung in anderen Worten, wenn
+      Regel, Beispiel und Video nicht gereicht haben.

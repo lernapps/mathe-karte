@@ -1,0 +1,114 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Binome rückwärts
+description: "Binome rückwärts: x² + 6x + 9 = (x + 3)², x² − 16 = (x + 4)(x − 4). Faktorisieren und Lücken ergänzen, mit Flächenbild und Übungsaufgaben mit Sofort-Feedback."
+blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Bisher hast du Klammern aufgelöst. Oft brauchst du den umgekehrten Weg: Aus $x^2 + 6x + 9$ wird wieder $(x + 3)^2$. Das nennt man faktorisieren. Ein Produkt verrät mehr als eine Summe – zum Beispiel, wann ein Term null wird oder wie sich ein Bruch kürzen lässt. Später beim Lösen quadratischer Gleichungen („quadratische Ergänzung“) ist genau dieser Blick der entscheidende Schritt.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: formula
+        formula: "a^2 + 2ab + b^2 = (a + b)^2"
+      - type: formula
+        formula: "a^2 - 2ab + b^2 = (a - b)^2"
+      - type: formula
+        formula: "a^2 - b^2 = (a + b)(a - b)"
+      - type: definition
+        term: Faktorisieren
+        explanation: "Eine Summe als Produkt schreiben, zum Beispiel $x^2 + 6x + 9 = (x + 3)^2$."
+      - type: text
+        text: >-
+          So erkennst du die Formel: Such zwei **Quadrate** (erstes und letztes Glied). Daraus liest du $a$ und $b$ ab. Steht dazwischen ein **Mittelglied**, prüfst du, ob es $2 \cdot a \cdot b$ ist – sein Vorzeichen entscheidet zwischen $(a + b)^2$ und $(a - b)^2$. Gibt es **kein Mittelglied** und steht ein Minus zwischen den Quadraten, ist es die dritte Formel.
+      - type: text
+        text: "Bei Lückenaufgaben rechnest du genauso: Das Mittelglied ist $2 \\cdot a \\cdot b$, das letzte Glied ist $b^2$."
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: "Das Mittelglied halbieren! Bei $x^2 + 6x + 9$ ist $b = 3$ (denn $2 \\cdot 3 = 6$), nicht $6$."
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: "Schreib als Produkt: x² + 6x + 9"
+        blocks:
+          - type: table
+            caption: "Der Rechenweg für x² + 6x + 9"
+            rowHeaders: true
+            rows:
+              - ["Quadrate", "$x^2 = x^2$, $9 = 3^2$, also $a = x$, $b = 3$"]
+              - ["Mittelglied", "$2 \\cdot x \\cdot 3 = 6x$ ✓, Vorzeichen $+$ → 1. Formel"]
+              - ["Ergebnis", "**$x^2 + 6x + 9 = (x + 3)^2$**"]
+          - type: text
+            text: >-
+              Genauso: $x^2 - 10x + 25 = (x - 5)^2$ und $x^2 - 16 = (x + 4)(x - 4)$. Lücken: Bei $x^2 + \text{□}x + 25$ gehört $10$ in die Lücke, denn $2 \cdot x \cdot 5 = 10x$. Bei $x^2 + 8x + \text{□}$ gehört $16$ hinein, denn $b = 8 : 2 = 4$ und $4^2 = 16$.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        image: images/binom-binome-rueckwaerts.svg
+        alt: x² + 6x + 9 = (x + 3)². Teilflächen gegeben – welche Seite hat das Quadrat?
+        caption: "Das Flächenbild der ersten Formel, rückwärts gelesen: Ein Quadrat aus den Teilflächen $x^2$ (blau), zweimal $3x$ (gelb) und $9$ (grün). Die Teilflächen sind gegeben, gesucht ist die Seite des Quadrats. Sie ist $x + 3$, also $x^2 + 6x + 9 = (x + 3)^2$."
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: >-
+          Die Formeln, die du hier rückwärts anwendest, erklären die Videos zur [ersten](/binom/erste-binomische/#video), [zweiten](/binom/zweite-binomische/#video) und [dritten binomischen Formel](/binom/dritte-binomische/#video). Zum Nachlesen: [Faktorisieren bei Serlo](https://de.serlo.org/mathe/1605/faktorisieren).
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: single-choice
+        id: rueckwaerts-erkennen
+        text: Welche binomische Formel passt zu x² - 10x + 25?
+        options:
+          - text: "die 2. Formel: (x - 5)²"
+            correct: true
+            info: "x² und 25 = 5² sind die Quadrate, das Mittelglied -10x = -2 · x · 5 ist negativ."
+          - text: "die 1. Formel: (x + 5)²"
+            correct: false
+            info: "Das Mittelglied ist negativ. (x + 5)² ergibt x² + 10x + 25."
+          - text: "die 3. Formel: (x + 5)(x - 5)"
+            correct: false
+            info: "Das ergibt x² - 25, ohne Mittelglied. Hier steht aber ein Mittelglied -10x."
+          - text: "die 2. Formel: (x - 10)²"
+            correct: false
+            info: "Das Mittelglied ist 2 · a · b: Halbiere 10, dann ist b = 5, nicht 10."
+        explanation: >-
+          x² und 25 = 5² sind Quadrate, -10x = -2 · x · 5: Das ist die zweite Formel, x² - 10x + 25 = (x - 5)².
+        links:
+          - { title: Faktorisieren (Serlo), url: "https://de.serlo.org/mathe/1605/faktorisieren" }
+      - type: vue-component
+        id: rueckwaerts-ueben
+        component: BinomTermAufgabe
+        props:
+          art: rueckwaerts
+          loesungZeigen: Lösung zeigen
+          tipp: Tipp
+          rechenweg: "Lösung:"
+        examples:
+          accepted:
+            - { answer: "(a-2)^2", seed: 1 }
+            - { answer: "(2-a)²", seed: 1 }
+            - { answer: "(a-2)(a-2)", seed: 1 }
+            - { answer: "(4a-5b)(4a+5b)", seed: 2 }
+            - { answer: " 9 ", seed: 3 }
+          rejected:
+            - { answer: "(a+2)^2", seed: 1 }
+            - { answer: "(a-4)^2", seed: 1 }
+            - { answer: "a^2-4a+4", seed: 1 }
+            - { answer: "(4a+5b)^2", seed: 2 }
+            - { answer: "3", seed: 3 }
+            - { answer: "324", seed: 3 }

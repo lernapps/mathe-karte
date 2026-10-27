@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Erste binomische Formel
+description: "Die erste binomische Formel (a + b)² = a² + 2ab + b²: Erklärung mit Flächenbild, Beispiel, Video und Übungsaufgaben mit Sofort-Feedback."
+blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Quadrate von Summen wie $(x + 4)^2$ tauchen ständig auf: bei Flächen, bei Gleichungen und später bei Parabeln. Du kannst sie immer als $(x + 4)(x + 4)$ ausmultiplizieren – aber mit der Formel geht es in einer Zeile und ohne Vorzeichen-Chaos. Außerdem schützt dich die Formel vor dem häufigsten Fehler überhaupt: $(a + b)^2$ ist **nicht** $a^2 + b^2$.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: formula
+        formula: "(a + b)^2 = a^2 + 2ab + b^2"
+      - type: text
+        text: >-
+          $a$ ist das erste Glied in der Klammer, $b$ das zweite. Du quadrierst beide Glieder und schreibst dazwischen das **Mittelglied** $2ab$: zweimal das Produkt der beiden Glieder.
+      - type: definition
+        term: Mittelglied
+        explanation: >-
+          Das Glied in der Mitte einer binomischen Formel: $2ab$ bei $(a + b)^2$, $-2ab$ bei $(a - b)^2$. Bei der dritten Formel gibt es kein Mittelglied.
+      - type: text
+        text: >-
+          Warum zweimal? $(a + b)^2 = (a + b)(a + b)$ $= a^2 + ab + ba + b^2$. Die Produkte $ab$ und $ba$ sind gleich, zusammen $2ab$. Im Bild unten sind das die zwei gleichen Streifen.
+      - type: note
+        title: Merke
+        blocks:
+          - type: text
+            text: >-
+              Das ganze Glied quadrieren! Bei $(3a + 2b)^2$ ist das erste Glied $3a$, also wird es zu $(3a)^2 = 9a^2$ – nicht $3a^2$.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: "Multipliziere aus: (2a + 3)²"
+        blocks:
+          - type: table
+            caption: "Der Rechenweg für (2a + 3)²"
+            rowHeaders: true
+            rows:
+              - ["Glieder", "$a = 2a$, $b = 3$"]
+              - ["Formel", "$(2a)^2 + 2 \\cdot 2a \\cdot 3 + 3^2$"]
+              - ["Ausgerechnet", "**$4a^2 + 12a + 9$**"]
+          - type: text
+            text: "Noch zwei: $(x + 4)^2 = x^2 + 8x + 16$ und $(3a + 2b)^2$ $= 9a^2 + 12ab + 4b^2$."
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        image: images/binom-erste-binomische.svg
+        alt: "(x + 4)² = x² + 8x + 16. Zwei gleiche Streifen: 2 · 4x = 8x"
+        caption: "Ein Quadrat mit der Seite $x + 4$, oben und links in die Abschnitte $x$ und $4$ geteilt. Es zerfällt in vier Teilflächen: links oben das Quadrat $x^2$ (blau), rechts unten das Quadrat $16$ (grün) und zwei gleiche Streifen $4x$ (gelb). Die zwei Streifen sind das Mittelglied $2 \\cdot 4x = 8x$, also $(x + 4)^2 = x^2 + 8x + 16$."
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: video
+        youtube: D_D4gvqNDdE
+        title: "1.binomische Formel – mit grafischer Erklärung"
+        channel: Lehrerschmidt
+      - type: text
+        text: >-
+          Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: single-choice
+        id: erste-binomische-erkennen
+        text: Jemand rechnet (x + 5)² = x² + 25. Was fehlt?
+        options:
+          - text: "das Mittelglied 10x"
+            correct: true
+            info: "Das Mittelglied ist 2 · x · 5 = 10x. Richtig ist (x + 5)² = x² + 10x + 25."
+          - text: "das Mittelglied 5x"
+            correct: false
+            info: "Das Mittelglied kommt zweimal vor: x · 5 und 5 · x, zusammen 10x."
+          - text: "die Zahl 10 am Ende"
+            correct: false
+            info: "Das letzte Glied ist 5² = 25, das stimmt schon. Die 10 gehört als 10x in die Mitte."
+        explanation: "Nach der ersten binomischen Formel ist (x + 5)² = x² + 2 · x · 5 + 5² = x² + 10x + 25."
+        links:
+          - { title: Binomische Formeln (Serlo), url: "https://de.serlo.org/mathe/1499/binomische-formeln" }
+      - type: vue-component
+        id: erste-binomische-ueben
+        component: BinomTermAufgabe
+        props:
+          art: erste
+          loesungZeigen: Lösung zeigen
+          tipp: Tipp
+          rechenweg: "Lösung:"
+        examples:
+          accepted:
+            - { answer: "x^2+12x+36", seed: 1 }
+            - { answer: "36 + 12x + x²", seed: 1 }
+            - { answer: "9a^2 + 24a + 16", seed: 2 }
+          rejected:
+            - { answer: "x^2+36", seed: 1 }
+            - { answer: "x^2+6x+36", seed: 1 }
+            - { answer: "(x+6)^2", seed: 1 }
+            - { answer: "3a^2+24a+16", seed: 2 }

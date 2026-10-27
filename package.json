@@ -1,28 +1,24 @@
 {
-  "name": "lern-apps",
-  "version": "0.12.0",
-  "description": "Lern-Apps für Mathe, Physik und Chemie – statisches HTML, ein Kern, gebaut mit Eleventy.",
+  "name": "mathe-karte",
   "private": true,
+  "description": "Mathe-Karte von lernapps.net: Prozentrechnung, binomische Formeln und Wahrscheinlichkeit als explainer.",
+  "license": "MIT",
   "type": "module",
   "scripts": {
-    "test": "node --test \"test/**/*.test.js\" \"src/*/test/*.test.js\"",
-    "build": "eleventy",
-    "serve": "eleventy --serve",
-    "pruefe": "npm test && npm run build",
-    "lint": "eslint .",
-    "typecheck": "tsc -p jsconfig.json",
-    "test:browser": "playwright test"
+    "dev": "vp dev",
+    "build": "vp build --outDir _site",
+    "check": "lernapps check",
+    "prepare": "lernapps hooks"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.7",
-    "@axe-core/playwright": "4.13.0",
-    "@eslint/js": "10.0.1",
-    "@playwright/test": "1.63.0",
-    "eslint": "10.11.0",
-    "eslint-plugin-no-unsanitized": "4.1.5",
+    "@lernapps/app-templates": "github:lernapps/app-templates#a0d58d8922872083b30344a11ce055182f13d370",
+    "@lernapps/tooling": "github:lernapps/tooling#44d82e538b0f7a72f9af1fbb997e4270352fa32e",
     "fast-check": "4.10.2",
-    "globals": "17.12.0",
-    "typescript": "7.0.2"
+    "typescript": "6.0.3",
+    "vite-plus": "1.0.0",
+    "vue-tsc": "3.3.11"
   },
-  "license": "MIT"
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.0.0"
+  }
 }

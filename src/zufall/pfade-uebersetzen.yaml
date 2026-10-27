@@ -1,0 +1,101 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: In Pfade übersetzen
+description: "„Genau einmal“, „beide gleich“ und „mindestens einmal“ in Pfade des Baumdiagramms übersetzen und P(E) berechnen."
+blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Die Pfadregeln sind leicht – schwer ist die Frage davor: Welche Pfade gehören überhaupt zum Ereignis? „Genau einmal rot“ klingt nach einem Pfad, sind aber zwei. „Beide gleich“ sind so viele Pfade, wie es Farben gibt. Wer diese Übersetzung sicher kann, löst die meisten Aufgaben zu Baumdiagrammen.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: table
+        caption: Ereignisse in Worten (2 Züge) und ihre Pfade
+        header: [Ereignis, Welche Pfade?]
+        rowHeaders: true
+        rows:
+          - [genau einmal rot, "rot-nicht rot *und* nicht rot-rot – die Reihenfolge zählt."]
+          - [beide gleich, "ein Pfad pro Farbe: rot-rot, blau-blau, …"]
+          - [mindestens einmal rot, "alle Pfade mit rot – oder $1 - P(\\text{kein rot})$."]
+      - type: text
+        text: Dann gilt wie immer – jeden Pfad multiplizieren, die Pfade addieren.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Beide gleich
+        blocks:
+          - type: text
+            text: >-
+              Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal ziehen **mit Zurücklegen**. Wie groß ist $P(\text{beide gleich})$?
+          - type: text
+            text: |-
+              1. Pfade: rot-rot, blau-blau, gelb-gelb.
+              2. Produkte: $\frac{3}{6} \cdot \frac{3}{6} = \frac{9}{36}$, $\frac{2}{6} \cdot \frac{2}{6} = \frac{4}{36}$,
+                 $\frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}$.
+              3. Summe: $\frac{14}{36} = \frac{7}{18}$.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        image: images/zufall-pfade-uebersetzen.svg
+        alt: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mit Zurücklegen; orange sind die drei Pfade von „beide gleich“
+        caption: |-
+          Der Baum aus dem Beispiel: 3 rote (R), 2 blaue (B) und 1 gelbe (G) Kugel, zweimal mit Zurücklegen. Auf
+          beiden Stufen: rot 3/6, blau 2/6, gelb 1/6. Orange sind die drei Pfade von „beide gleich“: rot-rot 1/4,
+          blau-blau 1/9 und gelb-gelb 1/36. Unter den übrigen Enden stehen rot-blau 1/6, rot-gelb 1/12, blau-rot 1/6,
+          blau-gelb 1/18, gelb-rot 1/12, gelb-blau 1/18.
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: video
+        youtube: Pi1M1F2l024
+        title: "Summenregel | Wahrscheinlichkeitsrechnung | Mathematik"
+        channel: Lehrerschmidt
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: vue-component
+        id: pfade-finden
+        component: ZufallPfade
+        props:
+          art: uebersetzen
+        examples:
+          accepted:
+            - { answer: { antwort: "5/18" }, seed: 1 }
+            - { answer: { antwort: "1/6*2/6+1/6*3/6+2/6*1/6+3/6*1/6", auswahl: [rb, rg, br, gr] }, seed: 1 }
+          rejected:
+            - { answer: { antwort: "1/18" }, seed: 1 }
+            - { answer: { antwort: "" } }
+      - type: generated
+        id: beide-gleich
+        given:
+          r: { int: [1, 6] }
+          b: { int: [1, 6] }
+        where:
+          - "r != b"
+          - "round((r * r + b * b) / ((r + b) * (r + b)), 2) != round(r * r / ((r + b) * (r + b)), 2)"
+          - "round((r * r + b * b) / ((r + b) * (r + b)), 2) != round(2 * r * b / ((r + b) * (r + b)), 2)"
+        task:
+          text: >-
+            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst zweimal mit Zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass beide Kugeln dieselbe Farbe haben? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet.
+        answer: { value: "round((r * r + b * b) / ((r + b) * (r + b)), 2)", compare: { number: { decimals: 2 } } }
+        mistakes:
+          - value: "round(r * r / ((r + b) * (r + b)), 2)"
+            message: "Das ist nur rot-rot. „Beide gleich“ heißt auch blau-blau: ein Pfad pro Farbe."
+          - value: "round(2 * r * b / ((r + b) * (r + b)), 2)"
+            message: "Das sind die Pfade rot-blau und blau-rot – also „verschieden“, das Gegenereignis."
+        hint: "„Beide gleich“ hat so viele Pfade, wie es Farben gibt."
+        steps:
+          - 'Pfade: rot-rot und blau-blau. $P(\text{beide gleich}) = P(\text{rot})^2 + P(\text{blau})^2$.'
+          - '$P(\text{beide gleich}) \approx {{answer}}$'

@@ -1,0 +1,125 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Zwei Werte vergleichen
+description: >-
+  Um wie viel Prozent ist A größer als B – und warum ist B nicht um denselben Prozentsatz kleiner? Bezugsgröße,
+  Beispiel und Übungen.
+blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          „Laden A ist 25 % teurer als Laden B“ und „Laden B ist 20 % billiger als Laden A“ – beides stimmt, mit
+          denselben Preisen. Wenn du den Trick kennst, fällst du auf keine Werbung und auf keine Fangfrage in der
+          Klassenarbeit herein: Es kommt darauf an, welcher Wert 100 % ist.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: formula
+        formula: 'p = \frac{\text{Unterschied}}{\text{Bezugsgröße}} \cdot 100'
+      - type: definition
+        term: Bezugsgröße
+        explanation: >-
+          Der Wert, mit dem verglichen wird: Er ist 100 %. Im Satz steht er nach dem Wort **„als“**.
+      - type: text
+        text: >-
+          Der Unterschied ist immer derselbe, aber er wird durch einen anderen Wert geteilt – deshalb kommen zwei
+          verschiedene Prozentsätze heraus.
+      - type: note
+        title: Merkhilfe
+        blocks:
+          - type: text
+            text: >-
+              Nach „als“ steht die 100 %. „A ist größer als B“ → B ist 100 %. „B ist kleiner als A“ → A ist 100 %.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Ein Rucksack in zwei Läden
+        blocks:
+          - type: text
+            text: Ein Rucksack kostet in Laden A 150 €, in Laden B 120 €.
+          - type: table
+            caption: Zwei Fragen, zwei Bezugsgrößen
+            header: [Frage, Bezugsgröße (100 %), Rechnung]
+            rows:
+              - [
+                  "Um wie viel Prozent ist A teurer als B?",
+                  "B = 120 €",
+                  "$p = \\frac{30}{120} \\cdot 100 = 25$, also **25 %**",
+                ]
+              - [
+                  "Um wie viel Prozent ist B billiger als A?",
+                  "A = 150 €",
+                  "$p = \\frac{30}{150} \\cdot 100 = 20$, also **20 %**",
+                ]
+          - type: text
+            text: >-
+              Der Unterschied ist beide Male 30 €. Weil 30 € von 120 € ein größerer Anteil ist als 30 € von 150 €, ist
+              die erste Zahl größer.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        draw: { kind: bar, part: 30, whole: 120 }
+        alt: Ein Balken für 120 €; der Unterschied von 30 € ist blau, das sind 25 %.
+        caption: "Bezugsgröße Laden B: 120 € sind 100 %. Der Unterschied von 30 € ist davon 25 %: A ist 25 % teurer als B."
+      - type: figure
+        draw: { kind: bar, part: 30, whole: 150 }
+        alt: Ein Balken für 150 €; der Unterschied von 30 € ist blau, das sind 20 %.
+        caption: "Bezugsgröße Laden A: 150 € sind 100 %. Derselbe Unterschied von 30 € ist davon nur 20 %: B ist 20 % billiger als A."
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: >-
+          Wie man einen Prozentsatz ausrechnet, zeigt das Video auf der Seite [Prozentsatz
+          berechnen](/prozent/prozentsatz/#video).
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: vue-component
+        id: vergleich-aufgabe
+        component: ProzentVergleich
+        examples:
+          accepted:
+            - { answer: { prozentsatz: "12,5" }, seed: 1 }
+            - { answer: { prozentsatz: "24/192*100" }, seed: 1 }
+            - { answer: { prozentsatz: "8" }, seed: 2 }
+          rejected:
+            - { answer: { prozentsatz: "14,3" }, seed: 1 }
+            - { answer: { prozentsatz: "24" }, seed: 1 }
+            - { answer: { prozentsatz: "87,5" }, seed: 1 }
+      - type: generated
+        id: vergleich-rechnen
+        practice: Und jetzt ohne Geschichte, nur die Rechnung.
+        given:
+          b: { oneOf: [20, 25, 40, 50, 80, 120, 125, 150, 200, 250] }
+          a: { int: [21, 400] }
+        where: ["a > b", "a < 2 * b", "decimals((a - b) * 100 / b) <= 1"]
+        task:
+          text: "A ist {{a}}, B ist {{b}}. Um wie viel Prozent ist A größer als B?"
+        answer: { value: "(a - b) * 100 / b", compare: { number: { format: percent, decimals: 1 } } }
+        mistakes:
+          - {
+              value: "(a - b) * 100 / a",
+              message: "Das ist die Antwort auf die andere Frage. Die Bezugsgröße (100 %) ist die Zahl nach „als“: B = {{b}}.",
+            }
+          - {
+              value: "a - b",
+              message: "Das ist nur der Unterschied. Gefragt ist der Unterschied in Prozent der Bezugsgröße {{b}}.",
+            }
+          - {
+              value: "a * 100 / b",
+              message: "Das ist das Verhältnis der beiden Werte in Prozent. Gefragt ist, um wie viel Prozent mehr – also die 100 % abziehen.",
+            }
+        hint: "Die Bezugsgröße steht nach „als“: B = {{b}} ist 100 %. Teile den Unterschied durch {{b}}."
+        steps:
+          - '$p = \frac{\text{Unterschied}}{\text{Bezugsgröße}} \cdot 100$'
+          - '$p = \frac{{{a}} - {{b}}}{{{b}}} \cdot 100 = {{answer}}$, also {{answer}} %.'

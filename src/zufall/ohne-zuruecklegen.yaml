@@ -1,0 +1,125 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Ohne Zurücklegen
+description: Beim Ziehen ohne Zurücklegen die veränderten Wahrscheinlichkeiten bestimmen und mit dem Ziehen mit Zurücklegen vergleichen.
+blocks:
+  - type: section
+    id: warum
+    title: Warum?
+    blocks:
+      - type: text
+        text: >-
+          Ob eine gezogene Kugel zurück in die Urne kommt oder nicht, ändert die ganze Rechnung. Genau hier passieren die meisten Fehler: Der Nenner bleibt 6, obwohl nur noch 5 Kugeln drin sind. Wer den Unterschied einmal gesehen hat, vergisst ihn nicht mehr.
+  - type: section
+    id: regel
+    title: Regel
+    blocks:
+      - type: definition
+        term: mit Zurücklegen
+        explanation: Die gezogene Kugel kommt zurück in die Urne. Jeder Zug ist wie der erste, die Wahrscheinlichkeiten bleiben auf allen Stufen gleich.
+      - type: definition
+        term: ohne Zurücklegen
+        explanation: Die gezogene Kugel bleibt draußen. Nach jedem Zug ist eine Kugel weniger in der Urne.
+      - type: text
+        text: |-
+          Ohne Zurücklegen gilt:
+
+          - Der **Nenner** wird bei jedem Zug um 1 kleiner (6 → 5 → 4).
+          - Der **Zähler** einer Farbe wird nur dann um 1 kleiner, wenn vorher eine Kugel dieser Farbe gezogen wurde.
+
+          Die Zweige der zweiten Stufe hängen also davon ab, was in der ersten Stufe passiert ist.
+  - type: section
+    id: beispiel
+    title: Beispiel
+    blocks:
+      - type: example
+        title: Die erste Kugel ist rot
+        blocks:
+          - type: text
+            text: Urne mit 3 roten, 2 blauen und 1 gelben Kugel (6 Kugeln). Die erste gezogene Kugel ist **rot**.
+          - type: table
+            caption: Wahrscheinlichkeit für die 2. Kugel mit und ohne Zurücklegen, wenn die erste rot war
+            header: [2. Kugel, mit, ohne]
+            rowHeaders: true
+            rows:
+              - [rot, 3/6, "**2/5**"]
+              - [blau, 2/6, "**2/5**"]
+              - [gelb, 1/6, "**1/5**"]
+          - type: text
+            text: >-
+              Ohne Zurücklegen fehlt eine rote Kugel: Bei rot werden Zähler und Nenner kleiner, bei blau und gelb nur der Nenner.
+          - type: text
+            text: |-
+              Damit wird zum Beispiel $P(\text{rot, dann rot})$
+
+              - mit Zurücklegen $\frac{3}{6} \cdot \frac{3}{6} = \frac{9}{36} = \frac{1}{4}$,
+              - ohne Zurücklegen $\frac{3}{6} \cdot \frac{2}{5} = \frac{6}{30} = \frac{1}{5}$.
+  - type: section
+    id: bild
+    title: Bild
+    blocks:
+      - type: figure
+        image: images/zufall-ohne-zuruecklegen-1.svg
+        alt: Urne vorher mit 6 Kugeln und nachher mit 5 Kugeln; dazwischen die gezogene Kugel
+        caption: Urne vorher mit 6 Kugeln und nachher mit 5 Kugeln; dazwischen die gezogene Kugel
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
+      - type: figure
+        image: images/zufall-ohne-zuruecklegen-2.svg
+        alt: Baum mit Zurücklegen, der Pfad rot-blau ist orange
+        caption: Mit Zurücklegen
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
+      - type: figure
+        image: images/zufall-ohne-zuruecklegen-3.svg
+        alt: Baum ohne Zurücklegen, der Pfad rot-blau ist orange
+        caption: |-
+          Ohne Zurücklegen. Oben die Urne vor dem ersten Zug mit 6 Kugeln (3 rote, 2 blaue, 1 gelbe), daneben die gezogene rote Kugel und
+          die Urne danach mit 5 Kugeln (2 rote, 2 blaue, 1 gelbe). Darunter zwei Bäume. Mit Zurücklegen hat die
+          zweite Stufe dieselben Zweige wie die erste: rot 3/6, blau 2/6, gelb 1/6. Ohne Zurücklegen steht nach rot:
+          rot 2/5, blau 2/5, gelb 1/5. Der Pfad rot-blau ist in beiden Bäumen orange: mit Zurücklegen
+          3/6 · 2/6 = 1/6, ohne Zurücklegen 3/6 · 2/5 = 1/5.
+        source: Eigene Darstellung der Mathe-Karte
+        licence: MIT
+  - type: section
+    id: video
+    title: Video dazu
+    blocks:
+      - type: text
+        text: |-
+          - Wie man einen Baum aufbaut, zeigt das Video auf der Seite [Baumdiagramm](/zufall/baumdiagramm/#video).
+          - Noch eine Erklärung: [Pfadregeln](https://de.serlo.org/mathe/189811/pfadregeln) bei serlo.org
+  - type: section
+    id: uebung
+    title: Übung
+    blocks:
+      - type: vue-component
+        id: mit-und-ohne
+        component: ZufallOhne
+        examples:
+          accepted:
+            - { answer: { mit: "1/18", ohne: "1/15" }, seed: 1 }
+            - { answer: { mit: "1/6*2/6", ohne: "1/6 · 2/5" }, seed: 1 }
+          rejected:
+            - { answer: { mit: "1/18", ohne: "1/18" }, seed: 1 }
+            - { answer: { mit: "", ohne: "" } }
+      - type: generated
+        id: zweite-kugel-ohne
+        given:
+          r: { int: [2, 6] }
+          b: { int: [2, 6] }
+        task:
+          text: >-
+            In einer Urne liegen {{r}} rote und {{b}} blaue Kugeln. Du ziehst ohne Zurücklegen. Die erste Kugel ist rot. Wie groß ist die Wahrscheinlichkeit, dass die zweite Kugel blau ist? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet.
+        where:
+          - "round(b / (r + b - 1), 2) != round(b / (r + b), 2)"
+          - "round(b / (r + b - 1), 2) != round((b - 1) / (r + b - 1), 2)"
+        answer: { value: "round(b / (r + b - 1), 2)", compare: { number: { decimals: 2 } } }
+        mistakes:
+          - value: "round(b / (r + b), 2)"
+            message: "Das wäre mit Zurücklegen. Ohne Zurücklegen fehlt eine Kugel: Der Nenner wird um 1 kleiner."
+          - value: "round((b - 1) / (r + b - 1), 2)"
+            message: "Gezogen wurde eine rote Kugel – die blauen sind alle noch da. Nur der Nenner wird kleiner."
+        hint: "Wie viele Kugeln liegen nach dem ersten Zug noch in der Urne, und wie viele davon sind blau?"
+        steps:
+          - "Nach dem ersten Zug: {{r}} + {{b}} − 1 Kugeln, davon {{b}} blaue."
+          - "P(2. Kugel blau) = {{b}} durch die übrigen Kugeln ≈ {{answer}}."

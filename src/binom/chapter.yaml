@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../node_modules/@lernapps/app-templates/runtime/explainer/explainer.v1.schema.json
+title: Binomische Formeln
+summary: >-
+  Klasse 8: zwei Klammern multiplizieren, die drei binomischen Formeln, rückwärts faktorisieren und geschickt im Kopf
+  rechnen wie $49^2 = (50 - 1)^2$. Jede Seite zeigt die Formel als Flächenbild und hat Aufgaben, die du als Term
+  eintippst und die dir sagen, welcher typische Fehler passiert ist.
+pages:
+  [
+    klammern-multiplizieren,
+    erste-binomische,
+    zweite-binomische,
+    dritte-binomische,
+    binome-rueckwaerts,
+    geschickt-rechnen,
+  ]
