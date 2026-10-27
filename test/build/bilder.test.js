@@ -30,6 +30,17 @@ test("eigenstaendig ergänzt Namensraum und Stil, themaFuerSvg übernimmt hell u
   assert.equal(svg, '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"><style>\n.a{}\n</style><g/></svg>\n');
 });
 
+test("eigenstaendig schreibt die SVG-Attribute so, wie XML sie verlangt: Vues SSR schreibt viewbox klein", () => {
+  const svg = eigenstaendig('<svg viewbox="0 0 2 1" preserveaspectratio="none"><g/></svg>', "");
+  assert.match(svg, /<svg xmlns="http:\/\/www.w3.org\/2000\/svg" viewBox="0 0 2 1" preserveAspectRatio="none">/);
+});
+
+test("jedes Bild in src/images hat seinen viewBox, sonst schneidet der Browser es zu", () => {
+  for (const datei of fs.readdirSync("src/images").filter((d) => d.endsWith(".svg"))) {
+    assert.match(fs.readFileSync(`src/images/${datei}`, "utf8"), /^<svg\b[^>]*\sviewBox="/, datei);
+  }
+});
+
 test("jedes Bild in scripts/bilder.json entspricht seiner Komponente, und jede Seite zeigt es", async () => {
   assert.deepEqual(await main(["--pruefen"]), []);
   const seiten = fs.readdirSync("src", { recursive: true }).filter((d) => d.endsWith(".yaml")).map((d) => fs.readFileSync(`src/${d}`, "utf8")).join("\n");

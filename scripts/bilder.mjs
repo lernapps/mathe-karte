@@ -52,8 +52,20 @@ export function svgsAus(html) {
   return ergebnis;
 }
 
+/**
+ * Die SVG-Attribute mit Großbuchstaben: Vues SSR schreibt sie an einem <svg>, das das oberste Element seiner Komponente
+ * ist, klein (viewbox). Im HTML der Seite stört das nicht, eine eigene SVG-Datei ist aber XML: Dort fehlt dann der
+ * viewBox, und der Browser schneidet das Bild auf 300 × 150 zu.
+ */
+const SVG_ATTRIBUTE = ["viewBox", "preserveAspectRatio", "textLength", "lengthAdjust", "gradientUnits",
+  "gradientTransform", "patternUnits", "patternTransform", "markerWidth", "markerHeight", "refX", "refY"];
+
 /** Ein eigenständiges SVG: Namensraum, Farbvariablen und die Stile der Komponenten im <style>. */
-export function eigenstaendig(svg, stil) {
+export function eigenstaendig(svgRoh, stil) {
+  const svg = SVG_ATTRIBUTE.reduce(
+    (text, name) => text.replace(new RegExp(`(<[a-zA-Z][^>]*\\s)${name.toLowerCase()}=`, "g"), `$1${name}=`),
+    svgRoh,
+  );
   const mitNs = svg.includes("xmlns=") ? svg : svg.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"');
   return mitNs.replace(/^<svg\b[^>]*>/, (kopf) => `${kopf}<style>\n${stil}</style>`) + "\n";
 }
