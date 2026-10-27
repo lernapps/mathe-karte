@@ -1,0 +1,307 @@
+# Laplace-Formel – Tutor-Datei
+
+> Die Laplace-Formel anwenden: P(E) ist die Zahl der günstigen durch die Zahl aller möglichen Ergebnisse.
+
+App: Mathe-Karte. Seite: [Laplace-Formel](./)
+
+Diese Datei ist für einen KI-Tutor. Sie enthält die Lösungen: Nutze sie, um anzuleiten und Fehler zu erkennen, nicht um vorzusagen. Die Regeln stehen in llms.txt. Kannst du eine Datei der App nicht abrufen, bitte die lernende Person, den Text der Seite oder diese Datei einzufügen oder anzuhängen.
+
+## Abschnitte
+
+- [Warum?](./#warum)
+- [Regel](./#regel)
+- [Beispiel](./#beispiel)
+- [Bild](./#bild)
+- [Video dazu](./#video)
+- [Übung](./#uebung)
+
+## Übungen
+
+### laplace-zaehlen (interaktive Übung ZufallLaplace)
+
+- Link: [./#laplace-zaehlen](./#laplace-zaehlen), im Abschnitt „Übung“
+- Was zu tun ist: Mit der Laplace-Formel die Wahrscheinlichkeit eines Ereignisses bei einem Würfel, einer Urne, einem Glücksrad, Skatkarten, Losen oder zwei Würfeln berechnen.
+- Antwortformat: Eine Wahrscheinlichkeit: Bruch, Dezimalzahl auf mindestens zwei Nachkommastellen oder Prozent.
+- Was als richtig zählt: Anzahl der günstigen durch Anzahl aller möglichen Ergebnisse, exakt oder richtig gerundet.
+- Typische Fehler und die Meldung der App:
+  - Bei der Urne Farben statt Kugeln gezählt (1 durch Anzahl der Farben).
+  - Günstige durch ungünstige statt durch alle Ergebnisse geteilt.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?laplace-zaehlen=1#laplace-zaehlen): Ein Skatspiel hat 32 Karten: je 8 Karten in Kreuz, Pik, Herz und Karo (7, 8, 9, 10, Bube, Dame, König, Ass). Du ziehst eine Karte. Wie groß ist die Wahrscheinlichkeit, dass du eine Herz-Karte ziehst? Das Bild zeigt alle 32 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 32 Günstige Ergebnisse (eine Herz-Karte): 8 P(E) = günstig / möglich = 8/32 = 1/4
+  - [Aufgabe Nr. 2](./?laplace-zaehlen=2#laplace-zaehlen): Beim Klassenfest gibt es 20 Lose, davon sind 3 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 20 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 20 Günstige Ergebnisse (einen Gewinn): 3 P(E) = günstig / möglich = 3/20
+  - [Aufgabe Nr. 3](./?laplace-zaehlen=3#laplace-zaehlen): Beim Klassenfest gibt es 10 Lose, davon sind 3 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 10 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 10 Günstige Ergebnisse (einen Gewinn): 3 P(E) = günstig / möglich = 3/10
+  - [Aufgabe Nr. 4](./?laplace-zaehlen=4#laplace-zaehlen): Du würfelst mit zwei Würfeln (einem roten und einem blauen). Jedes Paar ist ein eigenes Ergebnis – es gibt 36. Wie groß ist die Wahrscheinlichkeit, dass du die Augensumme 5 würfelst? Das Bild zeigt alle 36 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 36 Günstige Ergebnisse (die Augensumme 5): 4 P(E) = günstig / möglich = 4/36 = 1/9
+  - [Aufgabe Nr. 5](./?laplace-zaehlen=5#laplace-zaehlen): Beim Klassenfest gibt es 50 Lose, davon sind 6 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 50 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 50 Günstige Ergebnisse (einen Gewinn): 6 P(E) = günstig / möglich = 6/50 = 3/25
+  - [Aufgabe Nr. 6](./?laplace-zaehlen=6#laplace-zaehlen): Du würfelst einmal mit einem normalen Würfel. Wie groß ist die Wahrscheinlichkeit, dass du eine gerade Zahl würfelst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine gerade Zahl): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 7](./?laplace-zaehlen=7#laplace-zaehlen): Du würfelst einmal mit einem normalen Würfel. Wie groß ist die Wahrscheinlichkeit, dass du keine 6 würfelst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (keine 6): 5 P(E) = günstig / möglich = 5/6
+  - [Aufgabe Nr. 8](./?laplace-zaehlen=8#laplace-zaehlen): In einer Urne liegen 2 rote, 1 blaue und 1 grüne Kugel. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine rote Kugel ziehst? Das Bild zeigt alle 4 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 4 Günstige Ergebnisse (eine rote Kugel): 2 P(E) = günstig / möglich = 2/4 = 1/2
+  - [Aufgabe Nr. 9](./?laplace-zaehlen=9#laplace-zaehlen): Ein Skatspiel hat 32 Karten: je 8 Karten in Kreuz, Pik, Herz und Karo (7, 8, 9, 10, Bube, Dame, König, Ass). Du ziehst eine Karte. Wie groß ist die Wahrscheinlichkeit, dass du eine rote Karte (Herz oder Karo) ziehst? Das Bild zeigt alle 32 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 32 Günstige Ergebnisse (eine rote Karte (Herz oder Karo)): 16 P(E) = günstig / möglich = 16/32 = 1/2
+  - [Aufgabe Nr. 10](./?laplace-zaehlen=10#laplace-zaehlen): Ein Skatspiel hat 32 Karten: je 8 Karten in Kreuz, Pik, Herz und Karo (7, 8, 9, 10, Bube, Dame, König, Ass). Du ziehst eine Karte. Wie groß ist die Wahrscheinlichkeit, dass du ein Ass ziehst? Das Bild zeigt alle 32 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 32 Günstige Ergebnisse (ein Ass): 4 P(E) = günstig / möglich = 4/32 = 1/8
+  - [Aufgabe Nr. 11](./?laplace-zaehlen=11#laplace-zaehlen): In einer Urne liegen 3 rote, 2 blaue und 1 gelbe Kugel. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine blaue Kugel ziehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine blaue Kugel): 2 P(E) = günstig / möglich = 2/6 = 1/3
+  - [Aufgabe Nr. 12](./?laplace-zaehlen=12#laplace-zaehlen): Ein Skatspiel hat 32 Karten: je 8 Karten in Kreuz, Pik, Herz und Karo (7, 8, 9, 10, Bube, Dame, König, Ass). Du ziehst eine Karte. Wie groß ist die Wahrscheinlichkeit, dass du einen Buben ziehst? Das Bild zeigt alle 32 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 32 Günstige Ergebnisse (einen Buben): 4 P(E) = günstig / möglich = 4/32 = 1/8
+  - [Aufgabe Nr. 13](./?laplace-zaehlen=13#laplace-zaehlen): Ein Glücksrad hat 6 gleich große Felder: 2 rot, 2 blau und 2 gelb. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein blaues Feld drehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (ein blaues Feld): 2 P(E) = günstig / möglich = 2/6 = 1/3
+  - [Aufgabe Nr. 14](./?laplace-zaehlen=14#laplace-zaehlen): In einer Urne liegen 2 rote, 2 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine blaue Kugel ziehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine blaue Kugel): 2 P(E) = günstig / möglich = 2/6 = 1/3
+  - [Aufgabe Nr. 15](./?laplace-zaehlen=15#laplace-zaehlen): Ein Glücksrad hat 6 gleich große Felder: 1 rot, 2 blau und 3 gelb. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein blaues Feld drehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (ein blaues Feld): 2 P(E) = günstig / möglich = 2/6 = 1/3
+  - [Aufgabe Nr. 16](./?laplace-zaehlen=16#laplace-zaehlen): Du würfelst einmal mit einem normalen Würfel. Wie groß ist die Wahrscheinlichkeit, dass du mindestens eine 5 würfelst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (mindestens eine 5): 2 P(E) = günstig / möglich = 2/6 = 1/3
+  - [Aufgabe Nr. 17](./?laplace-zaehlen=17#laplace-zaehlen): Beim Klassenfest gibt es 20 Lose, davon sind 6 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 20 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 20 Günstige Ergebnisse (einen Gewinn): 6 P(E) = günstig / möglich = 6/20 = 3/10
+  - [Aufgabe Nr. 18](./?laplace-zaehlen=18#laplace-zaehlen): Ein Glücksrad hat 8 gleich große Felder: 5 rot und 3 blau. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein rotes Feld drehst? Das Bild zeigt alle 8 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 8 Günstige Ergebnisse (ein rotes Feld): 5 P(E) = günstig / möglich = 5/8
+  - [Aufgabe Nr. 19](./?laplace-zaehlen=19#laplace-zaehlen): Ein Skatspiel hat 32 Karten: je 8 Karten in Kreuz, Pik, Herz und Karo (7, 8, 9, 10, Bube, Dame, König, Ass). Du ziehst eine Karte. Wie groß ist die Wahrscheinlichkeit, dass du eine Pik-Karte ziehst? Das Bild zeigt alle 32 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 32 Günstige Ergebnisse (eine Pik-Karte): 8 P(E) = günstig / möglich = 8/32 = 1/4
+  - [Aufgabe Nr. 20](./?laplace-zaehlen=20#laplace-zaehlen): In einer Urne liegen 4 rote und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine rote Kugel ziehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine rote Kugel): 4 P(E) = günstig / möglich = 4/6 = 2/3
+  - [Aufgabe Nr. 21](./?laplace-zaehlen=21#laplace-zaehlen): Ein Skatspiel hat 32 Karten: je 8 Karten in Kreuz, Pik, Herz und Karo (7, 8, 9, 10, Bube, Dame, König, Ass). Du ziehst eine Karte. Wie groß ist die Wahrscheinlichkeit, dass du eine Bildkarte (Bube, Dame oder König) ziehst? Das Bild zeigt alle 32 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 32 Günstige Ergebnisse (eine Bildkarte (Bube, Dame oder König)): 12 P(E) = günstig / möglich = 12/32 = 3/8
+  - [Aufgabe Nr. 22](./?laplace-zaehlen=22#laplace-zaehlen): Ein Glücksrad hat 6 gleich große Felder: 3 rot, 2 blau und 1 gelb. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein rotes Feld drehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (ein rotes Feld): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 23](./?laplace-zaehlen=23#laplace-zaehlen): Ein Glücksrad hat 6 gleich große Felder: 3 rot und 3 blau. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein blaues Feld drehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (ein blaues Feld): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 24](./?laplace-zaehlen=24#laplace-zaehlen): In einer Urne liegen 2 rote und 3 blaue Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine rote Kugel ziehst? Das Bild zeigt alle 5 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 5 Günstige Ergebnisse (eine rote Kugel): 2 P(E) = günstig / möglich = 2/5
+  - [Aufgabe Nr. 25](./?laplace-zaehlen=25#laplace-zaehlen): Du würfelst mit zwei Würfeln (einem roten und einem blauen). Jedes Paar ist ein eigenes Ergebnis – es gibt 36. Wie groß ist die Wahrscheinlichkeit, dass du die Augensumme 9 würfelst? Das Bild zeigt alle 36 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 36 Günstige Ergebnisse (die Augensumme 9): 4 P(E) = günstig / möglich = 4/36 = 1/9
+  - [Aufgabe Nr. 26](./?laplace-zaehlen=26#laplace-zaehlen): Beim Klassenfest gibt es 50 Lose, davon sind 19 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 50 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 50 Günstige Ergebnisse (einen Gewinn): 19 P(E) = günstig / möglich = 19/50
+  - [Aufgabe Nr. 27](./?laplace-zaehlen=27#laplace-zaehlen): Ein Glücksrad hat 4 gleich große Felder: 2 rot, 1 blau und 1 grün. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein rotes Feld drehst? Das Bild zeigt alle 4 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 4 Günstige Ergebnisse (ein rotes Feld): 2 P(E) = günstig / möglich = 2/4 = 1/2
+  - [Aufgabe Nr. 28](./?laplace-zaehlen=28#laplace-zaehlen): Du würfelst einmal mit einem normalen Würfel. Wie groß ist die Wahrscheinlichkeit, dass du eine 6 würfelst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine 6): 1 P(E) = günstig / möglich = 1/6
+  - [Aufgabe Nr. 29](./?laplace-zaehlen=29#laplace-zaehlen): Du würfelst mit zwei Würfeln (einem roten und einem blauen). Jedes Paar ist ein eigenes Ergebnis – es gibt 36. Wie groß ist die Wahrscheinlichkeit, dass du die Augensumme 10 würfelst? Das Bild zeigt alle 36 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 36 Günstige Ergebnisse (die Augensumme 10): 3 P(E) = günstig / möglich = 3/36 = 1/12
+  - [Aufgabe Nr. 30](./?laplace-zaehlen=30#laplace-zaehlen): Beim Klassenfest gibt es 50 Lose, davon sind 2 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 50 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 50 Günstige Ergebnisse (einen Gewinn): 2 P(E) = günstig / möglich = 2/50 = 1/25
+  - [Aufgabe Nr. 31](./?laplace-zaehlen=31#laplace-zaehlen): Du würfelst einmal mit einem normalen Würfel. Wie groß ist die Wahrscheinlichkeit, dass du eine Primzahl würfelst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine Primzahl): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 32](./?laplace-zaehlen=32#laplace-zaehlen): Du würfelst mit zwei Würfeln (einem roten und einem blauen). Jedes Paar ist ein eigenes Ergebnis – es gibt 36. Wie groß ist die Wahrscheinlichkeit, dass du die Augensumme 7 würfelst? Das Bild zeigt alle 36 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 36 Günstige Ergebnisse (die Augensumme 7): 6 P(E) = günstig / möglich = 6/36 = 1/6
+  - [Aufgabe Nr. 33](./?laplace-zaehlen=33#laplace-zaehlen): Du würfelst mit zwei Würfeln (einem roten und einem blauen). Jedes Paar ist ein eigenes Ergebnis – es gibt 36. Wie groß ist die Wahrscheinlichkeit, dass du die Augensumme 4 würfelst? Das Bild zeigt alle 36 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 36 Günstige Ergebnisse (die Augensumme 4): 3 P(E) = günstig / möglich = 3/36 = 1/12
+  - [Aufgabe Nr. 34](./?laplace-zaehlen=34#laplace-zaehlen): Du würfelst einmal mit einem normalen Würfel. Wie groß ist die Wahrscheinlichkeit, dass du eine Zahl größer als 3 würfelst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine Zahl größer als 3): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 35](./?laplace-zaehlen=35#laplace-zaehlen): Ein Glücksrad hat 6 gleich große Felder: 1 rot, 2 blau und 3 gelb. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein gelbes Feld drehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (ein gelbes Feld): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 36](./?laplace-zaehlen=36#laplace-zaehlen): In einer Urne liegen 1 rote, 2 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine rote Kugel ziehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine rote Kugel): 1 P(E) = günstig / möglich = 1/6
+  - [Aufgabe Nr. 37](./?laplace-zaehlen=37#laplace-zaehlen): Ein Glücksrad hat 4 gleich große Felder: 2 rot, 1 blau und 1 grün. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein grünes Feld drehst? Das Bild zeigt alle 4 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 4 Günstige Ergebnisse (ein grünes Feld): 1 P(E) = günstig / möglich = 1/4
+  - [Aufgabe Nr. 38](./?laplace-zaehlen=38#laplace-zaehlen): Du würfelst einmal mit einem normalen Würfel. Wie groß ist die Wahrscheinlichkeit, dass du höchstens eine 2 würfelst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (höchstens eine 2): 2 P(E) = günstig / möglich = 2/6 = 1/3
+  - [Aufgabe Nr. 39](./?laplace-zaehlen=39#laplace-zaehlen): Beim Klassenfest gibt es 10 Lose, davon sind 1 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 10 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 10 Günstige Ergebnisse (einen Gewinn): 1 P(E) = günstig / möglich = 1/10
+  - [Aufgabe Nr. 40](./?laplace-zaehlen=40#laplace-zaehlen): Ein Glücksrad hat 6 gleich große Felder: 1 rot, 2 blau und 3 gelb. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein rotes Feld drehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (ein rotes Feld): 1 P(E) = günstig / möglich = 1/6
+  - [Aufgabe Nr. 41](./?laplace-zaehlen=41#laplace-zaehlen): In einer Urne liegen 3 rote, 2 blaue und 1 gelbe Kugel. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine rote Kugel ziehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine rote Kugel): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 42](./?laplace-zaehlen=42#laplace-zaehlen): Du würfelst mit zwei Würfeln (einem roten und einem blauen). Jedes Paar ist ein eigenes Ergebnis – es gibt 36. Wie groß ist die Wahrscheinlichkeit, dass du die Augensumme 6 würfelst? Das Bild zeigt alle 36 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 36 Günstige Ergebnisse (die Augensumme 6): 5 P(E) = günstig / möglich = 5/36
+  - [Aufgabe Nr. 43](./?laplace-zaehlen=43#laplace-zaehlen): Ein Glücksrad hat 5 gleich große Felder: 4 rot und 1 blau. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein rotes Feld drehst? Das Bild zeigt alle 5 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 5 Günstige Ergebnisse (ein rotes Feld): 4 P(E) = günstig / möglich = 4/5
+  - [Aufgabe Nr. 44](./?laplace-zaehlen=44#laplace-zaehlen): Beim Klassenfest gibt es 20 Lose, davon sind 8 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 20 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 20 Günstige Ergebnisse (einen Gewinn): 8 P(E) = günstig / möglich = 8/20 = 2/5
+  - [Aufgabe Nr. 45](./?laplace-zaehlen=45#laplace-zaehlen): Beim Klassenfest gibt es 20 Lose, davon sind 4 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 20 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 20 Günstige Ergebnisse (einen Gewinn): 4 P(E) = günstig / möglich = 4/20 = 1/5
+  - [Aufgabe Nr. 46](./?laplace-zaehlen=46#laplace-zaehlen): Beim Klassenfest gibt es 10 Lose, davon sind 4 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 10 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 10 Günstige Ergebnisse (einen Gewinn): 4 P(E) = günstig / möglich = 4/10 = 2/5
+  - [Aufgabe Nr. 47](./?laplace-zaehlen=47#laplace-zaehlen): Beim Klassenfest gibt es 50 Lose, davon sind 25 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 50 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 50 Günstige Ergebnisse (einen Gewinn): 25 P(E) = günstig / möglich = 25/50 = 1/2
+  - [Aufgabe Nr. 48](./?laplace-zaehlen=48#laplace-zaehlen): In einer Urne liegen 3 rote, 2 blaue und 1 gelbe Kugel. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine gelbe Kugel ziehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine gelbe Kugel): 1 P(E) = günstig / möglich = 1/6
+  - [Aufgabe Nr. 49](./?laplace-zaehlen=49#laplace-zaehlen): Ein Glücksrad hat 6 gleich große Felder: 3 rot, 2 blau und 1 gelb. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein gelbes Feld drehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (ein gelbes Feld): 1 P(E) = günstig / möglich = 1/6
+  - [Aufgabe Nr. 50](./?laplace-zaehlen=50#laplace-zaehlen): Beim Klassenfest gibt es 25 Lose, davon sind 9 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 25 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 25 Günstige Ergebnisse (einen Gewinn): 9 P(E) = günstig / möglich = 9/25
+  - [Aufgabe Nr. 51](./?laplace-zaehlen=51#laplace-zaehlen): Beim Klassenfest gibt es 50 Lose, davon sind 14 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 50 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 50 Günstige Ergebnisse (einen Gewinn): 14 P(E) = günstig / möglich = 14/50 = 7/25
+  - [Aufgabe Nr. 52](./?laplace-zaehlen=52#laplace-zaehlen): Ein Glücksrad hat 6 gleich große Felder: 2 rot, 2 blau und 2 gelb. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein gelbes Feld drehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (ein gelbes Feld): 2 P(E) = günstig / möglich = 2/6 = 1/3
+  - [Aufgabe Nr. 53](./?laplace-zaehlen=53#laplace-zaehlen): Du würfelst mit zwei Würfeln (einem roten und einem blauen). Jedes Paar ist ein eigenes Ergebnis – es gibt 36. Wie groß ist die Wahrscheinlichkeit, dass du die Augensumme 8 würfelst? Das Bild zeigt alle 36 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 36 Günstige Ergebnisse (die Augensumme 8): 5 P(E) = günstig / möglich = 5/36
+  - [Aufgabe Nr. 54](./?laplace-zaehlen=54#laplace-zaehlen): Du würfelst einmal mit einem normalen Würfel. Wie groß ist die Wahrscheinlichkeit, dass du eine ungerade Zahl würfelst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine ungerade Zahl): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 55](./?laplace-zaehlen=55#laplace-zaehlen): In einer Urne liegen 5 rote und 3 blaue Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine blaue Kugel ziehst? Das Bild zeigt alle 8 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 8 Günstige Ergebnisse (eine blaue Kugel): 3 P(E) = günstig / möglich = 3/8
+  - [Aufgabe Nr. 56](./?laplace-zaehlen=56#laplace-zaehlen): In einer Urne liegen 2 rote, 1 blaue und 1 grüne Kugel. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine blaue Kugel ziehst? Das Bild zeigt alle 4 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 4 Günstige Ergebnisse (eine blaue Kugel): 1 P(E) = günstig / möglich = 1/4
+  - [Aufgabe Nr. 57](./?laplace-zaehlen=57#laplace-zaehlen): In einer Urne liegen 4 rote Kugeln und 1 blaue Kugel. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine blaue Kugel ziehst? Das Bild zeigt alle 5 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 5 Günstige Ergebnisse (eine blaue Kugel): 1 P(E) = günstig / möglich = 1/5
+  - [Aufgabe Nr. 58](./?laplace-zaehlen=58#laplace-zaehlen): Beim Klassenfest gibt es 25 Lose, davon sind 10 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 25 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 25 Günstige Ergebnisse (einen Gewinn): 10 P(E) = günstig / möglich = 10/25 = 2/5
+  - [Aufgabe Nr. 59](./?laplace-zaehlen=59#laplace-zaehlen): Beim Klassenfest gibt es 25 Lose, davon sind 6 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 25 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 25 Günstige Ergebnisse (einen Gewinn): 6 P(E) = günstig / möglich = 6/25
+  - [Aufgabe Nr. 60](./?laplace-zaehlen=60#laplace-zaehlen): Ein Glücksrad hat 8 gleich große Felder: 5 rot und 3 blau. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein blaues Feld drehst? Das Bild zeigt alle 8 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 8 Günstige Ergebnisse (ein blaues Feld): 3 P(E) = günstig / möglich = 3/8
+  - [Aufgabe Nr. 61](./?laplace-zaehlen=61#laplace-zaehlen): In einer Urne liegen 4 rote und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine gelbe Kugel ziehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine gelbe Kugel): 2 P(E) = günstig / möglich = 2/6 = 1/3
+  - [Aufgabe Nr. 62](./?laplace-zaehlen=62#laplace-zaehlen): In einer Urne liegen 3 rote und 3 blaue Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, dass du eine blaue Kugel ziehst? Das Bild zeigt alle 6 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 6 Günstige Ergebnisse (eine blaue Kugel): 3 P(E) = günstig / möglich = 3/6 = 1/2
+  - [Aufgabe Nr. 63](./?laplace-zaehlen=63#laplace-zaehlen): Du würfelst mit zwei Würfeln (einem roten und einem blauen). Jedes Paar ist ein eigenes Ergebnis – es gibt 36. Wie groß ist die Wahrscheinlichkeit, dass du einen Pasch (beide Zahlen gleich) würfelst? Das Bild zeigt alle 36 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 36 Günstige Ergebnisse (einen Pasch (beide Zahlen gleich)): 6 P(E) = günstig / möglich = 6/36 = 1/6
+  - [Aufgabe Nr. 64](./?laplace-zaehlen=64#laplace-zaehlen): Beim Klassenfest gibt es 20 Lose, davon sind 1 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 20 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 20 Günstige Ergebnisse (einen Gewinn): 1 P(E) = günstig / möglich = 1/20
+  - [Aufgabe Nr. 65](./?laplace-zaehlen=65#laplace-zaehlen): Ein Glücksrad hat 5 gleich große Felder: 4 rot und 1 blau. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein blaues Feld drehst? Das Bild zeigt alle 5 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 5 Günstige Ergebnisse (ein blaues Feld): 1 P(E) = günstig / möglich = 1/5
+  - [Aufgabe Nr. 66](./?laplace-zaehlen=66#laplace-zaehlen): Beim Klassenfest gibt es 10 Lose, davon sind 2 Gewinne. Du kaufst ein Los. Wie groß ist die Wahrscheinlichkeit, dass du einen Gewinn ziehst? Das Bild zeigt alle 10 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 10 Günstige Ergebnisse (einen Gewinn): 2 P(E) = günstig / möglich = 2/10 = 1/5
+  - [Aufgabe Nr. 67](./?laplace-zaehlen=67#laplace-zaehlen): Ein Glücksrad hat 5 gleich große Felder: 2 rot und 3 blau. Du drehst einmal. Wie groß ist die Wahrscheinlichkeit, dass du ein rotes Feld drehst? Das Bild zeigt alle 5 möglichen Ergebnisse; du kannst die günstigen anklicken. P(E) = … → Lösung: Mögliche Ergebnisse: 5 Günstige Ergebnisse (ein rotes Feld): 2 P(E) = günstig / möglich = 2/5
+
+### laplace-urne (generated, number)
+
+- Link: [./#laplace-urne](./#laplace-urne), im Abschnitt „Übung“
+- Antwortformat: eine Zahl eintippen
+- Tipp, den die App zeigt (Vorlage: {{…}} sind die Werte der Aufgabe): Zähle alle Kugeln: Das sind die möglichen Ergebnisse. Die blauen sind die günstigen.
+- Lösungsweg (Vorlage: {{…}} sind die Werte der Aufgabe):
+  - Mögliche Ergebnisse: {{r}} + {{b}} + {{g}} Kugeln. Günstig: {{b}} blaue Kugeln.
+  - P(blau) = günstig durch möglich $\approx {{answer}}$.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?laplace-urne=1#laplace-urne): In einer Urne liegen 4 rote, 5 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,45
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,83: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 2](./?laplace-urne=2#laplace-urne): In einer Urne liegen 6 rote, 4 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,29
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,4: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 3](./?laplace-urne=3#laplace-urne): In einer Urne liegen 6 rote, 3 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,25
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,33: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 4](./?laplace-urne=4#laplace-urne): In einer Urne liegen 6 rote, 5 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,38
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,63: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 5](./?laplace-urne=5#laplace-urne): In einer Urne liegen 4 rote, 4 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,36
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,57: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 6](./?laplace-urne=6#laplace-urne): In einer Urne liegen 3 rote, 1 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,13
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,14: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 7](./?laplace-urne=7#laplace-urne): In einer Urne liegen 5 rote, 1 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,13
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,14: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 8](./?laplace-urne=8#laplace-urne): In einer Urne liegen 5 rote, 3 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,3
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,43: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 9](./?laplace-urne=9#laplace-urne): In einer Urne liegen 6 rote, 1 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,11
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,13: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 10](./?laplace-urne=10#laplace-urne): In einer Urne liegen 2 rote, 3 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,43
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,75: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 11](./?laplace-urne=11#laplace-urne): In einer Urne liegen 2 rote, 1 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,2
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,25: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 12](./?laplace-urne=12#laplace-urne): In einer Urne liegen 3 rote, 1 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,17
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,2: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 13](./?laplace-urne=13#laplace-urne): In einer Urne liegen 6 rote, 3 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,27
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,38: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 14](./?laplace-urne=14#laplace-urne): In einer Urne liegen 2 rote, 5 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,5
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 1: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 15](./?laplace-urne=15#laplace-urne): In einer Urne liegen 4 rote, 5 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,42
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,71: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 16](./?laplace-urne=16#laplace-urne): In einer Urne liegen 4 rote, 1 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,13
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,14: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 17](./?laplace-urne=17#laplace-urne): In einer Urne liegen 2 rote, 1 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,14
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,17: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 18](./?laplace-urne=18#laplace-urne): In einer Urne liegen 3 rote, 1 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,14
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,17: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 19](./?laplace-urne=19#laplace-urne): In einer Urne liegen 3 rote, 4 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,4
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,67: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 20](./?laplace-urne=20#laplace-urne): In einer Urne liegen 6 rote, 1 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,1
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,11: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 21](./?laplace-urne=21#laplace-urne): In einer Urne liegen 4 rote, 1 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,11
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,13: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 22](./?laplace-urne=22#laplace-urne): In einer Urne liegen 5 rote, 3 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,25
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,33: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 23](./?laplace-urne=23#laplace-urne): In einer Urne liegen 3 rote, 5 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,42
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,71: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 24](./?laplace-urne=24#laplace-urne): In einer Urne liegen 6 rote, 2 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,2
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,25: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 25](./?laplace-urne=25#laplace-urne): In einer Urne liegen 5 rote, 3 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,27
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,38: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 26](./?laplace-urne=26#laplace-urne): In einer Urne liegen 3 rote, 5 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,45
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,83: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 27](./?laplace-urne=27#laplace-urne): In einer Urne liegen 2 rote, 4 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,5
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 1: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 28](./?laplace-urne=28#laplace-urne): In einer Urne liegen 6 rote, 3 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,23
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,3: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 29](./?laplace-urne=29#laplace-urne): In einer Urne liegen 3 rote, 2 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,22
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,29: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 30](./?laplace-urne=30#laplace-urne): In einer Urne liegen 2 rote, 5 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,56
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 1,25: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 31](./?laplace-urne=31#laplace-urne): In einer Urne liegen 5 rote, 4 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,31
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,44: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 32](./?laplace-urne=32#laplace-urne): In einer Urne liegen 2 rote, 4 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,44
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,8: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 33](./?laplace-urne=33#laplace-urne): In einer Urne liegen 4 rote, 5 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,38
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,63: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 34](./?laplace-urne=34#laplace-urne): In einer Urne liegen 3 rote, 4 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,44
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,8: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 35](./?laplace-urne=35#laplace-urne): In einer Urne liegen 3 rote, 3 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,3
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,43: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 36](./?laplace-urne=36#laplace-urne): In einer Urne liegen 4 rote, 2 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,25
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,33: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 37](./?laplace-urne=37#laplace-urne): In einer Urne liegen 6 rote, 5 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,36
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,56: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 38](./?laplace-urne=38#laplace-urne): In einer Urne liegen 4 rote, 2 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,2
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,25: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 39](./?laplace-urne=39#laplace-urne): In einer Urne liegen 5 rote, 2 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,18
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,22: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 40](./?laplace-urne=40#laplace-urne): In einer Urne liegen 6 rote, 1 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,09
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,1: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 41](./?laplace-urne=41#laplace-urne): In einer Urne liegen 3 rote, 3 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,38
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,6: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 42](./?laplace-urne=42#laplace-urne): In einer Urne liegen 3 rote, 2 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,29
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,4: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 43](./?laplace-urne=43#laplace-urne): In einer Urne liegen 5 rote, 2 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,2
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,25: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 44](./?laplace-urne=44#laplace-urne): In einer Urne liegen 4 rote, 2 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,22
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,29: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 45](./?laplace-urne=45#laplace-urne): In einer Urne liegen 6 rote, 4 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,31
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,44: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 46](./?laplace-urne=46#laplace-urne): In einer Urne liegen 5 rote, 2 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,22
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,29: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 47](./?laplace-urne=47#laplace-urne): In einer Urne liegen 4 rote, 3 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,3
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,43: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 48](./?laplace-urne=48#laplace-urne): In einer Urne liegen 5 rote, 5 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,36
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,56: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 49](./?laplace-urne=49#laplace-urne): In einer Urne liegen 4 rote, 3 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,27
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,38: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 50](./?laplace-urne=50#laplace-urne): In einer Urne liegen 4 rote, 1 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,14
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,17: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 51](./?laplace-urne=51#laplace-urne): In einer Urne liegen 3 rote, 5 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,5
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 1: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 52](./?laplace-urne=52#laplace-urne): In einer Urne liegen 2 rote, 2 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,25
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,33: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 53](./?laplace-urne=53#laplace-urne): In einer Urne liegen 2 rote, 1 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,17
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,2: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 54](./?laplace-urne=54#laplace-urne): In einer Urne liegen 2 rote, 2 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,29
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,4: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 55](./?laplace-urne=55#laplace-urne): In einer Urne liegen 3 rote, 4 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,36
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,57: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 56](./?laplace-urne=56#laplace-urne): In einer Urne liegen 6 rote, 2 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,17
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,2: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 57](./?laplace-urne=57#laplace-urne): In einer Urne liegen 5 rote, 4 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,36
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,57: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 58](./?laplace-urne=58#laplace-urne): In einer Urne liegen 2 rote, 5 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,45
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,83: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 59](./?laplace-urne=59#laplace-urne): In einer Urne liegen 5 rote, 5 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,38
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,63: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 60](./?laplace-urne=60#laplace-urne): In einer Urne liegen 5 rote, 1 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,1
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,11: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 61](./?laplace-urne=61#laplace-urne): In einer Urne liegen 2 rote, 3 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,38
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,6: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 62](./?laplace-urne=62#laplace-urne): In einer Urne liegen 3 rote, 2 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,25
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,33: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 63](./?laplace-urne=63#laplace-urne): In einer Urne liegen 2 rote, 4 blaue und 4 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,4
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,67: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 64](./?laplace-urne=64#laplace-urne): In einer Urne liegen 4 rote, 4 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,4
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,67: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 65](./?laplace-urne=65#laplace-urne): In einer Urne liegen 6 rote, 2 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,18
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,22: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 66](./?laplace-urne=66#laplace-urne): In einer Urne liegen 5 rote, 5 blaue und 2 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,42
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,71: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.
+  - [Aufgabe Nr. 67](./?laplace-urne=67#laplace-urne): In einer Urne liegen 5 rote, 1 blaue und 3 gelbe Kugeln. Du ziehst blind eine Kugel. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib sie als Dezimalzahl an, auf zwei Nachkommastellen gerundet. → Lösung: 0,11
+    - ✗ 0,33: Du hast Farben gezählt. Jede einzelne Kugel ist ein Ergebnis, nicht jede Farbe.
+    - ✗ 0,13: Im Nenner stehen alle Kugeln, auch die blauen – nicht nur die übrigen.

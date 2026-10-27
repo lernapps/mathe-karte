@@ -1,0 +1,307 @@
+# Grundwert berechnen – Tutor-Datei
+
+> Den Grundwert berechnen mit G = W · 100 : p. Erklärung, Beispiel, Hunderterfeld und Übungsaufgaben.
+
+App: Mathe-Karte. Seite: [Grundwert berechnen](./)
+
+Diese Datei ist für einen KI-Tutor. Sie enthält die Lösungen: Nutze sie, um anzuleiten und Fehler zu erkennen, nicht um vorzusagen. Die Regeln stehen in llms.txt. Kannst du eine Datei der App nicht abrufen, bitte die lernende Person, den Text der Seite oder diese Datei einzufügen oder anzuhängen.
+
+## Abschnitte
+
+- [Warum?](./#warum)
+- [Regel](./#regel)
+- [Beispiel](./#beispiel)
+- [Bild](./#bild)
+- [Video dazu](./#video)
+- [Übung](./#uebung)
+
+## Übungen
+
+### grundwert-aufgabe (interaktive Übung ProzentGrundwert)
+
+- Link: [./#grundwert-aufgabe](./#grundwert-aufgabe), im Abschnitt „Übung“
+- Was zu tun ist: Eine Textaufgabe: Prozentwert und Prozentsatz sind gegeben, der Grundwert (das Ganze) ist gesucht. Das Bild zur Aufgabe ist ein Hunderterfeld mit dem bekannten Teil in Blau.
+- Antwortformat: Eine Zahl in der Einheit des Ganzen (Euro, Schüler, Personen, mAh, Würfe); Komma oder Punkt, ein Bruch oder ein Term gehen auch.
+- Was als richtig zählt: Richtig ist G = W · 100 / p: exakt, oder kaufmännisch gerundet auf die Stellen, die neben dem Feld stehen.
+- Typische Fehler und die Meldung der App:
+  - Du hast p % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem der Prozentwert ein Teil ist.
+  - Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?grundwert-aufgabe=1#grundwert-aufgabe): Mia hat 17 Treffer erzielt. Das sind 85 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 85 von 100 Kästchen sind blau. 85 % = 17 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 20 Würfe Rechenweg: - G = W · 100 / p - G = 17 · 100 / 85 - G = 20 Würfe Ergebnis: 20 Würfe.
+  - [Aufgabe Nr. 2](./?grundwert-aufgabe=2#grundwert-aufgabe): 20 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 25 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 25 von 100 Kästchen sind blau. 25 % = 20 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 80 Personen Rechenweg: - G = W · 100 / p - G = 20 · 100 / 25 - G = 80 Personen Ergebnis: 80 Personen.
+  - [Aufgabe Nr. 3](./?grundwert-aufgabe=3#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 86,40 €. Das sind 18 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 18 von 100 Kästchen sind blau. 18 % = 86,40 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 480 € Rechenweg: - G = W · 100 / p - G = 86,40 · 100 / 18 - G = 480 € Ergebnis: 480 €.
+  - [Aufgabe Nr. 4](./?grundwert-aufgabe=4#grundwert-aufgabe): 7 Schüler einer Klasse spielen ein Instrument. Das sind 35 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 35 von 100 Kästchen sind blau. 35 % = 7 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 7 · 100 / 35 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 5](./?grundwert-aufgabe=5#grundwert-aufgabe): Im Akku sind noch 1560 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 40 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % = 1560 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 3900 mAh Rechenweg: - G = W · 100 / p - G = 1560 · 100 / 40 - G = 3900 mAh Ergebnis: 3900 mAh.
+  - [Aufgabe Nr. 6](./?grundwert-aufgabe=6#grundwert-aufgabe): 28 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 5 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 5 von 100 Kästchen sind blau. 5 % = 28 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 560 Personen Rechenweg: - G = W · 100 / p - G = 28 · 100 / 5 - G = 560 Personen Ergebnis: 560 Personen.
+  - [Aufgabe Nr. 7](./?grundwert-aufgabe=7#grundwert-aufgabe): 17 Schüler einer Klasse spielen ein Instrument. Das sind 85 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 85 von 100 Kästchen sind blau. 85 % = 17 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 17 · 100 / 85 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 8](./?grundwert-aufgabe=8#grundwert-aufgabe): 30 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 6 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau. 6 % = 30 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 500 Personen Rechenweg: - G = W · 100 / p - G = 30 · 100 / 6 - G = 500 Personen Ergebnis: 500 Personen.
+  - [Aufgabe Nr. 9](./?grundwert-aufgabe=9#grundwert-aufgabe): 35 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 12,5 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 12,5 von 100 Kästchen sind blau. 12,5 % = 35 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 280 Personen Rechenweg: - G = W · 100 / p - G = 35 · 100 / 12,5 - G = 280 Personen Ergebnis: 280 Personen.
+  - [Aufgabe Nr. 10](./?grundwert-aufgabe=10#grundwert-aufgabe): Im Akku sind noch 870 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 30 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 30 von 100 Kästchen sind blau. 30 % = 870 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 2900 mAh Rechenweg: - G = W · 100 / p - G = 870 · 100 / 30 - G = 2900 mAh Ergebnis: 2900 mAh.
+  - [Aufgabe Nr. 11](./?grundwert-aufgabe=11#grundwert-aufgabe): Im Akku sind noch 1575 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 45 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 45 von 100 Kästchen sind blau. 45 % = 1575 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 3500 mAh Rechenweg: - G = W · 100 / p - G = 1575 · 100 / 45 - G = 3500 mAh Ergebnis: 3500 mAh.
+  - [Aufgabe Nr. 12](./?grundwert-aufgabe=12#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 122,50 €. Das sind 25 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 25 von 100 Kästchen sind blau. 25 % = 122,50 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 490 € Rechenweg: - G = W · 100 / p - G = 122,50 · 100 / 25 - G = 490 € Ergebnis: 490 €.
+  - [Aufgabe Nr. 13](./?grundwert-aufgabe=13#grundwert-aufgabe): 240 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 24 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 24 von 100 Kästchen sind blau. 24 % = 240 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 1000 Personen Rechenweg: - G = W · 100 / p - G = 240 · 100 / 24 - G = 1000 Personen Ergebnis: 1000 Personen.
+  - [Aufgabe Nr. 14](./?grundwert-aufgabe=14#grundwert-aufgabe): Mia hat 9 Treffer erzielt. Das sind 18 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 18 von 100 Kästchen sind blau. 18 % = 9 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 50 Würfe Rechenweg: - G = W · 100 / p - G = 9 · 100 / 18 - G = 50 Würfe Ergebnis: 50 Würfe.
+  - [Aufgabe Nr. 15](./?grundwert-aufgabe=15#grundwert-aufgabe): Im Akku sind noch 88 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 2 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 2 von 100 Kästchen sind blau. 2 % = 88 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 4400 mAh Rechenweg: - G = W · 100 / p - G = 88 · 100 / 2 - G = 4400 mAh Ergebnis: 4400 mAh.
+  - [Aufgabe Nr. 16](./?grundwert-aufgabe=16#grundwert-aufgabe): 136 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 40 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % = 136 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 340 Personen Rechenweg: - G = W · 100 / p - G = 136 · 100 / 40 - G = 340 Personen Ergebnis: 340 Personen.
+  - [Aufgabe Nr. 17](./?grundwert-aufgabe=17#grundwert-aufgabe): Im Akku sind noch 2275 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 65 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 65 von 100 Kästchen sind blau. 65 % = 2275 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 3500 mAh Rechenweg: - G = W · 100 / p - G = 2275 · 100 / 65 - G = 3500 mAh Ergebnis: 3500 mAh.
+  - [Aufgabe Nr. 18](./?grundwert-aufgabe=18#grundwert-aufgabe): Im Akku sind noch 288 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 6 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau. 6 % = 288 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 4800 mAh Rechenweg: - G = W · 100 / p - G = 288 · 100 / 6 - G = 4800 mAh Ergebnis: 4800 mAh.
+  - [Aufgabe Nr. 19](./?grundwert-aufgabe=19#grundwert-aufgabe): Mia hat 36 Treffer erzielt. Das sind 75 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % = 36 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 48 Würfe Rechenweg: - G = W · 100 / p - G = 36 · 100 / 75 - G = 48 Würfe Ergebnis: 48 Würfe.
+  - [Aufgabe Nr. 20](./?grundwert-aufgabe=20#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 60 €. Das sind 30 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 30 von 100 Kästchen sind blau. 30 % = 60 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 200 € Rechenweg: - G = W · 100 / p - G = 60 · 100 / 30 - G = 200 € Ergebnis: 200 €.
+  - [Aufgabe Nr. 21](./?grundwert-aufgabe=21#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 35 €. Das sind 12,5 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 12,5 von 100 Kästchen sind blau. 12,5 % = 35 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 280 € Rechenweg: - G = W · 100 / p - G = 35 · 100 / 12,5 - G = 280 € Ergebnis: 280 €.
+  - [Aufgabe Nr. 22](./?grundwert-aufgabe=22#grundwert-aufgabe): 408 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 85 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 85 von 100 Kästchen sind blau. 85 % = 408 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 480 Personen Rechenweg: - G = W · 100 / p - G = 408 · 100 / 85 - G = 480 Personen Ergebnis: 480 Personen.
+  - [Aufgabe Nr. 23](./?grundwert-aufgabe=23#grundwert-aufgabe): Im Akku sind noch 920 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 40 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % = 920 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 2300 mAh Rechenweg: - G = W · 100 / p - G = 920 · 100 / 40 - G = 2300 mAh Ergebnis: 2300 mAh.
+  - [Aufgabe Nr. 24](./?grundwert-aufgabe=24#grundwert-aufgabe): Mia hat 51 Treffer erzielt. Das sind 85 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 85 von 100 Kästchen sind blau. 85 % = 51 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 60 Würfe Rechenweg: - G = W · 100 / p - G = 51 · 100 / 85 - G = 60 Würfe Ergebnis: 60 Würfe.
+  - [Aufgabe Nr. 25](./?grundwert-aufgabe=25#grundwert-aufgabe): Im Akku sind noch 3330 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 90 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 90 von 100 Kästchen sind blau. 90 % = 3330 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 3700 mAh Rechenweg: - G = W · 100 / p - G = 3330 · 100 / 90 - G = 3700 mAh Ergebnis: 3700 mAh.
+  - [Aufgabe Nr. 26](./?grundwert-aufgabe=26#grundwert-aufgabe): Im Akku sind noch 2465 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 85 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 85 von 100 Kästchen sind blau. 85 % = 2465 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 2900 mAh Rechenweg: - G = W · 100 / p - G = 2465 · 100 / 85 - G = 2900 mAh Ergebnis: 2900 mAh.
+  - [Aufgabe Nr. 27](./?grundwert-aufgabe=27#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 66 €. Das sind 24 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 24 von 100 Kästchen sind blau. 24 % = 66 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 275 € Rechenweg: - G = W · 100 / p - G = 66 · 100 / 24 - G = 275 € Ergebnis: 275 €.
+  - [Aufgabe Nr. 28](./?grundwert-aufgabe=28#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 119 €. Das sind 35 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 35 von 100 Kästchen sind blau. 35 % = 119 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 340 € Rechenweg: - G = W · 100 / p - G = 119 · 100 / 35 - G = 340 € Ergebnis: 340 €.
+  - [Aufgabe Nr. 29](./?grundwert-aufgabe=29#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 198 €. Das sind 45 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 45 von 100 Kästchen sind blau. 45 % = 198 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 440 € Rechenweg: - G = W · 100 / p - G = 198 · 100 / 45 - G = 440 € Ergebnis: 440 €.
+  - [Aufgabe Nr. 30](./?grundwert-aufgabe=30#grundwert-aufgabe): 51 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 6 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau. 6 % = 51 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 850 Personen Rechenweg: - G = W · 100 / p - G = 51 · 100 / 6 - G = 850 Personen Ergebnis: 850 Personen.
+  - [Aufgabe Nr. 31](./?grundwert-aufgabe=31#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 22,50 €. Das sind 15 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 15 von 100 Kästchen sind blau. 15 % = 22,50 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 150 € Rechenweg: - G = W · 100 / p - G = 22,50 · 100 / 15 - G = 150 € Ergebnis: 150 €.
+  - [Aufgabe Nr. 32](./?grundwert-aufgabe=32#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 50 €. Das sind 40 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % = 50 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 125 € Rechenweg: - G = W · 100 / p - G = 50 · 100 / 40 - G = 125 € Ergebnis: 125 €.
+  - [Aufgabe Nr. 33](./?grundwert-aufgabe=33#grundwert-aufgabe): Im Akku sind noch 1500 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 50 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 50 von 100 Kästchen sind blau. 50 % = 1500 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 3000 mAh Rechenweg: - G = W · 100 / p - G = 1500 · 100 / 50 - G = 3000 mAh Ergebnis: 3000 mAh.
+  - [Aufgabe Nr. 34](./?grundwert-aufgabe=34#grundwert-aufgabe): 24 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 6 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau. 6 % = 24 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 400 Personen Rechenweg: - G = W · 100 / p - G = 24 · 100 / 6 - G = 400 Personen Ergebnis: 400 Personen.
+  - [Aufgabe Nr. 35](./?grundwert-aufgabe=35#grundwert-aufgabe): 13 Schüler einer Klasse spielen ein Instrument. Das sind 65 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 65 von 100 Kästchen sind blau. 65 % = 13 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 13 · 100 / 65 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 36](./?grundwert-aufgabe=36#grundwert-aufgabe): 60 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 8 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 8 von 100 Kästchen sind blau. 8 % = 60 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 750 Personen Rechenweg: - G = W · 100 / p - G = 60 · 100 / 8 - G = 750 Personen Ergebnis: 750 Personen.
+  - [Aufgabe Nr. 37](./?grundwert-aufgabe=37#grundwert-aufgabe): 8 Schüler einer Klasse spielen ein Instrument. Das sind 25 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 25 von 100 Kästchen sind blau. 25 % = 8 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 32 Schüler Rechenweg: - G = W · 100 / p - G = 8 · 100 / 25 - G = 32 Schüler Ergebnis: 32 Schüler.
+  - [Aufgabe Nr. 38](./?grundwert-aufgabe=38#grundwert-aufgabe): 2 Schüler einer Klasse spielen ein Instrument. Das sind 10 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 10 von 100 Kästchen sind blau. 10 % = 2 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 2 · 100 / 10 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 39](./?grundwert-aufgabe=39#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 185 €. Das sind 50 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 50 von 100 Kästchen sind blau. 50 % = 185 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 370 € Rechenweg: - G = W · 100 / p - G = 185 · 100 / 50 - G = 370 € Ergebnis: 370 €.
+  - [Aufgabe Nr. 40](./?grundwert-aufgabe=40#grundwert-aufgabe): 15 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 12,5 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 12,5 von 100 Kästchen sind blau. 12,5 % = 15 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 120 Personen Rechenweg: - G = W · 100 / p - G = 15 · 100 / 12,5 - G = 120 Personen Ergebnis: 120 Personen.
+  - [Aufgabe Nr. 41](./?grundwert-aufgabe=41#grundwert-aufgabe): 12 Schüler einer Klasse spielen ein Instrument. Das sind 75 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % = 12 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 16 Schüler Rechenweg: - G = W · 100 / p - G = 12 · 100 / 75 - G = 16 Schüler Ergebnis: 16 Schüler.
+  - [Aufgabe Nr. 42](./?grundwert-aufgabe=42#grundwert-aufgabe): Mia hat 26 Treffer erzielt. Das sind 65 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 65 von 100 Kästchen sind blau. 65 % = 26 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 40 Würfe Rechenweg: - G = W · 100 / p - G = 26 · 100 / 65 - G = 40 Würfe Ergebnis: 40 Würfe.
+  - [Aufgabe Nr. 43](./?grundwert-aufgabe=43#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 44 €. Das sind 10 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 10 von 100 Kästchen sind blau. 10 % = 44 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 440 € Rechenweg: - G = W · 100 / p - G = 44 · 100 / 10 - G = 440 € Ergebnis: 440 €.
+  - [Aufgabe Nr. 44](./?grundwert-aufgabe=44#grundwert-aufgabe): Mia hat 4 Treffer erzielt. Das sind 20 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 20 von 100 Kästchen sind blau. 20 % = 4 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 20 Würfe Rechenweg: - G = W · 100 / p - G = 4 · 100 / 20 - G = 20 Würfe Ergebnis: 20 Würfe.
+  - [Aufgabe Nr. 45](./?grundwert-aufgabe=45#grundwert-aufgabe): 336 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 70 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 70 von 100 Kästchen sind blau. 70 % = 336 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 480 Personen Rechenweg: - G = W · 100 / p - G = 336 · 100 / 70 - G = 480 Personen Ergebnis: 480 Personen.
+  - [Aufgabe Nr. 46](./?grundwert-aufgabe=46#grundwert-aufgabe): Mia hat 14 Treffer erzielt. Das sind 70 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 70 von 100 Kästchen sind blau. 70 % = 14 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 20 Würfe Rechenweg: - G = W · 100 / p - G = 14 · 100 / 70 - G = 20 Würfe Ergebnis: 20 Würfe.
+  - [Aufgabe Nr. 47](./?grundwert-aufgabe=47#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 52,80 €. Das sind 12 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 12 von 100 Kästchen sind blau. 12 % = 52,80 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 440 € Rechenweg: - G = W · 100 / p - G = 52,80 · 100 / 12 - G = 440 € Ergebnis: 440 €.
+  - [Aufgabe Nr. 48](./?grundwert-aufgabe=48#grundwert-aufgabe): Beim Kauf eines Rollers sparst du 10,50 €. Das sind 5 % Rabatt. Wie viel hat der Roller vorher gekostet? Bild zur Aufgabe: Hunderterfeld: 5 von 100 Kästchen sind blau. 5 % = 10,50 €; 100 % = ?. - Grundwert G (in €) → Lösung: - Grundwert G: 210 € Rechenweg: - G = W · 100 / p - G = 10,50 · 100 / 5 - G = 210 € Ergebnis: 210 €.
+  - [Aufgabe Nr. 49](./?grundwert-aufgabe=49#grundwert-aufgabe): Im Akku sind noch 775 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 25 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 25 von 100 Kästchen sind blau. 25 % = 775 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 3100 mAh Rechenweg: - G = W · 100 / p - G = 775 · 100 / 25 - G = 3100 mAh Ergebnis: 3100 mAh.
+  - [Aufgabe Nr. 50](./?grundwert-aufgabe=50#grundwert-aufgabe): Im Akku sind noch 198 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 6 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau. 6 % = 198 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 3300 mAh Rechenweg: - G = W · 100 / p - G = 198 · 100 / 6 - G = 3300 mAh Ergebnis: 3300 mAh.
+  - [Aufgabe Nr. 51](./?grundwert-aufgabe=51#grundwert-aufgabe): 280 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 70 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 70 von 100 Kästchen sind blau. 70 % = 280 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 400 Personen Rechenweg: - G = W · 100 / p - G = 280 · 100 / 70 - G = 400 Personen Ergebnis: 400 Personen.
+  - [Aufgabe Nr. 52](./?grundwert-aufgabe=52#grundwert-aufgabe): Im Akku sind noch 768 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 24 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 24 von 100 Kästchen sind blau. 24 % = 768 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 3200 mAh Rechenweg: - G = W · 100 / p - G = 768 · 100 / 24 - G = 3200 mAh Ergebnis: 3200 mAh.
+  - [Aufgabe Nr. 53](./?grundwert-aufgabe=53#grundwert-aufgabe): Mia hat 27 Treffer erzielt. Das sind 45 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 45 von 100 Kästchen sind blau. 45 % = 27 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 60 Würfe Rechenweg: - G = W · 100 / p - G = 27 · 100 / 45 - G = 60 Würfe Ergebnis: 60 Würfe.
+  - [Aufgabe Nr. 54](./?grundwert-aufgabe=54#grundwert-aufgabe): 24 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 12 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 12 von 100 Kästchen sind blau. 12 % = 24 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 200 Personen Rechenweg: - G = W · 100 / p - G = 24 · 100 / 12 - G = 200 Personen Ergebnis: 200 Personen.
+  - [Aufgabe Nr. 55](./?grundwert-aufgabe=55#grundwert-aufgabe): Mia hat 18 Treffer erzielt. Das sind 45 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 45 von 100 Kästchen sind blau. 45 % = 18 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 40 Würfe Rechenweg: - G = W · 100 / p - G = 18 · 100 / 45 - G = 40 Würfe Ergebnis: 40 Würfe.
+  - [Aufgabe Nr. 56](./?grundwert-aufgabe=56#grundwert-aufgabe): 12 Schüler einer Klasse spielen ein Instrument. Das sind 60 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 60 von 100 Kästchen sind blau. 60 % = 12 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 12 · 100 / 60 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 57](./?grundwert-aufgabe=57#grundwert-aufgabe): 81 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 18 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 18 von 100 Kästchen sind blau. 18 % = 81 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 450 Personen Rechenweg: - G = W · 100 / p - G = 81 · 100 / 18 - G = 450 Personen Ergebnis: 450 Personen.
+  - [Aufgabe Nr. 58](./?grundwert-aufgabe=58#grundwert-aufgabe): 3 Schüler einer Klasse spielen ein Instrument. Das sind 15 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 15 von 100 Kästchen sind blau. 15 % = 3 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 3 · 100 / 15 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 59](./?grundwert-aufgabe=59#grundwert-aufgabe): 57 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 6 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 6 von 100 Kästchen sind blau. 6 % = 57 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 950 Personen Rechenweg: - G = W · 100 / p - G = 57 · 100 / 6 - G = 950 Personen Ergebnis: 950 Personen.
+  - [Aufgabe Nr. 60](./?grundwert-aufgabe=60#grundwert-aufgabe): 12 Personen haben bei einer Umfrage mit „Ja“ gestimmt. Das sind 3 % aller Befragten. Wie viele Personen wurden befragt? Bild zur Aufgabe: Hunderterfeld: 3 von 100 Kästchen sind blau. 3 % = 12 Personen; 100 % = ?. - Grundwert G (in Personen) → Lösung: - Grundwert G: 400 Personen Rechenweg: - G = W · 100 / p - G = 12 · 100 / 3 - G = 400 Personen Ergebnis: 400 Personen.
+  - [Aufgabe Nr. 61](./?grundwert-aufgabe=61#grundwert-aufgabe): 16 Schüler einer Klasse spielen ein Instrument. Das sind 80 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 80 von 100 Kästchen sind blau. 80 % = 16 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 16 · 100 / 80 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 62](./?grundwert-aufgabe=62#grundwert-aufgabe): 1 Schüler einer Klasse spielen ein Instrument. Das sind 5 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 5 von 100 Kästchen sind blau. 5 % = 1 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 1 · 100 / 5 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 63](./?grundwert-aufgabe=63#grundwert-aufgabe): Im Akku sind noch 1880 mAh (Milliamperestunden: so viel Ladung ist gespeichert). Das sind 40 % der vollen Ladung. Wie viel mAh fasst der Akku voll? Bild zur Aufgabe: Hunderterfeld: 40 von 100 Kästchen sind blau. 40 % = 1880 mAh; 100 % = ?. - Grundwert G (in mAh) → Lösung: - Grundwert G: 4700 mAh Rechenweg: - G = W · 100 / p - G = 1880 · 100 / 40 - G = 4700 mAh Ergebnis: 4700 mAh.
+  - [Aufgabe Nr. 64](./?grundwert-aufgabe=64#grundwert-aufgabe): Mia hat 18 Treffer erzielt. Das sind 75 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % = 18 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 24 Würfe Rechenweg: - G = W · 100 / p - G = 18 · 100 / 75 - G = 24 Würfe Ergebnis: 24 Würfe.
+  - [Aufgabe Nr. 65](./?grundwert-aufgabe=65#grundwert-aufgabe): 21 Schüler einer Klasse spielen ein Instrument. Das sind 75 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % = 21 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 28 Schüler Rechenweg: - G = W · 100 / p - G = 21 · 100 / 75 - G = 28 Schüler Ergebnis: 28 Schüler.
+  - [Aufgabe Nr. 66](./?grundwert-aufgabe=66#grundwert-aufgabe): 19 Schüler einer Klasse spielen ein Instrument. Das sind 95 % der Klasse. Wie viele Schüler hat die Klasse? Bild zur Aufgabe: Hunderterfeld: 95 von 100 Kästchen sind blau. 95 % = 19 Schüler; 100 % = ?. - Grundwert G (in Schüler) → Lösung: - Grundwert G: 20 Schüler Rechenweg: - G = W · 100 / p - G = 19 · 100 / 95 - G = 20 Schüler Ergebnis: 20 Schüler.
+  - [Aufgabe Nr. 67](./?grundwert-aufgabe=67#grundwert-aufgabe): Mia hat 30 Treffer erzielt. Das sind 75 % ihrer Würfe. Wie oft hat sie geworfen? Bild zur Aufgabe: Hunderterfeld: 75 von 100 Kästchen sind blau. 75 % = 30 Treffer; 100 % = ?. - Grundwert G (in Würfe) → Lösung: - Grundwert G: 40 Würfe Rechenweg: - G = W · 100 / p - G = 30 · 100 / 75 - G = 40 Würfe Ergebnis: 40 Würfe.
+
+### grundwert-rechnen (generated, number)
+
+- Link: [./#grundwert-rechnen](./#grundwert-rechnen), im Abschnitt „Übung“
+- Antwortformat: eine Zahl eintippen (€)
+- Tipp, den die App zeigt (Vorlage: {{…}} sind die Werte der Aufgabe): Rechne erst 1 % aus: {{W}} € geteilt durch {{p}}. Dann mal 100.
+- Lösungsweg (Vorlage: {{…}} sind die Werte der Aufgabe):
+  - $G = \frac{W \cdot 100}{p}$
+  - $G = \frac{{{W}} \cdot 100}{{{p}}} = {{answer}}$, also {{answer}} €.
+- Aufgaben nach Nummer, 1 bis 67: jede eine andere (die App zeigt „Aufgabe Nr. …“):
+  - [Aufgabe Nr. 1](./?grundwert-rechnen=1#grundwert-rechnen): 551 € sind 40 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 1.377,5 €
+    - ✗ 220,4: Du hast 40 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 551 € ein Teil sind.
+    - ✗ 13,775: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 2](./?grundwert-rechnen=2#grundwert-rechnen): 210 € sind 80 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 262,5 €
+    - ✗ 168: Du hast 80 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 210 € ein Teil sind.
+    - ✗ 2,625: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 3](./?grundwert-rechnen=3#grundwert-rechnen): 518 € sind 25 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 2.072 €
+    - ✗ 129,5: Du hast 25 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 518 € ein Teil sind.
+    - ✗ 20,72: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 4](./?grundwert-rechnen=4#grundwert-rechnen): 497 € sind 20 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 2.485 €
+    - ✗ 99,4: Du hast 20 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 497 € ein Teil sind.
+    - ✗ 24,85: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 5](./?grundwert-rechnen=5#grundwert-rechnen): 6 € sind 24 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 25 €
+    - ✗ 1,44: Du hast 24 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 6 € ein Teil sind.
+    - ✗ 0,25: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 6](./?grundwert-rechnen=6#grundwert-rechnen): 590 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 7.375 €
+    - ✗ 47,2: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 590 € ein Teil sind.
+    - ✗ 73,75: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 7](./?grundwert-rechnen=7#grundwert-rechnen): 286 € sind 40 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 715 €
+    - ✗ 114,4: Du hast 40 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 286 € ein Teil sind.
+    - ✗ 7,15: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 8](./?grundwert-rechnen=8#grundwert-rechnen): 339 € sind 20 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 1.695 €
+    - ✗ 67,8: Du hast 20 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 339 € ein Teil sind.
+    - ✗ 16,95: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 9](./?grundwert-rechnen=9#grundwert-rechnen): 227 € sind 80 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 283,75 €
+    - ✗ 181,6: Du hast 80 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 227 € ein Teil sind.
+    - ✗ 2,8375: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 10](./?grundwert-rechnen=10#grundwert-rechnen): 111 € sind 24 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 462,5 €
+    - ✗ 26,64: Du hast 24 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 111 € ein Teil sind.
+    - ✗ 4,625: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 11](./?grundwert-rechnen=11#grundwert-rechnen): 353 € sind 4 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 8.825 €
+    - ✗ 14,12: Du hast 4 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 353 € ein Teil sind.
+    - ✗ 88,25: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 12](./?grundwert-rechnen=12#grundwert-rechnen): 157 € sind 25 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 628 €
+    - ✗ 39,25: Du hast 25 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 157 € ein Teil sind.
+    - ✗ 6,28: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 13](./?grundwert-rechnen=13#grundwert-rechnen): 423 € sind 20 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 2.115 €
+    - ✗ 84,6: Du hast 20 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 423 € ein Teil sind.
+    - ✗ 21,15: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 14](./?grundwert-rechnen=14#grundwert-rechnen): 425 € sind 80 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 531,25 €
+    - ✗ 340: Du hast 80 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 425 € ein Teil sind.
+    - ✗ 5,3125: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 15](./?grundwert-rechnen=15#grundwert-rechnen): 345 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.312,5 €
+    - ✗ 27,6: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 345 € ein Teil sind.
+    - ✗ 43,125: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 16](./?grundwert-rechnen=16#grundwert-rechnen): 184 € sind 2 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 9.200 €
+    - ✗ 3,68: Du hast 2 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 184 € ein Teil sind.
+    - ✗ 92: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 17](./?grundwert-rechnen=17#grundwert-rechnen): 162 € sind 12,5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 1.296 €
+    - ✗ 20,25: Du hast 12,5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 162 € ein Teil sind.
+    - ✗ 12,96: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 18](./?grundwert-rechnen=18#grundwert-rechnen): 524 € sind 12,5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.192 €
+    - ✗ 65,5: Du hast 12,5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 524 € ein Teil sind.
+    - ✗ 41,92: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 19](./?grundwert-rechnen=19#grundwert-rechnen): 555 € sind 12 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.625 €
+    - ✗ 66,6: Du hast 12 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 555 € ein Teil sind.
+    - ✗ 46,25: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 20](./?grundwert-rechnen=20#grundwert-rechnen): 126 € sind 2 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 6.300 €
+    - ✗ 2,52: Du hast 2 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 126 € ein Teil sind.
+    - ✗ 63: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 21](./?grundwert-rechnen=21#grundwert-rechnen): 54 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 675 €
+    - ✗ 4,32: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 54 € ein Teil sind.
+    - ✗ 6,75: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 22](./?grundwert-rechnen=22#grundwert-rechnen): 144 € sind 30 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 480 €
+    - ✗ 43,2: Du hast 30 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 144 € ein Teil sind.
+    - ✗ 4,8: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 23](./?grundwert-rechnen=23#grundwert-rechnen): 486 € sind 20 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 2.430 €
+    - ✗ 97,2: Du hast 20 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 486 € ein Teil sind.
+    - ✗ 24,3: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 24](./?grundwert-rechnen=24#grundwert-rechnen): 218 € sind 20 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 1.090 €
+    - ✗ 43,6: Du hast 20 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 218 € ein Teil sind.
+    - ✗ 10,9: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 25](./?grundwert-rechnen=25#grundwert-rechnen): 413 € sind 4 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 10.325 €
+    - ✗ 16,52: Du hast 4 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 413 € ein Teil sind.
+    - ✗ 103,25: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 26](./?grundwert-rechnen=26#grundwert-rechnen): 582 € sind 80 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 727,5 €
+    - ✗ 465,6: Du hast 80 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 582 € ein Teil sind.
+    - ✗ 7,275: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 27](./?grundwert-rechnen=27#grundwert-rechnen): 277 € sind 5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 5.540 €
+    - ✗ 13,85: Du hast 5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 277 € ein Teil sind.
+    - ✗ 55,4: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 28](./?grundwert-rechnen=28#grundwert-rechnen): 3 € sind 20 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 15 €
+    - ✗ 0,6: Du hast 20 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 3 € ein Teil sind.
+    - ✗ 0,15: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 29](./?grundwert-rechnen=29#grundwert-rechnen): 545 € sind 12,5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.360 €
+    - ✗ 68,125: Du hast 12,5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 545 € ein Teil sind.
+    - ✗ 43,6: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 30](./?grundwert-rechnen=30#grundwert-rechnen): 546 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 6.825 €
+    - ✗ 43,68: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 546 € ein Teil sind.
+    - ✗ 68,25: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 31](./?grundwert-rechnen=31#grundwert-rechnen): 595 € sind 4 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 14.875 €
+    - ✗ 23,8: Du hast 4 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 595 € ein Teil sind.
+    - ✗ 148,75: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 32](./?grundwert-rechnen=32#grundwert-rechnen): 47 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 587,5 €
+    - ✗ 3,76: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 47 € ein Teil sind.
+    - ✗ 5,875: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 33](./?grundwert-rechnen=33#grundwert-rechnen): 307 € sind 4 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 7.675 €
+    - ✗ 12,28: Du hast 4 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 307 € ein Teil sind.
+    - ✗ 76,75: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 34](./?grundwert-rechnen=34#grundwert-rechnen): 162 € sind 60 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 270 €
+    - ✗ 97,2: Du hast 60 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 162 € ein Teil sind.
+    - ✗ 2,7: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 35](./?grundwert-rechnen=35#grundwert-rechnen): 583 € sind 25 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 2.332 €
+    - ✗ 145,75: Du hast 25 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 583 € ein Teil sind.
+    - ✗ 23,32: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 36](./?grundwert-rechnen=36#grundwert-rechnen): 363 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.537,5 €
+    - ✗ 29,04: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 363 € ein Teil sind.
+    - ✗ 45,375: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 37](./?grundwert-rechnen=37#grundwert-rechnen): 111 € sind 12,5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 888 €
+    - ✗ 13,875: Du hast 12,5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 111 € ein Teil sind.
+    - ✗ 8,88: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 38](./?grundwert-rechnen=38#grundwert-rechnen): 565 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 7.062,5 €
+    - ✗ 45,2: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 565 € ein Teil sind.
+    - ✗ 70,625: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 39](./?grundwert-rechnen=39#grundwert-rechnen): 524 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 6.550 €
+    - ✗ 41,92: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 524 € ein Teil sind.
+    - ✗ 65,5: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 40](./?grundwert-rechnen=40#grundwert-rechnen): 45 € sind 24 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 187,5 €
+    - ✗ 10,8: Du hast 24 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 45 € ein Teil sind.
+    - ✗ 1,875: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 41](./?grundwert-rechnen=41#grundwert-rechnen): 501 € sind 12,5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.008 €
+    - ✗ 62,625: Du hast 12,5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 501 € ein Teil sind.
+    - ✗ 40,08: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 42](./?grundwert-rechnen=42#grundwert-rechnen): 33 € sind 15 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 220 €
+    - ✗ 4,95: Du hast 15 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 33 € ein Teil sind.
+    - ✗ 2,2: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 43](./?grundwert-rechnen=43#grundwert-rechnen): 231 € sind 24 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 962,5 €
+    - ✗ 55,44: Du hast 24 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 231 € ein Teil sind.
+    - ✗ 9,625: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 44](./?grundwert-rechnen=44#grundwert-rechnen): 25 € sind 25 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 100 €
+    - ✗ 6,25: Du hast 25 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 25 € ein Teil sind.
+    - ✗ 1: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 45](./?grundwert-rechnen=45#grundwert-rechnen): 476 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 5.950 €
+    - ✗ 38,08: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 476 € ein Teil sind.
+    - ✗ 59,5: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 46](./?grundwert-rechnen=46#grundwert-rechnen): 289 € sind 2 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 14.450 €
+    - ✗ 5,78: Du hast 2 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 289 € ein Teil sind.
+    - ✗ 144,5: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 47](./?grundwert-rechnen=47#grundwert-rechnen): 573 € sind 24 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 2.387,5 €
+    - ✗ 137,52: Du hast 24 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 573 € ein Teil sind.
+    - ✗ 23,875: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 48](./?grundwert-rechnen=48#grundwert-rechnen): 319 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 3.987,5 €
+    - ✗ 25,52: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 319 € ein Teil sind.
+    - ✗ 39,875: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 49](./?grundwert-rechnen=49#grundwert-rechnen): 226 € sind 5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.520 €
+    - ✗ 11,3: Du hast 5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 226 € ein Teil sind.
+    - ✗ 45,2: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 50](./?grundwert-rechnen=50#grundwert-rechnen): 416 € sind 2 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 20.800 €
+    - ✗ 8,32: Du hast 2 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 416 € ein Teil sind.
+    - ✗ 208: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 51](./?grundwert-rechnen=51#grundwert-rechnen): 555 € sind 4 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 13.875 €
+    - ✗ 22,2: Du hast 4 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 555 € ein Teil sind.
+    - ✗ 138,75: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 52](./?grundwert-rechnen=52#grundwert-rechnen): 201 € sind 60 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 335 €
+    - ✗ 120,6: Du hast 60 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 201 € ein Teil sind.
+    - ✗ 3,35: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 53](./?grundwert-rechnen=53#grundwert-rechnen): 381 € sind 40 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 952,5 €
+    - ✗ 152,4: Du hast 40 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 381 € ein Teil sind.
+    - ✗ 9,525: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 54](./?grundwert-rechnen=54#grundwert-rechnen): 219 € sind 5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.380 €
+    - ✗ 10,95: Du hast 5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 219 € ein Teil sind.
+    - ✗ 43,8: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 55](./?grundwert-rechnen=55#grundwert-rechnen): 38 € sind 25 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 152 €
+    - ✗ 9,5: Du hast 25 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 38 € ein Teil sind.
+    - ✗ 1,52: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 56](./?grundwert-rechnen=56#grundwert-rechnen): 500 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 6.250 €
+    - ✗ 40: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 500 € ein Teil sind.
+    - ✗ 62,5: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 57](./?grundwert-rechnen=57#grundwert-rechnen): 69 € sind 30 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 230 €
+    - ✗ 20,7: Du hast 30 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 69 € ein Teil sind.
+    - ✗ 2,3: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 58](./?grundwert-rechnen=58#grundwert-rechnen): 284 € sind 12,5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 2.272 €
+    - ✗ 35,5: Du hast 12,5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 284 € ein Teil sind.
+    - ✗ 22,72: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 59](./?grundwert-rechnen=59#grundwert-rechnen): 474 € sind 12 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 3.950 €
+    - ✗ 56,88: Du hast 12 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 474 € ein Teil sind.
+    - ✗ 39,5: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 60](./?grundwert-rechnen=60#grundwert-rechnen): 105 € sind 40 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 262,5 €
+    - ✗ 42: Du hast 40 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 105 € ein Teil sind.
+    - ✗ 2,625: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 61](./?grundwert-rechnen=61#grundwert-rechnen): 507 € sind 5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 10.140 €
+    - ✗ 25,35: Du hast 5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 507 € ein Teil sind.
+    - ✗ 101,4: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 62](./?grundwert-rechnen=62#grundwert-rechnen): 498 € sind 80 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 622,5 €
+    - ✗ 398,4: Du hast 80 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 498 € ein Teil sind.
+    - ✗ 6,225: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 63](./?grundwert-rechnen=63#grundwert-rechnen): 441 € sind 5 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 8.820 €
+    - ✗ 22,05: Du hast 5 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 441 € ein Teil sind.
+    - ✗ 88,2: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 64](./?grundwert-rechnen=64#grundwert-rechnen): 120 € sind 80 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 150 €
+    - ✗ 96: Du hast 80 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 120 € ein Teil sind.
+    - ✗ 1,5: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 65](./?grundwert-rechnen=65#grundwert-rechnen): 321 € sind 15 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 2.140 €
+    - ✗ 48,15: Du hast 15 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 321 € ein Teil sind.
+    - ✗ 21,4: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 66](./?grundwert-rechnen=66#grundwert-rechnen): 333 € sind 8 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 4.162,5 €
+    - ✗ 26,64: Du hast 8 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 333 € ein Teil sind.
+    - ✗ 41,625: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
+  - [Aufgabe Nr. 67](./?grundwert-rechnen=67#grundwert-rechnen): 274 € sind 40 % eines Betrags. Wie groß ist der ganze Betrag? → Lösung: 685 €
+    - ✗ 109,6: Du hast 40 % vom Prozentwert berechnet. Gesucht ist aber das Ganze, von dem 274 € ein Teil sind.
+    - ✗ 6,85: Das ist erst 1 %. Jetzt noch mal 100 nehmen, dann hast du das Ganze.
