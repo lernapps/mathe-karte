@@ -7,11 +7,11 @@
 const FELDER = {
   "aktiv-level": 2, // 1 Create, 2 Solve, 3 Collaborate, 4 Reflect, 5 Receive
   backend: "none", // none | optional | required
-  "external-requests": "none", // none | on-consent | always: Videos sind nur noch Links, nichts lädt vor dem Klick
+  "external-requests": "on-consent", // none | on-consent | always: Video-Blöcke laden YouTube erst nach dem Klick
   dsgvo: "amber", // green | amber | red | unknown – green vergibt erst eine Prüfung, nie die App selbst
   evidence: "anecdotal", // anecdotal | community-validated | research-backed
   lizenz: "",
-  stand: "2026-10-24",
+  stand: "2026-10-27",
 };
 
 const BINOM = "klammern-binome";

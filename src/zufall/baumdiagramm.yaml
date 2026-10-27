@@ -75,9 +75,12 @@ blocks:
     id: video
     title: Video dazu
     blocks:
+      - type: video
+        youtube: mBknBnww5fA
+        title: "Baumdiagramm | mehrstufiger Zufallsversuch | Wahrscheinlichkeit | Stochastik"
+        channel: Lehrerschmidt
       - type: text
         text: |-
-          - Video: [Baumdiagramm | mehrstufiger Zufallsversuch | Wahrscheinlichkeit | Stochastik](https://www.youtube.com/watch?v=mBknBnww5fA) von Lehrerschmidt (YouTube)
           - Noch eine Erklärung: [Mehrstufige Zufallsexperimente](https://de.serlo.org/mathe/156048/mehrstufige-zufallsexperimente) bei serlo.org
   - type: section
     id: uebung

@@ -68,9 +68,12 @@ blocks:
     id: video
     title: Video dazu
     blocks:
+      - type: video
+        youtube: fLPxMfgUxVk
+        title: "Produktregel | Wahrscheinlichkeitsrechnung - einfach erklärt"
+        channel: Lehrerschmidt
       - type: text
         text: |-
-          - Video: [Produktregel | Wahrscheinlichkeitsrechnung - einfach erklärt](https://www.youtube.com/watch?v=fLPxMfgUxVk) von Lehrerschmidt (YouTube)
           - Noch eine Erklärung: [Pfadregeln](https://de.serlo.org/mathe/189811/pfadregeln) bei serlo.org
   - type: section
     id: uebung

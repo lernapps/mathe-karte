@@ -73,9 +73,15 @@ blocks:
     id: video
     title: Video dazu
     blocks:
+      - type: video
+        youtube: rkLmLaFHodo
+        title: "einstufiger Zufallsversuch | Wahrscheinlichkeitsrechnung - einfach erklärt"
+        channel: Lehrerschmidt
+      - type: text
+        text: >-
+          Im Video heißt das „einstufiger Zufallsversuch“ – gemeint ist dasselbe.
       - type: text
         text: |-
-          - Video: [einstufiger Zufallsversuch | Wahrscheinlichkeitsrechnung - einfach erklärt](https://www.youtube.com/watch?v=rkLmLaFHodo) von Lehrerschmidt (YouTube). Im Video heißt das „einstufiger Zufallsversuch“ – gemeint ist dasselbe.
           - Noch eine Erklärung: [Laplace-Experiment](https://de.serlo.org/mathe/1755/laplace-experiment) bei serlo.org
   - type: section
     id: uebung

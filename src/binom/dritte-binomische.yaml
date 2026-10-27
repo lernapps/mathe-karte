@@ -63,9 +63,13 @@ blocks:
     id: video
     title: Video dazu
     blocks:
+      - type: video
+        youtube: 6ySWeEhTOt4
+        title: "3.binomische Formel – ganz einfach erklärt mit Beispielen!"
+        channel: Lehrerschmidt
       - type: text
         text: >-
-          [3.binomische Formel – ganz einfach erklärt mit Beispielen!](https://www.youtube.com/watch?v=6ySWeEhTOt4), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
+          Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
   - type: section
     id: uebung
     title: Übung

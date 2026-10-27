@@ -105,15 +105,21 @@ blocks:
     blocks:
       - type: text
         text: >-
-          Senkung: [Rabatt, Nachlass, Preissenkung berechnen | Prozentrechnung - einfach erklärt |
-          Lehrerschmidt](https://www.youtube.com/watch?v=7qPr-ik4wp8) vom Kanal Lehrerschmidt.
+          Senkung:
+      - type: video
+        youtube: 7qPr-ik4wp8
+        title: "Rabatt, Nachlass, Preissenkung berechnen | Prozentrechnung - einfach erklärt | Lehrerschmidt"
+        channel: Lehrerschmidt
       - type: text
         text: >-
-          Erhöhung: [Preiserhöhung, Aufschlag berechnen | Prozentrechnung - einfach erklärt |
-          Lehrerschmidt](https://www.youtube.com/watch?v=hyKgJKGCjHc) vom Kanal Lehrerschmidt.
+          Erhöhung:
+      - type: video
+        youtube: hyKgJKGCjHc
+        title: "Preiserhöhung, Aufschlag berechnen | Prozentrechnung - einfach erklärt | Lehrerschmidt"
+        channel: Lehrerschmidt
       - type: text
         text: >-
-          Die Links öffnen YouTube; vorher lädt diese Seite nichts von dort. Noch eine Erklärung in anderen Worten:
+          Noch eine Erklärung in anderen Worten:
           [Der verminderte und vermehrte
           Grundwert](https://de.serlo.org/mathe/116824/der-verminderte-und-vermehrte-grundwert) bei serlo.org.
   - type: section

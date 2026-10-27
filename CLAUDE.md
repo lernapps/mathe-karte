@@ -9,7 +9,9 @@ map (`karte/`) is built with Eleventy 3.1.7. Deployed to GitHub Pages at `https:
 
 ## Project rules
 - Every page is fully readable without JavaScript – text AND picture. No external requests before a click; videos
-  are plain links (`https://www.youtube.com/watch?v=…`), no embeds.
+  are the runtime's `video` block (`youtube`, `title`, `channel`): before a click it shows a link, the channel and a
+  privacy note, and only the click loads the player from youtube-nocookie.com. Never a YouTube link in a text, never
+  an own embed.
 - Write only content: YAML in `src/`, components in `src/components/`. Never change the runtime in `node_modules`;
   fixes arrive with `lernapps update` in its own PR. Before writing content, load the skills `app-content`,
   `lernapps-explainer`, `lernapps-explainer-design` and `lernapps-content-questions`.

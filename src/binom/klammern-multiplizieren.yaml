@@ -72,9 +72,13 @@ blocks:
     id: video
     title: Video dazu
     blocks:
+      - type: video
+        youtube: X5E2bqby8f0
+        title: "Ausmultiplizieren – Klammern auflösen"
+        channel: Lehrerschmidt
       - type: text
         text: >-
-          [Ausmultiplizieren – Klammern auflösen](https://www.youtube.com/watch?v=X5E2bqby8f0), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Klammern ausmultiplizieren bei Serlo](https://de.serlo.org/mathe/1525/klammern-ausmultiplizieren).
+          Zum Nachlesen: [Klammern ausmultiplizieren bei Serlo](https://de.serlo.org/mathe/1525/klammern-ausmultiplizieren).
   - type: section
     id: uebung
     title: Übung

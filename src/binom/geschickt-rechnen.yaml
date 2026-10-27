@@ -63,9 +63,13 @@ blocks:
     id: video
     title: Video dazu
     blocks:
+      - type: video
+        youtube: LoTVgi5tYsQ
+        title: "Nur für NERDS: Kopfrechnen mit den binomischen Formeln!"
+        channel: Lehrerschmidt
       - type: text
         text: >-
-          [Nur für NERDS: Kopfrechnen mit den binomischen Formeln!](https://www.youtube.com/watch?v=LoTVgi5tYsQ), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Exkurs: Kopfrechnen mit binomischen Formeln bei Serlo](https://de.serlo.org/mathe/18631/ueberblick-zu-den-binomischen-formeln#19104).
+          Zum Nachlesen: [Exkurs: Kopfrechnen mit binomischen Formeln bei Serlo](https://de.serlo.org/mathe/18631/ueberblick-zu-den-binomischen-formeln#19104).
   - type: section
     id: uebung
     title: Übung

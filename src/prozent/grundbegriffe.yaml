@@ -95,11 +95,10 @@ blocks:
     id: video
     title: Video dazu
     blocks:
-      - type: text
-        text: >-
-          [Dreisatz - Grundwert - Prozentwert - Prozentsatz | Lehrerschmidt | Klasse
-          7](https://www.youtube.com/watch?v=tsAZSNrwJLE) vom Kanal Lehrerschmidt. Der Link öffnet YouTube; vorher lädt
-          diese Seite nichts von dort.
+      - type: video
+        youtube: tsAZSNrwJLE
+        title: "Dreisatz - Grundwert - Prozentwert - Prozentsatz | Lehrerschmidt | Klasse 7"
+        channel: Lehrerschmidt
       - type: text
         text: >-
           Noch eine Erklärung in anderen Worten: [Einführung in Grundwert, Prozentwert und

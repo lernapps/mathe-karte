@@ -68,9 +68,13 @@ blocks:
     id: video
     title: Video dazu
     blocks:
+      - type: video
+        youtube: D_D4gvqNDdE
+        title: "1.binomische Formel – mit grafischer Erklärung"
+        channel: Lehrerschmidt
       - type: text
         text: >-
-          [1.binomische Formel – mit grafischer Erklärung](https://www.youtube.com/watch?v=D_D4gvqNDdE), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
+          Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
   - type: section
     id: uebung
     title: Übung

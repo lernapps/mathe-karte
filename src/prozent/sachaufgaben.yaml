@@ -104,11 +104,10 @@ blocks:
     id: video
     title: Video dazu
     blocks:
-      - type: text
-        text: >-
-          [Prozentrechnung - Prozentsatz berechnen mit Formel / mit Dreisatz |
-          Lehrerschmidt](https://www.youtube.com/watch?v=fvzgrNy9S0Q) vom Kanal Lehrerschmidt. Der Link öffnet YouTube;
-          vorher lädt diese Seite nichts von dort.
+      - type: video
+        youtube: fvzgrNy9S0Q
+        title: "Prozentrechnung - Prozentsatz berechnen mit Formel / mit Dreisatz | Lehrerschmidt"
+        channel: Lehrerschmidt
       - type: text
         text: >-
           Noch eine Erklärung in anderen Worten: [Mehrschrittige Anwendungsaufgaben zur

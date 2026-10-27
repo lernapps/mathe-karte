@@ -67,11 +67,10 @@ blocks:
     id: video
     title: Video dazu
     blocks:
-      - type: text
-        text: >-
-          [Prozentwert berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt |
-          Lehrerschmidt](https://www.youtube.com/watch?v=XDvDfzdP_Fc) vom Kanal Lehrerschmidt. Der Link öffnet YouTube;
-          vorher lädt diese Seite nichts von dort.
+      - type: video
+        youtube: XDvDfzdP_Fc
+        title: "Prozentwert berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt | Lehrerschmidt"
+        channel: Lehrerschmidt
       - type: text
         text: >-
           Noch eine Erklärung in anderen Worten: [Prozentrechnung mittels

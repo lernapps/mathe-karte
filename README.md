@@ -5,7 +5,7 @@ Prozentrechnung, binomische Formeln und Wahrscheinlichkeit für die Klassen 7 un
 
 Jede Seite erklärt eine Sache mit Regel, Beispiel und Bild und endet mit Übungsaufgaben, die sofort sagen, ob das
 Ergebnis stimmt. Jede Seite ist ohne JavaScript lesbar, Text und Bild. Kein Server, kein Tracking, keine Anfrage an
-fremde Server vor einem Klick.
+fremde Server vor einem Klick; ein Video lädt erst, wenn du es startest.
 
 Die Seiten sind ein _explainer_ von lernapps.net ([`@lernapps/app-templates`](https://github.com/lernapps/app-templates)):
 Der Inhalt steht als YAML in [`src/`](src/), Übungen sind deklarierte `generated`-Aufgaben oder Vue-Komponenten in
@@ -37,6 +37,11 @@ Was über den explainer hinausgeht:
   Vue-Komponente zur Build-Zeit als SVG.
 - **Verweisseiten** (`lib/weiterleitungen.js`): Die Adressen der alten Apps (`/prozent/grundwert.html`) zeigen einen
   Link auf die neue Seite.
+- **Videos mit zwei Klicks**: Jedes Video ist ein `video`-Block der Runtime. Vor dem Klick zeigt er Titel, Kanal und
+  einen Datenschutzhinweis und lädt nichts von YouTube; erst der Klick lädt den Player von youtube-nocookie.com. Grund:
+  Kinder sehen das Video auf der Seite, ohne die App zu verlassen, und vor einer Entscheidung geht keine Anfrage
+  hinaus. Deshalb steht im Karten-Eintrag `external-requests: on-consent` (`karte/daten/kapitel.js`) und im
+  Katalog-Eintrag der App (`lernapps/apps`) `fitness.thirdParty: on-click`.
 
 Geprüft und veröffentlicht wird mit dem Werkzeug von lernapps.net, wie bei jeder App aus dem Generator:
 `.github/workflows/pages.yml` führt `lernapps check` bei jedem Push und Pull Request aus, stellt jeden Pull Request

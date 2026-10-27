@@ -36,8 +36,9 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 2. `regel` – „Regel“: `formula`-Blöcke, Fachbegriffe als `definition`, eine `note` „Merke“.
 3. `beispiel` – „Beispiel“: eine `example`-Box mit `table` (gegeben, Rechnung, Ergebnis).
 4. `bild` – „Bild“: das Beispielbild, ohne JavaScript sichtbar (siehe Figures).
-5. `video` – „Video dazu“: Link `https://www.youtube.com/watch?v=<id>` mit Titel und Kanal, danach der serlo-Link,
-   falls es einen geprüften gibt. Keine Einbettung.
+5. `video` – „Video dazu“: ein `video`-Block (`youtube: <11 Zeichen nach watch?v=>`, `title` wie YouTube ihn zeigt,
+   `channel: Lehrerschmidt`), danach der serlo-Link als Text, falls es einen geprüften gibt. Kein YouTube-Link im
+   Text, kein Satz zu Kanal oder Datenschutz: das zeigt der Block selbst (`test/build/videos.test.js`).
 6. `uebung` – „Übung“: die Übungen (siehe Exercise patterns).
 
 `description` und `summary` sind reiner Text ohne `$…$` (`test/build/lektorat-texte.test.js`).
@@ -79,7 +80,8 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 
 ## Sources
 
-- Videos: Kanal Lehrerschmidt (YouTube), je Seite geprüft über oEmbed (`author_name` und Titel passen); nur Links.
+- Videos: Kanal Lehrerschmidt (YouTube), je Seite geprüft über oEmbed (`author_name` und Titel passen); als `video`-Block,
+  der den Player erst nach dem Klick von youtube-nocookie.com lädt.
 - serlo.org: Artikel mit numerischer id (`https://de.serlo.org/mathe/<id>/<slug>`), per curl geprüft (Status 200, der
   Artikel selbst, passt zur Kompetenz). Kein schwacher Treffer; dann kein Link.
 - Texte und Aufgaben sind eigene Arbeit (MIT), übernommen aus den alten Apps des Repos.
@@ -97,5 +99,6 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 - Formeln in `description` erschienen roh im Inhaltsverzeichnis → reiner Text.
 - Formeln in Quiz-Fragen ließen die Laufzeit-Tests scheitern und hatten keinen zugänglichen Namen → reiner Text.
 - Bilder als Komponente waren ohne JavaScript unsichtbar → statische SVGs aus `scripts/bilder.mjs`.
+- Videos als Textlink mit Satz „Der Link öffnet YouTube …“ wiederholten, was die Runtime kann → `video`-Block.
 - Ein wählbares Feld mit sichtbarem Text braucht diesen Text am Anfang seines Namens (axe
   label-content-name-mismatch).

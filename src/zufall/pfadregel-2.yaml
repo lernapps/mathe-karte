@@ -69,9 +69,12 @@ blocks:
     id: video
     title: Video dazu
     blocks:
+      - type: video
+        youtube: Pi1M1F2l024
+        title: "Summenregel | Wahrscheinlichkeitsrechnung | Mathematik"
+        channel: Lehrerschmidt
       - type: text
         text: |-
-          - Video: [Summenregel | Wahrscheinlichkeitsrechnung | Mathematik](https://www.youtube.com/watch?v=Pi1M1F2l024) von Lehrerschmidt (YouTube)
           - Noch eine Erklärung: [Pfadregeln](https://de.serlo.org/mathe/189811/pfadregeln) bei serlo.org
   - type: section
     id: uebung
