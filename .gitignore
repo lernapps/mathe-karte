@@ -3,6 +3,3 @@ dist/
 _site/
 test-results/
 playwright-report/
-.playwright-mcp/
-/build/
-.claude/worktrees/

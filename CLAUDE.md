@@ -3,9 +3,10 @@
 Read `AGENTS.md` first: it is the lernapps.net entry point (plans, skills, rules) and applies here unchanged.
 
 The Mathe-Karte of lernapps.net: Prozentrechnung, binomische Formeln and Wahrscheinlichkeit for school years 7 and
-8, plus the curriculum map. The pages are a lernapps.net **explainer** (`@lernapps/app-templates`, built with
-Vite+): content is YAML in `src/`, exercises are `generated` blocks or Vue exercise components. Only the curriculum
-map (`karte/`) is built with Eleventy 3.1.7. Deployed to GitHub Pages at `https://lernapps.net/mathe-karte/`.
+8. It is a lernapps.net **explainer** as the generator writes it (`@lernapps/app-templates`, built with Vite+):
+content is YAML in `src/`, exercises are `generated` blocks or Vue exercise components. Nothing goes beyond the
+explainer: the curriculum map moves to the catalog (lernapps/apps#115). Deployed to GitHub Pages at
+`https://lernapps.net/mathe-karte/`.
 
 ## Project rules
 - Every page is fully readable without JavaScript – text AND picture. No external requests before a click; videos
@@ -18,29 +19,19 @@ map (`karte/`) is built with Eleventy 3.1.7. Deployed to GitHub Pages at `https:
 - German UI, `du`, German domain terms in identifiers, English for generic structure. Component names carry the
   chapter prefix (`Prozent…`, `Binom…`, `Zufall…`); shared code lives once in `src/components/Bruch.ts` (exact
   fractions and rounding) and `Zufallszahlen.ts` (mulberry32) – never copy them into a chapter.
-- TDD; `npm test` and `npm run build` green at every commit. Conventional Commits, add files by name (never
+- TDD; `npx vp test run` and `npm run build` green at every commit. Conventional Commits, add files by name (never
   `git add -A` / `git add .`), feature branches. The git hooks run `lernapps check`; never `--no-verify`.
 - Page ids, section ids, exercise ids and the address `/<kapitel>/<seite>/?<übung>=<n>#<übung>` are a public contract
-  used by the AI tutor. Never rename an id; moving a page means changing `karte/daten/kapitel.js` in the same PR.
-  The tutor rules live in `src/app.yaml` (`tutor.rules`).
+  used by the AI tutor. Never rename an id. The tutor rules live in `src/app.yaml` (`tutor.rules`).
 
-## What goes beyond the explainer (README, section „Architektur“)
-- `karte/` – the curriculum map at `/karte/`: Eleventy input (`*.njk`, `_data/site.js` = THE one place holding the
-  base URL, `_includes/`, `js/`, `css/`, `daten/`, `lib/`, `test/`). Curriculum data in `karte/daten/` (model in
-  `karte/daten/README.md`); the chapters appear on the map through `karte/daten/kapitel.js`, and the build fails if a
-  listed page does not exist. URL parameters `land`, `jahrgang`, `leitidee`, `luecken`, `knoten` and the shape of
-  `data.json` are a public contract (`karte/llms.njk`). `karte/lib/vite-plugin.js` runs Eleventy after the explainer.
-- Example pictures: what no block draws (section `bild`) is drawn by the exercise component and pre-rendered as SVG:
-  entry in `scripts/bilder.json`, `npm run bilder` (`src/images/<kapitel>-<seite>.svg`); `npm test` fails when a file
-  differs from its component. No hand-drawn SVGs.
-- Link pages for the old addresses `/<app>/<id>.html` and `/<app>/test.html` (`lib/weiterleitungen.js`, written by
-  the build, noindex, no meta refresh).
-- Self-assessment: planned as part of the explainer; not in this site until then.
-- A new decision of that kind gets a short paragraph with its reason in `README.md`, section „Architektur“.
+## Example pictures
+- What no block draws (section `bild`) the exercise component draws; its picture is a static SVG in
+  `src/images/<kapitel>-<seite>.svg`, rendered from the component (`scripts/bilder.mjs`, in the history until
+  `8b229e9`). The `<svg>` needs its `viewBox`. No hand-drawn SVGs.
 
 ## Build, test, deploy
-- `npm ci`, `npm test` (`vp test`: components, map, build parts), `npm run build` (output `dist/`), `npm run dev`,
-  `npx lernapps check` (format, lint, types, tests, build, the lernapps.net rules over `dist/`, end-to-end tests).
+- `npm ci`, `npx vp test run` (the components), `npm run build` (output `_site/`), `npm run dev`,
+  `npx lernapps check` (format, lint, types, tests, build, the lernapps.net rules over `_site/`, end-to-end tests).
 - `.github/workflows/pages.yml` from the lernapps.net generator: the app check on every push and PR, a preview of
   every PR at `<address>pr-preview/pr-<n>/`, and on `main` the publish to the `gh-pages` branch.
 

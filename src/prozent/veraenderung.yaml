@@ -13,13 +13,6 @@ blocks:
           Preise steigen, Rabatte senken, Gehälter wachsen, die Mehrwertsteuer kommt obendrauf: Fast jede
           Prozentaufgabe im Alltag ist eine Veränderung. Der Trick ist der Faktor – mit ihm rechnest du eine Erhöhung
           oder Senkung in einem Schritt, und du kannst sie auch rückwärts rechnen.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: prozent-veraenderung
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-veraenderung).
   - type: section
     id: regel
     title: Regel

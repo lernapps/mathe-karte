@@ -9,13 +9,6 @@ blocks:
       - type: text
         text: >-
           Fast jede Wahrscheinlichkeitsaufgabe beginnt mit dieser Frage: Wie viele Ergebnisse gibt es überhaupt, und wie viele davon sind „gut“ für mich? Wer das sauber zählt, hat den ersten Schritt jeder Aufgabe geschafft. Alles Weitere – Baumdiagramme, Pfadregeln – baut darauf auf.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: zufall-laplace
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-laplace).
   - type: section
     id: regel
     title: Regel

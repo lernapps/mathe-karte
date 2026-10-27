@@ -9,13 +9,6 @@ blocks:
       - type: text
         text: >-
           Ob eine gezogene Kugel zurück in die Urne kommt oder nicht, ändert die ganze Rechnung. Genau hier passieren die meisten Fehler: Der Nenner bleibt 6, obwohl nur noch 5 Kugeln drin sind. Wer den Unterschied einmal gesehen hat, vergisst ihn nicht mehr.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: zufall-ohne-zuruecklegen
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-ohne-zuruecklegen).
   - type: section
     id: regel
     title: Regel

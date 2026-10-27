@@ -9,13 +9,6 @@ blocks:
       - type: text
         text: >-
           Manche Ereignisse haben sehr viele günstige Ergebnisse – „mindestens einmal eine 6 bei drei Würfen“ zum Beispiel. Die alle zu zählen dauert ewig. Das Gegenteil ist im Baum oft nur ein einziger Pfad. Wer den Umweg über das Gegenereignis kennt, spart Zeit und Fehler.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: zufall-gegenereignis
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-gegenereignis).
   - type: section
     id: regel
     title: Regel

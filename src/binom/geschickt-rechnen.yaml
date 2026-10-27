@@ -9,13 +9,6 @@ blocks:
       - type: text
         text: >-
           Die binomischen Formeln sind nicht nur für Buchstaben da. Mit ihnen rechnest du Aufgaben wie $49^2$ oder $21 \cdot 19$ im Kopf aus – schneller als mit dem schriftlichen Verfahren. Das hilft beim Kopfrechnen, beim Überschlagen und in der Klassenarbeit ohne Taschenrechner. Und es zeigt dir, dass die Formeln wirklich für jede Zahl gelten: Buchstaben sind nur Platzhalter.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: klammern-binome
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=klammern-binome).
   - type: section
     id: regel
     title: Regel

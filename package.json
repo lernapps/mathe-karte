@@ -1,27 +1,22 @@
 {
   "name": "mathe-karte",
-  "version": "1.0.0",
   "private": true,
-  "description": "Mathe-Karte von lernapps.net: Prozent, binomische Formeln und Wahrscheinlichkeit als explainer, dazu die Lehrplan-Karte.",
+  "description": "Mathe-Karte von lernapps.net: Prozentrechnung, binomische Formeln und Wahrscheinlichkeit als explainer.",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "vp build",
+    "build": "vp build --outDir _site",
     "check": "lernapps check",
-    "prepare": "lernapps hooks",
-    "test": "vp test --passWithNoTests",
-    "bilder": "node scripts/bilder.mjs"
+    "prepare": "lernapps hooks"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.1.7",
     "@lernapps/app-templates": "github:lernapps/app-templates#648acfbc8a3b5f2820fa1d5a88ec045cf350f3e2",
     "@lernapps/tooling": "github:lernapps/tooling#0deff1055664cbe93de50b4f1e31d28003b49c66",
     "fast-check": "4.10.2",
     "typescript": "6.0.3",
     "vite-plus": "1.0.0",
-    "vue-tsc": "3.3.11",
-    "yaml": "2.9.1"
+    "vue-tsc": "3.3.11"
   },
   "overrides": {
     "vite": "npm:@voidzero-dev/vite-plus-core@1.0.0"

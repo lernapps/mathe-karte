@@ -13,13 +13,6 @@ blocks:
           In der Klassenarbeit und im Alltag steht nie „Berechne W“, sondern eine Geschichte mit Zahlen. Die
           eigentliche Kunst ist die Übersetzung: aus dem Text eine Gleichung oder einen Dreisatz machen. Danach ist es
           nur noch Rechnen. Beide Wege führen zum Ziel – der Dreisatz ist sicher, die Gleichung ist schnell.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: prozent-sachaufgaben
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-sachaufgaben).
   - type: section
     id: regel
     title: Regel

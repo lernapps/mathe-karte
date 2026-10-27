@@ -9,13 +9,6 @@ blocks:
       - type: text
         text: >-
           Viele Fragen passen nicht zu einem einzigen Pfad: „genau einmal rot“ kann rot-blau oder blau-rot sein. Die zweite Pfadregel sagt, wie du solche Pfade zusammenrechnest. Und darauf kommt es an: das Ereignis in Worten richtig in Pfade zu übersetzen.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: zufall-pfadregel-2
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-pfadregel-2).
   - type: section
     id: regel
     title: Regel

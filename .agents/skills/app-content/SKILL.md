@@ -8,12 +8,12 @@ description: Use for any content work in this app - researching, writing, extend
 ## Curriculum
 
 - Hessen, Gymnasium (G9), Klassen 7 und 8; Kerncurriculum Mathematik Sekundarstufe I (Hessisches Kultusministerium,
-  2021). Die Zuordnung je Bundesland steht in der Lehrplan-Karte (`karte/daten/zuordnungen/`), nicht hier.
+  2021). Die Zuordnung je Bundesland gehört künftig in den Katalog (lernapps/apps#115), nicht hier.
 - Prozentrechnung: Klasse 7 und 8; binomische Formeln: Klasse 8 (Einheit 8.1); Wahrscheinlichkeit: Klasse 7 und 8.
 
 ## Competencies
 
-Je Seite eine Kompetenz, Datei `src/<kapitel>/<seite>.yaml`; die Knoten der Karte stehen in `karte/daten/kapitel.js`.
+Je Seite eine Kompetenz, Datei `src/<kapitel>/<seite>.yaml`. Die Knoten des Lehrplans je Seite stehen in lernapps/apps#115.
 
 - Prozent (`src/prozent/`): Ich kann Grundwert, Prozentwert und Prozentsatz erkennen (`grundbegriffe`), den
   Prozentsatz (`prozentsatz`), den Prozentwert (`prozentwert`) und den Grundwert berechnen (`grundwert`), mit Zu- und
@@ -31,8 +31,7 @@ Je Seite eine Kompetenz, Datei `src/<kapitel>/<seite>.yaml`; die Knoten der Kart
 
 Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffentlicher Vertrag, nie umbenennen):
 
-1. `warum` – „Warum?“: ein Absatz aus dem Alltag oder der Klassenarbeit, dann der Block `KarteVerweis` mit dem
-   Knoten der Seite.
+1. `warum` – „Warum?“: ein Absatz aus dem Alltag oder der Klassenarbeit.
 2. `regel` – „Regel“: `formula`-Blöcke, Fachbegriffe als `definition`, eine `note` „Merke“.
 3. `beispiel` – „Beispiel“: eine `example`-Box mit `table` (gegeben, Rechnung, Ergebnis).
 4. `bild` – „Bild“: das Beispielbild, ohne JavaScript sichtbar (siehe Figures).
@@ -73,7 +72,8 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 
 - Hunderterfeld und Balken als `figure` mit `draw` (`hundred-grid`, `bar`).
 - Was kein Block zeichnet (Flächenbild, Baum, Urne), zeichnet die Komponente der Übung; das Beispielbild entsteht
-  daraus als SVG: Eintrag in `scripts/bilder.json`, dann `npm run bilder`, auf der Seite ein `figure` mit
+  daraus als SVG (gerendert mit `scripts/bilder.mjs`, das bis `8b229e9` im Repo lag und in der Git-Historie steht;
+  `<svg>` mit `viewBox`, sonst schneidet der Browser die Datei zu), auf der Seite ein `figure` mit
   `image: images/<kapitel>-<seite>.svg`, `alt` aus dem `aria-label`, `caption` mit der genauen Beschreibung,
   `source: Eigene Darstellung der Mathe-Karte`, `licence: MIT`. Nie von Hand gezeichnete SVGs.
 - Farben: Mathe-Blau `#1d4ed8`, Hervorhebung Orange `#ff8f00`; Kugeln rot/blau/gelb mit Buchstaben R/B/G.
@@ -91,8 +91,8 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 1. Kompetenzen als „Ich kann …“ hier eintragen; Seiten-ids festlegen (nie wieder ändern).
 2. `src/<kapitel>/chapter.yaml` und je Seite die YAML-Datei mit den sechs Abschnitten; Kapitel in `src/app.yaml`.
 3. Übungen nach den Mustern oben, Test zuerst (`src/components/<Name>.test.ts`).
-4. Beispielbilder nach Figures; Eintrag in `karte/daten/kapitel.js` mit den Knoten.
-5. `npm test`, `npm run build`, `npx lernapps check`; dann Commit und Pull Request.
+4. Beispielbilder nach Figures.
+5. `npx vp test run`, `npm run build`, `npx lernapps check`; dann Commit und Pull Request.
 
 ## Rules learned from mistakes
 

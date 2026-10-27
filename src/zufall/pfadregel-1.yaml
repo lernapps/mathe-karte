@@ -9,13 +9,6 @@ blocks:
       - type: text
         text: >-
           Der Baum zeigt dir alle Wege – aber wie wahrscheinlich ist ein bestimmter Weg? Die erste Pfadregel beantwortet genau das. Sie ist die Rechenregel hinter jeder mehrstufigen Aufgabe, und sie ist kurz: multiplizieren.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: zufall-pfadregel-1
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-pfadregel-1).
   - type: section
     id: regel
     title: Regel

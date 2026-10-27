@@ -9,13 +9,6 @@ blocks:
       - type: text
         text: >-
           Sobald du zweimal ziehst, wirfst oder würfelst, wird es unübersichtlich: Was kann beim ersten Mal passieren, was danach? Das Baumdiagramm ordnet alle Möglichkeiten Stufe für Stufe. Mit einem sauberen Baum lösen sich die Pfadregeln fast von allein – ohne Baum verliert man schnell einen Fall.
-      - type: vue-component
-        component: KarteVerweis
-        props:
-          knoten: zufall-baumdiagramm
-          text: Wo das im Lehrplan deines Bundeslandes steht, zeigt die
-          link: Lehrplan-Karte.
-        nojs: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-baumdiagramm).
   - type: section
     id: regel
     title: Regel
