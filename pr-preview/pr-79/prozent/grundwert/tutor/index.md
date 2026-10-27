@@ -81,7 +81,7 @@ Bild: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau. Bildunterschr
 
 ### Video dazu
 
-[Grundwert berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt | Lehrerschmidt](https://www.youtube.com/watch?v=gtEAmp8-K-8) vom Kanal Lehrerschmidt. Der Link öffnet YouTube; vorher lädt diese Seite nichts von dort.
+Video: [Grundwert berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt | Lehrerschmidt](https://www.youtube.com/watch?v=gtEAmp8-K-8), Lehrerschmidt (YouTube)
 
 Noch eine Erklärung in anderen Worten: [Prozentrechnung mittels Formeln](https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln) bei serlo.org.
 

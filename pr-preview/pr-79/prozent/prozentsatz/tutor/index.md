@@ -81,7 +81,7 @@ Bild: Ein Balken für 24 Schüler; 18 davon sind blau, das sind 75 %. Bildunters
 
 ### Video dazu
 
-[Prozentsatz berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt | Lehrerschmidt](https://www.youtube.com/watch?v=YdBcJa8-81s) vom Kanal Lehrerschmidt. Der Link öffnet YouTube; vorher lädt diese Seite nichts von dort.
+Video: [Prozentsatz berechnen - Prozentrechnung mit Formel - Mathematik einfach erklärt | Lehrerschmidt](https://www.youtube.com/watch?v=YdBcJa8-81s), Lehrerschmidt (YouTube)
 
 Noch eine Erklärung in anderen Worten: [Prozentrechnung mittels Formeln](https://de.serlo.org/mathe/2193/prozentrechnung-mittels-formeln) bei serlo.org.
 

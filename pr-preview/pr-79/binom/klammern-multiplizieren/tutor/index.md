@@ -85,7 +85,9 @@ Bild: (x + 3)(x + 5) = x² + 8x + 15. Feld = Zeile mal Spalte. Bildunterschrift:
 
 ### Video dazu
 
-[Ausmultiplizieren – Klammern auflösen](https://www.youtube.com/watch?v=X5E2bqby8f0), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Klammern ausmultiplizieren bei Serlo](https://de.serlo.org/mathe/1525/klammern-ausmultiplizieren).
+Video: [Ausmultiplizieren – Klammern auflösen](https://www.youtube.com/watch?v=X5E2bqby8f0), Lehrerschmidt (YouTube)
+
+Zum Nachlesen: [Klammern ausmultiplizieren bei Serlo](https://de.serlo.org/mathe/1525/klammern-ausmultiplizieren).
 
 ### Übung
 

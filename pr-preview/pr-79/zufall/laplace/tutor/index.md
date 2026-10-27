@@ -87,7 +87,10 @@ Bild: Die Kugeln in der Urne: die zwei blauen Kugeln sind orange umrandet. Bildu
 
 ### Video dazu
 
-- Video: [einstufiger Zufallsversuch | Wahrscheinlichkeitsrechnung - einfach erklärt](https://www.youtube.com/watch?v=rkLmLaFHodo) von Lehrerschmidt (YouTube). Im Video heißt das „einstufiger Zufallsversuch“ – gemeint ist dasselbe.
+Video: [einstufiger Zufallsversuch | Wahrscheinlichkeitsrechnung - einfach erklärt](https://www.youtube.com/watch?v=rkLmLaFHodo), Lehrerschmidt (YouTube)
+
+Im Video heißt das „einstufiger Zufallsversuch“ – gemeint ist dasselbe.
+
 - Noch eine Erklärung: [Laplace-Experiment](https://de.serlo.org/mathe/1755/laplace-experiment) bei serlo.org
 
 ### Übung

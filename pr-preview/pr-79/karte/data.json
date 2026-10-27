@@ -2645,14 +2645,14 @@
       ],
       "aktiv-level": 2,
       "backend": "none",
-      "external-requests": "none",
+      "external-requests": "on-consent",
       "dsgvo": "amber",
       "evidence": "anecdotal",
       "jahrgaenge": [
         8
       ],
       "lizenz": "",
-      "stand": "2026-10-24",
+      "stand": "2026-10-27",
       "beschreibung": "Binomische Formeln, Klasse 8: Klammern multiplizieren, die drei Formeln, rückwärts faktorisieren und geschickt im Kopf rechnen. Mit Flächenbildern und Übungsaufgaben."
     },
     {
@@ -2671,7 +2671,7 @@
       ],
       "aktiv-level": 2,
       "backend": "none",
-      "external-requests": "none",
+      "external-requests": "on-consent",
       "dsgvo": "amber",
       "evidence": "anecdotal",
       "jahrgaenge": [
@@ -2679,7 +2679,7 @@
         8
       ],
       "lizenz": "",
-      "stand": "2026-10-24",
+      "stand": "2026-10-27",
       "beschreibung": "Prozentrechnung, Klasse 7 und 8: Grundbegriffe, Prozentsatz, Prozentwert, Grundwert, Zunahme und Abnahme, Vergleiche und Sachaufgaben. Mit Erklärung, Bild und Übungsaufgaben."
     },
     {
@@ -2699,7 +2699,7 @@
       ],
       "aktiv-level": 2,
       "backend": "none",
-      "external-requests": "none",
+      "external-requests": "on-consent",
       "dsgvo": "amber",
       "evidence": "anecdotal",
       "jahrgaenge": [
@@ -2707,7 +2707,7 @@
         8
       ],
       "lizenz": "",
-      "stand": "2026-10-24",
+      "stand": "2026-10-27",
       "beschreibung": "Wahrscheinlichkeitsrechnung, Klasse 7 und 8: Laplace-Formel, Baumdiagramm, beide Pfadregeln, Gegenereignis und Ziehen ohne Zurücklegen. Mit Bildern und Übungsaufgaben."
     }
   ]

@@ -105,11 +105,15 @@ Bild: Ein Balken für 80 €, davon 60 € blau, das sind 75 %. Bildunterschrift
 
 ### Video dazu
 
-Senkung: [Rabatt, Nachlass, Preissenkung berechnen | Prozentrechnung - einfach erklärt | Lehrerschmidt](https://www.youtube.com/watch?v=7qPr-ik4wp8) vom Kanal Lehrerschmidt.
+Senkung:
 
-Erhöhung: [Preiserhöhung, Aufschlag berechnen | Prozentrechnung - einfach erklärt | Lehrerschmidt](https://www.youtube.com/watch?v=hyKgJKGCjHc) vom Kanal Lehrerschmidt.
+Video: [Rabatt, Nachlass, Preissenkung berechnen | Prozentrechnung - einfach erklärt | Lehrerschmidt](https://www.youtube.com/watch?v=7qPr-ik4wp8), Lehrerschmidt (YouTube)
 
-Die Links öffnen YouTube; vorher lädt diese Seite nichts von dort. Noch eine Erklärung in anderen Worten: [Der verminderte und vermehrte Grundwert](https://de.serlo.org/mathe/116824/der-verminderte-und-vermehrte-grundwert) bei serlo.org.
+Erhöhung:
+
+Video: [Preiserhöhung, Aufschlag berechnen | Prozentrechnung - einfach erklärt | Lehrerschmidt](https://www.youtube.com/watch?v=hyKgJKGCjHc), Lehrerschmidt (YouTube)
+
+Noch eine Erklärung in anderen Worten: [Der verminderte und vermehrte Grundwert](https://de.serlo.org/mathe/116824/der-verminderte-und-vermehrte-grundwert) bei serlo.org.
 
 ### Übung
 

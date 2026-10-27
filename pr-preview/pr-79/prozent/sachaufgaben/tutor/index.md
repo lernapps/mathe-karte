@@ -100,7 +100,7 @@ Bild: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau. Bildunterschr
 
 ### Video dazu
 
-[Prozentrechnung - Prozentsatz berechnen mit Formel / mit Dreisatz | Lehrerschmidt](https://www.youtube.com/watch?v=fvzgrNy9S0Q) vom Kanal Lehrerschmidt. Der Link öffnet YouTube; vorher lädt diese Seite nichts von dort.
+Video: [Prozentrechnung - Prozentsatz berechnen mit Formel / mit Dreisatz | Lehrerschmidt](https://www.youtube.com/watch?v=fvzgrNy9S0Q), Lehrerschmidt (YouTube)
 
 Noch eine Erklärung in anderen Worten: [Mehrschrittige Anwendungsaufgaben zur Prozentrechnung](https://de.serlo.org/mathe/174159/mehrschrittige-anwendungsaufgaben-zur-prozentrechnung) bei serlo.org.
 

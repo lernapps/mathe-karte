@@ -78,7 +78,7 @@ Bild: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mi
 
 ### Video dazu
 
-- Video: [Summenregel | Wahrscheinlichkeitsrechnung | Mathematik](https://www.youtube.com/watch?v=Pi1M1F2l024) von Lehrerschmidt (YouTube)
+Video: [Summenregel | Wahrscheinlichkeitsrechnung | Mathematik](https://www.youtube.com/watch?v=Pi1M1F2l024), Lehrerschmidt (YouTube)
 
 ### Übung
 

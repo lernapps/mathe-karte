@@ -87,7 +87,8 @@ Bild: Baumdiagramm zur Urne mit 3 roten und 2 blauen Kugeln, zweimal ohne Zurüc
 
 ### Video dazu
 
-- Video: [Baumdiagramm | mehrstufiger Zufallsversuch | Wahrscheinlichkeit | Stochastik](https://www.youtube.com/watch?v=mBknBnww5fA) von Lehrerschmidt (YouTube)
+Video: [Baumdiagramm | mehrstufiger Zufallsversuch | Wahrscheinlichkeit | Stochastik](https://www.youtube.com/watch?v=mBknBnww5fA), Lehrerschmidt (YouTube)
+
 - Noch eine Erklärung: [Mehrstufige Zufallsexperimente](https://de.serlo.org/mathe/156048/mehrstufige-zufallsexperimente) bei serlo.org
 
 ### Übung

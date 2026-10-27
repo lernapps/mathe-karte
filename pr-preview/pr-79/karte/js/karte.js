@@ -3,7 +3,7 @@
 import {
   AKTIV_LEVEL, DSGVO, EXTERNE_ANFRAGEN, STATUS,
   baumFuer, jahrgangBadges, statusText, zuordnungenFuer,
-} from './daten.js?v=531229d9';
+} from './daten.js?v=86831890';
 
 export function el(tag, attrs = {}, ...kinder) {
   const e = document.createElement(tag);

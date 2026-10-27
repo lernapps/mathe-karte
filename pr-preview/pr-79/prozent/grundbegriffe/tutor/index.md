@@ -96,7 +96,7 @@ Bild: Ein Hunderterfeld aus 100 Kästchen; 12 Kästchen sind blau. Bildunterschr
 
 ### Video dazu
 
-[Dreisatz - Grundwert - Prozentwert - Prozentsatz | Lehrerschmidt | Klasse 7](https://www.youtube.com/watch?v=tsAZSNrwJLE) vom Kanal Lehrerschmidt. Der Link öffnet YouTube; vorher lädt diese Seite nichts von dort.
+Video: [Dreisatz - Grundwert - Prozentwert - Prozentsatz | Lehrerschmidt | Klasse 7](https://www.youtube.com/watch?v=tsAZSNrwJLE), Lehrerschmidt (YouTube)
 
 Noch eine Erklärung in anderen Worten: [Einführung in Grundwert, Prozentwert und Prozentsatz](https://de.serlo.org/mathe/36750/einfuehrung-in-grundwert-prozentwert-und-prozentsatz) bei serlo.org.
 

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="binom-svg" viewbox="0 0 320 290" role="img" aria-label="(x − 5)² = x² − 10x + 25. x² − zwei Streifen + Ecke zurück"><style>
+<svg xmlns="http://www.w3.org/2000/svg" class="binom-svg" viewBox="0 0 320 290" role="img" aria-label="(x − 5)² = x² − 10x + 25. x² − zwei Streifen + Ecke zurück"><style>
 svg { --page-text: #1a1a1a; --page-muted: #4a4a4a; --page-background: #ffffff; --page-surface: #f4f5f7; --page-border: #8a8f98; --page-accent: #1d4ed8; --page-on-accent: #ffffff; --page-right: #14532d; --page-right-background: #dcfce7; --page-wrong: #7f1d1d; --page-wrong-background: #fee2e2; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
 @media (prefers-color-scheme: dark) { svg { --page-text: #ececec; --page-muted: #b8bcc4; --page-background: #121316; --page-surface: #1d1f24; --page-border: #7d838d; --page-accent: #8ab4ff; --page-on-accent: #0b1020; --page-right: #bbf7d0; --page-right-background: #143522; --page-wrong: #fecaca; --page-wrong-background: #3f1515; } }
 .binom-term {

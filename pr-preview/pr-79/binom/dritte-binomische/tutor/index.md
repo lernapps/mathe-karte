@@ -81,7 +81,9 @@ Bild: (x + 4)(x − 4) = x² − 16. Gleiche Teile, gleiche Fläche. Bilduntersc
 
 ### Video dazu
 
-[3.binomische Formel – ganz einfach erklärt mit Beispielen!](https://www.youtube.com/watch?v=6ySWeEhTOt4), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
+Video: [3.binomische Formel – ganz einfach erklärt mit Beispielen!](https://www.youtube.com/watch?v=6ySWeEhTOt4), Lehrerschmidt (YouTube)
+
+Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
 
 ### Übung
 

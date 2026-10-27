@@ -82,7 +82,9 @@ Bild: (x + 4)² = x² + 8x + 16. Zwei gleiche Streifen: 2 · 4x = 8x. Bildunters
 
 ### Video dazu
 
-[1.binomische Formel – mit grafischer Erklärung](https://www.youtube.com/watch?v=D_D4gvqNDdE), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
+Video: [1.binomische Formel – mit grafischer Erklärung](https://www.youtube.com/watch?v=D_D4gvqNDdE), Lehrerschmidt (YouTube)
+
+Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
 
 ### Übung
 

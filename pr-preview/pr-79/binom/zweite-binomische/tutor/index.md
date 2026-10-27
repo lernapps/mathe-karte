@@ -80,7 +80,9 @@ Bild: (x − 5)² = x² − 10x + 25. x² − zwei Streifen + Ecke zurück. Bild
 
 ### Video dazu
 
-[2.binomische Formel – ganz einfach erklärt mit Beispielen!](https://www.youtube.com/watch?v=P9Moh6nUSI8), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
+Video: [2.binomische Formel – ganz einfach erklärt mit Beispielen!](https://www.youtube.com/watch?v=P9Moh6nUSI8), Lehrerschmidt (YouTube)
+
+Zum Nachlesen: [Binomische Formeln bei Serlo](https://de.serlo.org/mathe/1499/binomische-formeln).
 
 ### Übung
 

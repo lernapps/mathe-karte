@@ -79,7 +79,8 @@ Bild: Baumdiagramm zur Urne mit 3 roten, 2 blauen und 1 gelben Kugel, zweimal mi
 
 ### Video dazu
 
-- Video: [Produktregel | Wahrscheinlichkeitsrechnung - einfach erklärt](https://www.youtube.com/watch?v=fLPxMfgUxVk) von Lehrerschmidt (YouTube)
+Video: [Produktregel | Wahrscheinlichkeitsrechnung - einfach erklärt](https://www.youtube.com/watch?v=fLPxMfgUxVk), Lehrerschmidt (YouTube)
+
 - Noch eine Erklärung: [Pfadregeln](https://de.serlo.org/mathe/189811/pfadregeln) bei serlo.org
 
 ### Übung

@@ -81,7 +81,9 @@ Bild: 49² = 2401. 50² − zwei Streifen + Ecke zurück. Bildunterschrift: $49^
 
 ### Video dazu
 
-[Nur für NERDS: Kopfrechnen mit den binomischen Formeln!](https://www.youtube.com/watch?v=LoTVgi5tYsQ), ein Video von Lehrerschmidt auf YouTube. Zum Nachlesen: [Exkurs: Kopfrechnen mit binomischen Formeln bei Serlo](https://de.serlo.org/mathe/18631/ueberblick-zu-den-binomischen-formeln#19104).
+Video: [Nur für NERDS: Kopfrechnen mit den binomischen Formeln!](https://www.youtube.com/watch?v=LoTVgi5tYsQ), Lehrerschmidt (YouTube)
+
+Zum Nachlesen: [Exkurs: Kopfrechnen mit binomischen Formeln bei Serlo](https://de.serlo.org/mathe/18631/ueberblick-zu-den-binomischen-formeln#19104).
 
 ### Übung
 
