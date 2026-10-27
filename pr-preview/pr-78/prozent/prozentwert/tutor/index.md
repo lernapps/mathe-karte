@@ -48,8 +48,6 @@ Den Prozentwert berechnen mit W = G · p : 100. Erklärung, Beispiel, Hunderterf
 
 „20 % Rabatt auf 80 €“ – wie viel sparst du wirklich? Der Prozentwert ist der Teil des Ganzen, den die Prozente beschreiben. Wenn du ihn schnell ausrechnen kannst, weißt du beim Einkaufen, beim Handy-Akku und in jeder Statistik sofort, worum es geht.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-prozentwert).
-
 ### Regel
 
 $W = \frac{G \cdot p}{100}$

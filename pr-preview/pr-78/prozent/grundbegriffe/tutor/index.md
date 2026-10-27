@@ -48,8 +48,6 @@ Grundwert, Prozentwert und Prozentsatz in Textaufgaben erkennen: Erklärung, Bei
 
 Die meisten Fehler in der Prozentrechnung passieren, bevor du überhaupt rechnest: Die Zahlen landen an der falschen Stelle. Wenn du in jeder Textaufgabe sofort siehst, was das Ganze, der Teil und der Prozentsatz ist, hast du die Aufgabe schon halb gelöst – und weißt, welche Formel dran ist.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-grundbegriffe).
-
 ### Regel
 
 - **Grundwert**: Der Grundwert $G$ ist das Ganze, auf das sich die Prozente beziehen: 100 %. Du erkennst ihn an „von …“, am vollen Preis, an der ganzen Klasse, an allen Befragten.

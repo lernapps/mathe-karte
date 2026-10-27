@@ -48,8 +48,6 @@ Die erste binomische Formel (a + b)² = a² + 2ab + b²: Erklärung mit Flächen
 
 Quadrate von Summen wie $(x + 4)^2$ tauchen ständig auf: bei Flächen, bei Gleichungen und später bei Parabeln. Du kannst sie immer als $(x + 4)(x + 4)$ ausmultiplizieren – aber mit der Formel geht es in einer Zeile und ohne Vorzeichen-Chaos. Außerdem schützt dich die Formel vor dem häufigsten Fehler überhaupt: $(a + b)^2$ ist **nicht** $a^2 + b^2$.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=klammern-binome).
-
 ### Regel
 
 $(a + b)^2 = a^2 + 2ab + b^2$

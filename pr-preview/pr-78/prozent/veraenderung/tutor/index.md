@@ -48,8 +48,6 @@ Den neuen Wert nach einer Erhöhung oder Senkung um p % berechnen, und rückwär
 
 Preise steigen, Rabatte senken, Gehälter wachsen, die Mehrwertsteuer kommt obendrauf: Fast jede Prozentaufgabe im Alltag ist eine Veränderung. Der Trick ist der Faktor – mit ihm rechnest du eine Erhöhung oder Senkung in einem Schritt, und du kannst sie auch rückwärts rechnen.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-veraenderung).
-
 ### Regel
 
 Bei einer **Erhöhung** um $p\,\%$:

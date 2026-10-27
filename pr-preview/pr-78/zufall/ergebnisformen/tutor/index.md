@@ -48,8 +48,6 @@ Wahrscheinlichkeiten als Produkt, Summe oder Potenz angeben: den passenden Term 
 
 Wer jede Wahrscheinlichkeit bis zum gekürzten Bruch ausrechnet, verliert Zeit und macht Rechenfehler. Oft reicht der Term: $\frac{3}{6} \cdot \frac{2}{5}$. Frag deine Lehrerin oder deinen Lehrer, ob du in der Klassenarbeit ausrechnen musst. Wichtig ist, dass der Term stimmt – und genau das übst du hier: Du erkennst, welcher Term zu einem Ereignis passt und welcher einen typischen Fehler enthält.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-ergebnisform).
-
 ### Regel
 
 Ein Term für $P(E)$ hat immer denselben Aufbau:

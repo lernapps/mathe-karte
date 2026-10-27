@@ -48,8 +48,6 @@ Die erste Pfadregel (Produktregel) anwenden – entlang eines Pfades im Baumdiag
 
 Der Baum zeigt dir alle Wege – aber wie wahrscheinlich ist ein bestimmter Weg? Die erste Pfadregel beantwortet genau das. Sie ist die Rechenregel hinter jeder mehrstufigen Aufgabe, und sie ist kurz: multiplizieren.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-pfadregel-1).
-
 ### Regel
 
 - **1. Pfadregel**: Die Wahrscheinlichkeit eines Pfades ist das **Produkt** der Wahrscheinlichkeiten aller Zweige auf diesem Pfad (Produktregel).

@@ -48,8 +48,6 @@ Ein Baumdiagramm zu einem mehrstufigen Zufallsversuch zeichnen, mit den Wahrsche
 
 Sobald du zweimal ziehst, wirfst oder würfelst, wird es unübersichtlich: Was kann beim ersten Mal passieren, was danach? Das Baumdiagramm ordnet alle Möglichkeiten Stufe für Stufe. Mit einem sauberen Baum lösen sich die Pfadregeln fast von allein – ohne Baum verliert man schnell einen Fall.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-baumdiagramm).
-
 ### Regel
 
 - **mehrstufiger Zufallsversuch**: Ein Zufallsversuch aus mehreren Zügen (Stufen), zum Beispiel zweimal aus einer Urne ziehen oder dreimal eine Münze werfen.

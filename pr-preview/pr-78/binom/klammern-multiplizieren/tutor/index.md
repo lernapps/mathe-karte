@@ -48,8 +48,6 @@ Zwei Klammern multiplizieren: (a + b)(c + d) = ac + ad + bc + bd. Erklärung, Be
 
 Terme wie $(x + 3)(x + 5)$ begegnen dir ab jetzt überall: beim Vereinfachen, beim Lösen von Gleichungen und bei Flächen. Ausmultiplizieren macht aus dem Produkt eine Summe, mit der du weiterrechnen kannst. Die drei binomischen Formeln sind nichts anderes als Abkürzungen für genau diese Rechnung. Wer Klammer mal Klammer sicher kann, kann jede Formel selbst herleiten, falls er sie einmal vergisst.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=klammern-binome).
-
 ### Regel
 
 $(a + b)(c + d) = ac + ad + bc + bd$
