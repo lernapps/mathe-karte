@@ -49,8 +49,6 @@ Den Grundwert berechnen mit G = W · 100 : p. Erklärung, Beispiel, Hunderterfel
 
 „Du sparst 30 €, das sind 12 % Rabatt“ – wie teuer war die Sache vorher? Hier ist das Ganze unbekannt, und genau das verwirrt viele. Wenn du den Grundwert sicher zurückrechnen kannst, löst du auch die kniffligen Aufgaben in der Klassenarbeit, bei denen nur der Teil bekannt ist.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-grundwert).
-
 ### Regel
 
 $G = \frac{W \cdot 100}{p}$

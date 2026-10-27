@@ -49,8 +49,6 @@ Beim Ziehen ohne Zurücklegen die veränderten Wahrscheinlichkeiten bestimmen un
 
 Ob eine gezogene Kugel zurück in die Urne kommt oder nicht, ändert die ganze Rechnung. Genau hier passieren die meisten Fehler: Der Nenner bleibt 6, obwohl nur noch 5 Kugeln drin sind. Wer den Unterschied einmal gesehen hat, vergisst ihn nicht mehr.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-ohne-zuruecklegen).
-
 ### Regel
 
 - **mit Zurücklegen**: Die gezogene Kugel kommt zurück in die Urne. Jeder Zug ist wie der erste, die Wahrscheinlichkeiten bleiben auf allen Stufen gleich.

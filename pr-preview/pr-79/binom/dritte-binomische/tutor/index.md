@@ -49,8 +49,6 @@ Die dritte binomische Formel (a + b)(a − b) = a² − b²: Erklärung mit Flä
 
 Die dritte Formel ist die kürzeste: Aus $(x + 4)(x - 4)$ wird sofort $x^2 - 16$, ganz ohne Mittelglied. Du brauchst sie ständig, um Terme zu vereinfachen und später, um Differenzen wie $x^2 - 16$ wieder in Klammern zu zerlegen. Und sie ist ein starker Kopfrechentrick: $21 \cdot 19 = 20^2 - 1^2 = 399$.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=klammern-binome).
-
 ### Regel
 
 $(a + b)(a - b) = a^2 - b^2$

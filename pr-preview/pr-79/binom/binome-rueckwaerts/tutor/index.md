@@ -49,8 +49,6 @@ Binome rückwärts: x² + 6x + 9 = (x + 3)², x² − 16 = (x + 4)(x − 4). Fak
 
 Bisher hast du Klammern aufgelöst. Oft brauchst du den umgekehrten Weg: Aus $x^2 + 6x + 9$ wird wieder $(x + 3)^2$. Das nennt man faktorisieren. Ein Produkt verrät mehr als eine Summe – zum Beispiel, wann ein Term null wird oder wie sich ein Bruch kürzen lässt. Später beim Lösen quadratischer Gleichungen („quadratische Ergänzung“) ist genau dieser Blick der entscheidende Schritt.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=klammern-binome).
-
 ### Regel
 
 $a^2 + 2ab + b^2 = (a + b)^2$

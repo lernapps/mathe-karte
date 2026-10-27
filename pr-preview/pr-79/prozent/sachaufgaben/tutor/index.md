@@ -49,8 +49,6 @@ Sachaufgaben zur Prozentrechnung in eine Gleichung oder einen Dreisatz übersetz
 
 In der Klassenarbeit und im Alltag steht nie „Berechne W“, sondern eine Geschichte mit Zahlen. Die eigentliche Kunst ist die Übersetzung: aus dem Text eine Gleichung oder einen Dreisatz machen. Danach ist es nur noch Rechnen. Beide Wege führen zum Ziel – der Dreisatz ist sicher, die Gleichung ist schnell.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-sachaufgaben).
-
 ### Regel
 
 #### Weg 1: Gleichung

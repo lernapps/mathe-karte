@@ -49,8 +49,6 @@ Den Prozentsatz berechnen mit p = W : G · 100. Erklärung, Beispiel, Prozentbal
 
 „18 von 24 Schülern haben ein Haustier“ – ist das viel? Erst der Prozentsatz macht solche Angaben vergleichbar: 75 % sagen sofort, wie groß der Anteil ist, egal ob die Klasse 24 oder 30 Schüler hat. Im Alltag und in der Klassenarbeit ist das eine der häufigsten Fragen: „Wie viel Prozent sind das?“
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=prozent-prozentsatz).
-
 ### Regel
 
 $p = \frac{W}{G} \cdot 100$

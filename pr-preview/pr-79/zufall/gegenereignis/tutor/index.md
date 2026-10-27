@@ -49,8 +49,6 @@ Die Gegenwahrscheinlichkeit 1 − P(E) berechnen, auch für „mindestens einmal
 
 Manche Ereignisse haben sehr viele günstige Ergebnisse – „mindestens einmal eine 6 bei drei Würfen“ zum Beispiel. Die alle zu zählen dauert ewig. Das Gegenteil ist im Baum oft nur ein einziger Pfad. Wer den Umweg über das Gegenereignis kennt, spart Zeit und Fehler.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-gegenereignis).
-
 ### Regel
 
 - **Gegenereignis**: Das Gegenereignis „nicht E“ enthält alle Ergebnisse, die *nicht* zu E gehören. E und „nicht E“ zusammen decken alles ab.

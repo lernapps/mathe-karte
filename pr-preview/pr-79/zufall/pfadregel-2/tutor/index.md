@@ -49,8 +49,6 @@ Die zweite Pfadregel (Summenregel) anwenden – die Pfade eines Ereignisses im B
 
 Viele Fragen passen nicht zu einem einzigen Pfad: „genau einmal rot“ kann rot-blau oder blau-rot sein. Die zweite Pfadregel sagt, wie du solche Pfade zusammenrechnest. Und darauf kommt es an: das Ereignis in Worten richtig in Pfade zu übersetzen.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-pfadregel-2).
-
 ### Regel
 
 - **2. Pfadregel**: Gehören mehrere Pfade zu einem Ereignis, dann **addierst** du ihre Pfadwahrscheinlichkeiten (Summenregel).

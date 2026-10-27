@@ -49,8 +49,6 @@ Eltern und Lehrkräfte sehen hier, was der Tutor bekommt. [Zur Seite](../)
 
 Die Pfadregeln sind leicht – schwer ist die Frage davor: Welche Pfade gehören überhaupt zum Ereignis? „Genau einmal rot“ klingt nach einem Pfad, sind aber zwei. „Beide gleich“ sind so viele Pfade, wie es Farben gibt. Wer diese Übersetzung sicher kann, löst die meisten Aufgaben zu Baumdiagrammen.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-ereignis-uebersetzen).
-
 ### Regel
 
 Ereignisse in Worten (2 Züge) und ihre Pfade:

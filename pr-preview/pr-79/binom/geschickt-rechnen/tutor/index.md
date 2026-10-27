@@ -49,8 +49,6 @@ Geschickt rechnen mit den binomischen Formeln: 49², 21 · 19 und 102² im Kopf.
 
 Die binomischen Formeln sind nicht nur für Buchstaben da. Mit ihnen rechnest du Aufgaben wie $49^2$ oder $21 \cdot 19$ im Kopf aus – schneller als mit dem schriftlichen Verfahren. Das hilft beim Kopfrechnen, beim Überschlagen und in der Klassenarbeit ohne Taschenrechner. Und es zeigt dir, dass die Formeln wirklich für jede Zahl gelten: Buchstaben sind nur Platzhalter.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=klammern-binome).
-
 ### Regel
 
 $49^2 = (50 - 1)^2 = 2500 - 100 + 1 = 2401$

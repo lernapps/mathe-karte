@@ -49,8 +49,6 @@ Die zweite binomische Formel (a − b)² = a² − 2ab + b²: Erklärung mit Fl�
 
 Die zweite Formel ist die Schwester der ersten – nur mit Minus in der Klammer. Genau dieses Minus macht sie tückisch: Beim Ausmultiplizieren von $(x - 5)^2$ passieren die meisten Vorzeichenfehler. Wer die Formel kennt, schreibt das Ergebnis in einer Zeile hin. Und wer weiß, *warum* am Ende $+b^2$ steht, verwechselt die Vorzeichen nicht mehr.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=klammern-binome).
-
 ### Regel
 
 $(a - b)^2 = a^2 - 2ab + b^2$

@@ -49,8 +49,6 @@ Die Laplace-Formel anwenden: P(E) ist die Zahl der günstigen durch die Zahl all
 
 Fast jede Wahrscheinlichkeitsaufgabe beginnt mit dieser Frage: Wie viele Ergebnisse gibt es überhaupt, und wie viele davon sind „gut“ für mich? Wer das sauber zählt, hat den ersten Schritt jeder Aufgabe geschafft. Alles Weitere – Baumdiagramme, Pfadregeln – baut darauf auf.
 
-Interaktiv: Wo das im Lehrplan deines Bundeslandes steht, zeigt die [Lehrplan-Karte](https://lernapps.net/mathe-karte/karte/?knoten=zufall-laplace).
-
 ### Regel
 
 - **Laplace-Versuch**: Ein Zufallsversuch, bei dem alle Ergebnisse **gleich wahrscheinlich** sind.
