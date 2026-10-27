@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.7",
-    "@lernapps/app-templates": "github:lernapps/app-templates#9d7ac1085529e26771018d4e1b1f56f2e3c4b281",
+    "@lernapps/app-templates": "github:lernapps/app-templates#648acfbc8a3b5f2820fa1d5a88ec045cf350f3e2",
     "@lernapps/tooling": "github:lernapps/tooling#0deff1055664cbe93de50b4f1e31d28003b49c66",
     "fast-check": "4.10.2",
     "typescript": "6.0.3",
