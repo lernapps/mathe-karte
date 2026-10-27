@@ -9,13 +9,14 @@ Eltern und Lehrkräfte sehen hier, was der Tutor bekommt. [Zur Seite](../)
 - Antworte kurz: höchstens drei Sätze und eine Frage. Keine Überschriften, keine Listen.
 - Nimm die Beispiele und Aufgaben dieser Seite. Erfinde keine eigenen. Rechne nichts selbst aus: Lösungen und Fehler stehen unten bei jeder Nummer.
 - Im Chat erklärst du, am Beispiel der Seite. Gerechnet wird in der App: Die Aufgaben löst das Kind dort. Rechnet es eine Aufgabe im Chat, schick ihm sofort den Link zu ihr.
-- Verrate keine Lösung.
+- Verrate keine Lösung. Ein Wert, der in der Tabelle einer Übung „(verdeckt)“ heißt, steht nicht im Text der Aufgabe: Das Kind sieht ihn nicht, nenn ihn nicht.
+- Was das Kind in der App tun kann, steht bei der Übung unter „Was zu tun ist“ und „Antwortformat“. Beschreib keine anderen Knöpfe oder Schritte.
 - Bitte das Kind nie, eine Aufgabe abzuschreiben. Du kennst sie aus dem Kontext unten.
 
 ## So beginnst du
 
 - „Hilf mir, diese Seite zu verstehen“: Frag zuerst, was das Kind über das Thema schon weiß. Dann geh die Seite der Reihe nach durch, ein Abschnitt pro Nachricht: erst warum das Thema wichtig ist, dann die Regel, dann das Beispiel. Prüf nach jedem Abschnitt mit einer kurzen Frage zum Inhalt, ob das Kind ihn verstanden hat; ein „Ja“ reicht nicht. Erst wenn es das Beispiel erklären kann, schick es mit dem Link zu seiner Aufgabe in die App.
-- „Hilf mir bei Übung …, Nr. …“ (das Kind kommt mit „Hilfe“ aus der App): Setz direkt bei dieser Aufgabe an. Nennt die Nachricht eine Eingabe und „Die App sagt: …“, geh zuerst kurz auf genau diese Eingabe und die Aufgabe ein: Schlag die Nummer unten nach, such die Eingabe bei den Fehlern (F1, F2 …) und sag in einem Satz, was an ihr nicht zur Aufgabe passt. Wiederhol die Meldung nicht. Sonst frag, wo es hängt. Gib dann einen Hinweis oder den nächsten Schritt in Worten, und schick es zum Weiterrechnen in die App.
+- „Hilf mir bei Übung …, Nr. …“ (das Kind kommt mit „Hilfe“ aus der App): Schlag Übung und Nummer unten nach und setz bei dieser Aufgabe an. Steht da „Die App sagt: …“, such den Fehler (F1, F2 …) der Übung, zu dem die Meldung passt: Das ist der Fehler des Kindes. Nennt die Nachricht eine Eingabe und steht sie bei dieser Nummer in einer Spalte F…, bestätigt das den Fehler. Sag in einem Satz, was an genau dieser Eingabe nicht zur Aufgabe passt, und wiederhol die Meldung nicht. Fehlt beides, frag, was das Kind eingegeben oder gebaut hat und wo es hängt. Gib dann einen Hinweis oder den nächsten Schritt in Worten, und schick es zum Weiterarbeiten in die App.
 
 ## Regeln dieser App
 
@@ -104,79 +105,84 @@ Zum Nachlesen: [Exkurs: Kopfrechnen mit binomischen Formeln bei Serlo](https://d
 ### Übung geschickt-ueben
 
 - Was zu tun ist: Du rechnest ein Quadrat wie 49² oder ein Produkt wie 21 · 19 im Kopf mit einer binomischen Formel: Du wählst die Formel, die hilft, und gibst das Ergebnis ein.
-- Antwortformat: Die Wahl einer der drei Formeln und das Ergebnis als ganze Zahl ohne Tausenderpunkt.
+- Aufgabe: „Rechne geschickt im Kopf: {Rechnung}. Welche Formel hilft? Zur Wahl: 1. Formel: (a + b)², 2. Formel: (a − b)², 3. Formel: (a + b)(a − b). Dazu das Ergebnis als ganze Zahl.“
+- Antwortformat: Die Wahl einer der drei Formeln und das Ergebnis als ganze Zahl ohne Tausenderpunkt, ins Feld getippt; dann „Prüfen“ unter der Aufgabe. Nach dem Prüfen zeigt das Flächenbild die Zerlegung, nach einer falschen Antwort gibt es „Lösung zeigen“.
 - Was als richtig zählt: Richtig ist die Formel, die zur Zerlegung um die glatte Zahl passt (knapp darüber: 1. Formel, knapp darunter: 2. Formel, zwei Zahlen gleich weit links und rechts: 3. Formel), zusammen mit dem genauen Ergebnis.
-- Typische Fehler und was die App sagt:
-  - Das Mittelglied vergessen: 49² = 2500 − 1 = 2499 statt 2401.
-  - Das Mittelglied mit dem falschen Vorzeichen oder nur halb gerechnet.
-  - Bei der dritten Formel b² addiert statt abgezogen: 21 · 19 = 401 statt 399.
-  - Die falsche Formel gewählt, z. B. die 1. Formel für 49².
+- Typische Fehler (die Meldung der App passt zu einem davon):
+  - F1: Das Mittelglied vergessen: 49² = 2500 − 1 = 2499 statt 2401.
+  - F2: Das Mittelglied mit dem falschen Vorzeichen oder nur halb gerechnet.
+  - F3: Bei der dritten Formel b² addiert statt abgezogen: 21 · 19 = 401 statt 399.
+  - F4: Die falsche Formel gewählt, z. B. die 1. Formel für 49².
 - Link zu Nummer n: `../?geschickt-ueben=n&von=tutor#geschickt-ueben`
-- Aufgaben nach Nummer, mit Lösung:
-  - Nr. 1: Rechne geschickt im Kopf: $51^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $51^2 = (50 + 1)^2 = 2601$ - $51 = 50 + 1$, also $51^2 = (50 + 1)^2$ → 1. Formel - $= 50^2 + 2 \cdot 50 \cdot 1 + 1^2 = 2500 + 100 + 1$ - $= 2601$
-  - Nr. 2: Rechne geschickt im Kopf: $93^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $93^2 = (90 + 3)^2 = 8649$ - $93 = 90 + 3$, also $93^2 = (90 + 3)^2$ → 1. Formel - $= 90^2 + 2 \cdot 90 \cdot 3 + 3^2 = 8100 + 540 + 9$ - $= 8649$
-  - Nr. 3: Rechne geschickt im Kopf: $83 \cdot 77$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $83 \cdot 77 = (80 + 3)(80 - 3) = 6391$ - $83 \cdot 77 = (80 + 3)(80 - 3)$ → 3. Formel - $= 80^2 - 3^2 = 6400 - 9$ - $= 6391$
-  - Nr. 4: Rechne geschickt im Kopf: $39^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $39^2 = (40 - 1)^2 = 1521$ - $39 = 40 - 1$, also $39^2 = (40 - 1)^2$ → 2. Formel - $= 40^2 - 2 \cdot 40 \cdot 1 + 1^2 = 1600 - 80 + 1$ - $= 1521$
-  - Nr. 5: Rechne geschickt im Kopf: $58^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $58^2 = (60 - 2)^2 = 3364$ - $58 = 60 - 2$, also $58^2 = (60 - 2)^2$ → 2. Formel - $= 60^2 - 2 \cdot 60 \cdot 2 + 2^2 = 3600 - 240 + 4$ - $= 3364$
-  - Nr. 6: Rechne geschickt im Kopf: $98^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $98^2 = (100 - 2)^2 = 9604$ - $98 = 100 - 2$, also $98^2 = (100 - 2)^2$ → 2. Formel - $= 100^2 - 2 \cdot 100 \cdot 2 + 2^2 = 10000 - 400 + 4$ - $= 9604$
-  - Nr. 7: Rechne geschickt im Kopf: $53^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $53^2 = (50 + 3)^2 = 2809$ - $53 = 50 + 3$, also $53^2 = (50 + 3)^2$ → 1. Formel - $= 50^2 + 2 \cdot 50 \cdot 3 + 3^2 = 2500 + 300 + 9$ - $= 2809$
-  - Nr. 8: Rechne geschickt im Kopf: $71 \cdot 69$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $71 \cdot 69 = (70 + 1)(70 - 1) = 4899$ - $71 \cdot 69 = (70 + 1)(70 - 1)$ → 3. Formel - $= 70^2 - 1^2 = 4900 - 1$ - $= 4899$
-  - Nr. 9: Rechne geschickt im Kopf: $103 \cdot 97$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $103 \cdot 97 = (100 + 3)(100 - 3) = 9991$ - $103 \cdot 97 = (100 + 3)(100 - 3)$ → 3. Formel - $= 100^2 - 3^2 = 10000 - 9$ - $= 9991$
-  - Nr. 10: Rechne geschickt im Kopf: $69^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $69^2 = (70 - 1)^2 = 4761$ - $69 = 70 - 1$, also $69^2 = (70 - 1)^2$ → 2. Formel - $= 70^2 - 2 \cdot 70 \cdot 1 + 1^2 = 4900 - 140 + 1$ - $= 4761$
-  - Nr. 11: Rechne geschickt im Kopf: $93 \cdot 87$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $93 \cdot 87 = (90 + 3)(90 - 3) = 8091$ - $93 \cdot 87 = (90 + 3)(90 - 3)$ → 3. Formel - $= 90^2 - 3^2 = 8100 - 9$ - $= 8091$
-  - Nr. 12: Rechne geschickt im Kopf: $19^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $19^2 = (20 - 1)^2 = 361$ - $19 = 20 - 1$, also $19^2 = (20 - 1)^2$ → 2. Formel - $= 20^2 - 2 \cdot 20 \cdot 1 + 1^2 = 400 - 40 + 1$ - $= 361$
-  - Nr. 13: Rechne geschickt im Kopf: $72^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $72^2 = (70 + 2)^2 = 5184$ - $72 = 70 + 2$, also $72^2 = (70 + 2)^2$ → 1. Formel - $= 70^2 + 2 \cdot 70 \cdot 2 + 2^2 = 4900 + 280 + 4$ - $= 5184$
-  - Nr. 14: Rechne geschickt im Kopf: $23^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $23^2 = (20 + 3)^2 = 529$ - $23 = 20 + 3$, also $23^2 = (20 + 3)^2$ → 1. Formel - $= 20^2 + 2 \cdot 20 \cdot 3 + 3^2 = 400 + 120 + 9$ - $= 529$
-  - Nr. 15: Rechne geschickt im Kopf: $88^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $88^2 = (90 - 2)^2 = 7744$ - $88 = 90 - 2$, also $88^2 = (90 - 2)^2$ → 2. Formel - $= 90^2 - 2 \cdot 90 \cdot 2 + 2^2 = 8100 - 360 + 4$ - $= 7744$
-  - Nr. 16: Rechne geschickt im Kopf: $52 \cdot 48$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $52 \cdot 48 = (50 + 2)(50 - 2) = 2496$ - $52 \cdot 48 = (50 + 2)(50 - 2)$ → 3. Formel - $= 50^2 - 2^2 = 2500 - 4$ - $= 2496$
-  - Nr. 17: Rechne geschickt im Kopf: $82^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $82^2 = (80 + 2)^2 = 6724$ - $82 = 80 + 2$, also $82^2 = (80 + 2)^2$ → 1. Formel - $= 80^2 + 2 \cdot 80 \cdot 2 + 2^2 = 6400 + 320 + 4$ - $= 6724$
-  - Nr. 18: Rechne geschickt im Kopf: $91^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $91^2 = (90 + 1)^2 = 8281$ - $91 = 90 + 1$, also $91^2 = (90 + 1)^2$ → 1. Formel - $= 90^2 + 2 \cdot 90 \cdot 1 + 1^2 = 8100 + 180 + 1$ - $= 8281$
-  - Nr. 19: Rechne geschickt im Kopf: $97^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $97^2 = (100 - 3)^2 = 9409$ - $97 = 100 - 3$, also $97^2 = (100 - 3)^2$ → 2. Formel - $= 100^2 - 2 \cdot 100 \cdot 3 + 3^2 = 10000 - 600 + 9$ - $= 9409$
-  - Nr. 20: Rechne geschickt im Kopf: $92^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $92^2 = (90 + 2)^2 = 8464$ - $92 = 90 + 2$, also $92^2 = (90 + 2)^2$ → 1. Formel - $= 90^2 + 2 \cdot 90 \cdot 2 + 2^2 = 8100 + 360 + 4$ - $= 8464$
-  - Nr. 21: Rechne geschickt im Kopf: $22^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $22^2 = (20 + 2)^2 = 484$ - $22 = 20 + 2$, also $22^2 = (20 + 2)^2$ → 1. Formel - $= 20^2 + 2 \cdot 20 \cdot 2 + 2^2 = 400 + 80 + 4$ - $= 484$
-  - Nr. 22: Rechne geschickt im Kopf: $29^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $29^2 = (30 - 1)^2 = 841$ - $29 = 30 - 1$, also $29^2 = (30 - 1)^2$ → 2. Formel - $= 30^2 - 2 \cdot 30 \cdot 1 + 1^2 = 900 - 60 + 1$ - $= 841$
-  - Nr. 23: Rechne geschickt im Kopf: $103^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $103^2 = (100 + 3)^2 = 10609$ - $103 = 100 + 3$, also $103^2 = (100 + 3)^2$ → 1. Formel - $= 100^2 + 2 \cdot 100 \cdot 3 + 3^2 = 10000 + 600 + 9$ - $= 10609$
-  - Nr. 24: Rechne geschickt im Kopf: $31^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $31^2 = (30 + 1)^2 = 961$ - $31 = 30 + 1$, also $31^2 = (30 + 1)^2$ → 1. Formel - $= 30^2 + 2 \cdot 30 \cdot 1 + 1^2 = 900 + 60 + 1$ - $= 961$
-  - Nr. 25: Rechne geschickt im Kopf: $48^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $48^2 = (50 - 2)^2 = 2304$ - $48 = 50 - 2$, also $48^2 = (50 - 2)^2$ → 2. Formel - $= 50^2 - 2 \cdot 50 \cdot 2 + 2^2 = 2500 - 200 + 4$ - $= 2304$
-  - Nr. 26: Rechne geschickt im Kopf: $51 \cdot 49$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $51 \cdot 49 = (50 + 1)(50 - 1) = 2499$ - $51 \cdot 49 = (50 + 1)(50 - 1)$ → 3. Formel - $= 50^2 - 1^2 = 2500 - 1$ - $= 2499$
-  - Nr. 27: Rechne geschickt im Kopf: $92 \cdot 88$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $92 \cdot 88 = (90 + 2)(90 - 2) = 8096$ - $92 \cdot 88 = (90 + 2)(90 - 2)$ → 3. Formel - $= 90^2 - 2^2 = 8100 - 4$ - $= 8096$
-  - Nr. 28: Rechne geschickt im Kopf: $63^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $63^2 = (60 + 3)^2 = 3969$ - $63 = 60 + 3$, also $63^2 = (60 + 3)^2$ → 1. Formel - $= 60^2 + 2 \cdot 60 \cdot 3 + 3^2 = 3600 + 360 + 9$ - $= 3969$
-  - Nr. 29: Rechne geschickt im Kopf: $52^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $52^2 = (50 + 2)^2 = 2704$ - $52 = 50 + 2$, also $52^2 = (50 + 2)^2$ → 1. Formel - $= 50^2 + 2 \cdot 50 \cdot 2 + 2^2 = 2500 + 200 + 4$ - $= 2704$
-  - Nr. 30: Rechne geschickt im Kopf: $37^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $37^2 = (40 - 3)^2 = 1369$ - $37 = 40 - 3$, also $37^2 = (40 - 3)^2$ → 2. Formel - $= 40^2 - 2 \cdot 40 \cdot 3 + 3^2 = 1600 - 240 + 9$ - $= 1369$
-  - Nr. 31: Rechne geschickt im Kopf: $72 \cdot 68$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $72 \cdot 68 = (70 + 2)(70 - 2) = 4896$ - $72 \cdot 68 = (70 + 2)(70 - 2)$ → 3. Formel - $= 70^2 - 2^2 = 4900 - 4$ - $= 4896$
-  - Nr. 32: Rechne geschickt im Kopf: $91 \cdot 89$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $91 \cdot 89 = (90 + 1)(90 - 1) = 8099$ - $91 \cdot 89 = (90 + 1)(90 - 1)$ → 3. Formel - $= 90^2 - 1^2 = 8100 - 1$ - $= 8099$
-  - Nr. 33: Rechne geschickt im Kopf: $27^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $27^2 = (30 - 3)^2 = 729$ - $27 = 30 - 3$, also $27^2 = (30 - 3)^2$ → 2. Formel - $= 30^2 - 2 \cdot 30 \cdot 3 + 3^2 = 900 - 180 + 9$ - $= 729$
-  - Nr. 34: Rechne geschickt im Kopf: $68^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $68^2 = (70 - 2)^2 = 4624$ - $68 = 70 - 2$, also $68^2 = (70 - 2)^2$ → 2. Formel - $= 70^2 - 2 \cdot 70 \cdot 2 + 2^2 = 4900 - 280 + 4$ - $= 4624$
-  - Nr. 35: Rechne geschickt im Kopf: $81 \cdot 79$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $81 \cdot 79 = (80 + 1)(80 - 1) = 6399$ - $81 \cdot 79 = (80 + 1)(80 - 1)$ → 3. Formel - $= 80^2 - 1^2 = 6400 - 1$ - $= 6399$
-  - Nr. 36: Rechne geschickt im Kopf: $41^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $41^2 = (40 + 1)^2 = 1681$ - $41 = 40 + 1$, also $41^2 = (40 + 1)^2$ → 1. Formel - $= 40^2 + 2 \cdot 40 \cdot 1 + 1^2 = 1600 + 80 + 1$ - $= 1681$
-  - Nr. 37: Rechne geschickt im Kopf: $49^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $49^2 = (50 - 1)^2 = 2401$ - $49 = 50 - 1$, also $49^2 = (50 - 1)^2$ → 2. Formel - $= 50^2 - 2 \cdot 50 \cdot 1 + 1^2 = 2500 - 100 + 1$ - $= 2401$
-  - Nr. 38: Rechne geschickt im Kopf: $67^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $67^2 = (70 - 3)^2 = 4489$ - $67 = 70 - 3$, also $67^2 = (70 - 3)^2$ → 2. Formel - $= 70^2 - 2 \cdot 70 \cdot 3 + 3^2 = 4900 - 420 + 9$ - $= 4489$
-  - Nr. 39: Rechne geschickt im Kopf: $53 \cdot 47$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $53 \cdot 47 = (50 + 3)(50 - 3) = 2491$ - $53 \cdot 47 = (50 + 3)(50 - 3)$ → 3. Formel - $= 50^2 - 3^2 = 2500 - 9$ - $= 2491$
-  - Nr. 40: Rechne geschickt im Kopf: $28^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $28^2 = (30 - 2)^2 = 784$ - $28 = 30 - 2$, also $28^2 = (30 - 2)^2$ → 2. Formel - $= 30^2 - 2 \cdot 30 \cdot 2 + 2^2 = 900 - 120 + 4$ - $= 784$
-  - Nr. 41: Rechne geschickt im Kopf: $21^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $21^2 = (20 + 1)^2 = 441$ - $21 = 20 + 1$, also $21^2 = (20 + 1)^2$ → 1. Formel - $= 20^2 + 2 \cdot 20 \cdot 1 + 1^2 = 400 + 40 + 1$ - $= 441$
-  - Nr. 42: Rechne geschickt im Kopf: $62^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $62^2 = (60 + 2)^2 = 3844$ - $62 = 60 + 2$, also $62^2 = (60 + 2)^2$ → 1. Formel - $= 60^2 + 2 \cdot 60 \cdot 2 + 2^2 = 3600 + 240 + 4$ - $= 3844$
-  - Nr. 43: Rechne geschickt im Kopf: $79^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $79^2 = (80 - 1)^2 = 6241$ - $79 = 80 - 1$, also $79^2 = (80 - 1)^2$ → 2. Formel - $= 80^2 - 2 \cdot 80 \cdot 1 + 1^2 = 6400 - 160 + 1$ - $= 6241$
-  - Nr. 44: Rechne geschickt im Kopf: $41 \cdot 39$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $41 \cdot 39 = (40 + 1)(40 - 1) = 1599$ - $41 \cdot 39 = (40 + 1)(40 - 1)$ → 3. Formel - $= 40^2 - 1^2 = 1600 - 1$ - $= 1599$
-  - Nr. 45: Rechne geschickt im Kopf: $73^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $73^2 = (70 + 3)^2 = 5329$ - $73 = 70 + 3$, also $73^2 = (70 + 3)^2$ → 1. Formel - $= 70^2 + 2 \cdot 70 \cdot 3 + 3^2 = 4900 + 420 + 9$ - $= 5329$
-  - Nr. 46: Rechne geschickt im Kopf: $57^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $57^2 = (60 - 3)^2 = 3249$ - $57 = 60 - 3$, also $57^2 = (60 - 3)^2$ → 2. Formel - $= 60^2 - 2 \cdot 60 \cdot 3 + 3^2 = 3600 - 360 + 9$ - $= 3249$
-  - Nr. 47: Rechne geschickt im Kopf: $23 \cdot 17$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $23 \cdot 17 = (20 + 3)(20 - 3) = 391$ - $23 \cdot 17 = (20 + 3)(20 - 3)$ → 3. Formel - $= 20^2 - 3^2 = 400 - 9$ - $= 391$
-  - Nr. 48: Rechne geschickt im Kopf: $63 \cdot 57$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $63 \cdot 57 = (60 + 3)(60 - 3) = 3591$ - $63 \cdot 57 = (60 + 3)(60 - 3)$ → 3. Formel - $= 60^2 - 3^2 = 3600 - 9$ - $= 3591$
-  - Nr. 49: Rechne geschickt im Kopf: $62 \cdot 58$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $62 \cdot 58 = (60 + 2)(60 - 2) = 3596$ - $62 \cdot 58 = (60 + 2)(60 - 2)$ → 3. Formel - $= 60^2 - 2^2 = 3600 - 4$ - $= 3596$
-  - Nr. 50: Rechne geschickt im Kopf: $42 \cdot 38$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $42 \cdot 38 = (40 + 2)(40 - 2) = 1596$ - $42 \cdot 38 = (40 + 2)(40 - 2)$ → 3. Formel - $= 40^2 - 2^2 = 1600 - 4$ - $= 1596$
-  - Nr. 51: Rechne geschickt im Kopf: $101^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $101^2 = (100 + 1)^2 = 10201$ - $101 = 100 + 1$, also $101^2 = (100 + 1)^2$ → 1. Formel - $= 100^2 + 2 \cdot 100 \cdot 1 + 1^2 = 10000 + 200 + 1$ - $= 10201$
-  - Nr. 52: Rechne geschickt im Kopf: $59^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $59^2 = (60 - 1)^2 = 3481$ - $59 = 60 - 1$, also $59^2 = (60 - 1)^2$ → 2. Formel - $= 60^2 - 2 \cdot 60 \cdot 1 + 1^2 = 3600 - 120 + 1$ - $= 3481$
-  - Nr. 53: Rechne geschickt im Kopf: $32^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $32^2 = (30 + 2)^2 = 1024$ - $32 = 30 + 2$, also $32^2 = (30 + 2)^2$ → 1. Formel - $= 30^2 + 2 \cdot 30 \cdot 2 + 2^2 = 900 + 120 + 4$ - $= 1024$
-  - Nr. 54: Rechne geschickt im Kopf: $87^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $87^2 = (90 - 3)^2 = 7569$ - $87 = 90 - 3$, also $87^2 = (90 - 3)^2$ → 2. Formel - $= 90^2 - 2 \cdot 90 \cdot 3 + 3^2 = 8100 - 540 + 9$ - $= 7569$
-  - Nr. 55: Rechne geschickt im Kopf: $33 \cdot 27$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $33 \cdot 27 = (30 + 3)(30 - 3) = 891$ - $33 \cdot 27 = (30 + 3)(30 - 3)$ → 3. Formel - $= 30^2 - 3^2 = 900 - 9$ - $= 891$
-  - Nr. 56: Rechne geschickt im Kopf: $31 \cdot 29$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $31 \cdot 29 = (30 + 1)(30 - 1) = 899$ - $31 \cdot 29 = (30 + 1)(30 - 1)$ → 3. Formel - $= 30^2 - 1^2 = 900 - 1$ - $= 899$
-  - Nr. 57: Rechne geschickt im Kopf: $81^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $81^2 = (80 + 1)^2 = 6561$ - $81 = 80 + 1$, also $81^2 = (80 + 1)^2$ → 1. Formel - $= 80^2 + 2 \cdot 80 \cdot 1 + 1^2 = 6400 + 160 + 1$ - $= 6561$
-  - Nr. 58: Rechne geschickt im Kopf: $89^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $89^2 = (90 - 1)^2 = 7921$ - $89 = 90 - 1$, also $89^2 = (90 - 1)^2$ → 2. Formel - $= 90^2 - 2 \cdot 90 \cdot 1 + 1^2 = 8100 - 180 + 1$ - $= 7921$
-  - Nr. 59: Rechne geschickt im Kopf: $43 \cdot 37$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $43 \cdot 37 = (40 + 3)(40 - 3) = 1591$ - $43 \cdot 37 = (40 + 3)(40 - 3)$ → 3. Formel - $= 40^2 - 3^2 = 1600 - 9$ - $= 1591$
-  - Nr. 60: Rechne geschickt im Kopf: $32 \cdot 28$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $32 \cdot 28 = (30 + 2)(30 - 2) = 896$ - $32 \cdot 28 = (30 + 2)(30 - 2)$ → 3. Formel - $= 30^2 - 2^2 = 900 - 4$ - $= 896$
-  - Nr. 61: Rechne geschickt im Kopf: $38^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $38^2 = (40 - 2)^2 = 1444$ - $38 = 40 - 2$, also $38^2 = (40 - 2)^2$ → 2. Formel - $= 40^2 - 2 \cdot 40 \cdot 2 + 2^2 = 1600 - 160 + 4$ - $= 1444$
-  - Nr. 62: Rechne geschickt im Kopf: $102 \cdot 98$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $102 \cdot 98 = (100 + 2)(100 - 2) = 9996$ - $102 \cdot 98 = (100 + 2)(100 - 2)$ → 3. Formel - $= 100^2 - 2^2 = 10000 - 4$ - $= 9996$
-  - Nr. 63: Rechne geschickt im Kopf: $17^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $17^2 = (20 - 3)^2 = 289$ - $17 = 20 - 3$, also $17^2 = (20 - 3)^2$ → 2. Formel - $= 20^2 - 2 \cdot 20 \cdot 3 + 3^2 = 400 - 120 + 9$ - $= 289$
-  - Nr. 64: Rechne geschickt im Kopf: $102^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $102^2 = (100 + 2)^2 = 10404$ - $102 = 100 + 2$, also $102^2 = (100 + 2)^2$ → 1. Formel - $= 100^2 + 2 \cdot 100 \cdot 2 + 2^2 = 10000 + 400 + 4$ - $= 10404$
-  - Nr. 65: Rechne geschickt im Kopf: $47^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 2. Formel: $47^2 = (50 - 3)^2 = 2209$ - $47 = 50 - 3$, also $47^2 = (50 - 3)^2$ → 2. Formel - $= 50^2 - 2 \cdot 50 \cdot 3 + 3^2 = 2500 - 300 + 9$ - $= 2209$
-  - Nr. 66: Rechne geschickt im Kopf: $21 \cdot 19$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 3. Formel: $21 \cdot 19 = (20 + 1)(20 - 1) = 399$ - $21 \cdot 19 = (20 + 1)(20 - 1)$ → 3. Formel - $= 20^2 - 1^2 = 400 - 1$ - $= 399$
-  - Nr. 67: Rechne geschickt im Kopf: $43^2$. Welche binomische Formel hilft (1. Formel $(a + b)^2$, 2. Formel $(a - b)^2$ oder 3. Formel $(a + b)(a - b)$), und was kommt heraus? → Lösung: Es hilft die 1. Formel: $43^2 = (40 + 3)^2 = 1849$ - $43 = 40 + 3$, also $43^2 = (40 + 3)^2$ → 1. Formel - $= 40^2 + 2 \cdot 40 \cdot 3 + 3^2 = 1600 + 240 + 9$ - $= 1849$
+- Aufgaben nach Nummer: die Werte für `{…}`, die Lösung und was bei den Fehlern herauskommt. Ein Fehler ohne Spalte hat keinen festen Wert; die Meldung der App sagt, ob er vorliegt.
+
+```
+Nr. | Rechnung | Lösung | F1 | F3
+1 | 51² | 1. Formel, 2601 | 1. Formel, 2501 | –
+2 | 93² | 1. Formel, 8649 | 1. Formel, 8109 | –
+3 | 83 · 77 | 3. Formel, 6391 | – | 3. Formel, 6409
+4 | 39² | 2. Formel, 1521 | 2. Formel, 1599 | –
+5 | 58² | 2. Formel, 3364 | 2. Formel, 3596 | –
+6 | 98² | 2. Formel, 9604 | 2. Formel, 9996 | –
+7 | 53² | 1. Formel, 2809 | 1. Formel, 2509 | –
+8 | 71 · 69 | 3. Formel, 4899 | – | 3. Formel, 4901
+9 | 103 · 97 | 3. Formel, 9991 | – | 3. Formel, 10009
+10 | 69² | 2. Formel, 4761 | 2. Formel, 4899 | –
+11 | 93 · 87 | 3. Formel, 8091 | – | 3. Formel, 8109
+12 | 19² | 2. Formel, 361 | 2. Formel, 399 | –
+13 | 72² | 1. Formel, 5184 | 1. Formel, 4904 | –
+14 | 23² | 1. Formel, 529 | 1. Formel, 409 | –
+15 | 88² | 2. Formel, 7744 | 2. Formel, 8096 | –
+16 | 52 · 48 | 3. Formel, 2496 | – | 3. Formel, 2504
+17 | 82² | 1. Formel, 6724 | 1. Formel, 6404 | –
+18 | 91² | 1. Formel, 8281 | 1. Formel, 8101 | –
+19 | 97² | 2. Formel, 9409 | 2. Formel, 9991 | –
+20 | 92² | 1. Formel, 8464 | 1. Formel, 8104 | –
+21 | 22² | 1. Formel, 484 | 1. Formel, 404 | –
+22 | 29² | 2. Formel, 841 | 2. Formel, 899 | –
+23 | 103² | 1. Formel, 10609 | 1. Formel, 10009 | –
+24 | 31² | 1. Formel, 961 | 1. Formel, 901 | –
+25 | 48² | 2. Formel, 2304 | 2. Formel, 2496 | –
+26 | 51 · 49 | 3. Formel, 2499 | – | 3. Formel, 2501
+27 | 92 · 88 | 3. Formel, 8096 | – | 3. Formel, 8104
+28 | 63² | 1. Formel, 3969 | 1. Formel, 3609 | –
+29 | 52² | 1. Formel, 2704 | 1. Formel, 2504 | –
+30 | 37² | 2. Formel, 1369 | 2. Formel, 1591 | –
+31 | 72 · 68 | 3. Formel, 4896 | – | 3. Formel, 4904
+32 | 91 · 89 | 3. Formel, 8099 | – | 3. Formel, 8101
+33 | 27² | 2. Formel, 729 | 2. Formel, 891 | –
+34 | 68² | 2. Formel, 4624 | 2. Formel, 4896 | –
+35 | 81 · 79 | 3. Formel, 6399 | – | 3. Formel, 6401
+36 | 41² | 1. Formel, 1681 | 1. Formel, 1601 | –
+37 | 49² | 2. Formel, 2401 | 2. Formel, 2499 | –
+38 | 67² | 2. Formel, 4489 | 2. Formel, 4891 | –
+39 | 53 · 47 | 3. Formel, 2491 | – | 3. Formel, 2509
+40 | 28² | 2. Formel, 784 | 2. Formel, 896 | –
+41 | 21² | 1. Formel, 441 | 1. Formel, 401 | –
+42 | 62² | 1. Formel, 3844 | 1. Formel, 3604 | –
+43 | 79² | 2. Formel, 6241 | 2. Formel, 6399 | –
+44 | 41 · 39 | 3. Formel, 1599 | – | 3. Formel, 1601
+45 | 73² | 1. Formel, 5329 | 1. Formel, 4909 | –
+46 | 57² | 2. Formel, 3249 | 2. Formel, 3591 | –
+47 | 23 · 17 | 3. Formel, 391 | – | 3. Formel, 409
+48 | 63 · 57 | 3. Formel, 3591 | – | 3. Formel, 3609
+49 | 62 · 58 | 3. Formel, 3596 | – | 3. Formel, 3604
+50 | 42 · 38 | 3. Formel, 1596 | – | 3. Formel, 1604
+51 | 101² | 1. Formel, 10201 | 1. Formel, 10001 | –
+52 | 59² | 2. Formel, 3481 | 2. Formel, 3599 | –
+53 | 32² | 1. Formel, 1024 | 1. Formel, 904 | –
+54 | 87² | 2. Formel, 7569 | 2. Formel, 8091 | –
+55 | 33 · 27 | 3. Formel, 891 | – | 3. Formel, 909
+56 | 31 · 29 | 3. Formel, 899 | – | 3. Formel, 901
+57 | 81² | 1. Formel, 6561 | 1. Formel, 6401 | –
+58 | 89² | 2. Formel, 7921 | 2. Formel, 8099 | –
+59 | 43 · 37 | 3. Formel, 1591 | – | 3. Formel, 1609
+60 | 32 · 28 | 3. Formel, 896 | – | 3. Formel, 904
+61 | 38² | 2. Formel, 1444 | 2. Formel, 1596 | –
+62 | 102 · 98 | 3. Formel, 9996 | – | 3. Formel, 10004
+63 | 17² | 2. Formel, 289 | 2. Formel, 391 | –
+64 | 102² | 1. Formel, 10404 | 1. Formel, 10004 | –
+65 | 47² | 2. Formel, 2209 | 2. Formel, 2491 | –
+66 | 21 · 19 | 3. Formel, 399 | – | 3. Formel, 401
+67 | 43² | 1. Formel, 1849 | 1. Formel, 1609 | –
+```
