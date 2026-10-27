@@ -37,21 +37,32 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 4. `bild` – „Bild“: das Beispielbild, ohne JavaScript sichtbar (siehe Figures).
 5. `video` – „Video dazu“: ein `video`-Block (`youtube: <11 Zeichen nach watch?v=>`, `title` wie YouTube ihn zeigt,
    `channel: Lehrerschmidt`), danach der serlo-Link als Text, falls es einen geprüften gibt. Kein YouTube-Link im
-   Text, kein Satz zu Kanal oder Datenschutz: das zeigt der Block selbst (`test/build/videos.test.js`).
+   Text, kein Satz zu Kanal oder Datenschutz: das zeigt der Block selbst.
 6. `uebung` – „Übung“: die Übungen (siehe Exercise patterns).
 
-`description` und `summary` sind reiner Text ohne `$…$` (`test/build/lektorat-texte.test.js`).
+`description` und `summary` sind reiner Text ohne `$…$`.
+
+## Ids, addresses and the tutor
+
+- Seiten-, Abschnitts- und Übungs-ids und die Adresse `/<kapitel>/<seite>/?<übung>=<n>#<übung>` sind ein öffentlicher
+  Vertrag: Der KI-Tutor und geteilte Links nennen sie. Nie umbenennen; eine Seite zieht nicht um.
+- Die Regeln für den Tutor stehen in `src/app.yaml` (`tutor.rules`), nicht in den Seiten.
 
 ## Terminology
 
 - Du-Anrede, kurze Sätze, Ton einer Lehrkraft, nicht der App („die App akzeptiert“ ist verboten). Kein „NICHT“ in
-  Großbuchstaben, keine Verweise wie „Kompetenz 3“: ein Link mit Namen (`test/build/lektorat-texte.test.js`).
+  Großbuchstaben, keine Verweise wie „Kompetenz 3“: ein Link mit Namen.
 - Prozent: Grundwert $G$, Prozentwert $W$, Prozentsatz $p$ (mit „%“); Formeln $W = \frac{G \cdot p}{100}$ usw.
 - Binom: „Glied“, „Mittelglied“, „Ausmultiplizieren“, „Faktorisieren“; Terme in der Eingabe mit `^` (`x^2+6x+9`).
 - Zufall: $P(E)$, „günstige“ und „mögliche“ Ergebnisse, „Pfad“, „mit/ohne Zurücklegen“; Brüche gekürzt oder ungekürzt
   erlaubt.
 
 ## Exercise patterns
+
+- Bezeichner: deutsche Fachbegriffe (`Grundwert`, `Pfad`), englisch nur für allgemeine Struktur. Jede Komponente
+  trägt das Präfix ihres Kapitels (`Prozent…`, `Binom…`, `Zufall…`). Gemeinsamer Code steht einmal in
+  `src/components/Bruch.ts` (exakte Brüche, Runden) und `src/components/Zufallszahlen.ts` (mulberry32); nie in ein
+  Kapitel kopieren.
 
 - Je Seite eine Übungskomponente mit „Bild zur Aufgabe“, Tipp, Rechenweg und den typischen Fehlern der alten App:
   - Prozent: `Prozent<Seite>` (z. B. `grundwert-aufgabe`, `ProzentGrundwert`), gemeinsame Logik in

@@ -39,7 +39,7 @@ Geprüft und veröffentlicht wird mit dem Werkzeug von lernapps.net, wie bei jed
 `.github/workflows/pages.yml` führt `lernapps check` bei jedem Push und Pull Request aus, stellt jeden Pull Request
 als Vorschau unter `…/mathe-karte/pr-preview/pr-<Nummer>/` bereit und veröffentlicht `main` auf dem Branch `gh-pages`.
 
-Wie man eine Seite oder ein Kapitel anlegt, steht in [CLAUDE.md](CLAUDE.md) und im Inhaltsleitfaden
+Wie man eine Seite oder ein Kapitel anlegt, steht im Inhaltsleitfaden
 [`.agents/skills/app-content/`](.agents/skills/app-content/SKILL.md).
 
 ## Lizenz
