@@ -8,12 +8,18 @@ pages:
 selfAssessment:
   pages:
     - exercises:
+        - /zufall/laplace/#laplace-zaehlen
         - /zufall/laplace/#laplace-urne
-        - /zufall/laplace/#laplace-urne
-        - /zufall/pfadregel-1/#pfadregel-1-urne
+        - /zufall/baumdiagramm/#baum-ergaenzen
+    - exercises:
+        - /zufall/baumdiagramm/#baum-ergaenzen
+        - /zufall/pfadregel-1/#pfad-im-baum
         - /zufall/pfadregel-1/#pfadregel-1-urne
     - exercises:
+        - /zufall/gegenereignis/#gegenwahrscheinlichkeit
+        - /zufall/gegenereignis/#gegenereignis-direkt
+        - /zufall/ohne-zuruecklegen/#mit-und-ohne
+    - exercises:
         - /zufall/ohne-zuruecklegen/#zweite-kugel-ohne
-        - /zufall/ohne-zuruecklegen/#zweite-kugel-ohne
-        - /zufall/pfadregel-2/#genau-einmal-rot
+        - /zufall/pfadregel-2/#pfade-addieren
         - /zufall/pfadregel-2/#genau-einmal-rot

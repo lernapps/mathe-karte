@@ -9,12 +9,18 @@ pages: [grundbegriffe, prozentsatz, prozentwert, grundwert, veraenderung, vergle
 selfAssessment:
   pages:
     - exercises:
+        - /prozent/prozentsatz/#prozentsatz-aufgabe
         - /prozent/prozentsatz/#prozentsatz-rechnen
-        - /prozent/prozentsatz/#prozentsatz-rechnen
-        - /prozent/prozentwert/#prozentwert-rechnen
-        - /prozent/prozentwert/#prozentwert-rechnen
+        - /prozent/prozentwert/#prozentwert-aufgabe
     - exercises:
+        - /prozent/prozentwert/#prozentwert-rechnen
+        - /prozent/grundwert/#grundwert-aufgabe
         - /prozent/grundwert/#grundwert-rechnen
-        - /prozent/grundwert/#grundwert-rechnen
-        - /prozent/veraenderung/#veraenderung-senkung
+    - exercises:
+        - /prozent/veraenderung/#veraenderung-aufgabe
         - /prozent/veraenderung/#veraenderung-rueckwaerts
+        - /prozent/vergleich/#vergleich-aufgabe
+    - exercises:
+        - /prozent/vergleich/#vergleich-rechnen
+        - /prozent/sachaufgaben/#sachaufgaben-aufgabe
+        - /prozent/sachaufgaben/#sachaufgaben-aufgabe
