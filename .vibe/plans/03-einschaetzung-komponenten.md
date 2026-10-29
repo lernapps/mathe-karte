@@ -209,12 +209,20 @@ und Binom bekommt eine eigene Einschätzung.
 
 ### Phases reached
 
-<!-- Last phase completed, checkpoints passed. E.g. "commit; confirmed, published". -->
+commit; Pull Request offen, nicht gemergt (der Auftrag sagte: nicht mergen).
 
 ### Creator turns after the plan
 
-<!-- Number of creator messages after the confirmation, topic of each. Target: at most 3. -->
+0.
 
 ### Where I had to guess
 
-<!-- Each gap in plan, skills, content guide, messages or answers, and your choice. "None" if none. -->
+- Prozent ohne `grundbegriffe`, Zufall ohne `ergebnisformen` und `pfade-uebersetzen`: so bleibt jedes Kapitel bei 12.
+- Laufzeit (app-templates 2c99933), gemeldet, nicht umgangen:
+  - Leert man ein Feld einer Komponente wieder, zählt die letzte Antwort weiter (auch „richtig“). Die Komponente gibt
+    `undefined` aus; `assess` in `islands.ts` ruft damit `check` auf, das wirft (`TypeError` in der Konsole, z. B.
+    `ZufallBaumLuecken`, `ZufallOhne` schon beim Ausfüllen des ersten von mehreren Feldern, `BinomTermAufgabe`,
+    `ZufallLaplace` beim Leeren).
+  - Mehrere Komponenten auf einem Schritt bekommen dieselben ids (`v-0-…`, `useId` je Insel): doppelte ids, Labels
+    zeigen auf das erste Feld, Radiogruppen teilen den Namen (`BinomKopfrechnen` zweimal: die Wahl in Aufgabe 12
+    löscht die sichtbare Wahl in Aufgabe 11; gezählt wird trotzdem richtig).
