@@ -200,6 +200,8 @@ und Binom bekommt eine eigene Einschätzung.
       (`npx --yes skills add lernapps/tooling -y -s lernapps-explainer-self-assessment`), load it. Update the
       self-assessment as it says (add one, if the app has none and the skill says so). Commit; the hooks check.
       Komponenten per Anker. Prozent 12 (6 Seiten), Binom 12 (alle 6 Seiten, neu), Zufall 12 (6 von 8 Seiten); App 36. Durchlauf im Browser: `/einschaetzung/` und je Kapitel `?via=tutor`; jede Komponente zeigt ihre Aufgabe selbst, Antworten zählen richtig, falsche mit Eingabe und F…. Laufzeitfehler gemeldet, nicht umgangen (Retrospective).
+- [x] Die beiden Laufzeitfehler sind in lernapps/app-templates#105 behoben (geleerte Antwort zählt als offen; eigene ids
+      je Komponente). Update auf @lernapps/app-templates 9affe7b und @lernapps/tooling b4d606c.
 - [x] Load skill `lernapps-github`. Push the branch, open the preview pull request, see its checks to green as it
       says.
       Pull Request #86, alle Prüfungen grün. Nicht gemergt: Der Auftrag sagt, hier nicht zu mergen.
