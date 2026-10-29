@@ -168,23 +168,20 @@ Ergebnis auf Wunsch zum KI-Tutor mit.
 
 ### Tasks
 
-- [ ] Load skill `lernapps-github`. Push the branch, open the preview pull request, see its checks to green as it
-      says.
-- [ ] **Checkpoint:** publish. Show what the increment adds and the preview link; ask whether it may go online. Wait
-      for the yes.
-- [ ] Load skill `lernapps-commit`. Publish as skill `lernapps-github` says: the pull request squash-merged into
-      `main` with the message from this plan, the run of `Pages` watched to the end.
-- [ ] Open the address the job `deploy` printed; confirm the new content. Never a derived address.
-- [ ] App listed and its entry changes (topics, school years, summary) → load skill `lernapps-listing` and write the
-      changed entry. Else skip the checkpoint "list".
-- [ ] Fill the retrospective.
-- [ ] Commit this plan on `main` and push it. A push of only `.vibe/` publishes nothing.
-- [ ] **Checkpoint:** list. Open the pull request to the catalog without asking first: the pull request is the
-      review. See it to "bestanden" as the skill says, then show the creator the pull request and its result.
-- [ ] Plan changed since its last push → commit it on `main`, push again.
-
 ### Completed
 
+- [x] Load skill `lernapps-github`. Push the branch, open the preview pull request, see its checks to green as it
+      says. Pull request #84, alle Prüfungen grün.
+- [x] **Checkpoint:** publish. Die Person, die die App macht, hatte vorher schon „bei grüner CI mergen“ gesagt.
+- [x] Load skill `lernapps-commit`. Publish as skill `lernapps-github` says: the pull request squash-merged into
+      `main` with the message from this plan, the run of `Pages` watched to the end. b4eeaac, Lauf von `Pages`
+      erfolgreich.
+- [x] Open the address the job `deploy` printed; confirm the new content. <https://lernapps.net/mathe-karte/einschaetzung/>
+      zeigt 16 Aufgaben auf 4 Seiten, `zufall/einschaetzung/` 8 auf 2.
+- [x] App listed and its entry changes → no: Themen, Klassen und Zusammenfassung bleiben gleich. Checkpoint "list"
+      entfällt.
+- [x] Fill the retrospective.
+- [x] Commit this plan on `main` and push it.
 - [x] `grep '^phase:'` prints `phase: commit`; else set it.
 - [x] An explainer whose pages or exercises changed: install skill `lernapps-explainer-self-assessment` if missing
       (`npx --yes skills add lernapps/tooling -y -s lernapps-explainer-self-assessment`), load it. Update the
@@ -198,12 +195,15 @@ Ergebnis auf Wunsch zum KI-Tutor mit.
 
 ### Phases reached
 
-<!-- Last phase completed, checkpoints passed. E.g. "commit; confirmed, published". -->
+commit; veröffentlicht. Die Checkpoints entfielen, weil die Person, die die App macht, alles vorab freigegeben hatte.
 
 ### Creator turns after the plan
 
-<!-- Number of creator messages after the confirmation, topic of each. Target: at most 3. -->
+0.
 
 ### Where I had to guess
 
-<!-- Each gap in plan, skills, content guide, messages or answers, and your choice. "None" if none. -->
+- Prozent: `vergleich` und `sachaufgaben` nicht abgefragt, damit die Einschätzung kurz bleibt.
+- Zufall: nur vier Seiten abgefragt, aus demselben Grund.
+- Binom: keine Einschätzung, weil es außer Komponenten nur ratbare Auswahlfragen gibt.
+- Die Kopie des Plan-Templates in `node_modules` war vor dem Update veraltet. Das Template kam deshalb von tooling main.
