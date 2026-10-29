@@ -56,7 +56,7 @@ Eltern und Lehrkräfte sehen hier, was der Tutor bekommt. [Zur Selbsteinschätzu
 
 ### Kapitel „Binomische Formeln“
 
-- keine Selbsteinschätzung
+- Selbsteinschätzung des Kapitels
 - „Zwei Klammern multiplizieren“
 - „Erste binomische Formel“
 - „Zweite binomische Formel“
@@ -68,21 +68,25 @@ Eltern und Lehrkräfte sehen hier, was der Tutor bekommt. [Zur Selbsteinschätzu
 
 - Selbsteinschätzung des Kapitels
 - „Laplace-Formel“ · Aufgaben A1, A2
-- „Baumdiagramm“ · nicht abgefragt
-- „1. Pfadregel“ · Aufgaben A3, A4
-- „Gegenereignis“ · nicht abgefragt
-- „Ohne Zurücklegen“ · Aufgaben A5, A6
-- „2. Pfadregel“ · Aufgaben A7, A8
+- „Baumdiagramm“ · Aufgaben A3, A4
+- „1. Pfadregel“ · Aufgaben A5, A6
+- „Gegenereignis“ · Aufgaben A7, A8
+- „Ohne Zurücklegen“ · Aufgaben A9, A10
+- „2. Pfadregel“ · Aufgaben A11, A12
 - „Produkt, Summe, Potenz“ · nicht abgefragt
 - „In Pfade übersetzen“ · nicht abgefragt
 
 ## Die Aufgaben dieser Selbsteinschätzung
 
-- A1: Übung laplace-urne der Seite „Laplace-Formel“
+- A1: Übung laplace-zaehlen der Seite „Laplace-Formel“
 - A2: Übung laplace-urne der Seite „Laplace-Formel“
-- A3: Übung pfadregel-1-urne der Seite „1. Pfadregel“
-- A4: Übung pfadregel-1-urne der Seite „1. Pfadregel“
-- A5: Übung zweite-kugel-ohne der Seite „Ohne Zurücklegen“
-- A6: Übung zweite-kugel-ohne der Seite „Ohne Zurücklegen“
-- A7: Übung genau-einmal-rot der Seite „2. Pfadregel“
-- A8: Übung genau-einmal-rot der Seite „2. Pfadregel“
+- A3: Übung baum-ergaenzen der Seite „Baumdiagramm“
+- A4: Übung baum-ergaenzen der Seite „Baumdiagramm“
+- A5: Übung pfad-im-baum der Seite „1. Pfadregel“
+- A6: Übung pfadregel-1-urne der Seite „1. Pfadregel“
+- A7: Übung gegenwahrscheinlichkeit der Seite „Gegenereignis“
+- A8: Übung gegenereignis-direkt der Seite „Gegenereignis“
+- A9: Übung mit-und-ohne der Seite „Ohne Zurücklegen“
+- A10: Übung zweite-kugel-ohne der Seite „Ohne Zurücklegen“
+- A11: Übung pfade-addieren der Seite „2. Pfadregel“
+- A12: Übung genau-einmal-rot der Seite „2. Pfadregel“

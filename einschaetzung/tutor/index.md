@@ -51,46 +51,66 @@ Eltern und Lehrkräfte sehen hier, was der Tutor bekommt. [Zur Selbsteinschätzu
 - „Prozentwert berechnen“ · Aufgaben A3, A4
 - „Grundwert berechnen“ · Aufgaben A5, A6
 - „Prozentuale Zunahme und Abnahme“ · Aufgaben A7, A8
-- „Zwei Werte vergleichen“ · nicht abgefragt
-- „Sachaufgaben übersetzen“ · nicht abgefragt
+- „Zwei Werte vergleichen“ · Aufgaben A9, A10
+- „Sachaufgaben übersetzen“ · Aufgaben A11, A12
 
 ### Kapitel „Binomische Formeln“
 
-- keine Selbsteinschätzung
-- „Zwei Klammern multiplizieren“ · nicht abgefragt
-- „Erste binomische Formel“ · nicht abgefragt
-- „Zweite binomische Formel“ · nicht abgefragt
-- „Dritte binomische Formel“ · nicht abgefragt
-- „Binome rückwärts“ · nicht abgefragt
-- „Geschickt rechnen“ · nicht abgefragt
+- Selbsteinschätzung des Kapitels
+- „Zwei Klammern multiplizieren“ · Aufgaben A13, A14
+- „Erste binomische Formel“ · Aufgaben A15, A16
+- „Zweite binomische Formel“ · Aufgaben A17, A18
+- „Dritte binomische Formel“ · Aufgaben A19, A20
+- „Binome rückwärts“ · Aufgaben A21, A22
+- „Geschickt rechnen“ · Aufgaben A23, A24
 
 ### Kapitel „Wahrscheinlichkeit“
 
 - Selbsteinschätzung des Kapitels
-- „Laplace-Formel“ · Aufgaben A9, A10
-- „Baumdiagramm“ · nicht abgefragt
-- „1. Pfadregel“ · Aufgaben A11, A12
-- „Gegenereignis“ · nicht abgefragt
-- „Ohne Zurücklegen“ · Aufgaben A13, A14
-- „2. Pfadregel“ · Aufgaben A15, A16
+- „Laplace-Formel“ · Aufgaben A25, A26
+- „Baumdiagramm“ · Aufgaben A27, A28
+- „1. Pfadregel“ · Aufgaben A29, A30
+- „Gegenereignis“ · Aufgaben A31, A32
+- „Ohne Zurücklegen“ · Aufgaben A33, A34
+- „2. Pfadregel“ · Aufgaben A35, A36
 - „Produkt, Summe, Potenz“ · nicht abgefragt
 - „In Pfade übersetzen“ · nicht abgefragt
 
 ## Die Aufgaben dieser Selbsteinschätzung
 
-- A1: Übung prozentsatz-rechnen der Seite „Prozentsatz berechnen“
+- A1: Übung prozentsatz-aufgabe der Seite „Prozentsatz berechnen“
 - A2: Übung prozentsatz-rechnen der Seite „Prozentsatz berechnen“
-- A3: Übung prozentwert-rechnen der Seite „Prozentwert berechnen“
+- A3: Übung prozentwert-aufgabe der Seite „Prozentwert berechnen“
 - A4: Übung prozentwert-rechnen der Seite „Prozentwert berechnen“
-- A5: Übung grundwert-rechnen der Seite „Grundwert berechnen“
+- A5: Übung grundwert-aufgabe der Seite „Grundwert berechnen“
 - A6: Übung grundwert-rechnen der Seite „Grundwert berechnen“
-- A7: Übung veraenderung-senkung der Seite „Prozentuale Zunahme und Abnahme“
+- A7: Übung veraenderung-aufgabe der Seite „Prozentuale Zunahme und Abnahme“
 - A8: Übung veraenderung-rueckwaerts der Seite „Prozentuale Zunahme und Abnahme“
-- A9: Übung laplace-urne der Seite „Laplace-Formel“
-- A10: Übung laplace-urne der Seite „Laplace-Formel“
-- A11: Übung pfadregel-1-urne der Seite „1. Pfadregel“
-- A12: Übung pfadregel-1-urne der Seite „1. Pfadregel“
-- A13: Übung zweite-kugel-ohne der Seite „Ohne Zurücklegen“
-- A14: Übung zweite-kugel-ohne der Seite „Ohne Zurücklegen“
-- A15: Übung genau-einmal-rot der Seite „2. Pfadregel“
-- A16: Übung genau-einmal-rot der Seite „2. Pfadregel“
+- A9: Übung vergleich-aufgabe der Seite „Zwei Werte vergleichen“
+- A10: Übung vergleich-rechnen der Seite „Zwei Werte vergleichen“
+- A11: Übung sachaufgaben-aufgabe der Seite „Sachaufgaben übersetzen“
+- A12: Übung sachaufgaben-aufgabe der Seite „Sachaufgaben übersetzen“
+- A13: Übung klammern-ueben der Seite „Zwei Klammern multiplizieren“
+- A14: Übung klammern-ueben der Seite „Zwei Klammern multiplizieren“
+- A15: Übung erste-binomische-ueben der Seite „Erste binomische Formel“
+- A16: Übung erste-binomische-ueben der Seite „Erste binomische Formel“
+- A17: Übung zweite-binomische-ueben der Seite „Zweite binomische Formel“
+- A18: Übung zweite-binomische-ueben der Seite „Zweite binomische Formel“
+- A19: Übung dritte-binomische-ueben der Seite „Dritte binomische Formel“
+- A20: Übung dritte-binomische-ueben der Seite „Dritte binomische Formel“
+- A21: Übung rueckwaerts-ueben der Seite „Binome rückwärts“
+- A22: Übung rueckwaerts-ueben der Seite „Binome rückwärts“
+- A23: Übung geschickt-ueben der Seite „Geschickt rechnen“
+- A24: Übung geschickt-ueben der Seite „Geschickt rechnen“
+- A25: Übung laplace-zaehlen der Seite „Laplace-Formel“
+- A26: Übung laplace-urne der Seite „Laplace-Formel“
+- A27: Übung baum-ergaenzen der Seite „Baumdiagramm“
+- A28: Übung baum-ergaenzen der Seite „Baumdiagramm“
+- A29: Übung pfad-im-baum der Seite „1. Pfadregel“
+- A30: Übung pfadregel-1-urne der Seite „1. Pfadregel“
+- A31: Übung gegenwahrscheinlichkeit der Seite „Gegenereignis“
+- A32: Übung gegenereignis-direkt der Seite „Gegenereignis“
+- A33: Übung mit-und-ohne der Seite „Ohne Zurücklegen“
+- A34: Übung zweite-kugel-ohne der Seite „Ohne Zurücklegen“
+- A35: Übung pfade-addieren der Seite „2. Pfadregel“
+- A36: Übung genau-einmal-rot der Seite „2. Pfadregel“

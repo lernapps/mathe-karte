@@ -51,12 +51,12 @@ Eltern und Lehrkräfte sehen hier, was der Tutor bekommt. [Zur Selbsteinschätzu
 - „Prozentwert berechnen“ · Aufgaben A3, A4
 - „Grundwert berechnen“ · Aufgaben A5, A6
 - „Prozentuale Zunahme und Abnahme“ · Aufgaben A7, A8
-- „Zwei Werte vergleichen“ · nicht abgefragt
-- „Sachaufgaben übersetzen“ · nicht abgefragt
+- „Zwei Werte vergleichen“ · Aufgaben A9, A10
+- „Sachaufgaben übersetzen“ · Aufgaben A11, A12
 
 ### Kapitel „Binomische Formeln“
 
-- keine Selbsteinschätzung
+- Selbsteinschätzung des Kapitels
 - „Zwei Klammern multiplizieren“
 - „Erste binomische Formel“
 - „Zweite binomische Formel“
@@ -78,11 +78,15 @@ Eltern und Lehrkräfte sehen hier, was der Tutor bekommt. [Zur Selbsteinschätzu
 
 ## Die Aufgaben dieser Selbsteinschätzung
 
-- A1: Übung prozentsatz-rechnen der Seite „Prozentsatz berechnen“
+- A1: Übung prozentsatz-aufgabe der Seite „Prozentsatz berechnen“
 - A2: Übung prozentsatz-rechnen der Seite „Prozentsatz berechnen“
-- A3: Übung prozentwert-rechnen der Seite „Prozentwert berechnen“
+- A3: Übung prozentwert-aufgabe der Seite „Prozentwert berechnen“
 - A4: Übung prozentwert-rechnen der Seite „Prozentwert berechnen“
-- A5: Übung grundwert-rechnen der Seite „Grundwert berechnen“
+- A5: Übung grundwert-aufgabe der Seite „Grundwert berechnen“
 - A6: Übung grundwert-rechnen der Seite „Grundwert berechnen“
-- A7: Übung veraenderung-senkung der Seite „Prozentuale Zunahme und Abnahme“
+- A7: Übung veraenderung-aufgabe der Seite „Prozentuale Zunahme und Abnahme“
 - A8: Übung veraenderung-rueckwaerts der Seite „Prozentuale Zunahme und Abnahme“
+- A9: Übung vergleich-aufgabe der Seite „Zwei Werte vergleichen“
+- A10: Übung vergleich-rechnen der Seite „Zwei Werte vergleichen“
+- A11: Übung sachaufgaben-aufgabe der Seite „Sachaufgaben übersetzen“
+- A12: Übung sachaufgaben-aufgabe der Seite „Sachaufgaben übersetzen“
