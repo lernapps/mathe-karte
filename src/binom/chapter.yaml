@@ -13,3 +13,21 @@ pages:
     binome-rueckwaerts,
     geschickt-rechnen,
   ]
+selfAssessment:
+  pages:
+    - exercises:
+        - /binom/klammern-multiplizieren/#klammern-ueben
+        - /binom/klammern-multiplizieren/#klammern-ueben
+        - /binom/erste-binomische/#erste-binomische-ueben
+    - exercises:
+        - /binom/erste-binomische/#erste-binomische-ueben
+        - /binom/zweite-binomische/#zweite-binomische-ueben
+        - /binom/zweite-binomische/#zweite-binomische-ueben
+    - exercises:
+        - /binom/dritte-binomische/#dritte-binomische-ueben
+        - /binom/dritte-binomische/#dritte-binomische-ueben
+        - /binom/binome-rueckwaerts/#rueckwaerts-ueben
+    - exercises:
+        - /binom/binome-rueckwaerts/#rueckwaerts-ueben
+        - /binom/geschickt-rechnen/#geschickt-ueben
+        - /binom/geschickt-rechnen/#geschickt-ueben

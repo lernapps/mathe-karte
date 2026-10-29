@@ -76,10 +76,19 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 - Dazu je Seite eine Übung, die keine Komponente ist (der explainer verlangt sie): Prozent und Zufall ein
   `generated`-Block (Zahl, `mistakes`, `hint`, `steps`), Binom eine `single-choice`-Frage zu einem typischen Fehler
   mit `info` je Option.
-- Selbsteinschätzung (`selfAssessment` in `chapter.yaml`): nur die `generated`-Übungen, je abgefragte Seite eine
-  zweimal. Prozent: `prozentsatz`, `prozentwert`, `grundwert`, `veraenderung`; Zufall: `laplace`, `pfadregel-1`,
-  `ohne-zuruecklegen`, `pfadregel-2`; die übrigen Seiten fehlen, damit sie bei etwa zehn Minuten bleibt. Binom hat
-  keine: außer den Komponenten hat es nur `single-choice`-Fragen, die man raten kann; der Tutor geht Seite für Seite.
+- Selbsteinschätzung (`selfAssessment` in `chapter.yaml`): so viele Seiten wie sinnvoll, je abgefragte Seite 2
+  Aufgaben, Schritte zu 3, je Kapitel 12 (App 36). Bevorzugt die Übungskomponente der Seite (sie zeigt ihre Aufgabe
+  selbst und zieht jede Runde eine neue), dazu die `generated`-Übung, sonst die Komponente zweimal.
+  - Prozent: Komponente und `generated` auf `prozentsatz`, `prozentwert`, `grundwert`, `vergleich`; auf
+    `veraenderung` die Komponente und `veraenderung-rueckwaerts`; `sachaufgaben` die Komponente zweimal.
+    `grundbegriffe` fehlt, damit das Kapitel bei 12 bleibt: Wer die Aufgaben mit Geschichte der anderen Seiten löst,
+    erkennt Grundwert, Prozentwert und Prozentsatz schon.
+  - Binom: auf jeder Seite die Komponente zweimal (`BinomTermAufgabe`, `BinomKopfrechnen`); die `single-choice`-Fragen
+    kann man raten.
+  - Zufall: Komponente und `generated` auf `laplace`, `pfadregel-1`, `gegenereignis`, `ohne-zuruecklegen`,
+    `pfadregel-2` (`pfade-addieren`); `baumdiagramm` die Komponente zweimal (`baumdiagramm-nenner` gehört zum Ziehen
+    ohne Zurücklegen). `ergebnisformen` fehlt: es hat nur Auswahl zwischen drei Termen, die man raten kann;
+    `pfade-uebersetzen` fehlt: es übt mit derselben Komponente wie `pfadregel-2` und hielte das Kapitel über 12.
 - Text und Optionen einer Quiz-Frage sind reiner Text ohne `$…$` (die Laufzeit-Tests vergleichen ungesetzten Text):
   Hochzahlen als `²`, Malpunkt `·`.
 

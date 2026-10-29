@@ -4,7 +4,7 @@
 # Archetype as in the app's first plan; set it when you start. Never changes.
 archetype: explainer
 # Current phase. Allowed values: explore, plan, code, commit. Change the value line below, never this comment.
-phase: code
+phase: commit
 # prePushFailures: failed pre-push runs of this increment, written by the hook. Never change it.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks. Never change it.
@@ -46,6 +46,11 @@ und Binom bekommt eine eigene Einschätzung.
 - Vorher Update: tooling a62ad03 oder neuer, app-templates 2c99933 oder neuer (Komponenten in der Einschätzung).
 - Abdeckung vor Kürze: je abgefragte Seite 2 Aufgaben, Schritte zu 2–5 (am liebsten 3), je Kapitel bis etwa 12.
 - Komponente nur, wenn sie ihre Aufgabe selbst zeigt (im gerenderten Einschätzungs-Schritt geprüft).
+- Prozent: 6 von 7 Seiten, 12 Aufgaben in 4 Schritten; `grundbegriffe` fehlt, damit es bei 12 bleibt (guess).
+- Binom: neu, alle 6 Seiten, je Komponente zweimal, 12 Aufgaben in 4 Schritten.
+- Zufall: 6 von 8 Seiten, 12 Aufgaben in 4 Schritten; `ergebnisformen` (nur ratbare Auswahl) und
+  `pfade-uebersetzen` (dieselbe Komponente wie `pfadregel-2`) fehlen (guess).
+- App: 36 Aufgaben in 12 Schritten.
 - Die Ersteller:in hat allem zugestimmt, auch dem Veröffentlichen: Checkpoints warten nicht.
 
 ## Notes
@@ -140,24 +145,28 @@ und Binom bekommt eine eigene Einschätzung.
 
 ### Tasks
 
-- [ ] Load skill `lernapps-cli`. Update the app as it says. Commit the update alone; fix its findings before
-      content. The update replaces the `lernapps-*` skills: reread those you use.
-- [ ] Load skill `lernapps-<archetype>` and the content guide. Questions with options and feedback: also skill
-      `lernapps-content-questions`.
-- [ ] <the slices written in Plan; each: competency, content, exercise, the entry's topic, check, commit>
-- [ ] After the first slice: show the creator a first look (`early-preview`) and go on.
-      Parallel slices: send each sub-agent `@lernapps/tooling/guidance/subagent-brief.md`, filled in.
-- [ ] The content guide describes the app as it is now (`app-content-matches`). `grep -c "FILL IN"
-      .agents/skills/app-content/SKILL.md` prints 0.
-- [ ] `npx lernapps check` passes.
-- [ ] Every box of Explore, Plan and Code ticked.
-- [ ] Set `phase: commit`: change the value line (`grep '^phase:'` prints `phase: commit`).
-      No checkpoint here: set it before you ask or report anything, then start Commit in the same message.
 
 ### Completed
 
 - [x] `grep '^phase:'` prints `phase: code`; else set it.
 - [x] `git switch -c increment/<NN>-<short name>` from `main`. Commit this plan on it.
+- [x] Load skill `lernapps-cli`. Update the app as it says. Commit the update alone; fix its findings before
+      content. The update replaces the `lernapps-*` skills: reread those you use.
+      Update: tooling a62ad03, app-templates 2c99933. `lernapps check` ohne Befund.
+- [x] Load skill `lernapps-<archetype>` and the content guide. Questions with options and feedback: also skill
+      `lernapps-content-questions`.
+      Keine Fragen mit Optionen neu.
+- [x] Keine Inhalts-Slices; die Selbsteinschätzung kommt in Commit.
+- [x] After the first slice: show the creator a first look (`early-preview`) and go on.
+      Parallel slices: send each sub-agent `@lernapps/tooling/guidance/subagent-brief.md`, filled in.
+      Entfällt: kein neuer Inhalt.
+- [x] The content guide describes the app as it is now (`app-content-matches`). `grep -c "FILL IN"
+      .agents/skills/app-content/SKILL.md` prints 0.
+      Abschnitt Selbsteinschätzung neu (in Commit, mit der Auswahl).
+- [x] `npx lernapps check` passes.
+- [x] Every box of Explore, Plan and Code ticked.
+- [x] Set `phase: commit`: change the value line (`grep '^phase:'` prints `phase: commit`).
+      No checkpoint here: set it before you ask or report anything, then start Commit in the same message.
 
 ## Commit
 
@@ -171,10 +180,6 @@ und Binom bekommt eine eigene Einschätzung.
 
 ### Tasks
 
-- [ ] `grep '^phase:'` prints `phase: commit`; else set it.
-- [ ] An explainer whose pages or exercises changed: install skill `lernapps-explainer-self-assessment` if missing
-      (`npx --yes skills add lernapps/tooling -y -s lernapps-explainer-self-assessment`), load it. Update the
-      self-assessment as it says (add one, if the app has none and the skill says so). Commit; the hooks check.
 - [ ] Load skill `lernapps-github`. Push the branch, open the preview pull request, see its checks to green as it
       says.
 - [ ] **Checkpoint:** publish. Show what the increment adds and the preview link; ask whether it may go online. Wait
@@ -191,6 +196,12 @@ und Binom bekommt eine eigene Einschätzung.
 - [ ] Plan changed since its last push → commit it on `main`, push again.
 
 ### Completed
+
+- [x] `grep '^phase:'` prints `phase: commit`; else set it.
+- [x] An explainer whose pages or exercises changed: install skill `lernapps-explainer-self-assessment` if missing
+      (`npx --yes skills add lernapps/tooling -y -s lernapps-explainer-self-assessment`), load it. Update the
+      self-assessment as it says (add one, if the app has none and the skill says so). Commit; the hooks check.
+      Komponenten per Anker. Prozent 12 (6 Seiten), Binom 12 (alle 6 Seiten, neu), Zufall 12 (6 von 8 Seiten); App 36. Durchlauf im Browser: `/einschaetzung/` und je Kapitel `?via=tutor`; jede Komponente zeigt ihre Aufgabe selbst, Antworten zählen richtig, falsche mit Eingabe und F…. Laufzeitfehler gemeldet, nicht umgangen (Retrospective).
 
 ## Retrospective
 
