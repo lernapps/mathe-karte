@@ -5,3 +5,15 @@ summary: >-
   zum Gegenereignis und zum Ziehen ohne Zurücklegen – mit Bildern und Übungen, die dir sofort sagen, ob es stimmt.
 pages:
   [laplace, baumdiagramm, pfadregel-1, gegenereignis, ohne-zuruecklegen, pfadregel-2, ergebnisformen, pfade-uebersetzen]
+selfAssessment:
+  pages:
+    - exercises:
+        - /zufall/laplace/#laplace-urne
+        - /zufall/laplace/#laplace-urne
+        - /zufall/pfadregel-1/#pfadregel-1-urne
+        - /zufall/pfadregel-1/#pfadregel-1-urne
+    - exercises:
+        - /zufall/ohne-zuruecklegen/#zweite-kugel-ohne
+        - /zufall/ohne-zuruecklegen/#zweite-kugel-ohne
+        - /zufall/pfadregel-2/#genau-einmal-rot
+        - /zufall/pfadregel-2/#genau-einmal-rot

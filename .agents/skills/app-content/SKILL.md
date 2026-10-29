@@ -76,6 +76,10 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 - Dazu je Seite eine Übung, die keine Komponente ist (der explainer verlangt sie): Prozent und Zufall ein
   `generated`-Block (Zahl, `mistakes`, `hint`, `steps`), Binom eine `single-choice`-Frage zu einem typischen Fehler
   mit `info` je Option.
+- Selbsteinschätzung (`selfAssessment` in `chapter.yaml`): nur die `generated`-Übungen, je abgefragte Seite eine
+  zweimal. Prozent: `prozentsatz`, `prozentwert`, `grundwert`, `veraenderung`; Zufall: `laplace`, `pfadregel-1`,
+  `ohne-zuruecklegen`, `pfadregel-2`; die übrigen Seiten fehlen, damit sie bei etwa zehn Minuten bleibt. Binom hat
+  keine: außer den Komponenten hat es nur `single-choice`-Fragen, die man raten kann; der Tutor geht Seite für Seite.
 - Text und Optionen einer Quiz-Frage sind reiner Text ohne `$…$` (die Laufzeit-Tests vergleichen ungesetzten Text):
   Hochzahlen als `²`, Malpunkt `·`.
 
@@ -103,7 +107,8 @@ Jede Seite hat diese Abschnitte, in dieser Reihenfolge und mit diesen ids (öffe
 2. `src/<kapitel>/chapter.yaml` und je Seite die YAML-Datei mit den sechs Abschnitten; Kapitel in `src/app.yaml`.
 3. Übungen nach den Mustern oben, Test zuerst (`src/components/<Name>.test.ts`).
 4. Beispielbilder nach Figures.
-5. `npx vp test run`, `npm run build`, `npx lernapps check`; dann Commit und Pull Request.
+5. 1 bis 3 ihrer Übungen in `selfAssessment` aufnehmen, wie Skill `lernapps-explainer-self-assessment` sagt.
+6. `npx vp test run`, `npm run build`, `npx lernapps check`; dann Commit und Pull Request.
 
 ## Rules learned from mistakes
 
