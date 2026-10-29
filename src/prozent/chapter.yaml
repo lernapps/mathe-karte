@@ -6,3 +6,15 @@ summary: >-
   so viele Aufgaben, wie du willst; jede Aufgabe sagt dir sofort, ob dein Ergebnis stimmt, und zeigt dir auf Wunsch
   den Rechenweg.
 pages: [grundbegriffe, prozentsatz, prozentwert, grundwert, veraenderung, vergleich, sachaufgaben]
+selfAssessment:
+  pages:
+    - exercises:
+        - /prozent/prozentsatz/#prozentsatz-rechnen
+        - /prozent/prozentsatz/#prozentsatz-rechnen
+        - /prozent/prozentwert/#prozentwert-rechnen
+        - /prozent/prozentwert/#prozentwert-rechnen
+    - exercises:
+        - /prozent/grundwert/#grundwert-rechnen
+        - /prozent/grundwert/#grundwert-rechnen
+        - /prozent/veraenderung/#veraenderung-senkung
+        - /prozent/veraenderung/#veraenderung-rueckwaerts

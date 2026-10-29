@@ -4,7 +4,7 @@
 # Archetype as in the app's first plan; set it when you start. Never changes.
 archetype: explainer
 # Current phase. Allowed values: explore, plan, code, commit. Change the value line below, never this comment.
-phase: code
+phase: commit
 # prePushFailures: failed pre-push runs of this increment, written by the hook. Never change it.
 prePushFailures: 0
 # failedChecks: failed rules and runs, written by lernapps check and the hooks. Never change it.
@@ -45,7 +45,13 @@ Ergebnis auf Wunsch zum KI-Tutor mit.
 - Kein neuer Inhalt: nur `selfAssessment` in `src/prozent`, `src/binom`, `src/zufall` aus vorhandenen Übungen.
 - Vorher Update auf das aktuelle `@lernapps/tooling` (bringt app-templates mit der Selbsteinschätzung).
 - Die Ersteller:in hat allem zugestimmt, auch dem Veröffentlichen: Checkpoints warten nicht.
-- Übungen nach Skill `lernapps-explainer-self-assessment`; Auswahl siehe Content method (guess).
+- Prozent: `prozentsatz`, `prozentwert`, `grundwert`, `veraenderung`, je zwei `generated`-Aufgaben, 8 in 2 Schritten;
+  `grundbegriffe` hat nur ratbare Fragen, `vergleich` und `sachaufgaben` fehlen, damit es kurz bleibt (guess).
+- Zufall: `laplace`, `pfadregel-1`, `ohne-zuruecklegen`, `pfadregel-2`, je eine `generated`-Übung zweimal, 8 in 2
+  Schritten; die übrigen Seiten fehlen, damit es kurz bleibt (guess).
+- Binom: keine Selbsteinschätzung. Außer den Komponenten gibt es nur `single-choice`-Fragen, die man raten kann; neue
+  Übungen wären neuer Inhalt. Der Tutor geht Seite für Seite (guess).
+- App: 16 Aufgaben, etwa zehn Minuten.
 
 ## Notes
 
@@ -131,23 +137,24 @@ Ergebnis auf Wunsch zum KI-Tutor mit.
 
 ### Tasks
 
-- [ ] Load skill `lernapps-cli`. Update the app as it says. Commit the update alone; fix its findings before
-      content. The update replaces the `lernapps-*` skills: reread those you use.
-- [ ] Load skill `lernapps-<archetype>` and the content guide. Questions with options and feedback: also skill
-      `lernapps-content-questions`.
-- [ ] Keine Inhalts-Slices; die Selbsteinschätzung kommt in Commit.
-- [ ] After the first slice: show the creator a first look (`early-preview`) and go on. Entfällt: kein neuer Inhalt.
-- [ ] The content guide describes the app as it is now (`app-content-matches`). `grep -c "FILL IN"
-      .agents/skills/app-content/SKILL.md` prints 0.
-- [ ] `npx lernapps check` passes.
-- [ ] Every box of Explore, Plan and Code ticked.
-- [ ] Set `phase: commit`: change the value line (`grep '^phase:'` prints `phase: commit`).
-      No checkpoint here: set it before you ask or report anything, then start Commit in the same message.
-
 ### Completed
 
 - [x] `grep '^phase:'` prints `phase: code`; else set it.
 - [x] `git switch -c increment/<NN>-<short name>` from `main`. Commit this plan on it.
+- [x] Load skill `lernapps-cli`. Update the app as it says. Commit the update alone; fix its findings before
+      content. The update replaces the `lernapps-*` skills: reread those you use.
+      Update: tooling ea78052, app-templates 281e572. Ein End-to-End-Test der Laufzeit schlug einmal fehl und lief
+      dann allein durch (flaky).
+- [x] Load skill `lernapps-<archetype>` and the content guide. Questions with options and feedback: also skill
+      `lernapps-content-questions`.
+- [x] Keine Inhalts-Slices; die Selbsteinschätzung kommt in Commit.
+- [x] After the first slice: show the creator a first look (`early-preview`) and go on. Entfällt: kein neuer Inhalt.
+- [x] The content guide describes the app as it is now (`app-content-matches`). `grep -c "FILL IN"
+      .agents/skills/app-content/SKILL.md` prints 0.
+- [x] `npx lernapps check` passes.
+- [x] Every box of Explore, Plan and Code ticked.
+- [x] Set `phase: commit`: change the value line (`grep '^phase:'` prints `phase: commit`).
+      No checkpoint here: set it before you ask or report anything, then start Commit in the same message.
 
 ## Commit
 
@@ -161,10 +168,6 @@ Ergebnis auf Wunsch zum KI-Tutor mit.
 
 ### Tasks
 
-- [ ] `grep '^phase:'` prints `phase: commit`; else set it.
-- [ ] An explainer whose pages or exercises changed: install skill `lernapps-explainer-self-assessment` if missing
-      (`npx --yes skills add lernapps/tooling -y -s lernapps-explainer-self-assessment`), load it. Update the
-      self-assessment as it says (add one, if the app has none and the skill says so). Commit; the hooks check.
 - [ ] Load skill `lernapps-github`. Push the branch, open the preview pull request, see its checks to green as it
       says.
 - [ ] **Checkpoint:** publish. Show what the increment adds and the preview link; ask whether it may go online. Wait
@@ -181,6 +184,13 @@ Ergebnis auf Wunsch zum KI-Tutor mit.
 - [ ] Plan changed since its last push → commit it on `main`, push again.
 
 ### Completed
+
+- [x] `grep '^phase:'` prints `phase: commit`; else set it.
+- [x] An explainer whose pages or exercises changed: install skill `lernapps-explainer-self-assessment` if missing
+      (`npx --yes skills add lernapps/tooling -y -s lernapps-explainer-self-assessment`), load it. Update the
+      self-assessment as it says (add one, if the app has none and the skill says so). Commit; the hooks check.
+      Durchlauf im Browser: `/einschaetzung/` und je Kapitel `?via=tutor`; jede Aufgabe allein klar, „Zurück zum
+      Tutor“ da.
 
 ## Retrospective
 
