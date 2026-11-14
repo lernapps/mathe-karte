@@ -11,8 +11,8 @@
     "prepare": "lernapps hooks"
   },
   "devDependencies": {
-    "@lernapps/app-templates": "github:lernapps/app-templates#5799517f88beb74864f2a41da6f609af3b56d25a",
-    "@lernapps/tooling": "github:lernapps/tooling#537b944850fc57eb996372d6c8a28f901a7d42b6",
+    "@lernapps/app-templates": "github:lernapps/app-templates#72abecbe862de167e7d331bc0df675ceea6264ef",
+    "@lernapps/tooling": "github:lernapps/tooling#77cea5085eaea639890a8cc3e7f86db044d5c9f1",
     "fast-check": "4.10.2",
     "typescript": "6.0.3",
     "vite-plus": "1.0.0",
